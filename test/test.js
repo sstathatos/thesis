@@ -1,5 +1,5 @@
 var assert = require('assert');
-var model_entity= require('../model_entity');
+var model_entity= require('../models/model_entity');
 var User= model_entity.UserAPI.model;
 var Project= model_entity.ProjectAPI.model;
 

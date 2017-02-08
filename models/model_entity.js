@@ -2,7 +2,8 @@ var mongoose= require('mongoose');
 var DAOclass= require('./DAO');
 var dbHost = 'mongodb://localhost/test';
 mongoose.connect(dbHost);
-//Entity creation
+
+//Entity 
 class Entity {
     constructor(name, fields) {
         this.name= name;
