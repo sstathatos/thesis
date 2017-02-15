@@ -2,6 +2,9 @@ var passport= require('passport');
 var LocalStrategy= require('passport-local').Strategy;
 var model_entity= require('../models/model_entity');
 
+
+
+//authentication strategy-passport
 passport.use(new LocalStrategy (
     function(username, password, done) {
         model_entity.UserAPI.read({username:username}, function (err,user){
@@ -9,7 +12,7 @@ passport.use(new LocalStrategy (
             if(!user) {
                 return done(null , false,{message:'Unknown User'});
             }
-            if(user[0].password==password) {
+            else if(user.password==password) {
                 return done(null,user);
             }
             else {
@@ -20,11 +23,10 @@ passport.use(new LocalStrategy (
 ));
 
 passport.serializeUser(function(user,done) {
-    done(null, user[0].id);
+    done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done) {
-    console.log("DESERIALIZE HAS BEEN CALLED");
     model_entity.UserAPI.read({_id:id}, function(err, user) {
         done(err, user);
     });
@@ -34,9 +36,8 @@ function ensureAuthenticated(req,res,next) {
     if(req.isAuthenticated()) {
         return next();
     } else {
-        console.log("YOU ARE NOT AUTHORISED TO DO THAT------------------------------");
-        console.log(req.user);
-        res.sendStatus(400);
+        console.log("You are not authorised. Bad request.");
+        res.render('welcome', {layout:false});
     }
 }
 

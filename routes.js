@@ -1,34 +1,58 @@
 var express= require('express');
 var router= express.Router();
 var model_entity= require('./models/model_entity');
+var User= model_entity.UserAPI.model;
 var model_auth_ses= require('./models/model_authentication_session');
 
-router.get('/home', function(req,res) {
-    res.render('welcome', {layout: false});
+
+/*  Routes we use currently */
+
+//get welcome/login page
+router.get('/login',function(req,res) {
+    if(req.isAuthenticated()) {
+        res.status(200);
+        res.redirect('/home');
+    }
+    else {
+        console.log("not authenticated yet");
+        res.status(200);
+        res.render('welcome', {layout: false});
+    }
 })
 
-router.post('/login', model_auth_ses.passport.authenticate('local') ,function(req,res){
-    console.log("LOGIN REQUEST: -----------------------------------");
-    console.log(req.session);
-    res.sendStatus(200);
+//Get Homepage
+router.get('/home',model_auth_ses.ensureAuthenticated,function(req,res) {
+    console.log("successfull login");
+    res.status(200);
+    res.render('home', {layout: false, data: 'This is the data'});
 });
 
-router.get('/logout',function (req,res) {
-    console.log("LOGOUT REQUEST:---------------------------------- ");
-    console.log(req.session);
+//authenticate
+router.post('/home',model_auth_ses.passport.authenticate('local',{successRedirect:'/home',failureRedirect:'/login',failureFlash:true}));
+
+//Register User
+router.post('/users', function(req,res) {
+    console.log(req.path);
+    console.log(req.params);
+    delete req.body.password2;
+    model_entity.UserAPI.create(new User(req.body),function(err,result) {
+        if (err) console.log(err);
+        else console.log("user created");
+    });
+    res.status(200);
+    res.render('welcome', {layout:false});
+});
+
+//Logout User
+router.get('/logout',model_auth_ses.ensureAuthenticated,function (req,res) {
+    console.log("Logout Request. ");
     req.logOut();
     req.session.destroy( function(err) {
-    })
-    res.sendStatus(200);
-})
-
-router.all('*',model_auth_ses.ensureAuthenticated, function(req,res) {
-    console.log("RANDOM REQUEST:---------------------------------- ");
-    console.log(req.session);
-    console.log("if this is printed, i have authorization :D");
-    console.log(req.headers);
-    res.clearCookie('sid', {path: '/'});
-    res.sendStatus(200);
-})
+        res.status(200);
+        res.clearCookie('connect.sid');
+        console.log(req.MongoStore);
+        res.redirect('/login');
+    });
+});
 
 module.exports = router;

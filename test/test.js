@@ -1,6 +1,5 @@
 var assert = require('assert');
 var model_entity= require('../models/model_entity');
-var model_auth_ses= require('../models/model_authentication_session');
 var User= model_entity.UserAPI.model;
 var Project= model_entity.ProjectAPI.model;
 var expect  = require("chai").expect;
@@ -8,10 +7,26 @@ var request = require("request");
 
 
 
-describe('Test login logout+ extra requests', function() {
+describe('test test', function() {
+    it('something', function(done) {
+        var url= "http://localhost:3000";
+        request.post({url:url+"/home", form: {username:'2asd', password:'2'}}, function(err,httpResponse,body){
+            var j = request.jar();
+            var cookie = request.cookie(httpResponse.headers["set-cookie"][0]);
+            j.setCookie(cookie,url+"/logout", function(error,cookie) {
+                request.get({url:url+"/logout",jar: j}, function(err,httpResponse,body) {
+                    done();
+                });
+            });
+        });
+    });
+});
+
+
+describe.skip('Test login logout+ extra requests', function() {
     it('TEST SEND REQUEST', function(done) {
         var url= "http://localhost:3000";
-        request.post({url:url+"/login", form: {username:'3asd', password:'3'}}, function(err,httpResponse,body){
+        request.post({url:url+"/home", form: {username:'2asd', password:'2'}}, function(err,httpResponse,body){
             var j = request.jar();
             var cookie = request.cookie(httpResponse.headers["set-cookie"][0]);
             j.setCookie(cookie,url+"/helloguys", function(error,cookie) {
@@ -29,6 +44,41 @@ describe('Test login logout+ extra requests', function() {
         });
     });
 });
+
+describe.skip('Test CREATE USER with http requests', function() {
+    var testUser= {
+        username:"asdasd",
+        email:"asd@asd.com",
+        password:"asdasd",
+        name:"asd"
+    }
+    var url="http://localhost:3000/users"
+    request.post({url:url, form: testUser}, function(err,httpResponse,body) {
+
+    })
+})
+
+describe.skip('TEST PROMISE VALIDATION', function() {
+    var testUser= {
+        username:"asdasd",
+        email:"asd@asd.com",
+        password:"asdasd",
+        name:"asd"
+    }
+    it('should complete this test', function () {
+        model_entity.UserAPI.create(testUser, function(res) {
+            return new Promise(function (resolve) {
+                // assert.ok(true);
+                // resolve();
+            }).then((state) => {
+                assert(state.action === 'DONE', 'should change state');
+            })
+            .catch((error) => {
+                assert.isNotOk(error,'Promise error');
+            });
+        });
+    })
+})
 
 describe.skip('Test CREATE USERS AND LOGIN THEM', function() {
     var testUser1= new User({

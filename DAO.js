@@ -20,10 +20,10 @@ class DAO {
         });
     }
     read(query,callback) {
-        this.model.find(query,function(err, data) {
+        this.model.findOne(query,function(err, data) {
             if(err) callback(err,null);
             else if (data) callback(null,data);
-            else callback("Data not found",null);
+            else callback(null,null);
         });
     }
     update(query,newdata, callback) {
@@ -75,7 +75,8 @@ class UserDAO extends DAO {
         Promise.all(promises).then(function() {
             callback(null);
         })
-        .catch(function () {
+        .catch(function (error) {
+            console.log(error);
             callback("Username or Email is not unique");
         });
     }

@@ -6,6 +6,7 @@
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="//code.angularjs.org/1.6.0-rc.0/angular.min.js"></script>
         <link rel="stylesheet" href="/css/bootstrap.css"/>
         <link rel="stylesheet" href="/css/style.css"/>
         <link rel="icon" href="data:;base64,=">
@@ -17,7 +18,7 @@
                     <a class="navbar-brand">PlotNet</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
-                    <form method="post"  action="/login" class="navbar-form navbar-right">
+                    <form method="post"  action="/home" class="navbar-form navbar-right">
                         <div class="form-group">
                             <input type="text" placeholder="Username" class="form-control" name="username">
                         </div>
@@ -31,9 +32,14 @@
         </nav>
 
         <div class="jumbotron">
+            <% if (error.length>0) {%>
+                    <div class="alert alert-danger">
+                        <%= error %>
+                    </div>
+            <% } %>
             <div class="container">
               <h2 class="page-header">Register to our Website!</h2>
-              <form method="post" action="/login"  style="width:25%">
+              <form method="post" action="/users"  style="width:25%">
                   <div class="form-group">
                       <label>Name</label>
                       <input type="text" class="form-control"
