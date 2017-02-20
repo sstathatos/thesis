@@ -4,6 +4,7 @@ var session = require('express-session');
 var bodyParser= require('body-parser');
 var flash = require('connect-flash')
 var cookieParser= require('cookie-parser');
+var exphbs  = require('express-handlebars');
 var passport= require('passport');
 var expressValidator = require('express-validator');
 var dbHost = 'mongodb://localhost/test';
@@ -16,16 +17,14 @@ var routes= require('./routes');
 var app= express();
 
 //View Engine
-app.engine('.html',require('ejs').__express);
-app.set('views', path.join(__dirname,'views'));
-app.set('view engine', 'html');
+app.engine('handlebars', exphbs({defaultLayout: 'navbar'}));
+app.set('view engine', 'handlebars');
 
 //bodyparser middleware
 app.use(bodyParser.json());
 app.use(expressValidator({}));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(cookieParser());
-
 
 //Express session/mongostore
 app.use(session({
@@ -37,19 +36,20 @@ app.use(session({
     saveUninitialized: false
 }));
 
- app.use(flash());
-
 //Set static folder
 app.use(express.static(path.join(__dirname,'public')));
 
 //Passport init
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
+
 
 app.use( function(req,res,next) {
     res.locals.error=req.flash('error');
+    res.locals.success=req.flash('success');
     next();
-})
+});
 
 //main start
 app.use('/', routes);

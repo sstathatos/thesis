@@ -36,7 +36,7 @@ function ensureAuthenticated(req,res,next) {
     if(req.isAuthenticated()) {
         return next();
     } else {
-        console.log("You are not authorised. Bad request.");
+        req.flash('error','You are not authorised. Login to continue');
         res.render('welcome', {layout:false});
     }
 }

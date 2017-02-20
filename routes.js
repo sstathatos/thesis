@@ -5,52 +5,26 @@ var User= model_entity.UserAPI.model;
 var model_auth_ses= require('./models/model_authentication_session');
 
 
-
-// class Service {
-//
-//     constructor (method, path, ensure ,callback) {
-//         this.method= method;
-//         this.path=path;
-//         this.callback=callback;
-//         this.ensure= ensure;
-//
-//
-//     }
-// }
-//
-// router.all('*', function(req,res) {
-//
-// })
-//
-//  new Service('GET','/login', false, function(req,res) {
-//      if(req.isAuthenticated()) {
-//          res.status(200);
-//          res.redirect('/home');
-//      }
-//      else {
-//          res.status(200);
-//          res.render('welcome', {layout: false});
-//      }
-//  })
-
-
-
 /*  Routes we use currently */
 
 //get welcome page
-router.get('/login',function(req,res) {
+router.get('/',function(req,res) {
     if(req.isAuthenticated()) {
         res.status(200);
         res.redirect('/home');
     }
     else {
-        res.status(200);
-        res.render('welcome', {layout: false});
+        req.session.destroy( function(err) {
+            res.status(200);
+            res.clearCookie('connect.sid');
+            res.render('welcome', {layout: false});
+        });
     }
 })
 
 //Get Homepage
 router.get('/home',model_auth_ses.ensureAuthenticated,function(req,res) {
+    console.log("hello");
     res.status(200);
     res.render('home', {data: 'This is my Home. :)'});
 });
@@ -58,33 +32,101 @@ router.get('/home',model_auth_ses.ensureAuthenticated,function(req,res) {
 
 /* User Requests */
 
-//Login/Authenticate User
-router.post('/home',model_auth_ses.passport.authenticate('local',{successRedirect:'/home',failureRedirect:'/login',failureFlash:true}));
 
-//Register User
-router.post('/users', function(req,res) {
-    console.log(req.path);
-    console.log(req.params);
-    delete req.body.password2;
-    model_entity.UserAPI.create(new User(req.body),function(err,result) {
-        if (err) console.log(err);
-        else console.log("user created");
-    });
-    res.status(200);
-    res.render('welcome', {layout:false});
-});
+//Login/Authenticate User
+router.post('/login',model_auth_ses.passport.authenticate('local',{successRedirect:'/home',failureRedirect:'/',failureFlash:true}));
 
 //Logout User
 router.get('/logout',model_auth_ses.ensureAuthenticated,function (req,res) {
     console.log("Logout Request. ");
     //req.logOut();
     req.session.destroy( function(err) {
-        console.log("session destroyed");
         res.status(200);
         res.clearCookie('connect.sid');
-        console.log(res);
-        res.redirect('/login');
+        res.redirect('/');
     });
 });
+
+//Register User
+router.post('/users', function(req,res) {
+    delete req.body.password2;
+    model_entity.UserAPI.create(new User(req.body),function(err,result) {
+        if (err){
+            req.flash('error',err);
+            res.status(400);
+            res.redirect('/');
+        }
+        else if(result) {
+            req.flash('success','User created. You can now login.');
+            res.status(200);
+            res.redirect('/');
+        }
+        else  {
+            console.log("User could not be created");
+            res.status(400);
+            res.redirect('/');
+        }
+    });
+
+});
+
+//Update User
+router.put('/users/',function(req,res) {
+    model_entity.UserAPI.update({ _id: req.user._id}, req.body, function(err, result) {
+        if (err){
+            console.log(err);
+            res.status(400);
+        }
+        else if(result) {
+            console.log("user updated");
+            req.flash('success','User updated successfully.');
+            res.status(200);
+            res.render('home', {data: 'This is my Home. :)'});
+            //res.end();
+        }
+        else  {
+            console.log("User not found");
+            res.status(404);
+        }
+    })
+});
+
+//Search User
+router.get('/users/:_id', function(req,res) {
+    model_entity.UserAPI.read(req.params, function(err, result) {
+        if (err){
+            console.log(err);
+            res.status(400);
+        }
+        else if(result) {
+            console.log("User found");
+            res.status(200);
+        }
+        else  {
+            console.log("User not found");
+            res.status(404);
+        }
+    })
+    res.end();
+})
+
+//Delete User
+router.delete('/users/:_id', function(req,res) {
+    model_entity.UserAPI.delete(req.params, function(err, result) {
+        if (err){
+            console.log(err);
+            res.status(400);
+        }
+        else if(result) {
+            console.log("User deleted");
+            res.status(200);
+        }
+        else  {
+            console.log("User not found");
+            res.status(404);
+        }
+    })
+    res.end();
+})
 
 module.exports = router;

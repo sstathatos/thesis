@@ -19,7 +19,7 @@
                     <a class="navbar-brand">PlotNet</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
-                    <form method="post"  action="/home" class="navbar-form navbar-right">
+                    <form method="post"  action="/login" class="navbar-form navbar-right">
                         <div class="form-group">
                             <input type="text" placeholder="Username" class="form-control" name="username">
                         </div>
@@ -33,11 +33,16 @@
         </nav>
 
         <div class="jumbotron">
-            <% if (error.length>0) {%>
-                    <div class="alert alert-danger">
-                        <%= error %>
-                    </div>
-            <% } %>
+            {{#if  error}}
+            <div class="alert alert-danger">
+                {{error}}
+            </div>
+            {{/if}}
+            {{#if success}}
+            <div class="alert alert-success">
+                {{success}}
+            </div>
+            {{/if}}
             <div class="container">
               <h2 class="page-header">Register to our Website!</h2>
               <form method="post" action="/users"  style="width:25%">

@@ -14,7 +14,7 @@ class DAO {
                 data.save(function(err, data) {
                     if(err) callback(err,null);
                     else if (data) callback(null,data);
-                    else callback("Data not found",null);
+                    else callback(null,null);
                 });
             }
         });
@@ -29,15 +29,15 @@ class DAO {
     update(query,newdata, callback) {
         this.model.findOneAndUpdate(query, newdata, {new: true}, function(err, data){
             if(err) callback(err,null);
-            else if (data) callback(null,data);
-            else callback("Data not found",null);
+            else if (!data) callback(null,null);
+            else callback(null,data);
         });
     }
     delete(query, callback) {
         this.model.findOneAndRemove(query, function(err,data) {
             if(err) callback(err,null);
             else if (data) callback(null,data);
-            else callback("Data not found",null);
+            else callback(null,null);
         });
     }
     validate(data,self, callback){
@@ -76,7 +76,6 @@ class UserDAO extends DAO {
             callback(null);
         })
         .catch(function (error) {
-            console.log(error);
             callback("Username or Email is not unique");
         });
     }
