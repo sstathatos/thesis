@@ -50,6 +50,8 @@ home.controller('ModalInstanceCtrl',['$uibModalInstance','$scope','$http','$wind
             //   }).then(function successCallback(res) {
             //       console.log("all alla done");
                    $uibModalInstance.close('close');
+
+                   
                    $window.location.reload();
             //     }, function errorCallback(res) {
             //        console.log(res.status);
