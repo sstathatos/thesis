@@ -80,22 +80,22 @@ var UserSchema = {
     },
     name: {
         type: String
-    }
+    },
+    projects: [{
+        type:mongoose.Schema.Types.ObjectId, ref:'ProjectSchema'
+    }]
 };
 
 //Project Schema
 var ProjectSchema = {
-    Name: {
+    name: {
         type: String,
         index: true
     },
-    ProjectDate: {
+    date: {
         type: Date
     },
-    Description: {
-        type: String
-    },
-    Owner: {
+    description: {
         type: String
     }
 };

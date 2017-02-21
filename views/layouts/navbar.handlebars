@@ -32,7 +32,7 @@
                     <div id="navbar" class="collapse navbar-collapse">
                         <ul class="nav navbar-nav" style="float:right;">
                             <li><a href="/logout">Logout</a></li>
-                            <li> <a href ng-click="$ctrl.open()">Edit User</a></li>
+                            <li> <a href ng-click="$ctrl.open()">Edit Profile</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
@@ -47,27 +47,39 @@
                         </h3>
 
                     </div>
-                    <div class="modal-body" id="modal-body">
-                        <form method="post" style="width:50%">
-                            <div class="form-group">
-                                <label>Name</label>
-                                <input type="text" class="form-control" ng-model="editname">
-                            </div>
-                            <div class="form-group">
-                                <label>New Password</label>
-                                <input type="password" class="form-control" placeholder="Password" ng-model="editpass1">
-                            </div>
-                            <div class="form-group">
-                                <label>Confirm New Password</label>
-                                <input type="password" class="form-control" placeholder="Password" ng-model="editpass2">
-                            </div>
-                            <button type="submit" class= "btn btn-default">Submit</button>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
 
-                        <button class="btn btn-warning" type="button" ng-click="$ctrl.save()">Save Changes</button>
-                    </div>
+                        <form method="POST" action="/users?_method=PUT">
+                            <div class="modal-body" id="modal-body">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input type="text" class="form-control"
+                                    placeholder="Name" name="name" style="width:25%">
+                                </div>
+                                <div class="form-group">
+                                    <label>Username</label>
+                                    <input type="text" class="form-control"
+                                    placeholder="Username" name="username" style="width:25%">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control"
+                                    placeholder="Email" name="email" style="width:25%">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control"
+                                    placeholder="Password"  name="password" style="width:25%">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-warning" type="submit">Save Changes</button>
+                                <button class="btn btn-danger" formaction="/users?_method=DELETE" type="submit">Delete User</button>
+                            </div>
+
+                        </form>
+
+
+
                 </script>
             </div>
         </div>

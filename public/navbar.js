@@ -28,44 +28,31 @@ home.controller('ModalInstanceCtrl',['$uibModalInstance','$scope','$http','$wind
   $ctrl.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
-  $ctrl.save= function() {
-      if ($scope.editname.length!=0 & $scope.editpass1!=null & $scope.editpass2== $scope.editpass1)
-      {
-          console.log("edit acceptable");
-          var data = {
-              'name':$scope.editname,
-              'password':$scope.editpass1
-          };
-          console.log(data);
-
-          $http({
-              method:'PUT',
-              url:'/users',
-              data: data
-          }).then(function successCallback(res) {
-              console.log("all done");
-            //   $http({
-            //       method:'GET',
-            //       url:'/home',
-            //   }).then(function successCallback(res) {
-            //       console.log("all alla done");
-                   $uibModalInstance.close('close');
-
-                   
-                   $window.location.reload();
-            //     }, function errorCallback(res) {
-            //        console.log(res.status);
-            //        console.log("something went wrong");
-            //     });
-
-             }, function errorCallback(res) {
-                  console.log(res.status);
-                  console.log("something went wrong");
-          });
-
-      }
-      else {
-          console.log("edit not acceptable");
-      }
-  }
+  // $ctrl.save= function() {
+  //     if ($scope.editname.length!=0 & $scope.editpass1!=null & $scope.editpass2== $scope.editpass1)
+  //     {
+  //         console.log("edit acceptable");
+  //         var data = {
+  //             'name':$scope.editname,
+  //             'password':$scope.editpass1
+  //         };
+  //         console.log(data);
+  //
+  //         $http({
+  //             method:'PUT',
+  //             url:'/users',
+  //             data: data
+  //         }).then(function successCallback(res) {
+  //             console.log("all done");
+  //                 $window.location.replace(res.data);
+  //            }, function errorCallback(res) {
+  //                 console.log(res.status);
+  //                 console.log("something went wrong");
+  //         });
+  //
+  //     }
+  //     else {
+  //         console.log("edit not acceptable");
+  //     }
+  // }
 }]);

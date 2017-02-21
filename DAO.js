@@ -12,6 +12,7 @@ class DAO {
             if (err) callback(err);
             else {
                 data.save(function(err, data) {
+                    console.log(data);
                     if(err) callback(err,null);
                     else if (data) callback(null,data);
                     else callback(null,null);
