@@ -1,3 +1,5 @@
+// top of file
+delete process.env["DEBUG_FD"];
 var express= require('express');
 var path = require('path');
 var session = require('express-session');

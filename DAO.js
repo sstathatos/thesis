@@ -12,7 +12,6 @@ class DAO {
             if (err) callback(err);
             else {
                 data.save(function(err, data) {
-                    console.log(data);
                     if(err) callback(err,null);
                     else if (data) callback(null,data);
                     else callback(null,null);
@@ -22,6 +21,13 @@ class DAO {
     }
     read(query,callback) {
         this.model.findOne(query,function(err, data) {
+            if(err) callback(err,null);
+            else if (data) callback(null,data);
+            else callback(null,null);
+        });
+    }
+    readALL(query,callback) {
+        this.model.find(query,function(err, data) {
             if(err) callback(err,null);
             else if (data) callback(null,data);
             else callback(null,null);
@@ -41,6 +47,25 @@ class DAO {
             else callback(null,null);
         });
     }
+
+    push(query,newdata,field_name, callback) {
+        this.model.findOne(query, function(err,result) {
+            if (err) return err;
+            else if (result){
+                result[field_name].push(newdata);
+                result.save(function(error,data) {
+                    if(error) {
+                        console.log(error);
+                        callback (error,null);
+                    }
+                    else callback(null, data);
+                });
+            }
+            else callback(null,null);
+        })
+
+    }
+
     validate(data,self, callback){
         callback(null);
     }

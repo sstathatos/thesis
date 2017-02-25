@@ -25,7 +25,9 @@ class APIEntity extends Entity {
             create: false,
             read: false,
             update: false,
-            delete: false
+            delete: false,
+            readALL:false,
+            push: false
         };
 
         //dao object created for each APIEntity
@@ -54,6 +56,11 @@ class APIEntity extends Entity {
             this.apidao.read(query, callback);
         else console.log("This action is not allowed.");
     }
+    readALL(query, callback) {
+        if (this.crudBoolean['readALL'])
+            this.apidao.readALL(query, callback);
+        else console.log("This action is not allowed.");
+    }
     update(query, update, callback) {
         if (this.crudBoolean['update'])
             this.apidao.update(query, update, callback);
@@ -62,6 +69,11 @@ class APIEntity extends Entity {
     delete(query, callback) {
         if (this.crudBoolean['delete'])
             this.apidao.delete(query, callback);
+        else console.log("This action is not allowed.");
+    }
+    push(query,newdata,field_name, callback) {
+        if (this.crudBoolean['push'])
+            this.apidao.push(query,newdata,field_name, callback);
         else console.log("This action is not allowed.");
     }
 }
@@ -125,16 +137,22 @@ ProjectAPI.setOperation('create', true);
 ProjectAPI.setOperation('read', true);
 ProjectAPI.setOperation('update', true);
 ProjectAPI.setOperation('delete', true);
+ProjectAPI.setOperation('readALL', true);
+ProjectAPI.setOperation('push', true);
 
 UserAPI.setOperation('create', true);
 UserAPI.setOperation('read', true);
 UserAPI.setOperation('update', true);
 UserAPI.setOperation('delete', true);
+UserAPI.setOperation('readALL', true);
+UserAPI.setOperation('push', true);
 
 PostAPI.setOperation('create', true);
 PostAPI.setOperation('read', true);
 PostAPI.setOperation('update', true);
 PostAPI.setOperation('delete', true);
+PostAPI.setOperation('readALL', true);
+PostAPI.setOperation('push', true);
 
 
 module.exports = {

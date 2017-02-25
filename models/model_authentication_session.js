@@ -41,7 +41,33 @@ function ensureAuthenticated(req,res,next) {
     }
 }
 
+function respond_conf(req,res,err,result,redirect_path, flash_msg, callback) {
+    if(err) {
+        req.flash('error',err);
+        console.log("ERROR!");
+        console.log(err);
+        res.status(400);
+        res.redirect('/');
+    }
+    else if(result) {
+        req.flash('success',flash_msg);
+        console.log("SUCCESS!");
+        if (callback) callback();
+        else  {
+            res.status(200);
+            if(redirect_path) res.redirect(redirect_path);
+            else res.end();
+        }
+    }
+    else {
+        console.log("BAD REQUEST!");
+        res.status(400);
+        res.redirect('/');
+    }
+}
+
 module.exports= {
     passport:passport,
-    ensureAuthenticated: ensureAuthenticated
+    ensureAuthenticated: ensureAuthenticated,
+    respond_conf:respond_conf
 };

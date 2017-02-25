@@ -19,48 +19,74 @@ var request = require("request");
 //     })
 // })
 
-
-describe('test test', function() {
+describe('test', function() {
     it('something', function(done) {
         var url= "http://localhost:3000";
-        request.post({url:url+"/home", form: {username:'2asd', password:'2'}}, function(err,httpResponse,body){
-            console.log(httpResponse.headers["set-cookie"][0]);
+        request.post({url:url+"/login", form: {username:'stef', password:'test'}}, function(err,httpResponse,body){
             var j = request.jar();
             var cookie = request.cookie(httpResponse.headers["set-cookie"][0]);
-            j.setCookie(cookie,url+"/home", function(error,cookie) {
-                request.get({url: url+"/home", jar: j}, function (err,res,body) {
-                    console.log(httpResponse.headers["set-cookie"][0]);
+            var testProject={
+                    name:"TestNewProjectvol2",
+                    description:"Created a new project for testing."
+                };
+            j.setCookie(cookie,url+"/projects", function(error,cookie) {
+                request.post({url: url+"/projects", jar: j,form: testProject}, function (err,res,body) {
                     var j = request.jar();
                     var cookie = request.cookie(httpResponse.headers["set-cookie"][0]);
-                    j.setCookie(cookie,url+"/logout", function(error,cookie) {
-                        request.get({url: url+"/logout", jar: j}, function (err,res,body) {
-
-                        });
-                    });
-                });
-            });
-        });
-        request.post({url:url+"/home", form: {username:'1asd', password:'1'}}, function(err,httpResponse,body){
-            var j = request.jar();
-            console.log(httpResponse.headers["set-cookie"][0]);
-            var cookie = request.cookie(httpResponse.headers["set-cookie"][0]);
-            j.setCookie(cookie,url+"/home", function(error,cookie) {
-                request.get({url: url+"/home", jar: j}, function (err,res,body) {
-                    console.log(httpResponse.headers["set-cookie"][0]);
-                    var j = request.jar();
-                    var cookie = request.cookie(httpResponse.headers["set-cookie"][0]);
-                    j.setCookie(cookie,url+"/logout", function(error,cookie) {
-                        request.get({url: url+"/logout", jar: j}, function (err,res,body) {
+                    j.setCookie(cookie,url+"/projects", function(error,cookie) {
+                        request.get({url: url+"/projects", jar: j}, function (err,res,body) {
+                            console.log(body);
                             done();
                         });
                     });
-
                 });
             });
-
         });
-    });
-});
+    })
+})
+
+
+// describe('test test', function() {
+//     it('something', function(done) {
+//         var url= "http://localhost:3000";
+//         request.post({url:url+"/home", form: {username:'2asd', password:'2'}}, function(err,httpResponse,body){
+//             console.log(httpResponse.headers["set-cookie"][0]);
+//             var j = request.jar();
+//             var cookie = request.cookie(httpResponse.headers["set-cookie"][0]);
+//             j.setCookie(cookie,url+"/home", function(error,cookie) {
+//                 request.get({url: url+"/home", jar: j}, function (err,res,body) {
+//                     console.log(httpResponse.headers["set-cookie"][0]);
+//                     var j = request.jar();
+//                     var cookie = request.cookie(httpResponse.headers["set-cookie"][0]);
+//                     j.setCookie(cookie,url+"/logout", function(error,cookie) {
+//                         request.get({url: url+"/logout", jar: j}, function (err,res,body) {
+//
+//                         });
+//                     });
+//                 });
+//             });
+//         });
+//         request.post({url:url+"/home", form: {username:'1asd', password:'1'}}, function(err,httpResponse,body){
+//             var j = request.jar();
+//             console.log(httpResponse.headers["set-cookie"][0]);
+//             var cookie = request.cookie(httpResponse.headers["set-cookie"][0]);
+//             j.setCookie(cookie,url+"/home", function(error,cookie) {
+//                 request.get({url: url+"/home", jar: j}, function (err,res,body) {
+//                     console.log(httpResponse.headers["set-cookie"][0]);
+//                     var j = request.jar();
+//                     var cookie = request.cookie(httpResponse.headers["set-cookie"][0]);
+//                     j.setCookie(cookie,url+"/logout", function(error,cookie) {
+//                         request.get({url: url+"/logout", jar: j}, function (err,res,body) {
+//                             done();
+//                         });
+//                     });
+//
+//                 });
+//             });
+//
+//         });
+//     });
+// });
 
 
 // describe.skip('Test login logout+ extra requests', function() {
