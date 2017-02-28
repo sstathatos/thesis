@@ -24,12 +24,41 @@ router.get('/',function(req,res) {
     }
 })
 
-//Get Homepage
-router.get('/home',model_auth_ses.ensureAuthenticated,function(req,res) {
-    console.log(req.user);
+//get homepage
+router.get('/home',model_auth_ses.ensureAuthenticated, function(req,res) {
+    model_entity.UserAPI.read({ _id: req.user._id},function(err,result) {
+        model_auth_ses.respond_conf(req,res,err,result,null,null,function() {
+            var names=[];
+            var promises=[];
+            for (var i=0; i<result.projects.length;i++) {
+                var pro= new Promise(function(resolve,reject) {
+                    model_entity.ProjectAPI.read({_id: result.projects[i]}, function(err,result) {
+                        if (err) return reject(err);
+                        else {
+                            names.push(result.name);
+                            resolve();
+                        }
+                    })
+                })
+                promises.push(pro);
+            }
+            Promise.all(promises).then(function() {
+                console.log(names);
+                res.status(200);
+                res.render('home',{names:names});
+            }, function(err) {
+
+            });
+        })
+    })
+})
+
+//get edit profile
+router.get('/editprofile', function(req,res) {
     res.status(200);
-    res.render('home', {data: 'This is my Home. :)'});
-});
+    res.render('editprofile');
+})
+
 
 
 /* User Requests */
@@ -64,7 +93,7 @@ router.put('/users',function(req,res) {
     })
 });
 
-//Search User
+//Search User UNDER CONSTRUCTION
 router.get('/users/:_id', function(req,res) {
     model_entity.UserAPI.read(req.params, function(err, result) {
         model_auth_ses.respond_conf(req,res,err,result,null, "User Search",null);
@@ -95,6 +124,12 @@ router.delete('/users', function(req,res) {
 
 /* Project Requests */
 
+//Get create project page
+router.get('/projects', function(req,res) {
+    res.status(200);
+    res.render('createproject');
+})
+
 //Create Project
 router.post('/projects', function(req,res) {
     req.body['date']= Date.now();
@@ -117,32 +152,22 @@ router.post('/projects', function(req,res) {
     });
 });
 
-//Get Projects
-router.get('/projects', function(req,res) {
-    model_entity.UserAPI.read({ _id: req.user._id},function(err,result) {
-        model_auth_ses.respond_conf(req,res,err,result,null,null,function() {
-            var names=[];
-            var promises=[];
-            for (var i=0; i<result.projects.length;i++) {
-                var pro= new Promise(function(resolve,reject) {
-                    model_entity.ProjectAPI.read({_id: result.projects[i]}, function(err,result) {
-                        if (err) return reject(err);
-                        else {
-                            names.push(result.name);
-                            resolve();
-                        }
-                    })
-                })
-                promises.push(pro);
-            }
-            Promise.all(promises).then(function() {
-                console.log(names);
-                res.status(200).send(names);
-            }, function(err) {
-
-            });
-        })
+//Search projects
+router.get('/projects/search', function(req,res) {
+    console.log(req.query);
+    model_entity.ProjectAPI.readALL(req.query, function(err,result) {
+        res.status(200);
+        res.render('searchproject',{result :result});
     })
 })
+
+//Delete project UNDER CONSTRUCTION
+router.delete('/projects', function(req,res) {
+    model_entity.ProjectAPI.delete({ _id: req.user._id}, function(err, result) {
+        console.log(result);
+        model_auth_ses.respond_conf(req,res,err,result,'/home', "Project Deleted",null);
+    });
+})
+
 
 module.exports = router;

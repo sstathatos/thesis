@@ -1,23 +1,24 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="myApp" >
-    <head>
-    </head>
-    <body  ng-controller="homeController">
-        <div class="jumbotron">
-            {{#if  error}}
-                <div class="alert alert-danger">
-                    {{error}}
-                </div>
-            {{/if}}
-            {{#if success}}
-                <div class="alert alert-success">
-                    {{success}}
-                </div>
-            {{/if}}
-            <h2>Current open projects:</h2>
-           <div class="list-group">
-               <a ng-repeat="res in results track by $index" ng-bind="res" class="list-group-item"></a>
-           </div>
-        </div>
-    </body>
-</html>
+<div class="jumbotron">
+    {{> flash}}
+
+    <h2>Create a new Project:
+        <a href="/projects" class="btn btn-success" >Create</a>
+    </h2>
+    <h2>Search for a specific Project:</h2>
+    <form method="GET" action="/projects/search">
+        <input type="text" name="name" placeholder="Search projects..">
+        <button type="submit"  class="btn btn-success" >Search</button>
+    </form>
+
+    <h2>Current open Projects:</h2>
+    <div class="list-group">
+        {{#each names as |name|}}
+            <div class="list-group-item">
+                <form method="POST" action="/projects?_method=DELETE" style="float:right">
+                    <input type="submit" value="X" class="btn btn-danger"/>
+                </form>
+                {{name}}
+            </div>
+        {{/each}}
+    </div>
+</div>

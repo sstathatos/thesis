@@ -23,7 +23,7 @@ var app= express();
 app.use(methodOverride('_method'));
 
 //View Engine
-app.engine('handlebars', exphbs({defaultLayout: 'navbar'}));
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 //bodyparser middleware

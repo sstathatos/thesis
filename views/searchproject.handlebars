@@ -1,0 +1,11 @@
+<h2>Search Projects Results:</h2>
+<div class="list-group">
+    {{#each result as |res|}}
+        <a class="list-group-item">
+            <form method="POST" action="/projects?_method=DELETE" style="float:right">
+                <input type="submit" value="Add Project" class="btn btn-default"/>
+            </form>
+            {{res.name}}
+        </a>
+    {{/each}}
+</div>

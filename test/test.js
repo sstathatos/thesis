@@ -26,7 +26,7 @@ describe('test', function() {
             var j = request.jar();
             var cookie = request.cookie(httpResponse.headers["set-cookie"][0]);
             var testProject={
-                    name:"TestNewProjectvol2",
+                    name:"filippos",
                     description:"Created a new project for testing."
                 };
             j.setCookie(cookie,url+"/projects", function(error,cookie) {
