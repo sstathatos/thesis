@@ -11,14 +11,26 @@
     </form>
 
     <h2>Current open Projects:</h2>
-    <div class="list-group">
-        {{#each names as |name|}}
-            <a class="list-group-item">
-                <form method="POST" action="/projects?_method=DELETE" style="float:right">
-                    <input type="submit" value="X" class="btn btn-danger"/>
-                </form>
-                {{name}}
-            </a>
-        {{/each}}
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <td>Project Name</td>
+                <td style="float:right">Delete project</td>
+            </tr>
+            </thead>
+            {{#each names as |name|}}
+                <tbody>
+                <tr>
+                    <td><a>{{name}}</a></td>
+                    <td>
+                        <form method="POST" action="/projects?_method=DELETE" style="float:right">
+                            <input type="submit" value="X" class="btn btn-danger"/>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            {{/each}}
+        </table>
     </div>
 </div>

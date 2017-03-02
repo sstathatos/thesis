@@ -1,11 +1,25 @@
 <h2>Search Projects Results:</h2>
-<div class="list-group">
-    {{#each result as |res|}}
-        <a class="list-group-item">
-            <form method="POST" action="/users/{{username}}/projects/?_method=DELETE" style="float:right">
-                <input type="submit" value="Add Project" class="btn btn-default"/>
-            </form>
-            {{res.name}}
-        </a>
-    {{/each}}
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <td>Project Name</td>
+            <td>Checkbox</td>
+        </tr>
+        </thead>
+        {{#each searches as |search|}}
+            <tbody>
+            <tr>
+                <td>{{search.name}}</td>
+                <td><input type="checkbox" href {{#if search.bool}} checked {{/if}}></td>
+                <td>{{search.bool}}</td>
+                <td>
+                    <form method="POST" action="/users/{{username}}/projects/?_method=DELETE" style="float:right">
+                        <input type="submit" value="Add Project" class="btn btn-default"/>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        {{/each}}
+    </table>
 </div>

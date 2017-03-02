@@ -11,7 +11,7 @@ router.use(function(req, res, next) {
 
 //first of all check if the user requesting is authenticated,or else redirect to '/'
 router.all('*', function(req,res,next) {
-    if((req.url=='/login' && req.method=='POST') || (req.url=='/' && req.method=='GET')) next();
+    if((req.url=='/login' && req.method=='POST') || (req.url=='/' && req.method=='GET') || (req.url=='/users' && req.method=='POST')) next();
     else {
         if(req.isAuthenticated()) next();
         else  {
@@ -62,6 +62,6 @@ router.get('/',function(req,res) {
         res.clearCookie('connect.sid');
         res.render('welcome', {layout: false});
     });
-})
+});
 
 module.exports = router;

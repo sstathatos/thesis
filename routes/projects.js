@@ -52,9 +52,27 @@ router.post('/', function(req,res) {
 //Search projects
 router.get('/search', function(req,res) {
     console.log(req.query);
-    model_entity.ProjectAPI.readALL(req.query, function(err,result) {
+    model_entity.ProjectAPI.readALL(req.query, function(err,searches) { //find all searches
+        if(err) {
+            req.flash('error',err);
+            console.log("ERROR!");
+            res.status(400);
+            res.redirect('/');
+        }
+        else if(searches) {
+            console.log(req.user);
+            var userprojects=req.user.projects;
+            for (var i=0; i<searches.length;i++) {
+                searches[i]['bool']=false;
+                for(var j=0; j<userprojects.length; j++)
+                    if(searches[i]._id.equals(userprojects[j])) {
+                        searches[i]['bool']=true;
+                    }
+                // if (userprojects.includes(searches[i]._id)) {
+            }
+        }
         res.status(200);
-        res.render('searchproject',{result :result});
+        res.render('searchproject',{searches :searches});
     });
 })
 
