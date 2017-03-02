@@ -16,7 +16,6 @@ mongoose.Promise = require('bluebird');
 mongoose.createConnection(dbHost);
 var MongoStore = require('connect-mongo')(session);
 
-var routes= require('./routes');
 var app= express();
 
 // override with POST having ?_method=DELETE
@@ -52,13 +51,16 @@ app.use(flash());
 
 
 app.use( function(req,res,next) {
+    if(req.user) {
+        res.locals.username=req.user.username;
+    }
     res.locals.error=req.flash('error');
     res.locals.success=req.flash('success');
     next();
 });
 
 //main start
-app.use('/', routes);
+ app.use('/', require('./routes'));
 
 //Set Port
 app.set('port',(process.env.PORT || 3000));

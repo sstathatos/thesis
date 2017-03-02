@@ -2,10 +2,10 @@
     {{> flash}}
 
     <h2>Create a new Project:
-        <a href="/projects" class="btn btn-success" >Create</a>
+        <a href="/users/{{username}}/projects" class="btn btn-success" >Create</a>
     </h2>
     <h2>Search for a specific Project:</h2>
-    <form method="GET" action="/projects/search">
+    <form method="GET" action="/users/{{username}}/projects/search">
         <input type="text" name="name" placeholder="Search projects..">
         <button type="submit"  class="btn btn-success" >Search</button>
     </form>
@@ -13,12 +13,12 @@
     <h2>Current open Projects:</h2>
     <div class="list-group">
         {{#each names as |name|}}
-            <div class="list-group-item">
+            <a class="list-group-item">
                 <form method="POST" action="/projects?_method=DELETE" style="float:right">
                     <input type="submit" value="X" class="btn btn-danger"/>
                 </form>
                 {{name}}
-            </div>
+            </a>
         {{/each}}
     </div>
 </div>

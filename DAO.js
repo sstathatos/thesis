@@ -63,7 +63,6 @@ class DAO {
             }
             else callback(null,null);
         })
-
     }
 
     validate(data,self, callback){
@@ -105,7 +104,6 @@ class UserDAO extends DAO {
             callback("Username or Email is not unique");
         });
     }
-
 }
 
 //Specific Project functions
@@ -113,7 +111,6 @@ class ProjectDAO extends DAO {
     constructor(model) {
         super(model);
     }
-
 }
 
 module.exports={
