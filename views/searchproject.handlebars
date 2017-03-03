@@ -1,25 +1,30 @@
 <h2>Search Projects Results:</h2>
-<div class="container">
+<div class="container" >
     <table class="table">
         <thead>
         <tr>
-            <td>Project Name</td>
+            <td>Project Name {{username}}</td>
             <td>Checkbox</td>
+            <td></td>
+            <td></td>
         </tr>
         </thead>
-        {{#each searches as |search|}}
-            <tbody>
-            <tr>
-                <td>{{search.name}}</td>
-                <td><input type="checkbox" href {{#if search.bool}} checked {{/if}}></td>
-                <td>{{search.bool}}</td>
-                <td>
-                    <form method="POST" action="/users/{{username}}/projects/?_method=DELETE" style="float:right">
-                        <input type="submit" value="Add Project" class="btn btn-default"/>
-                    </form>
-                </td>
-            </tr>
-            </tbody>
-        {{/each}}
+
+        <tbody>
+        <form method="POST" action="/users/{{username}}/projects/add">
+            {{#each searches as |search|}}
+                <tr>
+                    <td>{{search.name}}</td>
+                    <td>
+                        <input type="checkbox"  name="checksearch" {{#if search.bool}} checked {{/if}}>
+                        <input type="submit" class="btn btn-default">
+
+                    </td>
+                    <td>{{search.bool}}</td>
+                </tr>
+            {{/each}}
+        </form>
+        </tbody>
+
     </table>
 </div>

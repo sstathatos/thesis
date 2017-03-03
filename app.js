@@ -7,15 +7,15 @@ var bodyParser= require('body-parser');
 var flash = require('connect-flash')
 var cookieParser= require('cookie-parser');
 var exphbs  = require('express-handlebars');
-var methodOverride = require('method-override')
+var methodOverride = require('method-override');
 var passport= require('passport');
 var expressValidator = require('express-validator');
 var dbHost = 'mongodb://localhost/test';
 var mongoose= require('mongoose');
 mongoose.Promise = require('bluebird');
 mongoose.createConnection(dbHost);
-var MongoStore = require('connect-mongo')(session);
 
+var MongoStore = require('connect-mongo')(session);
 var app= express();
 
 // override with POST having ?_method=DELETE

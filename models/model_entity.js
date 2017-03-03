@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var DAOclass = require('../DAO');
 var dbHost = 'mongodb://localhost/test';
 mongoose.connect(dbHost);
+var PermissionsFactory=require('./model_role').PermissionsFactory;
 
 //Entity
 class Entity {
@@ -132,6 +133,22 @@ var PostSchema = {
 var ProjectAPI = new APIEntity('Project', ProjectSchema);
 var UserAPI = new APIEntity('User', UserSchema);
 var PostAPI = new APIEntity('Post', PostSchema);
+
+var projectPermissions= new PermissionsFactory(UserAPI,ProjectAPI);
+var ProjXtoX=projectPermissions.setup('ProjectPermissions',DAOclass);
+var data=new ProjXtoX({
+    user_id : "58b7e93d8e352c14f43cca65",
+    obj_id: "58b7e9868e352c14f43cca67",
+    view:true,
+    edit:true,
+    del:true,
+    create:true
+});
+projectPermissions.create(data, function(err,result) {
+    if (err) console.log(err);
+    console.log(result);
+})
+
 
 ProjectAPI.setOperation('create', true);
 ProjectAPI.setOperation('read', true);

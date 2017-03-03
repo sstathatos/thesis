@@ -49,6 +49,12 @@ router.post('/', function(req,res) {
     });
 });
 
+//Add Project
+router.post('/add', function(req,res) {
+    console.log("i was called");
+    console.log(req.body);
+})
+
 //Search projects
 router.get('/search', function(req,res) {
     console.log(req.query);
