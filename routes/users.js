@@ -1,14 +1,16 @@
 var express= require('express');
 var router= express.Router();
-var model_entity= require('../models/model_entity');
-var User= model_entity.UserAPI.model;
-
+var DAOS= require('../models/model_entity').DAOS;
+var projects= DAOS[1];
+var users= DAOS[0];
+var projectspermissions= DAOS[2];
 
 /* User Requests */
 
 //get UserPAGE
 router.get('/:username', function(req,res) {
-    model_entity.UserAPI.read({ _id: req.user._id},function(err,result) {
+    //GET MY PROJECTS FROM PERMISSION MODEL
+    projectspermissions.objects({ user_id: req.user._id},function(err,userprojects) {
         if(err) {
             req.flash('error',err);
             console.log("ERROR!");
@@ -16,12 +18,12 @@ router.get('/:username', function(req,res) {
             res.status(400);
             res.redirect('/');
         }
-        else if(result) {
-            var names=[];
-            var promises=[];
-            for (var i=0; i<result.projects.length;i++) {
-                var pro= new Promise(function(resolve,reject) {
-                    model_entity.ProjectAPI.read({_id: result.projects[i]}, function(err,result) {
+        else if(userprojects) {
+            let names=[];
+            let promises=[];
+            for (let i=0; i<userprojects.length;i++) {
+                let pro= new Promise(function(resolve,reject) {
+                    projects.read({_id: userprojects[i].obj_id}, function(err,result) {
                         if (err) return reject(err);
                         else {
                             names.push(result.name);
@@ -32,6 +34,7 @@ router.get('/:username', function(req,res) {
                 promises.push(pro);
             }
             Promise.all(promises).then(function() {
+                console.log("Here are current User projects");
                 console.log(names);
                 res.status(200);
                 res.render('home',{names:names});
@@ -40,37 +43,14 @@ router.get('/:username', function(req,res) {
 
         }
         else {
-            console.log("BAD REQUEST!");
-            res.status(400);
-            res.redirect('/');
+            console.log("empty response");
+            res.status(200);
+            res.render('home');
         }
     })
 });
 
-//Register User
-router.post('/', function(req,res) {
-    delete req.body.password2;
-    model_entity.UserAPI.create(new User(req.body),function(err,result) {
-        if(err) {
-            req.flash('error',err);
-            console.log("ERROR!");
-            console.log(err);
-            res.status(400);
-            res.redirect('/');
-        }
-        else if(result) {
-            req.flash('success',"User Created, you can now login");
-            res.status(200);
-            res.redirect('/');
-        }
-        else {
-            console.log("BAD REQUEST!");
-            res.status(400);
-            res.redirect('/');
-        }
-    });
 
-});
 
 //get edit profile PAGE
 router.get('/:username/edit', function(req,res) {
@@ -80,7 +60,7 @@ router.get('/:username/edit', function(req,res) {
 
 //Update User
 router.put('/',function(req,res) {
-    model_entity.UserAPI.update({ _id: req.user._id}, req.body, function(err, result) {
+    users.update({ _id: req.user._id}, req.body, function(err, result) {
         if(err) {
             req.flash('error',err);
             console.log("ERROR!");
@@ -103,7 +83,7 @@ router.put('/',function(req,res) {
 
 //Search User UNDER CONSTRUCTION
 router.get('/:_id', function(req,res) {
-    model_entity.UserAPI.read(req.params, function(err, result) {
+    users.read(req.params, function(err, result) {
         if(err) {
             req.flash('error',err);
             console.log("ERROR!");
@@ -126,7 +106,7 @@ router.get('/:_id', function(req,res) {
 
 //Delete User
 router.delete('/', function(req,res) {
-    model_entity.UserAPI.delete({ _id: req.user._id}, function(err, result) {
+    users.delete({ _id: req.user._id}, function(err, result) {
         if (err){
             console.log(err);
             res.status(400);

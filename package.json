@@ -22,10 +22,11 @@
     "express-validator": "^3.1.2",
     "method-override": "^2.3.7",
     "mocha": "^3.2.0",
-    "mongodb": "*",
+    "mongodb": "^2.2.24",
     "mongoose": "*",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "request": "^2.79.0"
+    "request": "^2.79.0",
+    "supertest": "*"
   }
 }

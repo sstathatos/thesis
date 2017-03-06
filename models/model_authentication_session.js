@@ -1,12 +1,12 @@
 var passport= require('passport');
 var LocalStrategy= require('passport-local').Strategy;
-var model_entity= require('../models/model_entity');
-
+var DAOS= require('../models/model_entity').DAOS;
+var users= DAOS[0];
 
 //authentication strategy-passport
 passport.use(new LocalStrategy (
     function(username, password, done) {
-        model_entity.UserAPI.read({username:username}, function (err,user){
+        users.read({username:username}, function (err,user){
             if(err) throw err;
             if(!user) {
                 return done(null , false,'Unknown User');
@@ -26,7 +26,7 @@ passport.serializeUser(function(user,done) {
 });
 
 passport.deserializeUser(function(id, done) {
-    model_entity.UserAPI.read({_id:id}, function(err, user) {
+    users.read({_id:id}, function(err, user) {
         done(err, user);
     });
 });
