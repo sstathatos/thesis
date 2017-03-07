@@ -17,12 +17,17 @@ mongoose.createConnection(dbHost);
 
 var MongoStore = require('connect-mongo')(session);
 var app= express();
-
+var helpers= require('./helpers');
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
 
+var hbs = exphbs.create({
+    defaultLayout: 'main',
+    helpers: helpers
+});
+
 //View Engine
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 //bodyparser middleware

@@ -71,23 +71,24 @@ describe('test my dao', function() {
             .get('/logout')
             .end(function(err, res) {
                 if (err) return done(err);
+                done();
             });
-        let url = 'mongodb://localhost/test';
-        MongoClient.connect(url, function(err, db) {
-            db.dropDatabase();  //will be used :)
-            // let collections=["projectpermissions","projects","users"];
-            // for(let i in collections) {
-            //     db.dropCollection(collections[i], function(err) {
-            //         if(!err) {
-            //             console.log( collections[i] + " dropped");
-            //         } else {
-            //             console.log("!ERROR! " + err.errmsg);
-            //         }
-            //     })
-            // }
-            done();
-            db.close();
-        });
+        // let url = 'mongodb://localhost/test';
+        // MongoClient.connect(url, function(err, db) {
+        //     db.dropDatabase();  //will be used :)
+        //     // let collections=["projectpermissions","projects","users"];
+        //     // for(let i in collections) {
+        //     //     db.dropCollection(collections[i], function(err) {
+        //     //         if(!err) {
+        //     //             console.log( collections[i] + " dropped");
+        //     //         } else {
+        //     //             console.log("!ERROR! " + err.errmsg);
+        //     //         }
+        //     //     })
+        //     // }
+        //     done();
+        //     db.close();
+        // });
 
     });
 });

@@ -1,6 +1,7 @@
 var express= require('express');
 var router= require('express').Router();
 var model_auth_ses= require('../models/model_authentication_session');
+var mf= require('../models/model_respond');
 var DAOS= require('../models/model_entity').DAOS;
 var users= DAOS[0];
 
@@ -37,17 +38,11 @@ router.post('/register', function(req,res) {
     delete req.body.password2;
     users.create(req.body,function(err,result) {
         if(err) {
-            req.flash('error',err);
-            console.log("ERROR!");
-            console.log(err);
-            res.status(400);
-            res.redirect('/');
+            mf.errorRespond(req,res,'/',"Error!");
         }
         else if(result) {
             console.log("User created");
-            req.flash('success',"User Created, you can now login");
-            res.status(200);
-            res.redirect('/');
+            mf.successRedirect(req,res,'/',"User Created, you can now login");
         }
         else {
             console.log("BAD REQUEST!");

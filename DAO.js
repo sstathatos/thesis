@@ -10,7 +10,6 @@ class DAO {
     //todo change data.model
     create(data,callback) {
         let obj=new this.model(data);
-        this.model.find().
         obj.save(function(err, data) {
             if(err) throw  err;
             else if (data) callback(null,data);

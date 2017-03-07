@@ -1,27 +1,31 @@
 <div class="jumbotron">
-    {{> flash}}
+<div class="container">
 
-    <h2>Create a new Project:
-        <a href="/users/{{username}}/projects" class="btn btn-success" >Create</a>
-    </h2>
-    <h2>Search for a specific Project:</h2>
-    <form method="GET" action="/users/{{username}}/projects/search">
-        <input type="text" name="name" placeholder="Search projects..">
-        <button type="submit"  class="btn btn-success" >Search</button>
-    </form>
+        {{> flash}}
 
-    <h2>Current open Projects:</h2>
+        <h2>Create a new Project:
+            <a href="/users/{{username}}/projects" class="btn btn-success" >Create</a>
+        </h2>
+        <h2>Search for a specific Project:</h2>
+        <form method="GET" action="/users/{{username}}/projects/search">
+            <input type="text" name="name" placeholder="Search projects..">
+            <button type="submit"  class="btn btn-success" >Search</button>
+        </form>
+
+        <h2>Current open Projects:</h2>
         <table class="table">
             <thead>
             <tr>
                 <td>Project Name</td>
+                <td>Project Description</td>
                 <td style="float:right">Delete project</td>
             </tr>
             </thead>
-            {{#each names as |name|}}
+            {{#each results as |result|}}
                 <tbody>
                 <tr>
-                    <td><a>{{name}}</a></td>
+                    <td><a>{{result.name}}</a></td>
+                    <td>{{result.description}}</td>
                     <td>
                         <form method="POST" action="/projects?_method=DELETE" style="float:right">
                             <input type="submit" value="X" class="btn btn-danger"/>
@@ -31,4 +35,18 @@
                 </tbody>
             {{/each}}
         </table>
+    </div>
+
+
 </div>
+<!--<div class="container">-->
+    <!--&lt;!&ndash; Example row of columns &ndash;&gt;-->
+    <!--<div class="row">-->
+        <!--<div class="col-md-4">-->
+
+        <!--</div>-->
+    <!--</div>-->
+    <!--<footer>-->
+        <!--<p>&copy; 2016 Company, Inc.</p>-->
+    <!--</footer>-->
+<!--</div>-->

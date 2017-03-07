@@ -1,30 +1,34 @@
-<h2>Search Projects Results:</h2>
-<div class="container" >
+<div class="jumbotron">
+    <div class="container">
+    <h2>Search Projects Results:</h2>
     <table class="table">
         <thead>
         <tr>
-            <td>Project Name {{username}}</td>
-            <td>Checkbox</td>
+            <td>Project Name</td>
+            <td>Description</td>
             <td></td>
             <td></td>
         </tr>
         </thead>
 
         <tbody>
-        <form method="POST" action="/users/{{username}}/projects/add">
-            {{#each searches as |search|}}
-                <tr>
-                    <td>{{search.name}}</td>
-                    <td>
-                        <input type="checkbox"  name="checksearch" {{#if search.bool}} checked {{/if}}>
-                        <input type="submit" class="btn btn-default">
 
+            {{#each proj as |project|}}
+                <tr>
+                    <td>{{project.name}}</td>
+                    <td>{{project.description}}</td>
+                    <td>
+                        <form method="POST" action="/users/{{../username}}/projects/{{project._id}}">
+                            {{#if_in project._id ../perms}}
+                                <button type="submit" class="btn btn-default">Add Project</button>
+                            {{/if_in}}
+                        </form>
                     </td>
-                    <td>{{search.bool}}</td>
                 </tr>
             {{/each}}
-        </form>
+
         </tbody>
 
     </table>
+</div>
 </div>
