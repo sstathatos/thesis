@@ -21,7 +21,7 @@ function successRedirect(req,res,redirect,msg) {
 module.exports= {
     errorRespond: errorRespond,
     successRedirect: successRedirect
-}
+};
 
 
 // for(let i=0;i<result.length;i++) {

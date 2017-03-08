@@ -1,8 +1,6 @@
 <div class="jumbotron">
-<div class="container">
-
+    <div class="container">
         {{> flash}}
-
         <h2>Create a new Project:
             <a href="/users/{{username}}/projects" class="btn btn-success" >Create</a>
         </h2>
@@ -27,8 +25,9 @@
                     <td><a>{{result.name}}</a></td>
                     <td>{{result.description}}</td>
                     <td>
-                        <form method="POST" action="/projects?_method=DELETE" style="float:right">
-                            <input type="submit" value="X" class="btn btn-danger"/>
+                        <form method="POST" action="/users/{{../username}}/projects/{{result._id}}?_method=DELETE"
+                              style="float:right">
+                            <button type="submit" class="btn btn-danger"> X</button>
                         </form>
                     </td>
                 </tr>
@@ -40,13 +39,13 @@
 
 </div>
 <!--<div class="container">-->
-    <!--&lt;!&ndash; Example row of columns &ndash;&gt;-->
-    <!--<div class="row">-->
-        <!--<div class="col-md-4">-->
+<!--&lt;!&ndash; Example row of columns &ndash;&gt;-->
+<!--<div class="row">-->
+<!--<div class="col-md-4">-->
 
-        <!--</div>-->
-    <!--</div>-->
-    <!--<footer>-->
-        <!--<p>&copy; 2016 Company, Inc.</p>-->
-    <!--</footer>-->
+<!--</div>-->
+<!--</div>-->
+<!--<footer>-->
+<!--<p>&copy; 2016 Company, Inc.</p>-->
+<!--</footer>-->
 <!--</div>-->

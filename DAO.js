@@ -16,6 +16,14 @@ class DAO {
             else callback(null,null);
         });
     }
+
+    insertMany(data, callback) {
+        this.model.collection.insert(data, function (err, data) {
+            if (err) throw  err;
+            else if (data) callback(null, data);
+            else callback(null, null);
+        });
+    }
     read(query,callback) {
         this.model.findOne(query,function(err, data) {
             if(err) throw err;
@@ -38,36 +46,13 @@ class DAO {
         });
     }
     delete(query, callback) {
+        console.log(query);
         this.model.findOneAndRemove(query, function(err,data) {
+            console.log(data);
             if(err) throw err;
             else if (data) callback(null,data);
             else callback(null,null);
         });
-    }
-
-    // remove(callback) {
-    //     this.model.find({}).remove(function(err,result) {
-    //         if(err) throw err;
-    //         else if (result) callback(null,result);
-    //         else callback(null,null);
-    //     });
-    // }
-
-    push(query,newdata,field_name, callback) {
-        this.model.findOne(query, function(err,result) {
-            if (err) return err;
-            else if (result){
-                result[field_name].push(newdata);
-                result.save(function(error,data) {
-                    if(error) {
-                        throw error;
-                        //callback (error,null);
-                    }
-                    else callback(null, data);
-                });
-            }
-            else callback(null,null);
-        })
     }
 }
 
@@ -134,26 +119,6 @@ class ProjectDAO extends DAO {
     constructor(model) {
         super(model);
     }
-
-    // create(project_info,self,callback) {
-    //     DAO.prototype.create(project_info,this,function(err,project_result,self) {
-    //         if(err) throw err;
-    //         else {
-    //             let permission={
-    //                 user_id: project_info.user_id,
-    //                 obj_id: project_result._id,
-    //                 view:true,
-    //                 edit:true,
-    //                 del:true,
-    //                 create:true
-    //             };
-    //             self.create(permission,self, function(err) {
-    //                 if (err) throw err;
-    //                 else callback(null,data);
-    //             });
-    //         }
-    //     })
-    // }
 }
 class ProjectPermissionsDAO extends DAO {
     constructor(model) {

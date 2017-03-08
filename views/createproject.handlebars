@@ -1,12 +1,19 @@
-<div class="jumbotron">
-    <h2>Create new Project:</h2>
-    <form method="POST" action="/users/{{username}}/projects">
-        <h3>Name
-            <input type="text" name="name" placeholder="Choose a project name.">
-        </h3>
-        <h3>Description
-            <input type="text" name="description" placeholder="Choose a small project description.">
-        </h3>
-        <button class="btn btn-warning" type="submit">Submit Project</button>
-    </form>
+<div class="jumbotron" ng-app="inputModule" ng-controller="inputCtrl">
+    <div class="container">
+        <h2>Create new Project:</h2>
+        <form method="POST" action="/users/{{username}}/projects">
+            <h3>Name
+                <input type="text" name="name" placeholder="Choose a project name.">
+            </h3>
+            <h3>Description
+                <input type="text" name="description" placeholder="Choose a small project description.">
+            </h3>
+            <button class="btn btn-default" type="button" ng-click="add()">+</button>
+            <h3 ng-repeat="i in getNumber(member) track by $index">Add your new member
+                <input type="text" name="member" placeholder="new member">
+            </h3>
+            <button class="btn btn-warning" type="submit">Submit Project</button>
+        </form>
+
+    </div>
 </div>

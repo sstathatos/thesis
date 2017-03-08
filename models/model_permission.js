@@ -8,10 +8,10 @@ Permission.roles = {
     member: {view: true, edit: false, del: false, create: false}
 };
 
-Permission.add= function(req, role, obj_id){
+Permission.add = function (user, role, obj_id) {
     let b= Permission.roles[role];
     return {
-        user_id: req.user._id,
+        user_id: user._id,
         obj_id: obj_id,
         view: b.view,
         edit: b.edit,

@@ -101,6 +101,46 @@ describe('test my project Permissions', function() {
             done();
         });
     });
+    let credentialsKwnna = {username: 'Kwnna', password: 'test'};
+    describe('CREATE user and 2 projects', function () {
+        it('should register Kwnna', function (done) {
+            let userFilip = {username: 'kwnna', password: 'test', email: 'kwnna@kwnna.com', name: "kwnna"};
+            agent
+                .post('/register')
+                .send(userFilip)
+                .end(function (err, res) {
+                    if (err) return done(err);
+                    done();
+                });
+        });
+
+        it('should login for kwnna', function (done) {
+            agent
+                .post('/login')
+                .send(credentialsKwnna)
+                .end(function (err, res) {
+                    if (err) return done(err);
+                    done();
+                });
+        });
+
+        it('should create project', function (done) {
+            let project = {
+                name: "pro",
+                description: "kwnna pro"
+            };
+            for (let i = 0; i < 2; i++) {
+                agent
+                    .post('/users/' + credentialsKwnna.username + '/projects')
+                    .send(project)
+                    .end(function (err, res) {
+                        if (err) return done(err);
+
+                    });
+            }
+            done();
+        });
+    });
 });
 
 

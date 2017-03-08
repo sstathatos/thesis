@@ -17,6 +17,9 @@ mongoose.createConnection(dbHost);
 
 var MongoStore = require('connect-mongo')(session);
 var app= express();
+//Set static folder
+console.log(path.join(__dirname, 'public'));
+app.use(express.static(path.join(__dirname, 'public')));
 var helpers= require('./helpers');
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
@@ -46,8 +49,6 @@ app.use(session({
     saveUninitialized: false
 }));
 
-//Set static folder
-app.use(express.static(path.join(__dirname,'public')));
 
 //Passport init
 app.use(passport.initialize());
