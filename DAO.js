@@ -7,11 +7,10 @@ class DAO {
         this.model= model;
     }
 
-    //todo change data.model
     create(data,callback) {
         let obj=new this.model(data);
         obj.save(function(err, data) {
-            if(err) throw  err;
+            if (err) callback(err, null);
             else if (data) callback(null,data);
             else callback(null,null);
         });
@@ -19,37 +18,33 @@ class DAO {
 
     insertMany(data, callback) {
         this.model.collection.insert(data, function (err, data) {
-            if (err) throw  err;
+            if (err) callback(err, null);
             else if (data) callback(null, data);
             else callback(null, null);
         });
     }
     read(query,callback) {
         this.model.findOne(query,function(err, data) {
-            if(err) throw err;
+            if (err) callback(err, null);
             else if (data) callback(null,data);
             else callback(null,null);
         });
     }
-    objects(query,callback) {
-        this.model.find(query,function(err, data) {
-            if(err) throw err;
-            else if (data) callback(null,data);
-            else callback(null,null);
-        });
+
+    all() {
+        return this.model.find({});
     }
+
     update(query,newdata, callback) {
         this.model.findOneAndUpdate(query, newdata, {new: true}, function(err, data){
-            if(err) throw err;
+            if (err) callback(err, null);
             else if (!data) callback(null,null);
             else callback(null,data);
         });
     }
     delete(query, callback) {
-        console.log(query);
         this.model.findOneAndRemove(query, function(err,data) {
-            console.log(data);
-            if(err) throw err;
+            if (err) callback(err, null);
             else if (data) callback(null,data);
             else callback(null,null);
         });
@@ -64,15 +59,11 @@ class UserDAO extends DAO {
 
     create(data,callback) {
         let self=this;
-        self.validate(data,self,function(msg) {
+        self.validate(data, self, (msg) => {
             if (msg) {
                 callback(msg,null);
-            } else self.createcall(data,callback);
+            } else super.create(data, callback);
         });
-    }
-
-    createcall(data,callback) {
-        super.create(data,callback);
     }
 
     //Validate function for a user. Username and email must be unique name in db
@@ -103,16 +94,9 @@ class UserDAO extends DAO {
             })
             .catch(function () {
                 callback("Username or Email is not unique");
-
             });
     }
 }
-
-// todo users project delete
-// todo solve THIS problem
-// todo organize route
-// todo solve multiple query calls problem
-// then continue
 
 //Specific Project functions
 class ProjectDAO extends DAO {
@@ -120,10 +104,39 @@ class ProjectDAO extends DAO {
         super(model);
     }
 }
-class ProjectPermissionsDAO extends DAO {
+
+class PermissionsDAO extends DAO {
+
+// todo    MANAGERS
+
+    // permissions.dao.by_username("filip", () =>{
+    //
+    // });
+
+    by_userid(user_id) {
+        this.dao.find({user_id: user_id})
+    }
+
+    // users.dao.findOne({'username': username}, {_id}, (userid) => {
+    //     console.log(userid);
+    //     // this.all().find({'user_id': id}, (results) => {
+    //     //     cb(err, results);
+    //     // });
+    // });
+
+
+    // this.all().populate({path: 'user_id', select: 'username -_id'}).find({'user_id.username': 'filip'}).exec((err, result) => {
+    //     console.log(result)
+    // });
+    //return this.model.find({user = user})
+
+}
+
+class ProjectPermissionsDAO extends PermissionsDAO {
     constructor(model) {
         super(model);
     }
+
 }
 
 module.exports={
@@ -131,4 +144,4 @@ module.exports={
     UserDAO:UserDAO,
     ProjectDAO:ProjectDAO,
     ProjectPermissionsDAO:ProjectPermissionsDAO
-}
+};

@@ -5,7 +5,7 @@ var MongoClient = require('mongodb').MongoClient;
 
 describe('test my project Permissions', function() {
     let agent = request.agent('http://localhost:3000') ;
-    let credentialsStef= {username: 'stef', password: 'test'};
+
 
     before(function(done){
         let url = 'mongodb://localhost/test';
@@ -17,10 +17,9 @@ describe('test my project Permissions', function() {
     });
 
     describe('CREATE user and 2 projects',function(){
-        it('should register', function(done) {
-
-            let userStef={username: 'stef', password: 'test', email:'stef@stef.com', name:"stef"};
-            let userFilip={username: 'filip', password: 'test', email:'filip@filip.com', name:"filip"};
+        let credentialsStef = {username: 'stef', password: 'test'};
+        let userStef = {username: 'stef', password: 'test', email: 'stef@stef.com', name: "stef"};
+        it('should register', function (done) {
             agent
                 .post('/register')
                 .send(userStef)
@@ -40,31 +39,30 @@ describe('test my project Permissions', function() {
                 });
         });
 
-        it('should create project', function (done) {
+        it('should create project for stef', function (done) {
             let project={
                 name: "pro",
                 description : "stef pro"
             };
             for(let i=0;i<2;i++) {
                 agent
-                    .post('/users/'+credentialsStef.username+'/projects')
+                    .post('/' + credentialsStef.username + '/create')
                     .send(project)
                     .end(function (err, res) {
                         if (err) return done(err);
-
-
                     });
-
             }
             done();
         });
 
     });
 
-    let credentialsFilip= {username: 'filip', password: 'test'};
+
     describe('CREATE user and 2 projects',function(){
-        it('should register FILIP', function(done) {
-            let userFilip={username: 'filip', password: 'test', email:'filip@filip.com', name:"filip"};
+        let credentialsFilip = {username: 'filip', password: 'test'};
+        let userFilip = {username: 'filip', password: 'test', email: 'filip@filip.com', name: "filip"};
+        it('should register FILIP', function (done) {
+
             agent
                 .post('/register')
                 .send(userFilip)
@@ -84,15 +82,15 @@ describe('test my project Permissions', function() {
                 });
         });
 
-        it('should create project', function (done) {
-            let project={
+        it('should create project for filip', function (done) {
+            let project2 = {
                 name: "pro",
                 description : "filip pro"
             };
             for(let i=0;i<2;i++) {
                 agent
-                    .post('/users/'+credentialsFilip.username+'/projects')
-                    .send(project)
+                    .post('/' + credentialsFilip.username + '/create')
+                    .send(project2)
                     .end(function (err, res) {
                         if (err) return done(err);
 
@@ -101,13 +99,15 @@ describe('test my project Permissions', function() {
             done();
         });
     });
-    let credentialsKwnna = {username: 'Kwnna', password: 'test'};
+
     describe('CREATE user and 2 projects', function () {
+        let credentialsKwnna = {username: 'kwnna', password: 'test'};
+        let userKwnna = {username: 'kwnna', password: 'test', email: 'kwnna@kwnna.com', name: "kwnna"};
         it('should register Kwnna', function (done) {
-            let userFilip = {username: 'kwnna', password: 'test', email: 'kwnna@kwnna.com', name: "kwnna"};
+
             agent
                 .post('/register')
-                .send(userFilip)
+                .send(userKwnna)
                 .end(function (err, res) {
                     if (err) return done(err);
                     done();
@@ -124,15 +124,15 @@ describe('test my project Permissions', function() {
                 });
         });
 
-        it('should create project', function (done) {
-            let project = {
+        it('should create project for kwnna', function (done) {
+            let project3 = {
                 name: "pro",
                 description: "kwnna pro"
             };
             for (let i = 0; i < 2; i++) {
                 agent
-                    .post('/users/' + credentialsKwnna.username + '/projects')
-                    .send(project)
+                    .post('/' + credentialsKwnna.username + '/create')
+                    .send(project3)
                     .end(function (err, res) {
                         if (err) return done(err);
 

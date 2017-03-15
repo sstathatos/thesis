@@ -1,4 +1,4 @@
-class Permission {
+class Permission { //todo must be changed
     constructor() {
     }
 }

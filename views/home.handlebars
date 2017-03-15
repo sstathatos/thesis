@@ -1,8 +1,9 @@
 <div class="jumbotron">
     <div class="container">
         {{> flash}}
+        <h2>'s Profile</h2>
         <h2>Create a new Project:
-            <a href="/users/{{username}}/projects" class="btn btn-success" >Create</a>
+            <a href="/{{username}}/create" class="btn btn-success">Create</a>
         </h2>
         <h2>Search for a specific Project:</h2>
         <form method="GET" action="/users/{{username}}/projects/search">
@@ -19,10 +20,10 @@
                 <td style="float:right">Delete project</td>
             </tr>
             </thead>
-            {{#each results as |result|}}
+            {{#each items as |result|}}
                 <tbody>
                 <tr>
-                    <td><a>{{result.name}}</a></td>
+                    <td><a href="/users/{{../username}}/projects/view/{{result._id}}">{{result.name}}</a></td>
                     <td>{{result.description}}</td>
                     <td>
                         <form method="POST" action="/users/{{../username}}/projects/{{result._id}}?_method=DELETE"
@@ -35,8 +36,6 @@
             {{/each}}
         </table>
     </div>
-
-
 </div>
 <!--<div class="container">-->
 <!--&lt;!&ndash; Example row of columns &ndash;&gt;-->

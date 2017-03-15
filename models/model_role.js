@@ -3,26 +3,25 @@ var dbHost = 'mongodb://localhost/test';
 mongoose.createConnection(dbHost);
 
 class PermissionsFactory {
-    constructor(firstSchema,secondSchema,model_name,dao_class) {
-        this.firstSchema = firstSchema;
-        this.secondSchema = secondSchema;
+    constructor(firstmodelname, secondmodelname, model_name, dao_class) {
+        this.firstmodelname = firstmodelname;
+        this.secondmodelname = secondmodelname;
         this.model_name = model_name;
-        this.dao_class = dao_class;
 
-        var schema= mongoose.Schema({
+        let schema = mongoose.Schema({
             user_id: {
-                type: mongoose.Schema.Types.ObjectId, ref: this.firstSchema
+                type: mongoose.Schema.Types.ObjectId, ref: this.firstmodelname
             },
             obj_id: {
-                type: mongoose.Schema.Types.ObjectId, ref: this.secondSchema
+                type: mongoose.Schema.Types.ObjectId, ref: this.secondmodelname
             },
             view: Boolean,
             edit: Boolean,
             del: Boolean,
             create: Boolean
-        })
-        schema.index({user_id:1,obj_id:1},{unique:true}); // together unique
-        return this.dao = new this.dao_class(mongoose.model(model_name,schema));
+        });
+        schema.index({user_id: 1, obj_id: 1}, {unique: true}); // together unique todo it doesnt work
+        this.dao = new dao_class(mongoose.model(model_name, schema));
     }
 }
 

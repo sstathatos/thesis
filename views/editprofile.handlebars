@@ -1,7 +1,7 @@
 
 <div class="jumbotron">
     <div class="container">
-        <form method="POST" action="/users?_method=PUT">
+        <form method="POST" action="/{{username}}/edit?_method=PUT">
             <div class="form-group">
                 <label>Name</label>
                 <input type="text" class="form-control"
@@ -23,7 +23,8 @@
                        placeholder="Password"  name="password" style="width:25%">
             </div>
             <button class="btn btn-warning" type="submit">Save Changes</button>
-            <button class="btn btn-danger" formaction="/users?_method=DELETE" type="submit">Delete User</button>
+            <button class="btn btn-danger" formaction="/{{username}}/delete?_method=DELETE" type="submit">Delete User
+            </button>
         </form>
     </div>
 </div>
