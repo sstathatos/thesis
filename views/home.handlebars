@@ -6,7 +6,7 @@
             <a href="/{{username}}/create" class="btn btn-success">Create</a>
         </h2>
         <h2>Search for a specific Project:</h2>
-        <form method="GET" action="/users/{{username}}/projects/search">
+        <form method="GET" action="/{{username}}/search">
             <input type="text" name="name" placeholder="Search projects..">
             <button type="submit"  class="btn btn-success" >Search</button>
         </form>
@@ -26,7 +26,7 @@
                     <td><a href="/users/{{../username}}/projects/view/{{result._id}}">{{result.name}}</a></td>
                     <td>{{result.description}}</td>
                     <td>
-                        <form method="POST" action="/users/{{../username}}/projects/{{result._id}}?_method=DELETE"
+                        <form method="POST" action="/{{../username}}/{{result._id}}?_method=DELETE"
                               style="float:right">
                             <button type="submit" class="btn btn-danger"> X</button>
                         </form>

@@ -2,80 +2,46 @@ var express= require('express');
 var router= express.Router();
 var Entities = require('../models/model_entity').Entities;
 let ProjectCreateView = require('../class_views/project_views').ProjectCreateView;
+let ProjectSearchListView = require('../class_views/project_views').ProjectSearchListView;
+let ProjectMemberCreateView = require('../class_views/project_views').ProjectMemberCreateView;
+let ProjectDeleteView = require('../class_views/project_views').ProjectDeleteView;
 var projects = Entities[1];
 var users = Entities[0];
 var projectpermissions = Entities[2];
-
-let View = require('../generic_views').View;
-let DetailView = require('../generic_views').DetailView;
-let CreateView = require('../generic_views').CreateView;
 let RedirectView = require('../generic_views').RedirectView;
 
 
 //Get create project page
 router.all('/create', (req, res) => {
-    console.log('something');
-    let my_view = new ProjectCreateView(null, "createproject");
-    my_view.as_view(req, res);
+    let my_view = new ProjectCreateView(req, res);
+    my_view.as_view();
 });
 
+router.get('/search', (req, res) => {
+    let my_view = new ProjectSearchListView(req, res);
+    projects.dao.all().find(req.query, (err, proj) => {
+        my_view.extra_data = proj;
+        my_view.queryset = projectpermissions.dao.all().find({user_id: req.user._id});
+        my_view.as_view();
+    });
+});
 
-// //Create Project
-// router.post('/create', function(req,res) {
-//     console.log(req.body);
-//     req.body['date']= Date.now();
-//     projects.dao.create(req.body, function(err, proj) { //FIRST WE INSERT OUR NEW PROJECT INTO PROJECTS
-//         // if (err) mf.errorRespond(req,res,'/',"Error!");
-//         // req.flash('success', "Project created");
-//         projectpermissions.dao.create(new Permission.add(req.user, 'owner', proj._id), function (err) {
-//             // if(err) mf.errorRespond(req,res,'/',"Error!");
-//             // req.flash('success',"Project Owner Permission created");
-//         });
-//         if (req.body.member) // if  project members were added
-//         {
-//             //must check if they exist in users (if duplicate it sends the name once)
-//             users.dao.find({'username': {$in: req.body.member}}, function (err, members) {
-//                 // if (err) mf.errorRespond(req, res, '/', "Something went wrong with the new members");
-//                 // //users exist, ready to insert them to project as members
-//                 projectpermissions.dao.insertMany(members.map(function (a) {
-//                     return (new Permission.add(a, 'member', proj._id))
-//                 }), function (err, result) {
-//                     // console.log(result);
-//                     // req.flash('success', "Project Members Added");
-//                     // mf.successRedirect(req, res, '/users/' + req.user.username);
-//                     res.redirect('/'+req.user.username);
-//                 })
-//             });
-//         }
-//         res.redirect('/'+req.user.username);
-//         // else mf.successRedirect(req, res, '/users/' + req.user.username);
-//     });
-// });
-//
-// //Add User in a Project as Member
-// router.post('/:_id', function(req,res) {
-//     console.log(req.params._id);
-//     projectpermissions.create(new Permission.add(req.user, 'member', req.params._id), function (err, result) {
-//         if (err) mf.errorRespond(req, res, '/', "Error!");
-//         console.log("project member permission created");
-//         mf.successRedirect(req, res, '/users/' + req.user.username, "Project Member Permission created");
-//     })
-// });
-// //
-// //Search projects
-// router.get('/search', function(req,res) {
-//     projects.all(req.query, function(err,proj) { //find all searches
-//         if(err) new RedirectView('/error',null).as_view(req,res);
-//         projectpermissions.all({user_id:req.user._id}, function (err,perms) {
-//             if(err) new RedirectView('/error',null).as_view(req,res);
-//             new DetailView({proj :proj,perms:perms}, 'searchproject').as_view(req,res);
-//         });
-//     });
-// });
-//
+//Add User in a Project as Member
+router.post('/:_id', function (req, res) {
+    console.log(req.params._id);
+    let my_view = new ProjectMemberCreateView(req, res);
+    my_view.as_view();
+});
+
+router.delete('/:_id', function (req, res) {
+    let my_view = new ProjectDeleteView(req, res);
+    my_view.as_view();
+})
+
 // //Delete project
 // router.delete('/:_id', function (req, res) {
 //     //check my permissions for this project
+//
 //     projectpermissions.all({user_id: req.user._id, obj_id: req.params._id}, function (err, result) {
 //         if (err) mf.errorRespond(req, res, '/', "Error!");
 //         else if (result[0].del == false) {// if not project owner
@@ -90,13 +56,7 @@ router.all('/create', (req, res) => {
 //         else { //project owner
 //             projectpermissions.all({obj_id: req.params._id}, function (err, result) { //get all project permissions for all users
 //                 if (err) mf.errorRespond(req, res, '/', "Error!");
-//                 else projectpermissions.delete({
-//                     'obj_id': {
-//                         $in: result.map(function (a) {
-//                             return a.obj_id
-//                         })
-//                     }
-//                 }, function (err) {  //
+//                 else projectpermissions.delete({'obj_id': {$in: result.map(function (a) {return a.obj_id})}}, function (err) {  //
 //                     console.log("All project permissions were deleted");
 //                     projects.delete({_id: req.params._id}, function (err) {
 //                         if (err) mf.errorRespond(req, res, '/', "Error!");

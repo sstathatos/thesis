@@ -9,7 +9,6 @@ var projectpermissions = Entities[2];
 let DetailView = require('../generic_views').DetailView;
 let RedirectView = require('../generic_views').RedirectView;
 let ProjectListView = require('../class_views/project_views').ProjectListView;
-let ListView = require('../generic_views').ListView;
 let UserDeleteView = require('../class_views/user_views').UserDeleteView;
 let UserUpdateView = require('../class_views/user_views').UserUpdateView;
 
@@ -20,22 +19,21 @@ let UserUpdateView = require('../class_views/user_views').UserUpdateView;
 
 //get UserPAGE
 router.get('/:username', (req, res) => {
-    let my_view = new ProjectListView();
+
+    let my_view = new ProjectListView(req, res);
     users.dao.all().findOne({username: req.params.username}, (err, user) => {
         my_view.queryset = projectpermissions.dao.all().find({'user_id': user._id}).populate('obj_id');
-        my_view.as_view(req, res);
+        my_view.as_view();
     });
 });
 
 router.all('/:username/edit', (req, res) => {
-    new UserUpdateView().as_view(req, res);
+    new UserUpdateView(req, res).as_view();
 });
 
 router.delete('/:username/delete', (req, res) => {
-    let my_view = new UserDeleteView();
-    my_view.query = {_id: req.user._id};
-    my_view.model = users;
-    my_view.as_view(req, res);
+    let my_view = new UserDeleteView(req, res);
+    my_view.as_view();
 });
 
 // //Search User UNDER CONSTRUCTION

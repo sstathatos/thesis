@@ -15,10 +15,10 @@ class PermissionsFactory {
             obj_id: {
                 type: mongoose.Schema.Types.ObjectId, ref: this.secondmodelname
             },
-            view: Boolean,
-            edit: Boolean,
-            del: Boolean,
-            create: Boolean
+            read: Boolean,
+            put: Boolean,
+            delete: Boolean,
+            post: Boolean
         });
         schema.index({user_id: 1, obj_id: 1}, {unique: true}); // together unique todo it doesnt work
         this.dao = new dao_class(mongoose.model(model_name, schema));

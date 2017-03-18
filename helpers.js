@@ -5,4 +5,9 @@
                 return opts.inverse(this);
         }
         return opts.fn(this);
-    }
+  };
+
+  exports.if_eq = function (a, b, opts) {
+      if (a == b) return opts.inverse(this);
+      return opts.fn(this);
+  };

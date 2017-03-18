@@ -13,13 +13,13 @@
 
         <tbody>
 
-            {{#each proj as |project|}}
+        {{#each items.proj as |project|}}
                 <tr>
                     <td>{{project.name}}</td>
                     <td>{{project.description}}</td>
                     <td>
-                        <form method="POST" action="/users/{{../username}}/projects/{{project._id}}">
-                            {{#if_in project._id ../perms}}
+                        <form method="POST" action="/{{../username}}/{{project._id}}">
+                            {{#if_in project._id ../items.perms}}
                                 <button type="submit" class="btn btn-default">Add Project</button>
                             {{/if_in}}
                         </form>

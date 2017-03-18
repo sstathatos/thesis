@@ -1,52 +1,49 @@
 let CreateView = require('./../generic_views').CreateView;
-let UpdateView = require('./../generic_views').UpdateView;
 let DeleteView = require('./../generic_views').DeleteView;
 
 var Entities = require('./../models/model_entity').Entities;
 var users = Entities[0];
 
 class UserCreateView extends CreateView {
-    constructor() {
-        super();
+    constructor(req, res) {
+        super(req, res);
         this.success_url = '/register';
         this.model = users;
         this.template_name = "welcome";
         this.msg = "User created, you can now login";
+        this.data = req.body;
     }
 }
 
-class UserUpdateView extends UpdateView {
-    constructor() {
-        super();
+class UserUpdateView extends CreateView {
+    constructor(req, res) {
+        super(req, res);
+        this.layout = 'main';
         this.model = users;
         this.template_name = "editprofile";
         this.msg = "User updated successfully";
-    }
-
-    put(req, res) {
         this.query = {_id: req.user._id};
         this.success_url = '/' + req.user.username;
-        super.put(req, res);
     }
+
+    //todo override validate
 }
 
 class UserDeleteView extends DeleteView {
-    constructor() {
-        super();
+    constructor(req, res) {
+        super(req, res);
+        this.query = {_id: this.req.user._id};
+        this.model = users;
     }
 
-    delete(req, res) { //must override this cause of session destroy
-        this.model.dao.delete(this.query, (err) => {
-            if (err) {
-                req.flash('error', err);
-                res.redirect('/error');
-            }
-            req.session.destroy(() => {
-                res.clearCookie('connect.sid');
-                res.redirect(this.success_url);
+    delete() {
+        super.delete(req, res, () => {
+            this.req.session.destroy(() => {
+                this.res.clearCookie('connect.sid');
+                this.res.redirect(this.success_url);
             });
-        });
-    };
+        })
+    }
 }
 
 module.exports = {

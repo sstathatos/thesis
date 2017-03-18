@@ -4,8 +4,8 @@ class Permission { //todo must be changed
 }
 
 Permission.roles = {
-    owner: {view: true, edit: true, del: true, create: false},
-    member: {view: true, edit: false, del: false, create: false}
+    owner: {read: true, put: true, delete: true, post: false},
+    member: {read: true, put: false, delete: false, post: false}
 };
 
 Permission.add = function (user, role, obj_id) {
@@ -13,10 +13,10 @@ Permission.add = function (user, role, obj_id) {
     return {
         user_id: user._id,
         obj_id: obj_id,
-        view: b.view,
-        edit: b.edit,
-        del: b.del,
-        create: b.create
+        read: b.read,
+        put: b.put,
+        delete: b.delete,
+        post: b.post
     }
 };
 

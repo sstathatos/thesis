@@ -1,12 +1,12 @@
+let Permission = require('./models/model_permission').Permission;
 class View {
-    constructor() {
+    constructor(req, res) {
+        this.req = req;
+        this.res = res;
         this.http_method_names = ['GET', 'POST', 'PUT', 'DELETE'];
     }
 
-    as_view(req, res) {
-        this.req = req;
-        this.res = res;
-
+    as_view() {
         return this.dispatch();
     };
 
@@ -25,8 +25,8 @@ class View {
         throw TypeError("Not an http method.");
     };
 
-    get(req, res) {
-        res.render(this.template_name, this.get_context_data(this.objects));
+    get() {
+        this.res.render(this.template_name, this.get_context_data(this.objects));
     };
 
     get_context_data(items) {
@@ -36,14 +36,22 @@ class View {
         }
     }
 
-    post(req, res) {
-        throw Error();
-    };
+    crud_error(err) {
+        this.req.flash('error', err);
+        this.res.redirect('/errors');
+    }
+
+    check_permissions(model, obj_id) {
+        let op = this.req.method.toLowerCase();
+        if (op == 'get') op = 'read';
+        //todo add operation
+        return model.dao.all().find({user_id: this.req.user._id, obj_id: obj_id});
+    }
 }
 
 class DetailView extends View {
-    constructor(object, template_name) {
-        super();
+    constructor(req, res, object, template_name) {
+        super(req, res);
         this.objects = object;
         this.template_name = template_name;
         this.layout = 'main';
@@ -51,116 +59,120 @@ class DetailView extends View {
 }
 DetailView.http_method_names = ['GET'];
 
-
-class RedirectView extends View {
-    constructor(redirect_url, msg) {
-        super();
-        this.redirect_url = redirect_url;
-        this.msg = msg;
-    }
-
-    get(req, res) {
-        if (this.msg) req.flash(this.msg.type, this.msg.info);
-        res.redirect(this.redirect_url);
-    };
-
-    post(req, res) {
-        if (this.msg) req.flash(this.msg.type, this.msg.info);
-        res.redirect(this.redirect_url);
-    };
-}
-RedirectView.http_method_names = ['GET', 'POST'];
-
 class ValidateView extends View {
-    constructor() {
-        super();
+    constructor(req, res) {
+        super(req, res);
     }
 
-    validate(req, res) {
-        if (!req.body.username || !req.body.password) {
-            req.flash('error', "Data are required.");
-            res.redirect('/error');
-        }
+    validate() { //todo add front end validation
+        return true;
+        //        if  (all_fields_required && pass_match) cb()
+        // else {
+        //     this.req.flash('error',"Wrong data inserted.");
+        //     this.res.redirect(this.failure_url);
+        // }
+    }
+
+    invalid_form() {
+        this.req.flash('error', err);
+        this.res.redirect(this.failure_url);
+    }
+
+    done() {
+        this.req.flash('success', this.msg);
+        this.res.redirect(this.success_url);
     }
 }
-
 
 class CreateView extends ValidateView {
-    constructor() {
-        super();
+
+    constructor(req, res) {
+        super(req, res);
         this.success_url = '/';
         this.model = null;
         this.template_name = 'welcome';
         this.msg = null;
+        this.failure_url = '/register';
+        this.data = null;
     }
 
-    post(req, res) {
-        super.validate(req, res, () => {
-            this.model.dao.create(req.body, (err) => {
-                if (err) {
-                    req.flash('error', err);
-                    res.redirect('/error');
-                }
-                req.flash('success', this.msg);
-                res.redirect(this.success_url);
+    post() {
+        if (super.validate()) {
+            this.model.dao.create(this.data, (err) => {
+                if (err) this.crud_error(err);
+                else super.done();
+            });
+        }
+        else super.invalid_form();
+    };
+
+    createAndPerm(model, msg, cb) { //class method which is used to create something and owner perms for that
+        this.model.dao.create(this.data, (err, item) => { //create project
+            if (err) this.crud_error(err);
+            this.data = new Permission.add(this.req.user, 'owner', item._id);
+            model.dao.create(this.data, (err, perm) => { //create owner permission
+                if (err) this.crud_error(err);
+                this.req.flash('success', msg);
+                return cb(err, item, perm);
             });
         });
-    };
-}
-CreateView.http_method_names = ['GET', 'POST'];
-
-class UpdateView extends ValidateView {
-    constructor() {
-        super();
-        this.success_url = null;
-        this.template_name = 'editprofile';
-        this.layout = 'main';
-        this.msg = null;
-        this.query = null;
-        this.model = null;
     }
 
-    put(req, res) {
-        super.validate(req, res, () => {
-            this.model.dao.update(this.query, req.body, (err) => {
-                if (err) {
-                    req.flash('error', err);
-                    res.redirect('/error');
-                }
-                req.flash('success', this.msg);
-                res.redirect(this.success_url);
+    put() {
+        if (super.validate()) {
+            this.model.dao.update(this.query, this.req.body, (err) => {
+                if (err) this.crud_error(err);
+                else super.done();
             });
-        });
+        }
+        else super.invalid_form();
     };
 }
-UpdateView.http_method_names = ['GET', 'PUT'];
+CreateView.http_method_names = ['GET', 'POST', 'PUT'];
+
+
+class RedirectView extends View {
+    constructor(req, res, redirect_url, msg) {
+        super(req, res);
+        this.redirect_url = redirect_url;
+        this.msg = msg;
+    }
+
+    get() {
+        if (this.msg) this.req.flash(this.msg.type, this.msg.info);
+        this.res.redirect(this.redirect_url);
+    };
+
+    post() {
+        if (this.msg) this.req.flash(this.msg.type, this.msg.info);
+        this.res.redirect(this.redirect_url);
+    };
+}
+RedirectView.http_method_names = ['GET', 'POST'];
 
 class DeleteView extends View {
-    constructor() {
-        super();
+    constructor(req, res) {
+        super(req, res);
         this.success_url = '/register';
         this.msg = "User successfully deleted";
         this.query = null;
     }
 
-    delete(req, res) {
+    delete(cb) {
         this.model.dao.delete(this.query, (err) => {
-            if (err) {
-                req.flash('error', err);
-                res.redirect('/error');
-            }
-            req.flash('success', this.msg);
-            res.redirect(this.success_url);
-
+            if (err) this.crud_error(err);
+            else cb();
         });
     };
+
 }
 DeleteView.http_method_names = ['DELETE'];
 
 //todo change  get_queryset
 class ListView extends View {
-    constructor() {
-        super();
+    constructor(req, res) {
+        super(req, res);
+        console.log("then here");
         this.queryset = null;
         this.template_name = 'home';
         this.model = null;
@@ -168,7 +180,7 @@ class ListView extends View {
         this.objects = null;
     }
 
-    get_queryset(req) {
+    get_queryset() {
         if (this.queryset)
             return this.queryset;
         else if (this.model) {
@@ -177,11 +189,11 @@ class ListView extends View {
         else throw Error("Queryset is missing");
     }
 
-    get(req, res) {
-        this.get_queryset(req).exec((err, objects) => {
+    get() {
+        this.get_queryset().exec((err, objects) => {
             if (err) throw Error();
             this.objects = objects;
-            super.get(req, res);
+            super.get();
         });
     }
 }
@@ -193,8 +205,7 @@ module.exports = {
     RedirectView: RedirectView,
     CreateView: CreateView,
     ListView: ListView,
-    DeleteView: DeleteView,
-    UpdateView: UpdateView
+    DeleteView: DeleteView
 };
 
 

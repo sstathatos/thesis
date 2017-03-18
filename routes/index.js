@@ -23,15 +23,15 @@ router.use(function (req, res, next) {
 
 
 router.get('/', (req, res) => {
-    let view = new RedirectView();
+    let view = new RedirectView(req, res);
     view.redirect_url = '/register';
-    return view.as_view(req, res);
+    return view.as_view();
 });
 
 router.get('/error', (req, res) => {
-    let my_view = new DetailView(null, 'error');
+    let my_view = new DetailView(req, res, null, 'error');
     my_view.layout = false;
-    my_view.as_view(req, res);
+    my_view.as_view();
 });
 
 router.use('/', require('./authentication.js'));
