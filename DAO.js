@@ -105,31 +105,21 @@ class ProjectDAO extends DAO {
     }
 }
 
-class PermissionsDAO extends DAO {
-
-// todo    MANAGERS
-
-    // permissions.dao.by_username("filip", () =>{
-    //
-    // });
-
-    by_userid(user_id) {
-        this.dao.find({user_id: user_id})
+//Specific Project functions
+class PostDAO extends DAO {
+    constructor(model) {
+        super(model);
     }
+}
+//Specific Project functions
+class DatasetDAO extends DAO {
+    constructor(model) {
+        super(model);
+    }
+}
 
-    // users.dao.findOne({'username': username}, {_id}, (userid) => {
-    //     console.log(userid);
-    //     // this.all().find({'user_id': id}, (results) => {
-    //     //     cb(err, results);
-    //     // });
-    // });
-
-
-    // this.all().populate({path: 'user_id', select: 'username -_id'}).find({'user_id.username': 'filip'}).exec((err, result) => {
-    //     console.log(result)
-    // });
-    //return this.model.find({user = user})
-
+class PermissionsDAO extends DAO {
+// todo    MANAGERS
 }
 
 class ProjectPermissionsDAO extends PermissionsDAO {
@@ -139,9 +129,18 @@ class ProjectPermissionsDAO extends PermissionsDAO {
 
 }
 
+class PostPermissionsDAO extends PermissionsDAO {
+    constructor(model) {
+        super(model);
+    }
+}
+
 module.exports={
     DAO:DAO,
     UserDAO:UserDAO,
     ProjectDAO:ProjectDAO,
-    ProjectPermissionsDAO:ProjectPermissionsDAO
+    PostDAO: PostDAO,
+    DatasetDAO: DatasetDAO,
+    ProjectPermissionsDAO: ProjectPermissionsDAO,
+    PostPermissionsDAO: PostPermissionsDAO
 };

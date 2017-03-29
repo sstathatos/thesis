@@ -50,22 +50,33 @@ let PostSchema = {
         type: String,
         index: true
     },
-    PostDate: {
+    date: {
         type: Date
     },
-    Description: {
+    description: {
         type: String
-    },
-    Owner: {
-        type: String
+    }
+};
+
+let DatasetSchema = {
+    data: {type: [Number]},
+    // metadata: Object,
+    // data: {
+    //     type:[{dim0:Number,dim1:Number,dim2:Number,value:Number}]
+    // },
+    project_id: {
+        type: mongoose.Schema.Types.ObjectId, ref: ProjectSchema
     }
 };
 
 let users = new Entity("users", UserSchema, DAOclass.UserDAO);
 let projects = new Entity("projects", ProjectSchema, DAOclass.ProjectDAO);
+let posts = new Entity('posts', PostSchema, DAOclass.PostDAO);
+let datasets = new Entity('datasets', DatasetSchema, DAOclass.DatasetDAO);
 
 let projectpermissions = new PermissionsFactory("users", "projects", "projectpermissions", DAOclass.ProjectPermissionsDAO);
-let Entities = [users, projects, projectpermissions];
+let postpermissions = new PermissionsFactory('users', 'posts', 'postpermissions', DAOclass.PostPermissionsDAO);
+let Entities = [users, projects, projectpermissions, datasets];
 
 module.exports={
     Entities: Entities

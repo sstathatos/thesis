@@ -13,17 +13,20 @@ let UserDeleteView = require('../class_views/user_views').UserDeleteView;
 let UserUpdateView = require('../class_views/user_views').UserUpdateView;
 
 
-//todo must move searchbar to navbar
-//todo delete user,delete project, search project
-//todo in userpage, show delete buttons etc only for user
+//todo edit project delete user members
+//todo searchbar projects and users/ add *
 
 //get UserPAGE
 router.get('/:username', (req, res) => {
 
     let my_view = new ProjectListView(req, res);
     users.dao.all().findOne({username: req.params.username}, (err, user) => {
-        my_view.queryset = projectpermissions.dao.all().find({'user_id': user._id}).populate('obj_id');
-        my_view.as_view();
+        if (err || !user) my_view.crud_error(err);
+        else {
+            my_view.extra_data = req.params.username;
+            my_view.queryset = projectpermissions.dao.all().find({'user_id': user._id}).populate('obj_id');
+            my_view.as_view();
+        }
     });
 });
 

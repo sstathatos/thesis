@@ -4,20 +4,38 @@ class Permission { //todo must be changed
 }
 
 Permission.roles = {
-    owner: {read: true, put: true, delete: true, post: false},
-    member: {read: true, put: false, delete: false, post: false}
+    owner: {read: true, update: true, delete: true, create: true},
+    member: {read: true, update: false, delete: false, create: true}
 };
 
+/*
+ * Create a new permission Object based on owner or member role
+ * */
 Permission.add = function (user, role, obj_id) {
     let b= Permission.roles[role];
     return {
         user_id: user._id,
         obj_id: obj_id,
         read: b.read,
-        put: b.put,
+        update: b.update,
         delete: b.delete,
-        post: b.post
+        create: b.create
     }
+};
+
+
+/*
+ * Permissions Check. If someone tries to perform an operation  which he is not permitted for, we redirect to an Error!
+ * */
+//todo get post put must equal to read create update
+Permission.check = function (permissionmodel, req, cb) {
+    let op = req.method.toLowerCase();
+    permissionmodel.dao.all().findOne({user_id: req.user._id, obj_id: req.params._id}, (err, result) => {
+        if (err) return cb(err, null);
+        else {
+            return cb(null, result[op]);
+        }
+    });
 };
 
 module.exports= {

@@ -18,7 +18,7 @@ router.post('/login', (req, res, next) => {
                     req.flash('error',info);
                     return next(err);
                 }
-                else (new RedirectView(req, res, '/' + user.username, null)).as_view();
+                else (new RedirectView(req, res, '/users/' + user.username, null)).as_view();
             });
         }
     })(req,res,next);

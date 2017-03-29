@@ -2,3 +2,11 @@
 *~
 
 node_modules/
+
+data_creators/one_dim.h5
+
+data_creators/two_dim.h5
+
+data_creators/three_dim.h5
+
+build/

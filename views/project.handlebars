@@ -1,0 +1,40 @@
+<div class="jumbotron">
+    <div class="container" ng-app="uploadModule" ng-controller="uploaderCtrl" ng-init="loadDsets('{{items._id}}')"
+         style="margin-top: 20px;">
+        <div class=" panel-{{alerts.class}}" ng-show="alerts.messages">
+            <div ng-repeat="alert in alerts.messages track by $index"
+                 class="panel-body alert-{{alerts.class}}">{{alert}}</div>
+        </div>
+        <h2> Project Name: {{items.name}}</h2>
+        <h2> Project Description: {{items.description}}</h2>
+
+        <hr/>
+        <form method="GET" action="/posts/create">
+            <button type="submit" class="btn btn-success">Create a new post</button>
+        </form>
+        <hr/>
+        <form method="GET" action="/posts/create">
+            <button type="submit" class="btn btn-success">Create a new Dataset</button>
+        </form>
+
+        <hr/>
+        <div id="grid1" ui-grid="{ data: myData }" class="grid"></div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-12">
+                <div class="input-group">
+                    <label class="input-group-btn">
+                    <span class="btn btn-primary">
+                        Browse&hellip; <input type="file" file-input="file" style="display: none;">
+                    </span>
+                    </label>
+                    <input type="text" ng-model="file.name" file-input="file" class="form-control" readonly>
+                    <label class="input-group-btn">
+                        <button class="btn btn-primary" ng-click="upload('{{items._id}}')">Upload</button>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

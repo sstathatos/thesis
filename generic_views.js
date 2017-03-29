@@ -1,4 +1,4 @@
-let Permission = require('./models/model_permission').Permission;
+var Permission = require('./models/model_permission').Permission;
 class View {
     constructor(req, res) {
         this.req = req;
@@ -38,14 +38,12 @@ class View {
 
     crud_error(err) {
         this.req.flash('error', err);
-        this.res.redirect('/errors');
+        this.res.redirect('/error');
     }
 
-    check_permissions(model, obj_id) {
-        let op = this.req.method.toLowerCase();
-        if (op == 'get') op = 'read';
-        //todo add operation
-        return model.dao.all().find({user_id: this.req.user._id, obj_id: obj_id});
+    done() {
+        this.req.flash('success', this.msg);
+        this.res.redirect(this.success_url);
     }
 }
 
@@ -64,7 +62,7 @@ class ValidateView extends View {
         super(req, res);
     }
 
-    validate() { //todo add front end validation
+    validate() {
         return true;
         //        if  (all_fields_required && pass_match) cb()
         // else {
@@ -77,11 +75,6 @@ class ValidateView extends View {
         this.req.flash('error', err);
         this.res.redirect(this.failure_url);
     }
-
-    done() {
-        this.req.flash('success', this.msg);
-        this.res.redirect(this.success_url);
-    }
 }
 
 class CreateView extends ValidateView {
@@ -89,7 +82,6 @@ class CreateView extends ValidateView {
     constructor(req, res) {
         super(req, res);
         this.success_url = '/';
-        this.model = null;
         this.template_name = 'welcome';
         this.msg = null;
         this.failure_url = '/register';
@@ -99,8 +91,10 @@ class CreateView extends ValidateView {
     post() {
         if (super.validate()) {
             this.model.dao.create(this.data, (err) => {
+                if (err) throw Error(err);
+                console.log('data saved');
                 if (err) this.crud_error(err);
-                else super.done();
+                else this.done();
             });
         }
         else super.invalid_form();
@@ -168,11 +162,9 @@ class DeleteView extends View {
 }
 DeleteView.http_method_names = ['DELETE'];
 
-//todo change  get_queryset
 class ListView extends View {
     constructor(req, res) {
         super(req, res);
-        console.log("then here");
         this.queryset = null;
         this.template_name = 'home';
         this.model = null;

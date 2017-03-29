@@ -35,8 +35,10 @@ router.get('/error', (req, res) => {
 });
 
 router.use('/', require('./authentication.js'));
-router.use('/', require('./users'));
-router.use('/:username/', require('./projects'));
+router.use('/users/', require('./users'));
+router.use('/projects/', require('./projects'));
+router.use('/posts/', require('./posts'));
+router.use('/projects/', require('./datasets'));
 
 
 module.exports = router;

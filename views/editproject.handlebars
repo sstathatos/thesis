@@ -1,0 +1,35 @@
+<div class="jumbotron">
+    <div class="container">
+        <h2>{{items.proj_name}} 's Users: </h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <td>Username</td>
+                <td>Permissions</td>
+                <td></td>
+                <td></td>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            {{#each items.items as |user|}}
+                <tr>
+                    <td>{{user.user}}</td>
+                    <td>
+
+                        {{#if_eq user.perm true}}
+                            Owner
+                        {{else}}
+                            Member
+                        {{/if_eq}}
+
+                    </td>
+                </tr>
+            {{/each}}
+
+            </tbody>
+
+        </table>
+    </div>
+</div>

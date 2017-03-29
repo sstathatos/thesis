@@ -47,7 +47,7 @@ myApp.controller('searchProjectInstanceCtrl',['$uibModalInstance','$scope','$htt
     var myquery = $scope.$parent.projectquery;
     var data={
         'name':myquery
-    }
+    };
     console.log(data);
     $http({
         method:'POST',
@@ -79,7 +79,7 @@ myApp.controller('currentProjectsController',['$http','$scope', function ($http,
             }, function errorCallback() {
                 console.log("something went wrong while loading.");
             });
-    }
+    };
     $scope.init();
 }]);
 

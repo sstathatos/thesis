@@ -46,7 +46,7 @@ describe('test my project Permissions', function() {
             };
             for(let i=0;i<2;i++) {
                 agent
-                    .post('/' + credentialsStef.username + '/create')
+                    .post('/projects/create')
                     .send(project)
                     .end(function (err, res) {
                         if (err) return done(err);
@@ -89,7 +89,7 @@ describe('test my project Permissions', function() {
             };
             for(let i=0;i<2;i++) {
                 agent
-                    .post('/' + credentialsFilip.username + '/create')
+                    .post('/projects/create')
                     .send(project2)
                     .end(function (err, res) {
                         if (err) return done(err);
@@ -131,7 +131,7 @@ describe('test my project Permissions', function() {
             };
             for (let i = 0; i < 2; i++) {
                 agent
-                    .post('/' + credentialsKwnna.username + '/create')
+                    .post('/projects/create')
                     .send(project3)
                     .end(function (err, res) {
                         if (err) return done(err);

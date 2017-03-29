@@ -6,3 +6,8 @@ body {
 .dashed {
     stroke-dasharray: 5,5;
 }
+
+.myGrid {
+    width: 500px;
+    height: 250px;
+}

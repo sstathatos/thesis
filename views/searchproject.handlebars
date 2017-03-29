@@ -6,7 +6,7 @@
         <tr>
             <td>Project Name</td>
             <td>Description</td>
-            <td></td>
+            <td>Date Created</td>
             <td></td>
         </tr>
         </thead>
@@ -17,8 +17,9 @@
                 <tr>
                     <td>{{project.name}}</td>
                     <td>{{project.description}}</td>
+                    <td>{{project.date}}</td>
                     <td>
-                        <form method="POST" action="/{{../username}}/{{project._id}}">
+                        <form method="POST" action="/projects/{{project._id}}">
                             {{#if_in project._id ../items.perms}}
                                 <button type="submit" class="btn btn-default">Add Project</button>
                             {{/if_in}}
