@@ -6,7 +6,7 @@ let RedirectView = require('../class_views/generic/base').RedirectView;
 let mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 let acl = require('acl');
-let dbc = mongoose.connect('mongodb://localhost/test', {});
+let dbc = mongoose.connect('mongodb://localhost/test', {}); // todo VGALTA OLA AUTA: 1 fora kaneis connect stin DB (mono sto app.js)
 acl = new acl(new acl.mongodbBackend(dbc.connection.db));
 
 

@@ -1,6 +1,6 @@
 let acl = require('acl');
 let mongodb = require('mongodb');
-mongodb.connect("mongodb://localhost/test", function (error, db) {
+mongodb.connect("mongodb://localhost/test", function (error, db) { // todo svise to connect apo padou ektos apo to app.js
     let mongoBackend = new acl.mongodbBackend(db, 'acl_');
     acl = new acl(mongoBackend);
     console.log(acl);

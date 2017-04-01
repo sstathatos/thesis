@@ -11,7 +11,7 @@ passport.use(new LocalStrategy (
             if(!user) {
                 return done(null , false,'Unknown User');
             }
-            else if(user.password==password) {
+            else if (user.password == password) { //todo allaxe to na min vgazei warning (may cause unexpected type coersion)
                 return done(null,user);
             }
             else {

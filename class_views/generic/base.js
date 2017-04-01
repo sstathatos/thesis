@@ -12,7 +12,7 @@ class View {
 
     dispatch() {
         for (let num in this.http_method_names) {
-            if (this.req.method == this.http_method_names[num]) {
+            if (this.req.method == this.http_method_names[num]) {//todo allaxe to na min vgazei warning (may cause unexpected type coersion)
                 this.handler = this[this.req.method.toLowerCase()];
                 return this.handler(this.req, this.res);
             }

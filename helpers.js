@@ -8,7 +8,7 @@
   };
 
   exports.if_eq = function (a, b, opts) {
-      if (a == b) return opts.fn(this);
+      if (a == b) return opts.fn(this);//todo allaxe to na min vgazei warning (may cause unexpected type coersion)
       return opts.inverse(this);
   };
 
