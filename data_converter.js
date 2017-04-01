@@ -5,15 +5,14 @@ let fs = require('fs');
 let tmp = require('tmp');
 let Busboy = require('busboy');
 let math = require('mathjs');
-let concatenate = require('concatenate');
 
 function send_data(req, cb) {
     let busboy = new Busboy({headers: req.headers});
-    console.log()
+    console.log();
     busboy.on('file', function (fieldname, file, filename, encoding, mimetype) {
         if (!filename.includes('.h5')) cb('This file extension is not supported.', null);
         else {
-            file.fileRead = []; //collect all chunks
+            file.fileRead = []; //collect al8l chunks
             let size = 0; //count size of chunks
             file.on('data', function (chunk) {
                 console.log(chunk.length);
