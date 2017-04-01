@@ -1,12 +1,12 @@
-let ListView = require('./../generic_views').ListView;
-let CreateView = require('./../generic_views').CreateView;
-let DeleteView = require('./../generic_views').DeleteView;
-var Entities = require('./../models/model_entity').Entities;
-var Permission = require('../models/model_permission').Permission;
-var projectpermissions = Entities[2];
-var projects = Entities[1];
-var users = Entities[0];
-var datasets = Entities[3];
+let ListView = require('./generic/base').ListView;
+let CreateView = require('./generic/base').CreateView;
+let DeleteView = require('./generic/base').DeleteView;
+const Entities = require('./../models/model_entity').Entities;
+let Permission = require('../models/model_permission').Permission;
+let projectpermissions = Entities[2];
+const projects = Entities[1];
+let users = Entities[0];
+const datasets = Entities[3];
 
 class DatasetCreateView extends CreateView {
     constructor(req, res) {

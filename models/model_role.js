@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-var dbHost = 'mongodb://localhost/test';
+const mongoose = require('mongoose');
+const dbHost = 'mongodb://localhost/test';
 mongoose.createConnection(dbHost);
 
 class PermissionsFactory {

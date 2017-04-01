@@ -1,7 +1,7 @@
-var assert = require('assert');
-var request = require('supertest'),
-    should = require('chai').should();
-var MongoClient = require('mongodb').MongoClient;
+let assert = require('assert');
+const request = require('supertest');
+let should = require('chai').should();
+let MongoClient = require('mongodb').MongoClient;
 
 
 describe('test my dao', function() {

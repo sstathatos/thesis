@@ -1,3 +1,3 @@
-var acl = require('./acl_test').acl;
+const acl = require('./acl_test').acl;
 
 console.log(acl);

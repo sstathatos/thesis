@@ -1,5 +1,5 @@
 let hdf5 = require('hdf5').hdf5;
-var h5lt = require('hdf5').h5lt;
+const h5lt = require('hdf5').h5lt;
 let Access = require('hdf5/lib/globals').Access;
 let fs = require('fs');
 let tmp = require('tmp');

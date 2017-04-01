@@ -1,7 +1,7 @@
-var assert = require('assert');
-var request = require('supertest'),
-    should = require('chai').should();
-var MongoClient = require('mongodb').MongoClient;
+let assert = require('assert');
+const request = require('supertest');
+let should = require('chai').should();
+const MongoClient = require('mongodb').MongoClient;
 
 describe('test my project Permissions', function() {
     let agent = request.agent('http://localhost:3000') ;

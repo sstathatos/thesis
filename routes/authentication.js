@@ -1,7 +1,7 @@
-var express= require('express');
-var router= require('express').Router();
-var model_auth_ses= require('../models/model_authentication_session');
-let RedirectView = require('../generic_views').RedirectView;
+let express = require('express');
+const router = require('express').Router();
+const model_auth_ses = require('../models/model_authentication_session');
+let RedirectView = require('../class_views/generic/base').RedirectView;
 let UserCreateView = require('../class_views/user_views').UserCreateView;
 
 

@@ -1,7 +1,7 @@
-var myApp=angular.module('myApp', ['ui.bootstrap']);
+const myApp = angular.module('myApp', ['ui.bootstrap']);
 
 myApp.controller('editProfileCtrl',['$uibModal','$scope', function ($uibModal,$scope) {
-    var $ctrl = this;
+    const $ctrl = this;
       $ctrl.open = function () {
         $uibModal.open({
             ariaLabelledBy: 'modal-title',
@@ -14,7 +14,7 @@ myApp.controller('editProfileCtrl',['$uibModal','$scope', function ($uibModal,$s
 }]);
 
 myApp.controller('editProfileInstanceCtrl',['$uibModalInstance','$scope',function ($uibModalInstance,$scope) {
-  var $ctrl = this;
+    const $ctrl = this;
   $ctrl.x = function () {
       console.log("x pressed");
       $uibModalInstance.close('cancel');
@@ -27,7 +27,7 @@ myApp.controller('editProfileInstanceCtrl',['$uibModalInstance','$scope',functio
 }]);
 
 myApp.controller('searchProjectCtrl',['$uibModal','$scope','$http', function ($uibModal,$scope,$http) {
-    var $ctrl = this;
+    const $ctrl = this;
     $ctrl.open = function () {
         $uibModal.open({
 
@@ -43,10 +43,10 @@ myApp.controller('searchProjectCtrl',['$uibModal','$scope','$http', function ($u
 }]);
 
 myApp.controller('searchProjectInstanceCtrl',['$uibModalInstance','$scope','$http',function ($uibModalInstance,$scope,$http) {
-    var $ctrl = this;
-    var myquery = $scope.$parent.projectquery;
-    var data={
-        'name':myquery
+    const $ctrl = this;
+    const myquery = $scope.$parent.projectquery;
+    const data = {
+        'name': myquery
     };
     console.log(data);
     $http({

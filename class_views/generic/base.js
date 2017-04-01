@@ -1,4 +1,4 @@
-var Permission = require('./models/model_permission').Permission;
+const Permission = require('./../../models/model_permission').Permission;
 class View {
     constructor(req, res) {
         this.req = req;

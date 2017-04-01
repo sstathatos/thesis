@@ -1,29 +1,29 @@
 // top of file
 delete process.env["DEBUG_FD"];
-var express= require('express');
-var path = require('path');
-var session = require('express-session');
-var bodyParser= require('body-parser');
-var flash = require('connect-flash');
-var cookieParser= require('cookie-parser');
-var exphbs  = require('express-handlebars');
-var methodOverride = require('method-override');
-var passport= require('passport');
-var expressValidator = require('express-validator');
-var dbHost = 'mongodb://localhost/test';
-var mongoose= require('mongoose');
+const express = require('express');
+const path = require('path');
+const session = require('express-session');
+const bodyParser = require('body-parser');
+const flash = require('connect-flash');
+const cookieParser = require('cookie-parser');
+const exphbs = require('express-handlebars');
+const methodOverride = require('method-override');
+const passport = require('passport');
+const expressValidator = require('express-validator');
+const dbHost = 'mongodb://localhost/test';
+const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 mongoose.createConnection(dbHost);
 
-var MongoStore = require('connect-mongo')(session);
-var app= express();
+const MongoStore = require('connect-mongo')(session);
+const app = express();
 //Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
-var helpers= require('./helpers');
+const helpers = require('./helpers');
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
 
-var hbs = exphbs.create({
+const hbs = exphbs.create({
     defaultLayout: 'main',
     helpers: helpers
 });

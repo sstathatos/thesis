@@ -1,7 +1,7 @@
-var express = require('express');
-var router = require('express').Router();
-let DetailView = require('../generic_views').DetailView;
-let RedirectView = require('../generic_views').RedirectView;
+let express = require('express');
+const router = require('express').Router();
+let DetailView = require('../class_views/generic/base').DetailView;
+let RedirectView = require('../class_views/generic/base').RedirectView;
 
 let mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');

@@ -1,13 +1,13 @@
-var express= require('express');
-var router= express.Router();
-var Entities = require('../models/model_entity').Entities;
-var projects = Entities[1];
-var users = Entities[0];
-var projectpermissions = Entities[2];
+const express = require('express');
+const router = express.Router();
+const Entities = require('../models/model_entity').Entities;
+let projects = Entities[1];
+const users = Entities[0];
+const projectpermissions = Entities[2];
 
 
-let DetailView = require('../generic_views').DetailView;
-let RedirectView = require('../generic_views').RedirectView;
+let DetailView = require('../class_views/generic/base').DetailView;
+let RedirectView = require('../class_views/generic/base').RedirectView;
 let ProjectListView = require('../class_views/project_views').ProjectListView;
 let UserDeleteView = require('../class_views/user_views').UserDeleteView;
 let UserUpdateView = require('../class_views/user_views').UserUpdateView;

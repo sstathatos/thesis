@@ -1,8 +1,8 @@
-let CreateView = require('./../generic_views').CreateView;
-let DeleteView = require('./../generic_views').DeleteView;
+let CreateView = require('./generic/base').CreateView;
+let DeleteView = require('./generic/base').DeleteView;
 
-var Entities = require('./../models/model_entity').Entities;
-var users = Entities[0];
+const Entities = require('./../models/model_entity').Entities;
+const users = Entities[0];
 
 class UserCreateView extends CreateView {
     constructor(req, res) {

@@ -1,4 +1,4 @@
-var ctrl = angular.module('inputModule', []);
+const ctrl = angular.module('inputModule', []);
 
 ctrl.controller('inputCtrl', ['$http', '$scope', function ($http, $scope) {
     $scope.member = 1;
