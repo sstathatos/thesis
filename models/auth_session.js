@@ -1,6 +1,6 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-let Entities = require('../models/model_entity').Entities;
+let Entities = require('entity').Entities;
 const users = Entities[0];
 
 //authentication strategy-passport
