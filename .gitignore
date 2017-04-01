@@ -10,3 +10,5 @@ data_creators/two_dim.h5
 data_creators/three_dim.h5
 
 build/
+
+.idea/
