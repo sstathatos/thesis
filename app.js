@@ -11,7 +11,7 @@ const methodOverride = require('method-override');
 const passport = require('passport');
 const expressValidator = require('express-validator');
 const dbHost = 'mongodb://localhost/test';
-const mongoose = require('mongoose');
+let mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 mongoose.createConnection(dbHost);
 
