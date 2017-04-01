@@ -1,7 +1,6 @@
 let mongoose = require('mongoose');
-let dbHost = 'mongodb://localhost/test';
 let DAOclass = require('../DAO');
-mongoose.connect(dbHost);
+
 let PermissionsFactory = require('./model_role').PermissionsFactory;
 
 //Entity
