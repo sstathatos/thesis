@@ -1,8 +1,8 @@
 let express = require('express');
 const router = require('express').Router();
-let model_auth_ses = require('../models/model_authentication_session');
+let model_auth_ses = require('../models/auth_session');
 let RedirectView = require('../class_views/generic/base').RedirectView;
-let UserCreateView = require('../class_views/user_views').UserCreateView;
+let UserCreateView = require('../class_views/user').UserCreateView;
 
 
 router.post('/login', (req, res, next) => {

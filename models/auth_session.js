@@ -1,6 +1,6 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-let Entities = require('../models/model_entity').Entities;
+let Entities = require('./entity').Entities;
 const users = Entities[0];
 
 //authentication strategy-passport
@@ -11,7 +11,7 @@ passport.use(new LocalStrategy (
             if(!user) {
                 return done(null , false,'Unknown User');
             }
-            else if(user.password==password) {
+            else if (user.password == password) { //todo allaxe to na min vgazei warning (may cause unexpected type coersion)
                 return done(null,user);
             }
             else {
