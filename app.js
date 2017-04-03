@@ -17,11 +17,20 @@ mongoose.createConnection(dbHost);
 
 const MongoStore = require('connect-mongo')(session);
 const app = express();
+
 //Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 const helpers = require('./helpers');
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
+
+// let acl = require('acl');
+// let mongodb = require('mongodb');
+// mongodb.connect("mongodb://localhost/test", function (error, db) { //set up acl
+//     let mongoBackend = new acl.mongodbBackend(db, 'acl_');
+//     acl = new acl(mongoBackend);
+// });
+
 
 const hbs = exphbs.create({
     defaultLayout: 'main',

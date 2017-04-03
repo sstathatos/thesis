@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const dbHost = 'mongodb://localhost/test';
-mongoose.createConnection(dbHost);
 
 class PermissionsFactory {
     constructor(firstmodelname, secondmodelname, model_name, dao_class) {

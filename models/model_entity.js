@@ -1,6 +1,5 @@
 let mongoose = require('mongoose');
 let DAOclass = require('../DAO');
-
 let PermissionsFactory = require('./model_role').PermissionsFactory;
 
 //Entity
