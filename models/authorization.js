@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-class PermissionsFactory {
+class Acl_Backend {
     constructor(firstmodelname, secondmodelname, model_name, dao_class) {
         this.firstmodelname = firstmodelname;
         this.secondmodelname = secondmodelname;
@@ -24,5 +24,5 @@ class PermissionsFactory {
 }
 
 module.exports = {
-    PermissionsFactory:PermissionsFactory
+    Acl_Backend: Acl_Backend
 };
