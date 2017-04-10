@@ -11,7 +11,7 @@ Permission.roles = {
 /*
  * Create a new permission Object based on owner or member role
  * */
-Permission.add = function (user, role, obj_id) {
+Permission.add = (user, role, obj_id) => {
     let b= Permission.roles[role];
     return {
         user_id: user._id,
@@ -28,7 +28,7 @@ Permission.add = function (user, role, obj_id) {
  * Permissions Check. If someone tries to perform an operation  which he is not permitted for, we redirect to an Error!
  * */
 //todo get post put must equal to read create update
-Permission.check = function (permissionmodel, req, cb) {
+Permission.check = (permissionmodel, req, cb) => {
     let op = req.method.toLowerCase();
     permissionmodel.dao.all().findOne({user_id: req.user._id, obj_id: req.params._id}, (err, result) => {
         if (err) return cb(err, null);

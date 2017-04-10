@@ -13,7 +13,7 @@ const expressValidator = require('express-validator');
 const dbHost = 'mongodb://localhost/test';
 let mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-mongoose.createConnection(dbHost);
+mongoose.connect(dbHost, {});
 
 const MongoStore = require('connect-mongo')(session);
 const app = express();
@@ -23,14 +23,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 const helpers = require('./helpers');
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
-
-// let acl = require('acl');
-// let mongodb = require('mongodb');
-// mongodb.connect("mongodb://localhost/test", function (error, db) { //set up acl
-//     let mongoBackend = new acl.mongodbBackend(db, 'acl_');
-//     acl = new acl(mongoBackend);
-// });
-
 
 const hbs = exphbs.create({
     defaultLayout: 'main',
@@ -57,12 +49,17 @@ app.use(session({
     saveUninitialized: false
 }));
 
-
 //Passport init
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+acl = require('./acl_conf');
+acl.init((err) => {
+    if (err) throw Error();
+    //main start
+    app.use('/', require('./routes'));
+});
 
 app.use( function(req,res,next) {
     if(req.user) {
@@ -72,9 +69,6 @@ app.use( function(req,res,next) {
     res.locals.success=req.flash('success');
     next();
 });
-
-//main start
- app.use('/', require('./routes'));
 
 //Set Port
 app.set('port',(process.env.PORT || 3000));

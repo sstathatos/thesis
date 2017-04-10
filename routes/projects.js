@@ -1,18 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const Entities = require('../models/entity').Entities;
-let ProjectCreateView = require('../class_views/project').ProjectCreateView;
-let ProjectSearchListView = require('../class_views/project').ProjectSearchListView;
-let ProjectMembersListView = require('../class_views/project').ProjectMembersListView;
-let ProjectMemberCreateView = require('../class_views/project').ProjectMemberCreateView;
-let ProjectDeleteView = require('../class_views/project').ProjectDeleteView;
-let ProjectLeaveView = require('../class_views/project').ProjectLeaveView;
+let ProjectCreateView = require('../class_views/projects').ProjectCreateView;
+let ProjectSearchListView = require('../class_views/projects').ProjectSearchListView;
+let ProjectMembersListView = require('../class_views/projects').ProjectMembersListView;
+let ProjectMemberCreateView = require('../class_views/projects').ProjectMemberCreateView;
+let ProjectDeleteView = require('../class_views/projects').ProjectDeleteView;
+let ProjectLeaveView = require('../class_views/projects').ProjectLeaveView;
 const Permission = require('../models/permission').Permission;
 const projects = Entities[1];
 let users = Entities[0];
 const projectpermissions = Entities[2];
 let DetailView = require('../class_views/generic/base').DetailView;
-
 
 //Get create project page
 router.all('/create', (req, res) => {

@@ -9,7 +9,6 @@
   "author": "Stefanos Stathatos",
   "license": "ISC",
   "dependencies": {
-    "acl": "^0.4.10",
     "angular-ui-grid": "^3.2.10",
     "bluebird": "*",
     "body-parser": "*",

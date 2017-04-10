@@ -1,7 +1,7 @@
 let mongoose = require('mongoose');
 let DAOclass = require('../DAO');
 
-let PermissionsFactory = require('./model_role').PermissionsFactory;
+let Acl_Backend = require('./authorization').Acl_Backend;
 
 //Entity
 class Entity {
@@ -68,14 +68,43 @@ let DatasetSchema = {
     }
 };
 
+let ACLBackendSchema = mongoose.Schema({
+    user_id: [{
+        type: mongoose.Schema.Types.ObjectId, ref: UserSchema
+    }],
+    obj_id: {
+        type: mongoose.Schema.Types.ObjectId
+    },
+    role: {
+        type: String
+    }
+});
+ACLBackendSchema.index({user_id: 1, obj_id: 1}, {unique: true}); // together unique todo it doesnt work
+
+let ACLRoleSchema = mongoose.Schema({
+    obj_id: {
+        type: mongoose.Schema.Types.ObjectId
+    },
+    role: {
+        type: String
+    },
+    read: Boolean,
+    update: Boolean,
+    delete: Boolean,
+    create: Boolean
+});
+
+let acl_roles = new Entity('acl_roles', ACLRoleSchema, DAOclass.DAO);
+let acl_backend = new Entity('acl_backend', ACLBackendSchema, DAOclass.DAO);
 let users = new Entity("users", UserSchema, DAOclass.UserDAO);
 let projects = new Entity("projects", ProjectSchema, DAOclass.ProjectDAO);
 let posts = new Entity('posts', PostSchema, DAOclass.PostDAO);
 let datasets = new Entity('datasets', DatasetSchema, DAOclass.DatasetDAO);
 
-let projectpermissions = new PermissionsFactory("users", "projects", "projectpermissions", DAOclass.ProjectPermissionsDAO);
-let postpermissions = new PermissionsFactory('users', 'posts', 'postpermissions', DAOclass.PostPermissionsDAO);
-let Entities = [users, projects, projectpermissions, datasets];
+
+// let projectpermissions = new Acl_Backend("users", "projects", "projectpermissions", DAOclass.ProjectPermissionsDAO);
+// let postpermissions = new Acl_Backend('users', 'posts', 'postpermissions', DAOclass.PostPermissionsDAO);
+let Entities = [users, projects, projectpermissions, datasets,];
 
 module.exports={
     Entities: Entities

@@ -8,12 +8,10 @@ const projectpermissions = Entities[2];
 
 let DetailView = require('../class_views/generic/base').DetailView;
 let RedirectView = require('../class_views/generic/base').RedirectView;
-let ProjectListView = require('../class_views/project').ProjectListView;
-let UserDeleteView = require('../class_views/user').UserDeleteView;
-let UserUpdateView = require('../class_views/user').UserUpdateView;
+let ProjectListView = require('../class_views/projects').ProjectListView;
+let UserDeleteView = require('../class_views/users').UserDeleteView;
+let UserUpdateView = require('../class_views/users').UserUpdateView;
 
-
-//todo edit project delete user members
 //todo searchbar projects and users/ add *
 
 //get UserPAGE

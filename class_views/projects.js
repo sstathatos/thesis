@@ -6,7 +6,7 @@ const Permission = require('../models/permission').Permission;
 const projectpermissions = Entities[2];
 const projects = Entities[1];
 const users = Entities[0];
-
+let acl = require('../acl_conf').getAcl();
 
 class ProjectCreateView extends CreateView {
     constructor(req, res) {
@@ -27,11 +27,23 @@ class ProjectCreateView extends CreateView {
             this.req.body['date'] = Date.now();
             this.data = this.req.body;
             this.createAndPerm(projectpermissions, "Project Owner Permission created", (err, proj, perm) => {
+                acl.allow(proj._id.toString() + '_owner', proj._id.toString(), ['edit', 'delete', 'view'], (err) => {
+                    acl.addUserRoles(this.req.user._id.toString(), proj._id.toString() + '_owner');
+                });
+                //acl.allow(this.req.user._id.toString(),proj._id.toString(),'owner');
                 if (err) this.crud_error(err);
                 if (this.req.body.member) {
                     users.dao.all().find({'username': {$in: this.req.body.member}}, (err, members) => {
                         if (err) this.crud_error(err);
                         //users exist, ready to insert them to project as members
+                        //acl.allow(members.map(function (a) {return a._id.toString()}),proj._id.toString(),'member');
+                        acl.allow(proj._id.toString() + '_member', proj._id.toString(), 'view', (err) => {
+                            for (let member of members.map(function (a) {
+                                return a._id.toString()
+                            })) {
+                                acl.addUserRoles(member, proj._id.toString() + '_member');
+                            }
+                        });
                         let my_query = members.map(function (a) {
                             return (new Permission.add(a, 'member', proj._id))
                         });

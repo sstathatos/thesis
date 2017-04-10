@@ -3,13 +3,6 @@ const router = require('express').Router();
 let DetailView = require('../class_views/generic/base').DetailView;
 let RedirectView = require('../class_views/generic/base').RedirectView;
 
-let mongoose = require('mongoose');
-mongoose.Promise = require('bluebird');
-let acl = require('acl');
-let dbc = mongoose.connect('mongodb://localhost/test', {});
-acl = new acl(new acl.mongodbBackend(dbc.connection.db));
-
-
 // log each request to the console for debug
 router.use(function (req, res, next) {
     console.log(req.method, req.url);
