@@ -54,22 +54,23 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-acl = require('./acl_conf');
-acl.init((err) => {
-    if (err) throw Error();
-    //main start
-    app.use('/', require('./routes'));
-});
+// acl = require('./acl_conf');
+// acl.init((err) => {
+//     if (err) throw Error();
+//     //main start
+//     app.use('/', require('./routes'));
+// });
 
 app.use( function(req,res,next) {
     if(req.user) {
+        console.log(req.user.username);
         res.locals.username=req.user.username;
     }
     res.locals.error=req.flash('error');
     res.locals.success=req.flash('success');
     next();
 });
-
+app.use('/', require('./routes'));
 //Set Port
 app.set('port',(process.env.PORT || 3000));
 app.listen(app.get('port'), function() {

@@ -25,7 +25,6 @@ class UserUpdateView extends CreateView {
         this.query = {_id: req.user._id};
         this.success_url = '/users/' + req.user.username;
     }
-
     //todo override validate
 }
 

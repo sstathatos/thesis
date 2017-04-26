@@ -1,4 +1,4 @@
-const Permission = require('./../../models/permission').Permission;
+const util = require('util');
 class View {
     constructor(req, res) {
         this.req = req;
@@ -64,11 +64,7 @@ class ValidateView extends View {
 
     validate() {
         return true;
-        //        if  (all_fields_required && pass_match) cb()
-        // else {
-        //     this.req.flash('error',"Wrong data inserted.");
-        //     this.res.redirect(this.failure_url);
-        // }
+        //todo add validate
     }
 
     invalid_form() {
@@ -100,17 +96,17 @@ class CreateView extends ValidateView {
         else super.invalid_form();
     };
 
-    createAndPerm(model, msg, cb) { //class method which is used to create something and owner perms for that
-        this.model.dao.create(this.data, (err, item) => { //create project
-            if (err) this.crud_error(err);
-            this.data = new Permission.add(this.req.user, 'owner', item._id);
-            model.dao.create(this.data, (err, perm) => { //create owner permission
-                if (err) this.crud_error(err);
-                this.req.flash('success', msg);
-                return cb(err, item, perm);
-            });
-        });
-    }
+    // createAndPerm(model, msg, cb) { //class method which is used to create something and owner perms for that
+    //     this.model.dao.create(this.data, (err, item) => { //create project
+    //         if (err) this.crud_error(err);
+    //         this.data = new Permission.add(this.req.user, 'owner', item._id);
+    //         model.dao.create(this.data, (err, perm) => { //create owner permission
+    //             if (err) this.crud_error(err);
+    //             this.req.flash('success', msg);
+    //             return cb(err, item, perm);
+    //         });
+    //     });
+    // }
 
     put() {
         if (super.validate()) {
@@ -183,6 +179,7 @@ class ListView extends View {
 
     get() {
         this.get_queryset().exec((err, objects) => {
+            console.log(util.inspect(objects, false, null));
             if (err) throw Error();
             this.objects = objects;
             super.get();

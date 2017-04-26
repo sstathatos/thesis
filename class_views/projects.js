@@ -2,11 +2,11 @@ let ListView = require('./generic/base').ListView;
 let CreateView = require('./generic/base').CreateView;
 let DeleteView = require('./generic/base').DeleteView;
 const Entities = require('./../models/entity').Entities;
-const Permission = require('../models/permission').Permission;
-const projectpermissions = Entities[2];
+//const Permission = require('../models/acl').Permission;
+//const projectpermissions = Entities[2];
 const projects = Entities[1];
 const users = Entities[0];
-let acl = require('../acl_conf').getAcl();
+let acl = require('../models/acl').Acl;
 
 class ProjectCreateView extends CreateView {
     constructor(req, res) {
@@ -26,35 +26,42 @@ class ProjectCreateView extends CreateView {
         if (this.validate()) {
             this.req.body['date'] = Date.now();
             this.data = this.req.body;
-            this.createAndPerm(projectpermissions, "Project Owner Permission created", (err, proj, perm) => {
-                acl.allow(proj._id.toString() + '_owner', proj._id.toString(), ['edit', 'delete', 'view'], (err) => {
-                    acl.addUserRoles(this.req.user._id.toString(), proj._id.toString() + '_owner');
-                });
-                //acl.allow(this.req.user._id.toString(),proj._id.toString(),'owner');
+            //this.model.dao.create(this.data, (err, item) => { //create project
+            //         if (err) this.crud_error(err);
+            //         this.data = new Permission.add(this.req.user, 'owner', item._id);
+            //         model.dao.create(this.data, (err, perm) => { //create owner permission
+            //             if (err) this.crud_error(err);
+            //             this.req.flash('success', msg);
+            //             return cb(err, item, perm);
+            //         });
+            //     });
+            this.model.dao.create(this.data, (err, item) => {
                 if (err) this.crud_error(err);
-                if (this.req.body.member) {
-                    users.dao.all().find({'username': {$in: this.req.body.member}}, (err, members) => {
-                        if (err) this.crud_error(err);
-                        //users exist, ready to insert them to project as members
-                        //acl.allow(members.map(function (a) {return a._id.toString()}),proj._id.toString(),'member');
-                        acl.allow(proj._id.toString() + '_member', proj._id.toString(), 'view', (err) => {
-                            for (let member of members.map(function (a) {
-                                return a._id.toString()
-                            })) {
-                                acl.addUserRoles(member, proj._id.toString() + '_member');
-                            }
+                acl.addUserRole(this.model, 'owner', item._id, [this.req.user], (err, res) => {
+                    if (err) this.crud_error(err);
+                    this.req.flash('success', "Project Owner Permission created");
+                    if (this.req.body.member) {
+                        users.dao.all().find({'username': {$in: this.req.body.member}}, (err, members) => {
+                            if (err) this.crud_error(err);
+                            //users exist, ready to insert them to project as members
+                            acl.addUserRole(this.model, 'member', item._id, members, (err, res) => {
+                                this.req.flash('success', "Project members Added");
+                                return super.done();
+                            });
+                            // let my_query = members.map(function (a) {
+                            //     return (new Permission.add(a, 'member', proj._id))
+                            // });
+                            // projectpermissions.dao.insertMany(my_query, () => {
+                            //
+                            // })
                         });
-                        let my_query = members.map(function (a) {
-                            return (new Permission.add(a, 'member', proj._id))
-                        });
-                        projectpermissions.dao.insertMany(my_query, () => {
-                            this.req.flash('success', "Project members Added");
-                            return super.done();
-                        })
-                    });
-                }
-                else return super.done();
+                    }
+                    else return super.done();
+                })
             });
+
+            //this.createAndPerm(projectpermissions, "Project Owner Permission created", (err, proj, perm) => {
+
         }
     }
 }
@@ -62,14 +69,14 @@ class ProjectCreateView extends CreateView {
 class ProjectMemberCreateView extends CreateView {
     constructor(req, res) {
         super(req, res);
-        this.model = projectpermissions;
-        this.msg = "project member permission created";
+        // this.model = projectpermissions;
+        // this.msg = "project member permission created";
     }
 
     post() {
-        this.success_url = '/users/' + this.req.user.username;
-        this.data = new Permission.add(this.req.user, 'member', this.req.params._id);
-        super.post();
+        // this.success_url = '/users/' + this.req.user.username;
+        // this.data = new Permission.add(this.req.user, 'member', this.req.params._id);
+        // super.post();
     }
 
     //todo validate
@@ -85,10 +92,18 @@ class ProjectListView extends ListView {
 
     get_context_data(items) {
         let new_items = {
-            items: items.map(function (a) {
-                return {obj: a.obj_id, update: a.update, delete: a.delete};
-            }), current_user: this.extra_data
+            projects: items.map(function (a) {
+                return {
+                    _id: a._id,
+                    name: a.name,
+                    date: a.date,
+                    description: a.description,
+                    upd_users: a.acl.update.allow,
+                    del_users: a.acl.delete.allow
+                };
+            }), current_user: this.req.params.username
         };
+        console.log(new_items);
         return super.get_context_data(new_items);
     };
 }
@@ -103,7 +118,7 @@ class ProjectMembersListView extends ListView {
     get_context_data(items) {
         let new_items = {
             items: items.map(function (a) {
-                return {user: a.user_id.username, perm: a.delete};
+                return {user: a.acl.read.allow, perm: a.delete};
             }), proj_name: items[0].obj_id.name, proj_descr: items[0].obj_id.description
         };
         return super.get_context_data(new_items);
@@ -132,7 +147,7 @@ class ProjectLeaveView extends DeleteView {
 
     delete() {
         this.query = {user_id: this.req.user._id, obj_id: this.req.params._id};
-        this.model = projectpermissions;
+        //this.model = projectpermissions;
         super.delete(() => {
             this.msg = "You are not project's member anymore.";
             this.done();
@@ -147,27 +162,27 @@ class ProjectDeleteView extends DeleteView {
 
     delete() {
         this.success_url = '/users/' + this.req.user.username;
-        projectpermissions.dao.all().find({obj_id: this.req.params._id}, (err, result) => { //get all project permissions for all users
-            if (err) this.crud_error(err);
-            else {
-                this.query = {
-                    'obj_id': {
-                        $in: result.map(function (a) {
-                            return a.obj_id;
-                        })
-                    }
-                };
-                this.model = projectpermissions;
-                super.delete(() => { //delete all project permissions
-                    this.query = {_id: this.req.params._id};
-                    this.model = projects;
-                    super.delete(() => { //delete the project
-                        this.msg = "Your project and all permissions were deleted";
-                        this.done();
-                    })
-                });
-            }
-        });
+        // projectpermissions.dao.all().find({obj_id: this.req.params._id}, (err, result) => { //get all project permissions for all users
+        //     if (err) this.crud_error(err);
+        //     else {
+        //         this.query = {
+        //             'obj_id': {
+        //                 $in: result.map(function (a) {
+        //                     return a.obj_id;
+        //                 })
+        //             }
+        //         };
+        //         this.model = projectpermissions;
+        //         super.delete(() => { //delete all project permissions
+        //             this.query = {_id: this.req.params._id};
+        //             this.model = projects;
+        //             super.delete(() => { //delete the project
+        //                 this.msg = "Your project and all permissions were deleted";
+        //                 this.done();
+        //             })
+        //         });
+        //     }
+        // });
 
     }
 }

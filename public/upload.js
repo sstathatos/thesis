@@ -47,18 +47,18 @@ app.controller('uploaderCtrl', ['$scope', '$http', '$rootScope', '$window', func
         });
     };
 
-    $scope.loadDsets = function (param) {
-        $http({
-            method: 'GET',
-            url: '/projects/' + param + '/datasets',
-        }).then(function successCallback(data) {
-
-            console.log(data.data[0].data);
-            $scope.myData = data.data[0].data;
-        }, function errorCallback(res) {
-            console.log("something went wrong");
-        });
-    };
+    // $scope.loadDsets = function (param) {
+    //     $http({
+    //         method: 'GET',
+    //         url: '/projects/' + param + '/datasets',
+    //     }).then(function successCallback(data) {
+    //
+    //         console.log(data.data[0].data);
+    //         $scope.myData = data.data[0].data;
+    //     }, function errorCallback(res) {
+    //         console.log("something went wrong");
+    //     });
+    // };
 
 }]);
 

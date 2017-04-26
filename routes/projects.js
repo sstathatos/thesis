@@ -7,11 +7,13 @@ let ProjectMembersListView = require('../class_views/projects').ProjectMembersLi
 let ProjectMemberCreateView = require('../class_views/projects').ProjectMemberCreateView;
 let ProjectDeleteView = require('../class_views/projects').ProjectDeleteView;
 let ProjectLeaveView = require('../class_views/projects').ProjectLeaveView;
-const Permission = require('../models/permission').Permission;
+const Permission = require('../models/acl').Permission;
 const projects = Entities[1];
 let users = Entities[0];
 const projectpermissions = Entities[2];
 let DetailView = require('../class_views/generic/base').DetailView;
+let RedirectView = require('../class_views/generic/base').RedirectView;
+let acl = require('../models/acl').Acl;
 
 //Get create project page
 router.all('/create', (req, res) => {
@@ -57,13 +59,20 @@ router.delete('/:_id', function (req, res) {
 });
 
 router.delete('/:_id/leave', (req, res) => {
-    let my_view = new ProjectLeaveView(req, res);
-    my_view.as_view();
+    acl.removeUserRole(projects, 'member', req.params._id, [req.user._id], (err, res) => {
+        let my_view = new RedirectView(req, res, "/users/" + req.user.username, "User member removed");
+        my_view.as_view();
+    })
+
 });
 
 router.get('/:_id/edit', (req, res) => {
     let my_view = new ProjectMembersListView(req, res);
-    my_view.queryset = projectpermissions.dao.all().find({obj_id: req.params._id}).populate('user_id obj_id');
+    //my_view.queryset = projectpermissions.dao.all().find({obj_id: req.params._id}).populate('user_id obj_id');
+    my_view.queryset = projects.dao.all().find({_id: req.params._id}).populate({
+        path: 'acl.read.allow',
+        model: 'users'
+    });
     my_view.as_view();
 });
 

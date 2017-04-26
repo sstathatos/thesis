@@ -1,2 +1,2 @@
-require('./test/createUsersnProjects');
-require('./test/searchProjects');
+//require('./test/createUsersnProjects');
+require('./test/DAOtest');

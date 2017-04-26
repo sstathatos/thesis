@@ -1,5 +1,4 @@
 let acl = require('acl');
-let mongodb = require('mongodb');
 
 var _acl;
 

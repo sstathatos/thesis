@@ -7,6 +7,17 @@
         return opts.fn(this);
   };
 
+  exports.ifIn = function (a, b, opts) {
+      let found = b.some((res) => {
+          return res.username === a;
+      });
+      if (found) {
+          return opts.fn(this);
+          ;
+      }
+      return opts.inverse(this);
+  };
+
   exports.if_eq = function (a, b, opts) {
       if (a === b) return opts.fn(this);
       return opts.inverse(this);

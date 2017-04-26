@@ -36,7 +36,8 @@ class DAO {
     }
 
     update(query,newdata, callback) {
-        this.model.findOneAndUpdate(query, newdata, {new: true}, function(err, data){
+        //findOneAndUpdate
+        this.model.update(query, newdata, {new: true}, function (err, data) {
             if (err) callback(err, null);
             else if (!data) callback(null,null);
             else callback(null,data);
