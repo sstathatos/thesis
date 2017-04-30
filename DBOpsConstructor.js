@@ -1,8 +1,7 @@
-let entitiesGenerator = require('./entitiesGenerator');
+let entities = require('./entitiesGenerator');
 
 let DBOpsConstructor = () => {
 
-    let entities = entitiesGenerator();
     let {users, projects, posts, datasets, plots} = entities;
 
     let createObj = (model_name, obj) => {

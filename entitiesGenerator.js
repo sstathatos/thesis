@@ -16,19 +16,17 @@ let entityConstructor = (obj) => {
     }
 };
 
-let entitiesGenerator = () => {
+let entitiesGenerator = (() => {
 
     let {UserSchema, ProjectSchema, PostSchema, PlotSchema, DatasetSchema} = schemaConstructor();
-    let users = entityConstructor({model_name: "users", schema_name: UserSchema});
-    let projects = entityConstructor({model_name: "projects", schema_name: ProjectSchema});
-    let posts = entityConstructor({model_name: "posts", schema_name: PostSchema});
-    let datasets = entityConstructor({model_name: "datasets", schema_name: DatasetSchema});
-    let plots = entityConstructor({model_name: "plots", schema_name: PlotSchema});
-
     return {
-        users, projects, posts, datasets, plots
+        users: entityConstructor({model_name: "users", schema_name: UserSchema}),
+        projects: entityConstructor({model_name: "projects", schema_name: ProjectSchema}),
+        posts: entityConstructor({model_name: "posts", schema_name: PostSchema}),
+        datasets: entityConstructor({model_name: "datasets", schema_name: DatasetSchema}),
+        plots: entityConstructor({model_name: "plots", schema_name: PlotSchema})
     }
-};
+})();
 
 module.exports = entitiesGenerator;
 
