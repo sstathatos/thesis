@@ -18,7 +18,8 @@ let UserUpdateView = require('../class_views/users').UserUpdateView;
 router.get('/:username', (req, res) => {
 
     let my_view = new ProjectListView(req, res);
-    users.dao.all().findOne({username: req.params.username}, (err, user) => {
+
+    users.dao.all().findOne({username: req.params.username, post_id: postid}, (err, user) => {
         console.log(user.id);
         if (err || !user) my_view.crud_error(err);
         else {

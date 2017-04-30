@@ -14,7 +14,7 @@ class View {
         for (let num in this.http_method_names) {
             if (this.req.method === this.http_method_names[num]) {
                 this.handler = this[this.req.method.toLowerCase()];
-                return this.handler(this.req, this.res);
+                return this.handler();
             }
         }
         this.http_method_not_allowed();

@@ -47,24 +47,30 @@ let dataset_date = new Date();
  */
 function createItem(obj, model, id, date, inproj_id, inpost_id) {
     obj['_id'] = id;
+    if (inproj_id) assert(db.projects.some((obj) => {
+        return obj._id === inproj_id;
+    }));
+    if (inpost_id) assert(db.posts.some((obj) => {
+        return obj._id === inpost_id;
+    }));
     if (model === 'users') {
         assert(!db.users.some((user) => {
             return user.username === obj.username;
         }), obj.username + ' exists');
     }
     if (model === 'projects') {
+        obj['date'] = date;
         obj['acl'] = {
             read: {allow: [], deny: []},
             update: {allow: [], deny: []},
             create: {allow: [], deny: []},
             delete: {allow: [], deny: []}
         };
-        obj['date'] = date;
     }
     if (model === 'posts') {
         obj['date'] = date;
-        obj['inpost'] = inpost_id;
         obj['inproject'] = inproj_id;
+        obj['inpost'] = inpost_id;
         obj['acl'] = {
             read: {allow: [], deny: []},
             update: {allow: [], deny: []},
@@ -89,7 +95,12 @@ function createItem(obj, model, id, date, inproj_id, inpost_id) {
     db[[model]].push(obj);
 }
 
-createItem({username: 'stef', name: 'stefanos', password: 'test', email: 'stef@stef.com'}, 'users', id);
+createItem({
+    username: 'stef',
+    name: 'stefanos',
+    password: 'test',
+    email: 'stef@stef.com'
+}, 'users', id, null, null, null);
 createItem({username: 'ken', name: 'ken', password: 'test', email: 'ken@ken.com'}, 'users', id_2);
 createItem({username: 'filip', name: 'filip', password: 'test', email: 'filip@filip.com'}, 'users', id_3);
 

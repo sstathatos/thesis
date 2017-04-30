@@ -13,7 +13,7 @@
       });
       if (found) {
           return opts.fn(this);
-          ;
+
       }
       return opts.inverse(this);
   };

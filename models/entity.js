@@ -104,52 +104,21 @@ let PostSchema = {
     }
 };
 
-// let DatasetSchema = {
-//     data: {type: [Number]},
-//     // metadata: Object,
-//     // data: {
-//     //     type:[{dim0:Number,dim1:Number,dim2:Number,value:Number}]
-//     // },
-//     project_id: {
-//         type: mongoose.Schema.Types.ObjectId, ref: ProjectSchema
-//     }
-// };
-//
-// let ACLRoleSchema = mongoose.Schema({
-//
-//     obj_id: {
-//         type: mongoose.Schema.Types.ObjectId
-//     },
-//     role: {
-//         type: String
-//     },
-//     privilege: {
-//         type: String
-//     },
-//     allow: Boolean
-// });
-// ACLRoleSchema.index({user_id: 1, obj_id: 1}, {unique: true}); // together unique todo it doesnt work
-//
-// let  ACLBackendSchema = mongoose.Schema({
-//     role: {
-//         type: String
-//     },
-//     user_id: {type: mongoose.Schema.Types.ObjectId, ref: UserSchema},
-//     obj_id: {
-//         type: mongoose.Schema.Types.ObjectId
-//     },
-// });
+let DatasetSchema = {
+    data: {type: [Number]},
+    metadata: Object,
+    dataes: {
+        type: [{dim0: Number, dim1: Number, dim2: Number, value: Number}]
+    },
+    project_id: {
+        type: mongoose.Schema.Types.ObjectId, ref: ProjectSchema
+    }
+};
 
-// let acl_roles = new Entity('acl_roles', ACLRoleSchema, DAOclass.DAO);
-// let acl_backend = new Entity('acl_backend', ACLBackendSchema, DAOclass.DAO);
 let users = new Entity("users", UserSchema, DAOclass.UserDAO);
 let projects = new Entity("projects", ProjectSchema, DAOclass.ProjectDAO);
 let posts = new Entity('posts', PostSchema, DAOclass.PostDAO);
-// let datasets = new Entity('datasets', DatasetSchema, DAOclass.DatasetDAO);
-
-
-// let projectpermissions = new Acl_Backend("users", "projects", "projectpermissions", DAOclass.ProjectPermissionsDAO);
-// let postpermissions = new Acl_Backend('users', 'posts', 'postpermissions', DAOclass.PostPermissionsDAO);
+let datasets = new Entity('datasets', DatasetSchema, DAOclass.DatasetDAO);
 let Entities = [users, projects];
 
 module.exports={

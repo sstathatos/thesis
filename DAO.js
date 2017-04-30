@@ -90,7 +90,7 @@ class UserDAO extends DAO {
             promises.push(pro);
         }
         Promise.all(promises)
-            .then(function() {
+            .then(function () {
                 callback();
             })
             .catch(function () {
