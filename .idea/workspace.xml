@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="116c7290-88d7-4e01-a603-fa157eff4828" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/permissionTEST.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wrappertest.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+    <list default="true" id="116c7290-88d7-4e01-a603-fa157eff4828" name="Default" comment="Added almost done crud and permission ops">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/acl_conf.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/acl_test.js" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/DBopsTEST.js" afterPath="$PROJECT_DIR$/test/test/DBopsTEST.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/permissionTEST.js" afterPath="$PROJECT_DIR$/test/test/permissionTEST.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/test/test/DAOtest.js" afterPath="$PROJECT_DIR$/test/old_tests/DAOtest.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/test/test/createUsersnProjects.js" afterPath="$PROJECT_DIR$/test/old_tests/createUsersnProjects.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/test/test/searchProjects.js" afterPath="$PROJECT_DIR$/test/old_tests/searchProjects.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/test/test/testGeneralDAO.js" afterPath="$PROJECT_DIR$/test/old_tests/testGeneralDAO.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DBOpsConstructor.js" afterPath="$PROJECT_DIR$/DBOpsConstructor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DBopsTEST.js" afterPath="$PROJECT_DIR$/DBopsTEST.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/permissionConstructor.js" afterPath="$PROJECT_DIR$/permissionConstructor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/schemaConstructor.js" afterPath="$PROJECT_DIR$/schemaConstructor.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test.js" afterPath="$PROJECT_DIR$/test/test.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -32,6 +32,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="DAOConstructor.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DAOConstructor.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="28" column="11" lean-forward="true" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="DBOpsConstructor.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DBOpsConstructor.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -43,10 +53,10 @@
         </entry>
       </file>
       <file leaf-file-name="DBopsTEST.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DBopsTEST.js">
+        <entry file="file://$PROJECT_DIR$/test/test/DBopsTEST.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="57" column="58" lean-forward="false" selection-start-line="57" selection-start-column="58" selection-end-line="57" selection-end-column="58" />
+            <state relative-caret-position="440">
+              <caret line="22" column="26" lean-forward="true" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -72,61 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="permissionTEST.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/permissionTEST.js">
+      <file leaf-file-name="permissionTEST.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/test/permissionTEST.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="760">
-              <caret line="38" column="44" lean-forward="false" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="testGeneralDAO.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/test/testGeneralDAO.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-360">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="searchProjects.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/test/searchProjects.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DAOtest.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/test/DAOtest.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="21" column="51" lean-forward="true" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="1" column="26" lean-forward="false" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+            <state relative-caret-position="180">
+              <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -192,8 +152,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/h5_creator.js" />
-        <option value="$PROJECT_DIR$/models/model_entity.js" />
         <option value="$PROJECT_DIR$/generic_views.js" />
         <option value="$PROJECT_DIR$/class_views/dataset_views.js" />
         <option value="$PROJECT_DIR$/data_creators/h5_1d_creator.js" />
@@ -241,8 +199,10 @@
         <option value="$PROJECT_DIR$/permissionConstructor.js" />
         <option value="$PROJECT_DIR$/test_folder/permissionTEST.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/test/test.js" />
         <option value="$PROJECT_DIR$/permissionTEST.js" />
+        <option value="$PROJECT_DIR$/test/permissionTEST.js" />
+        <option value="$PROJECT_DIR$/test/test.js" />
+        <option value="$PROJECT_DIR$/test/test/DBopsTEST.js" />
       </list>
     </option>
   </component>
@@ -383,7 +343,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/permissionTEST.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/test/test.js" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
@@ -397,11 +357,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test/test" />
+      <recent name="$PROJECT_DIR$/test" />
+      <recent name="$PROJECT_DIR$/test/test/old_tests" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/test_folder" />
-      <recent name="$PROJECT_DIR$/views" />
-      <recent name="C:\Users\AlMak Semitable\Documents\GitHub\sstathatos-thesis\class_views\generic" />
-      <recent name="$PROJECT_DIR$/data_creators" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -416,7 +376,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha.permissionTEST">
+  <component name="RunManager" selected="Mocha.testALL">
     <configuration default="false" name="entity.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="entity.js" working-dir="$PROJECT_DIR$/models">
       <method />
     </configuration>
@@ -522,7 +482,7 @@
       </EXTENSION>
       <method />
     </configuration>
-    <configuration default="false" name="createUsersAndProjects" type="mocha-javascript-test-runner" factoryName="Mocha">
+    <configuration default="false" name="permissionTEST" type="mocha-javascript-test-runner" factoryName="Mocha">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <working-directory>$PROJECT_DIR$</working-directory>
@@ -530,9 +490,8 @@
       <envs />
       <ui>bdd</ui>
       <extra-mocha-options />
-      <test-kind>DIRECTORY</test-kind>
-      <test-directory>$PROJECT_DIR$/test</test-directory>
-      <recursive>false</recursive>
+      <test-kind>TEST_FILE</test-kind>
+      <test-file>$PROJECT_DIR$/test/test/permissionTEST.js</test-file>
       <method />
     </configuration>
     <configuration default="false" name="DBOpsTest" type="mocha-javascript-test-runner" factoryName="Mocha">
@@ -544,10 +503,10 @@
       <ui>bdd</ui>
       <extra-mocha-options />
       <test-kind>TEST_FILE</test-kind>
-      <test-file>$PROJECT_DIR$/DBopsTEST.js</test-file>
+      <test-file>$PROJECT_DIR$/test/test/DBopsTEST.js</test-file>
       <method />
     </configuration>
-    <configuration default="false" name="permissionTEST" type="mocha-javascript-test-runner" factoryName="Mocha">
+    <configuration default="false" name="testALL" type="mocha-javascript-test-runner" factoryName="Mocha">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <working-directory>$PROJECT_DIR$</working-directory>
@@ -556,14 +515,14 @@
       <ui>bdd</ui>
       <extra-mocha-options />
       <test-kind>TEST_FILE</test-kind>
-      <test-file>$PROJECT_DIR$/permissionTEST.js</test-file>
+      <test-file>$PROJECT_DIR$/test/test.js</test-file>
       <method />
     </configuration>
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Node.js.app.js" />
-      <item index="1" class="java.lang.String" itemvalue="Mocha.createUsersAndProjects" />
+      <item index="1" class="java.lang.String" itemvalue="Mocha.permissionTEST" />
       <item index="2" class="java.lang.String" itemvalue="Mocha.DBOpsTest" />
-      <item index="3" class="java.lang.String" itemvalue="Mocha.permissionTEST" />
+      <item index="3" class="java.lang.String" itemvalue="Mocha.testALL" />
       <item index="4" class="java.lang.String" itemvalue="Node.js.entity.js" />
       <item index="5" class="java.lang.String" itemvalue="Node.js.wrapper.js" />
       <item index="6" class="java.lang.String" itemvalue="Node.js.permissionConstructor.js" />
@@ -690,7 +649,7 @@
       <workItem from="1493557615868" duration="26093000" />
       <workItem from="1493586236536" duration="5602000" />
       <workItem from="1493627761960" duration="11265000" />
-      <workItem from="1493641850268" duration="23106000" />
+      <workItem from="1493641850268" duration="24141000" />
     </task>
     <task id="LOCAL-00001" summary="Added simplifications for view and project creations. Added roles">
       <created>1488903036550</created>
@@ -783,43 +742,50 @@
       <option name="project" value="LOCAL" />
       <updated>1493593338324</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added almost done crud and permission ops">
+      <created>1493665604606</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1493665604606</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="permissionTEST - 2017.05.01 at 21h 59m 58s.xml">
+    <history-entry file="DBOpsTest - 2017.05.01 at 22h 18m 09s.xml">
+      <configuration name="DBOpsTest" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="DBOpsTest - 2017.05.01 at 22h 18m 57s.xml">
+      <configuration name="DBOpsTest" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="permissionTEST - 2017.05.01 at 22h 17m 57s.xml">
       <configuration name="permissionTEST" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="permissionTEST - 2017.05.01 at 22h 00m 16s.xml">
-      <configuration name="permissionTEST" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="testALL - 2017.05.01 at 22h 17m 36s.xml">
+      <configuration name="testALL" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="permissionTEST - 2017.05.01 at 22h 00m 24s.xml">
-      <configuration name="permissionTEST" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="testALL - 2017.05.01 at 22h 17m 46s.xml">
+      <configuration name="testALL" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="permissionTEST - 2017.05.01 at 22h 00m 30s.xml">
-      <configuration name="permissionTEST" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="testALL - 2017.05.01 at 22h 19m 10s.xml">
+      <configuration name="testALL" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="permissionTEST - 2017.05.01 at 22h 00m 35s.xml">
-      <configuration name="permissionTEST" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="testALL - 2017.05.01 at 22h 19m 22s.xml">
+      <configuration name="testALL" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="permissionTEST - 2017.05.01 at 22h 00m 42s.xml">
-      <configuration name="permissionTEST" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="testALL - 2017.05.01 at 22h 19m 34s.xml">
+      <configuration name="testALL" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="permissionTEST - 2017.05.01 at 22h 02m 02s.xml">
-      <configuration name="permissionTEST" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="testALL - 2017.05.01 at 22h 19m 48s.xml">
+      <configuration name="testALL" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="permissionTEST - 2017.05.01 at 22h 03m 25s.xml">
-      <configuration name="permissionTEST" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="permissionTEST - 2017.05.01 at 22h 04m 04s.xml">
-      <configuration name="permissionTEST" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="permissionTEST - 2017.05.01 at 22h 04m 08s.xml">
-      <configuration name="permissionTEST" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="testALL - 2017.05.01 at 22h 22m 37s.xml">
+      <configuration name="testALL" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1253305000" />
+    <option name="totallyTimeSpent" value="1254340000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -902,10 +868,9 @@
     <MESSAGE value="Added db mockup prototype" />
     <MESSAGE value="Added various changes" />
     <MESSAGE value="Added more various changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more various changes" />
+    <MESSAGE value="Added almost done crud and permission ops" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added almost done crud and permission ops" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -980,20 +945,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/acl_conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/acl_test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="59" lean-forward="false" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/auth_session.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -1061,13 +1012,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="15" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/acl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="48" column="31" lean-forward="false" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -1148,17 +1092,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/test/createUsersnProjects.js">
+    <entry file="file://$PROJECT_DIR$/test/old_tests/createUsersnProjects.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DAO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="91" column="12" lean-forward="false" selection-start-line="91" selection-start-column="12" selection-end-line="97" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -1166,14 +1103,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="580">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DAOConstructor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="12" lean-forward="false" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -1194,26 +1123,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBopsTEST.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="57" column="58" lean-forward="false" selection-start-line="57" selection-start-column="58" selection-end-line="57" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBOpsConstructor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="70" column="45" lean-forward="false" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/permissionConstructor.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2260">
           <caret line="122" column="59" lean-forward="false" selection-start-line="122" selection-start-column="59" selection-end-line="122" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="32" lean-forward="false" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/old_tests/DAOtest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" column="51" lean-forward="true" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/old_tests/searchProjects.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/old_tests/testGeneralDAO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1226,42 +1171,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/test/testGeneralDAO.js">
+    <entry file="file://$PROJECT_DIR$/test/test/permissionTEST.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-360">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/test/searchProjects.js">
+    <entry file="file://$PROJECT_DIR$/acl_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="19" column="59" lean-forward="false" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test/DBopsTEST.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="26" lean-forward="true" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acl_conf.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/test/DAOtest.js">
+    <entry file="file://$PROJECT_DIR$/models/acl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="21" column="51" lean-forward="true" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
+        <state relative-caret-position="960">
+          <caret line="48" column="31" lean-forward="false" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/test.js">
+    <entry file="file://$PROJECT_DIR$/DAO.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="26" lean-forward="false" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+        <state relative-caret-position="340">
+          <caret line="107" column="0" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/permissionTEST.js">
+    <entry file="file://$PROJECT_DIR$/DBOpsConstructor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="38" column="44" lean-forward="false" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
+        <state relative-caret-position="800">
+          <caret line="70" column="45" lean-forward="false" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DAOConstructor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="28" column="11" lean-forward="true" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
           <folding />
         </state>
       </provider>

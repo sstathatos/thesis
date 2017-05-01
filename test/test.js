@@ -1,2 +1,2 @@
-//require('./test/createUsersnProjects');
-require('../permissionTEST');
+require('./test/DBopsTEST');
+require('./test/permissionTEST');

@@ -1,8 +1,8 @@
 let assert = require('assert');
 const MongoClient = require('mongodb').MongoClient;
 let util = require('util');
-let DBOpsConstructor = require('./DBOpsConstructor');
-let permissionConstructor = require('./permissionConstructor');
+let DBOpsConstructor = require('../../DBOpsConstructor');
+let permissionConstructor = require('../../permissionConstructor');
 let {createObj, readObjs, updateObj, deleteObj, entities} = DBOpsConstructor();
 let {addUserRole,removeUserRole,isAllowed} = permissionConstructor();
 

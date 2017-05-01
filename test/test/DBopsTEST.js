@@ -1,10 +1,11 @@
 let assert = require('assert');
 const MongoClient = require('mongodb').MongoClient;
 let util = require('util');
-let DBOpsConstructor = require('./DBOpsConstructor');
+let DBOpsConstructor = require('../../DBOpsConstructor');
 let {createObj, readObjs, updateObj, deleteObj} = DBOpsConstructor();
 
 describe('test my DB CRUD OPERATIONS', function () {
+    this.timeout(0);
     before(function (done) {
         let url = 'mongodb://localhost/daotest';
         MongoClient.connect(url, function (err, db) {
