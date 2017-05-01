@@ -76,7 +76,20 @@ let DBOpsConstructor = () => {
     let updateObj = (model_name, query, newdata) => {
         return (cb) => {
             let model = entities[model_name];
-            model.dao.updateItem(query, newdata, cb);
+            model.dao.readItems(query,(err,obj) => {
+                if (obj.length===0) return cb(new Error(`There were no results from this query`));
+                if (obj.length>1) return cb(new Error(`Query returned multiple objects to update. Cannot update multiple objects.`));
+                if (model===users && ((newdata.username!==null && newdata.username!==obj[0].username) || (newdata.email!==null && newdata[0].email!==obj.email))) {
+                    model.dao.readItems({$or: [{username: newdata.username}, {email: newdata.email}]}, (err, user) => {
+                        if (err) return cb(new Error(err));
+                        if (user.length === 0) {
+                            model.dao.updateItem(query, newdata, cb);
+                        }
+                        else return cb(new Error(`New username or email already exists.`));
+                    });
+                }
+                else model.dao.updateItem(query, newdata, cb);
+            });
         }
     };
 
@@ -85,10 +98,11 @@ let DBOpsConstructor = () => {
             let model = entities[model_name];
             model.dao.readItems(query, (err, result) => {
                 if (err) return cb(new Error(err));
-                if (result.length === 0) {
+                if (result.length === 1) {
                     model.dao.deleteItem(result, cb);
                 }
-                else return cb(new Error(`There are no objects with this query: ${query}`));
+                else if (result.length >1) cb(new Error('Query returned multiple objects to delete. Cannot delete multiple objects.'));
+                else return cb(new Error(`There are no objects with this query`));
             });
         }
     };

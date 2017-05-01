@@ -145,7 +145,8 @@ let schemaConstructor = () => {
             type: mongoose.Schema.Types.ObjectId, ref: PostSchema
         },
         plot_metadata: {
-            x: {type: String},
+            x_axis_name: {type: String},
+            y_axis_name: {type: String},
             y: [{name: {type: String}, color: {type: String}}],
             dimension_name_x: {type: String},
             dimension_name_y: {type: String},
