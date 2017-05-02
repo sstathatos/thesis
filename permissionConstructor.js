@@ -87,14 +87,12 @@ let permissionConstructor = () => {
                         if(obj.length===1) {
                             let role_methods = roles[role];
                             let perms=readPermissions(user_id,obj);
-
                             if(JSON.stringify(perms)===JSON.stringify(role_methods)) {
                                 let cnt = 0;
 
                                 for (let method in role_methods) {
                                     let newdata = `acl.${method}.${role_methods[method]}`;
-
-                                    updateObj(model_name, {_id: obj_id}, {$pop: {[newdata]: user_id}})((err, data) => {
+                                    updateObj(model_name, {_id: obj_id}, {$pull: {[newdata]: user_id}})((err, data) => {
                                         cnt++;
                                         if (cnt === 4) return cb(err, data);
                                     });
@@ -118,29 +116,39 @@ let permissionConstructor = () => {
             readObjs('users',{_id:user_id})((err,user) => {
                 if (err) return cb(new Error(err));
                 if (user.length === 1) {
+
                     readObjs(model_name, {_id: obj_id})((err, obj) => {
 
                         if (err) return cb(new Error(err));
                         if (obj.length === 1) {
+
                             if(model_name==='plots') {
                                 readObjs('posts',{_id:obj[0].inpost})((err,post) => {
+
                                     if (err) return cb(new Error(err));
                                     else if(checkObj(post[0].acl[method].deny,user_id)) return cb(null,'denied');
                                     else if(checkObj(post[0].acl[method].allow,user_id)) return cb(null,'allowed');
+
                                     readObjs('projects',{_id:post[0].inproject})((err,proj) => {
+
                                         if (err) return cb(new Error(err));
                                         else if(checkObj(proj[0].acl[method].allow,user_id)) return cb(null,'allowed');
                                         else return cb(null,'denied');
+
                                     });
                                 })
                             }
+
                             else if(checkObj(obj[0].acl[method].deny,user_id)) return cb(null,'denied');
                             else if(checkObj(obj[0].acl[method].allow,user_id)) return cb(null,'allowed');
                             else if(model_name!=='projects') {
+
                                 readObjs('projects',{_id:obj[0].inproject})((err,proj) => {
+
                                     if (err) return cb(new Error(err));
                                     else if(checkObj(proj[0].acl[method].allow,user_id)) return cb(null,'allowed');
                                     else return cb(null,'denied');
+
                                 })
                             }
                             else return cb(null,'denied');
@@ -148,14 +156,57 @@ let permissionConstructor = () => {
                         else return cb(new Error(`Obj id: ${obj_id} does not exist in the collection: ${model_name} db`));
                     });
                 }
+
                 else return cb(new Error(`User id: ${user_id} does not exist in db`));
             })
         }
     };
 
+    let isAllowedCreate = (user_id, method, model_to_create, in_obj_id) => {
+        return (cb) => {
+
+            if(method!=='create' || model_to_create === 'users' ) return  cb(new Error('Not supported operation'));
+            readObjs('users',{_id:user_id})((err,user) => {
+
+                if (err) return cb(new Error(err));
+                if (user.length === 1) {
+                    if(model_to_create === 'projects' && in_obj_id === null) return cb(null,'allowed');
+
+                    else if(model_to_create === 'posts' || model_to_create === 'datasets') {
+                        readObjs('projects', {_id: in_obj_id})((err, proj) => {
+                            if (err) return cb(new Error(err));
+
+                            if (proj.length === 1) {
+                                if(checkObj(proj[0].acl['create'].allow,user_id)) return cb(null,'allowed');
+                                else return cb(null,'denied');
+                            }
+                            else return cb(new Error(`Obj id is not valid`));
+                        });
+                    }
+
+                    else if(model_to_create === 'plots') {
+                        readObjs('posts', {_id: in_obj_id})((err, post) => {
+                            if (err) return cb(new Error(err));
+
+                            if (post.length === 1) {
+                                if(checkObj(post[0].acl['create'].allow,user_id)) return cb(null,'allowed');
+                                else return cb(null,'denied');
+                            }
+                            else return cb(new Error(`Obj id is not valid`));
+                        });
+                    }
+
+                    else return cb(null,'denied');
+
+                }
+                else return cb(new Error(`User id: ${user_id} does not exist in db`));
+            });
+        };
+    };
+
 
     return {
-        addUserRole,removeUserRole,isAllowed
+        addUserRole,removeUserRole,isAllowed,isAllowedCreate
     }
 };
 module.exports = permissionConstructor;
