@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="116c7290-88d7-4e01-a603-fa157eff4828" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/API/constructors/APIConstructor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/API/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/API/package.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/DAOConstructor.js" afterPath="$PROJECT_DIR$/API/constructors/DAOConstructor.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/DBOpsConstructor.js" afterPath="$PROJECT_DIR$/API/constructors/DBOpsConstructor.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/entitiesGenerator.js" afterPath="$PROJECT_DIR$/API/constructors/entitiesConstructor.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/permissionConstructor.js" afterPath="$PROJECT_DIR$/API/constructors/permissionConstructor.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/schemaConstructor.js" afterPath="$PROJECT_DIR$/API/constructors/schemaConstructor.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/permissionConstructor.js" afterPath="$PROJECT_DIR$/permissionConstructor.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test/DBopsTEST.js" afterPath="$PROJECT_DIR$/test/test/DBopsTEST.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test/permissionTEST.js" afterPath="$PROJECT_DIR$/test/test/permissionTEST.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -25,61 +33,81 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DAOConstructor.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DAOConstructor.js">
+      <file leaf-file-name="DBopsTEST.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/test/DBopsTEST.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="20" column="12" lean-forward="false" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+            <state relative-caret-position="60">
+              <caret line="3" column="58" lean-forward="false" selection-start-line="3" selection-start-column="58" selection-end-line="3" selection-end-column="58" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="DBOpsConstructor.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DBOpsConstructor.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1400">
-              <caret line="70" column="45" lean-forward="false" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DBopsTEST.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/test/DBopsTEST.js">
+        <entry file="file://$PROJECT_DIR$/API/constructors/DBOpsConstructor.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="20">
-              <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="db_mock.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db_mock.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="589" column="51" lean-forward="false" selection-start-line="589" selection-start-column="51" selection-end-line="589" selection-end-column="51" />
+              <caret line="1" column="26" lean-forward="false" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="permissionConstructor.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/permissionConstructor.js">
+        <entry file="file://$PROJECT_DIR$/API/constructors/permissionConstructor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="208" column="60" lean-forward="false" selection-start-line="208" selection-start-column="60" selection-end-line="208" selection-end-column="60" />
+            <state relative-caret-position="140">
+              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="permissionTEST.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="permissionTEST.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/test/permissionTEST.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="334" column="12" lean-forward="false" selection-start-line="334" selection-start-column="12" selection-end-line="334" selection-end-column="12" />
+            <state relative-caret-position="60">
+              <caret line="3" column="37" lean-forward="false" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="APIConstructor.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/API/constructors/APIConstructor.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/API/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="entitiesConstructor.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/API/constructors/entitiesConstructor.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="17" column="47" lean-forward="false" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -145,15 +173,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/class_views/dataset_views.js" />
-        <option value="$PROJECT_DIR$/data_creators/h5_1d_creator.js" />
-        <option value="$PROJECT_DIR$/data_creators/h5_2d_creator.js" />
-        <option value="$PROJECT_DIR$/data_creators/h5_3d_creator.js" />
-        <option value="$PROJECT_DIR$/acl_sec_test.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/class_views/generic/generic_views.js" />
-        <option value="$PROJECT_DIR$/models/auth_session.js" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/models/permission.js" />
         <option value="$PROJECT_DIR$/acl_test.js" />
         <option value="$PROJECT_DIR$/models/authorization.js" />
@@ -180,22 +199,31 @@
         <option value="$PROJECT_DIR$/wrapper.js" />
         <option value="$PROJECT_DIR$/userRolesmock.js" />
         <option value="$PROJECT_DIR$/permissionsConstructor.js" />
-        <option value="$PROJECT_DIR$/entityConstructor.js" />
         <option value="$PROJECT_DIR$/entitiesConstructor.js" />
-        <option value="$PROJECT_DIR$/entitiesGenerator.js" />
         <option value="$PROJECT_DIR$/wrappertest.js" />
-        <option value="$PROJECT_DIR$/schemaConstructor.js" />
         <option value="$PROJECT_DIR$/DBopsTEST.js" />
-        <option value="$PROJECT_DIR$/DBOpsConstructor.js" />
         <option value="$PROJECT_DIR$/views/permissionTEST.js" />
         <option value="$PROJECT_DIR$/test_folder/permissionTEST.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/permissionTEST.js" />
         <option value="$PROJECT_DIR$/test/permissionTEST.js" />
         <option value="$PROJECT_DIR$/test/test.js" />
-        <option value="$PROJECT_DIR$/test/test/DBopsTEST.js" />
+        <option value="$PROJECT_DIR$/DAOConstructor.js" />
+        <option value="$PROJECT_DIR$/entityConstructor.js" />
+        <option value="$PROJECT_DIR$/DBOpsConstructor.js" />
         <option value="$PROJECT_DIR$/permissionConstructor.js" />
+        <option value="$PROJECT_DIR$/entitiesGenerator.js" />
+        <option value="$PROJECT_DIR$/schemaConstructor.js" />
+        <option value="$PROJECT_DIR$/API.js" />
+        <option value="$PROJECT_DIR$/test/test/DBopsTEST.js" />
+        <option value="$PROJECT_DIR$/APIConstructor.js" />
+        <option value="$PROJECT_DIR$/API/entityConstructor.js" />
+        <option value="$PROJECT_DIR$/API/DBOpsConstructor.js" />
+        <option value="$PROJECT_DIR$/API/APIConstructor.js" />
+        <option value="$PROJECT_DIR$/API/permissionConstructor.js" />
+        <option value="$PROJECT_DIR$/API/entitiesGenerator.js" />
         <option value="$PROJECT_DIR$/test/test/permissionTEST.js" />
+        <option value="$PROJECT_DIR$/API/index.js" />
       </list>
     </option>
   </component>
@@ -217,7 +245,7 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1088" />
+    <option name="x" value="64" />
     <option name="y" value="-11" />
     <option name="width" value="1537" />
     <option name="height" value="912" />
@@ -278,20 +306,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -328,6 +342,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thesis-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thesis-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="API" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thesis-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thesis-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="API" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="constructors" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -350,11 +396,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/API/constructors" />
+      <recent name="$PROJECT_DIR$/constructors" />
       <recent name="$PROJECT_DIR$/test/test" />
       <recent name="$PROJECT_DIR$/test" />
       <recent name="$PROJECT_DIR$/test/test/old_tests" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/test_folder" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -369,14 +415,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha.testALL">
+  <component name="RunManager" selected="Mocha.permissionTEST">
     <configuration default="false" name="entity.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="entity.js" working-dir="$PROJECT_DIR$/models">
       <method />
     </configuration>
-    <configuration default="false" name="wrapper.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="$PROJECT_DIR$/DBOpsConstructor.js" working-dir="$PROJECT_DIR$">
+    <configuration default="false" name="wrapper.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="$PROJECT_DIR$/API/constructors/DBOpsConstructor.js" working-dir="$PROJECT_DIR$">
       <method />
     </configuration>
-    <configuration default="false" name="permissionConstructor.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="$PROJECT_DIR$/permissionConstructor.js" working-dir="$PROJECT_DIR$">
+    <configuration default="false" name="permissionConstructor.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="$PROJECT_DIR$/API/constructors/permissionConstructor.js" working-dir="$PROJECT_DIR$">
       <method />
     </configuration>
     <configuration default="true" type="ChromiumRemoteDebugType" factoryName="Chromium Remote">
@@ -644,7 +690,8 @@
       <workItem from="1493627761960" duration="11265000" />
       <workItem from="1493641850268" duration="24457000" />
       <workItem from="1493670194041" duration="1921000" />
-      <workItem from="1493713819368" duration="18986000" />
+      <workItem from="1493713819368" duration="19661000" />
+      <workItem from="1493739130750" duration="11656000" />
     </task>
     <task id="LOCAL-00001" summary="Added simplifications for view and project creations. Added roles">
       <created>1488903036550</created>
@@ -751,43 +798,50 @@
       <option name="project" value="LOCAL" />
       <updated>1493666613289</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added permissions completed">
+      <created>1493735191956</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1493735191956</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="permissionTEST - 2017.05.02 at 16h 54m 53s.xml">
+    <history-entry file="permissionTEST - 2017.05.02 at 21h 39m 27s.xml">
       <configuration name="permissionTEST" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="permissionTEST - 2017.05.02 at 16h 59m 05s.xml">
+    <history-entry file="permissionTEST - 2017.05.02 at 21h 40m 03s.xml">
       <configuration name="permissionTEST" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="permissionTEST - 2017.05.02 at 16h 59m 57s.xml">
-      <configuration name="permissionTEST" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="testALL - 2017.05.02 at 21h 05m 49s.xml">
+      <configuration name="testALL" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="permissionTEST - 2017.05.02 at 17h 14m 13s.xml">
-      <configuration name="permissionTEST" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="testALL - 2017.05.02 at 21h 06m 12s.xml">
+      <configuration name="testALL" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="permissionTEST - 2017.05.02 at 17h 14m 18s.xml">
-      <configuration name="permissionTEST" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="testALL - 2017.05.02 at 21h 11m 45s.xml">
+      <configuration name="testALL" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="permissionTEST - 2017.05.02 at 17h 14m 49s.xml">
-      <configuration name="permissionTEST" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="testALL - 2017.05.02 at 21h 11m 58s.xml">
+      <configuration name="testALL" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="permissionTEST - 2017.05.02 at 17h 15m 02s.xml">
-      <configuration name="permissionTEST" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="testALL - 2017.05.02 at 21h 12m 30s.xml">
+      <configuration name="testALL" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="permissionTEST - 2017.05.02 at 17h 23m 50s.xml">
-      <configuration name="permissionTEST" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="testALL - 2017.05.02 at 21h 23m 47s.xml">
+      <configuration name="testALL" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="permissionTEST - 2017.05.02 at 17h 25m 31s.xml">
-      <configuration name="permissionTEST" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="testALL - 2017.05.02 at 21h 30m 46s.xml">
+      <configuration name="testALL" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="testALL - 2017.05.02 at 17h 25m 45s.xml">
+    <history-entry file="testALL - 2017.05.02 at 21h 35m 04s.xml">
       <configuration name="testALL" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1275563000" />
+    <option name="totallyTimeSpent" value="1287894000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -799,49 +853,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1088" y="-11" width="1537" height="912" extended-state="6" />
+    <frame x="64" y="-11" width="1537" height="912" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2175926" sideWeight="0.49485862" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2175926" sideWeight="0.49485862" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.78534704" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.90488434" sideWeight="0.5026455" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6388175" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.7930591" sideWeight="0.4973545" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.90359896" sideWeight="0.4973545" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14153439" sideWeight="0.5051414" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39974293" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3284839" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.78534704" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.90488434" sideWeight="0.5026455" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6388175" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7930591" sideWeight="0.4973545" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.90359896" sideWeight="0.4973545" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2175926" sideWeight="0.49485862" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3284839" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.90359896" sideWeight="0.4973545" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14153439" sideWeight="0.5051414" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39974293" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3284839" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -892,7 +925,8 @@
     <MESSAGE value="Added more various changes" />
     <MESSAGE value="Added almost done crud and permission ops" />
     <MESSAGE value="Added small changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added small changes" />
+    <MESSAGE value="Added permissions completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added permissions completed" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -902,23 +936,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/models/model_authentication_session.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/acl_sec_test.js" />
-    <entry file="file://$PROJECT_DIR$/h5_creator.js" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data_creators/h5_3d_creator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1100">
@@ -1122,20 +1139,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/entitiesGenerator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/schemaConstructor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="148" column="39" lean-forward="false" selection-start-line="148" selection-start-column="39" selection-end-line="148" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
@@ -1164,13 +1167,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/acl_test.js" />
     <entry file="file://$PROJECT_DIR$/acl_conf.js" />
     <entry file="file://$PROJECT_DIR$/models/acl.js">
@@ -1187,50 +1183,114 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DAOConstructor.js">
+    <entry file="file://$PROJECT_DIR$/db_mock.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="20" column="12" lean-forward="false" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+        <state relative-caret-position="11780">
+          <caret line="589" column="51" lean-forward="false" selection-start-line="589" selection-start-column="51" selection-end-line="589" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBOpsConstructor.js">
+    <entry file="file://$PROJECT_DIR$/API/constructors/DAOConstructor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1400">
-          <caret line="70" column="45" lean-forward="false" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
+        <state relative-caret-position="-209">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/constructors/schemaConstructor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3100">
+          <caret line="155" column="29" lean-forward="false" selection-start-line="155" selection-start-column="29" selection-end-line="155" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/test/DBopsTEST.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="58" lean-forward="false" selection-start-line="3" selection-start-column="58" selection-end-line="3" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/entityConstructor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/constructors/permissionConstructor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/constructors/DBOpsConstructor.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
-          <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+          <caret line="1" column="26" lean-forward="false" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db_mock.js">
+    <entry file="file://$PROJECT_DIR$/API/constructors/entitiesConstructor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="589" column="51" lean-forward="false" selection-start-line="589" selection-start-column="51" selection-end-line="589" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/permissionConstructor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="208" column="60" lean-forward="false" selection-start-line="208" selection-start-column="60" selection-end-line="208" selection-end-column="60" />
+        <state relative-caret-position="340">
+          <caret line="17" column="47" lean-forward="false" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/test/permissionTEST.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="334" column="12" lean-forward="false" selection-start-line="334" selection-start-column="12" selection-end-line="334" selection-end-column="12" />
+        <state relative-caret-position="60">
+          <caret line="3" column="37" lean-forward="false" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/constructors/APIConstructor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="66" lean-forward="false" selection-start-line="0" selection-start-column="52" selection-end-line="0" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/config.gypi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>

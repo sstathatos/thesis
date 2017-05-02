@@ -1,8 +1,8 @@
 let assert = require('assert');
 const MongoClient = require('mongodb').MongoClient;
 let util = require('util');
-let DBOpsConstructor = require('../../DBOpsConstructor');
-let {createObj, readObjs, updateObj, deleteObj} = DBOpsConstructor();
+let APIConstructor=require('../../API/constructors/APIConstructor');
+let {createObj, readObjs, updateObj, deleteObj}=APIConstructor;
 
 describe('test my DB CRUD OPERATIONS', function () {
     this.timeout(0);

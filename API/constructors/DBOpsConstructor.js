@@ -1,7 +1,6 @@
-let entities = require('./entitiesGenerator');
-
-let DBOpsConstructor = () => {
-
+let DBOpsConstructor = (obj) => {
+    let {entitiesGenerator,DAOConstructor,schemaConstructor,mongoose}=obj;
+    let entities= entitiesGenerator({DAOConstructor,schemaConstructor,mongoose});
     let {users, projects, posts, datasets, plots} = entities;
 
     let createObj = (model_name, obj) => {

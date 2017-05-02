@@ -1,6 +1,4 @@
-let mongoose = require('mongoose');
-
-let schemaConstructor = () => {
+let schemaConstructor = (mongoose) => {
     let UserSchema = {
         username: {
             type: String,

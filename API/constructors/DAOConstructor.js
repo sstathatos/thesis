@@ -1,8 +1,3 @@
-const dbHost = 'mongodb://localhost/daotest';
-let mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
-mongoose.connect(dbHost, {});
-
 //General CRUD functions for Entities
 let DAOConstructor = (obj) => {
     let {model} = obj;

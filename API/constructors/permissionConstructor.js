@@ -1,9 +1,9 @@
-let DBOpsConstructor = require('./DBOpsConstructor');
 let util = require('util');
 
-let permissionConstructor = () => {
-
-    let {createObj, readObjs, updateObj, deleteObj, entities} = DBOpsConstructor();
+let permissionConstructor = (obj) => {
+    let {entitiesGenerator,DAOConstructor,schemaConstructor,DBOpsConstructor,mongoose}=obj;
+    let DBops = DBOpsConstructor({entitiesGenerator,DAOConstructor,schemaConstructor,mongoose});
+    let {createObj, readObjs, updateObj, deleteObj, entities} = DBops;
 
     let roles = {
         owner: {read: 'allow', update: 'allow', delete: 'allow', create: 'allow'},
@@ -206,7 +206,7 @@ let permissionConstructor = () => {
 
 
     return {
-        addUserRole,removeUserRole,isAllowed,isAllowedCreate
+        addUserRole,removeUserRole,isAllowed,isAllowedCreate,DBops
     }
 };
 module.exports = permissionConstructor;
