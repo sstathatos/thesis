@@ -1,7 +1,7 @@
 let assert = require('assert');
 const MongoClient = require('mongodb').MongoClient;
 let util = require('util');
-let APIConstructor=require('../../API/constructors/APIConstructor');
+let APIConstructor=require('../../API');
 let {createObj, readObjs, updateObj, deleteObj}=APIConstructor;
 
 describe('test my DB CRUD OPERATIONS', function () {
@@ -49,55 +49,13 @@ describe('test my DB CRUD OPERATIONS', function () {
                 });
             }
         });
-        it('should create posts without inpost', function (done) {
-            readObjs('projects', {})((err, projs) => {
-                if (err) throw err;
-                for (let i = 0; i < projs.length / 2; i++) {
-                    if (i === 0) console.log('4');
-                    createObj('posts', {title: `post stefanos${i}`, description: `post stefanos${i}`, inproject: projs[i]._id})((err, data) => {
-                        if (err) throw err;
-                        createObj('posts', {title: `post stefanos${i}`, description: `post stefanos${i}`})((err, data) => {
-                            assert.ok(err instanceof Error);
-                            createObj('posts', {title: `post ken${i}`, description: `post ken${i}`, inproject: projs[i]._id})((err, data) => {
-                                if (err) throw err;
-                                if (i === projs.length / 2-1) {
-                                    console.log('5');
-                                    done();
-                                }
-                            });
-                        });
-                    });
-                }
-            });
-        });
-        it('should create posts with inpost', function (done) {
-            readObjs('projects', {})((err, projs) => {
-                if (err) throw err;
-                for (let i = 0; i < projs.length / 2; i++) {
-                    if (i === 0) console.log('6');
-                    createObj('posts', {title: `post with stefanos${i}`, description: `post with stefanos${i}`, inproject: projs[i]._id})((err, post1) => {
-                        if (err) throw err;
-                        createObj('posts', {title: `post with stefanos${i}`, description: `post with stefanos${i}`})((err, data) => {
-                            assert.ok(err instanceof Error);
-                            createObj('posts', {title: `post ken${i}`, description: `post ken${i}`, inproject: projs[i]._id,inpost:post1._id})((err, data) => {
-                                if (err) throw err;
-                                if (i === projs.length / 2-1) {
-                                    console.log('7');
-                                    done();
-                                }
-                            });
-                        });
-                    });
-                }
-            });
-        });
         it('should create datasets', function (done) {
             readObjs('projects', {})((err, projs) => {
                 if (err) throw err;
                 readObjs('users', {})((err, users) => {
                     if (err) throw err;
                     for (let i = 0; i < projs.length / 2; i++) {
-                        if (i === 0) console.log('8');
+                        if (i === 0) console.log('4');
                         createObj('datasets', {name: `dataset stefanos${i}`,path_saved:`hdf_files/hdf${i}.h5`, creator:users[i]._id, inproject: projs[i]._id})((err, post1) => {
                             if (err) throw err;
                             createObj('datasets', {name: `dataset stefanos${i}`,path_saved:`hdf_files/hdf${i}.h5`, inproject: projs[i]._id})((err, data) => {
@@ -107,7 +65,7 @@ describe('test my DB CRUD OPERATIONS', function () {
                                     createObj('datasets', {name: `dataset ken${i}`,path_saved:`hdf_files/hdf${i}.h5`, creator:users[i]._id, inproject: projs[i]._id})((err, data) => {
                                         if (err) throw err;
                                         if (i === projs.length / 2-1) {
-                                            console.log('9');
+                                            console.log('5');
                                             done();
                                         }
                                     });
@@ -118,6 +76,58 @@ describe('test my DB CRUD OPERATIONS', function () {
                 });
             });
         });
+        it('should create posts without inpost', function (done) {
+            readObjs('projects', {})((err, projs) => {
+                if (err) throw err;
+                readObjs('datasets', {})((err, dset) => {
+                    if (err) throw err;
+                    for (let i = 0; i < projs.length / 2; i++) {
+                        if (i === 0) console.log('6');
+                        createObj('posts', {title: `post stefanos${i}`, description: `post stefanos${i}`, inproject: projs[i]._id,dset_link:dset[i]._id})((err, data) => {
+                            if (err) throw err;
+                            createObj('posts', {title: `post stefanos${i}`, description: `post stefanos${i}`})((err, data) => {
+                                assert.ok(err instanceof Error);
+                                createObj('posts', {title: `post stefanos${i}`, description: `post stefanos${i}`,dset_link:dset[i]._id})((err, data) => {
+                                    assert.ok(err instanceof Error);
+                                    createObj('posts', {title: `post ken${i}`, description: `post ken${i}`, inproject: projs[i]._id,dset_link:dset[i]._id})((err, data) => {
+                                        if (err) throw err;
+                                        if (i === projs.length / 2-1) {
+                                            console.log('7');
+                                            done();
+                                        }
+                                    });
+                                });
+                            });
+                        });
+                    }
+                });
+            });
+        });
+        it('should create posts with inpost', function (done) {
+            readObjs('projects', {})((err, projs) => {
+                if (err) throw err;
+                readObjs('datasets', {})((err, dset) => {
+                    if (err) throw err;
+                    for (let i = 0; i < projs.length / 2; i++) {
+                        if (i === 0) console.log('8');
+                        createObj('posts', {title: `post with stefanos${i}`, description: `post with stefanos${i}`, inproject: projs[i]._id,dset_link:dset[i]._id})((err, post1) => {
+                            if (err) throw err;
+                            createObj('posts', {title: `post with stefanos${i}`, description: `post with stefanos${i}`,dset_link:dset[i]._id})((err, data) => {
+                                assert.ok(err instanceof Error);
+                                createObj('posts', {title: `post ken${i}`, description: `post ken${i}`, inproject: projs[i]._id,inpost:post1._id,dset_link:dset[i]._id})((err, data) => {
+                                    if (err) throw err;
+                                    if (i === projs.length / 2-1) {
+                                        console.log('9');
+                                        done();
+                                    }
+                                });
+                            });
+                        });
+                    }
+                });
+            });
+        });
+
         it('should create plots', function (done) {
             readObjs('posts', {})((err, posts) => {
                 if (err) throw err;
@@ -185,7 +195,7 @@ describe('test my DB CRUD OPERATIONS', function () {
                                     updateObj('users',{username:users[i].username+"XYZ"},{email:users[i+1].email})((err,user1) => {
                                         assert.ok(err instanceof Error);
                                         if(i===users.length/2-1) {
-                                            if (i === 0) console.log('13');
+                                            console.log('13');
                                             done();
                                         }
                                     })

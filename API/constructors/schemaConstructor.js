@@ -50,45 +50,6 @@ let schemaConstructor = (mongoose) => {
         }
     };
 
-    let PostSchema = {
-        title: {
-            type: String,
-            index: true
-        },
-        date: {
-            type: Date
-        },
-        description: {
-            type: String
-        },
-        acl: {
-            read: {
-                allow: [{type: mongoose.Schema.Types.ObjectId, ref: UserSchema}]
-                ,
-                deny: [{type: mongoose.Schema.Types.ObjectId, ref: UserSchema}]
-            },
-            update: {
-                allow: [{type: mongoose.Schema.Types.ObjectId, ref: UserSchema}]
-                ,
-                deny: [{type: mongoose.Schema.Types.ObjectId, ref: UserSchema}]
-            },
-            create: {
-                allow: [{type: mongoose.Schema.Types.ObjectId, ref: UserSchema}]
-                ,
-                deny: [{type: mongoose.Schema.Types.ObjectId, ref: UserSchema}]
-            },
-            delete: {
-                allow: [{type: mongoose.Schema.Types.ObjectId, ref: UserSchema}]
-                ,
-                deny: [{type: mongoose.Schema.Types.ObjectId, ref: UserSchema}]
-            }
-        },
-        inpost: [this],
-        inproject: {
-            type: mongoose.Schema.Types.ObjectId, ref: ProjectSchema
-        }
-    };
-
     let DatasetSchema = {
         name: {
             type: String
@@ -127,6 +88,48 @@ let schemaConstructor = (mongoose) => {
                 deny: [{type: mongoose.Schema.Types.ObjectId, ref: UserSchema}]
             }
         },
+    };
+
+    let PostSchema = {
+        title: {
+            type: String,
+            index: true
+        },
+        date: {
+            type: Date
+        },
+        description: {
+            type: String
+        },
+        acl: {
+            read: {
+                allow: [{type: mongoose.Schema.Types.ObjectId, ref: UserSchema}]
+                ,
+                deny: [{type: mongoose.Schema.Types.ObjectId, ref: UserSchema}]
+            },
+            update: {
+                allow: [{type: mongoose.Schema.Types.ObjectId, ref: UserSchema}]
+                ,
+                deny: [{type: mongoose.Schema.Types.ObjectId, ref: UserSchema}]
+            },
+            create: {
+                allow: [{type: mongoose.Schema.Types.ObjectId, ref: UserSchema}]
+                ,
+                deny: [{type: mongoose.Schema.Types.ObjectId, ref: UserSchema}]
+            },
+            delete: {
+                allow: [{type: mongoose.Schema.Types.ObjectId, ref: UserSchema}]
+                ,
+                deny: [{type: mongoose.Schema.Types.ObjectId, ref: UserSchema}]
+            }
+        },
+        inpost: this,
+        inproject: {
+            type: mongoose.Schema.Types.ObjectId, ref: ProjectSchema
+        },
+        dset_link: {
+            type:mongoose.Schema.Types.ObjectId,ref :DatasetSchema
+        }
     };
 
     let PlotSchema = {

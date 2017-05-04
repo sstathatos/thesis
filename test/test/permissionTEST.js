@@ -38,13 +38,14 @@ describe('test my PERMISSION OPS', function () {
                             createObj('projects', {name: `test project name`, description: `test project desc`})((err,pr0) => {
                                 if (err) throw err;
                                 projectsAr.push(pr0);
-                                createObj('posts', {title: `test post title`, description: `test post desc`, inproject: pr0._id})((err, po0) => {
+                                createObj('datasets', {name: `test dataset name`, inproject: pr0._id ,path_saved:'/hdfs/hdf1', creator:us2._id})((err, ds0) => {
+                                    if (err) throw err;
+                                    datasetsAr.push(ds0);
+                                createObj('posts', {title: `test post title`, description: `test post desc`, inproject: pr0._id,dset_link:ds0._id})((err, po0) => {
                                     if (err) throw err;
                                     postsAr.push(po0);
-                                    createObj('datasets', {name: `test dataset name`, inproject: pr0._id ,creator:us2._id})((err, ds0) => {
-                                        if (err) throw err;
-                                        datasetsAr.push(ds0);
-                                        createObj('plots', {title: `test plot name`,description: `test plot desc`, inpost: po0._id})((err, pl0) => {
+
+                                    createObj('plots', {title: `test plot name`,description: `test plot desc`, inpost: po0._id})((err, pl0) => {
                                             if (err) throw err;
                                             plotsAr.push(pl0);
                                             console.log('1');

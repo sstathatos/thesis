@@ -1,6 +1,6 @@
 let DBOpsConstructor = (obj) => {
-    let {entitiesGenerator,DAOConstructor,schemaConstructor,mongoose}=obj;
-    let entities= entitiesGenerator({DAOConstructor,schemaConstructor,mongoose});
+    let {entitiesConstructor,DAOConstructor,schemaConstructor,mongoose}=obj;
+    let entities= entitiesConstructor({DAOConstructor,schemaConstructor,mongoose});
     let {users, projects, posts, datasets, plots} = entities;
 
     let createObj = (model_name, obj) => {
@@ -29,7 +29,13 @@ let DBOpsConstructor = (obj) => {
                         posts.dao.readItems({_id: obj['inpost']}, (err, post) => {
                             if (err) return cb(new Error(err));
                             if (post.length < 2) {
-                                model.dao.createItem(obj, cb);
+                                datasets.dao.readItems({_id: obj['dset_link']}, (err, dset) => {
+                                    if (err) return cb(new Error(err));
+                                    if (dset.length === 1) {
+                                        model.dao.createItem(obj, cb);
+                                    }
+                                    else return cb(new Error('unknown dset id'));
+                                });
                             }
                             else return cb(new Error('multiple post ids'));
                         });

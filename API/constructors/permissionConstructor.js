@@ -1,8 +1,8 @@
 let util = require('util');
 
 let permissionConstructor = (obj) => {
-    let {entitiesGenerator,DAOConstructor,schemaConstructor,DBOpsConstructor,mongoose}=obj;
-    let DBops = DBOpsConstructor({entitiesGenerator,DAOConstructor,schemaConstructor,mongoose});
+    let {entitiesConstructor,DAOConstructor,schemaConstructor,DBOpsConstructor,mongoose}=obj;
+    let DBops = DBOpsConstructor({entitiesConstructor,DAOConstructor,schemaConstructor,mongoose});
     let {createObj, readObjs, updateObj, deleteObj, entities} = DBops;
 
     let roles = {
