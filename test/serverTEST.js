@@ -7,7 +7,7 @@ let APIConstructor=require('../API');
 let {createObj, readObjs}=APIConstructor;
 
 describe('test my simple server', function () {
-    this.timeout(0);
+    this.timeout(3000);
 
     before(function (done) {
         let url = 'mongodb://localhost/daotest';
@@ -37,54 +37,76 @@ describe('test my simple server', function () {
             });
         });
 
-        it('should create 2 posts', function (done) {
-            readObjs('projects', {})((err, projs) => {
-                if (err) throw err;
-                createObj('posts', {title: `post PARENT`, description: `post PARENT`, inproject: projs[0]._id})((err, post1) => {
-                    if (err) throw err;
-                    createObj('posts', {title: `post KID`, description: `post KID`,inpost:post1._id ,inproject: projs[0]._id})((err, data) => {
-                        if (err) throw err;
-                        done();
-                    });
-                });
-            });
-        });
-
-        it('should create datasets', function (done) {
-            readObjs('projects', {})((err, projs) => {
-                if (err) throw err;
-                readObjs('users', {})((err, users) => {
-                    if (err) throw err;
-                    createObj('datasets', {name: `dataset`,path_saved:`hdf_files/hdf.h5`, creator:users[0]._id, inproject: projs[0]._id})((err, post1) => {
-                        if (err) throw err;
-                        done();
-                    });
-                });
-            });
-        });
-
-
-        it('should create plots', function (done) {
-            readObjs('posts', {})((err, posts) => {
-                if (err) throw err;
-                for (let i = 0; i < posts.length; i++) {
-                    createObj('plots', {title: `plot ${i}`, description: `plot ${i}`, inpost: posts[i]._id,array_path_saved:`array${i}`,
-                        plot_metadata: {
-                            x_axis_name: `x_axis${i}`,
-                            y_axis_name: `y_axis${i}`,
-                            y: [{name: `f(x1) ${i}`, color: 'red'},{name: `f(x2) ${i}`, color: 'blue'}],
-                            dimension_name_x: `dim0 ${i}`,
-                            dimension_name_y: `dim1 ${i}`,
-                            plot_type: `simple${i}`
-                        }
-                    })((err, plot) => {
-                        if (i === posts.length / 2-1) {
-                            done();
-                        }
-                    });
-                }
-            });
-        });
+    //     it('should create datasets', function (done) {
+    //         readObjs('projects', {})((err, projs) => {
+    //             if (err) throw err;
+    //             readObjs('users', {})((err, users) => {
+    //                 if (err) throw err;
+    //                 createObj('datasets', {name: `dataset`,path_saved:`hdf_files/hdf.h5`, creator:users[0]._id, inproject: projs[0]._id})((err, post1) => {
+    //                     if (err) throw err;
+    //                     createObj('datasets', {name: `dataset`,path_saved:`hdf_files/hdf.h5`, creator:users[1]._id, inproject: projs[0]._id})((err, post1) => {
+    //                         if (err) throw err;
+    //                         done();
+    //                     });
+    //                 });
+    //             });
+    //         });
+    //     });
+    //
+    //     it('should create 2 posts', function (done) {
+    //         readObjs('datasets', {})((err, dsets) => {
+    //             if (err) throw err;
+    //             readObjs('projects', {})((err, projs) => {
+    //                 if (err) throw err;
+    //                 createObj('posts', {title: `post PARENT 1`, description: `post PARENT 1`, inproject: projs[0]._id,dset_link:dsets[0]._id})((err, post1) => {
+    //                     if (err) throw err;
+    //                     createObj('posts', {title: `post KID 1`, description: `post KID 1`,inpost:post1._id ,inproject: projs[0]._id,dset_link:dsets[1]._id})((err, data) => {
+    //                         if (err) throw err;
+    //                         createObj('posts', {title: `post PARENT 2`, description: `post PARENT 2`, inproject: projs[0]._id,dset_link:dsets[1]._id})((err, post2) => {
+    //                             if (err) throw err;
+    //                             createObj('posts', {title: `post KID 2`, description: `post KID 2`,inpost:post2._id ,inproject: projs[0]._id,dset_link:dsets[0]._id})((err, data) => {
+    //                                 if (err) throw err;
+    //                                 done();
+    //                             });
+    //                         });
+    //                     });
+    //                 });
+    //             });
+    //         });
+    //     });
+    //
+    //     it('should create plots', function (done) {
+    //         readObjs('posts', {})((err, posts) => {
+    //             if (err) throw err;
+    //             for (let i = 0; i < posts.length; i++) {
+    //                 createObj('plots', {title: `plot ${i}`, description: `plot ${i}`, inpost: posts[i]._id,array_path_saved:`array${i}`,
+    //                     plot_metadata: {
+    //                         x_axis_name: `x_axis${i}`,
+    //                         y_axis_name: `y_axis${i}`,
+    //                         y: [{name: `f(x1) ${i}`, color: 'red'},{name: `f(x2) ${i}`, color: 'blue'}],
+    //                         dimension_name_x: `dim0 ${i}`,
+    //                         dimension_name_y: `dim1 ${i}`,
+    //                         plot_type: `simple${i}`
+    //                     }
+    //                 })((err, plot) => {
+    //                     createObj('plots', {title: `plot ${i}`, description: `plot ${i}`, inpost: posts[i]._id,array_path_saved:`array${i}`,
+    //                         plot_metadata: {
+    //                             x_axis_name: `x_axis${i}`,
+    //                             y_axis_name: `y_axis${i}`,
+    //                             y: [{name: `f(x1) ${i}`, color: 'red'},{name: `f(x2) ${i}`, color: 'blue'}],
+    //                             dimension_name_x: `dim0 ${i}`,
+    //                             dimension_name_y: `dim1 ${i}`,
+    //                             plot_type: `simple${i}`
+    //                         }
+    //                     })((err, plot) => {
+    //                         if (i === posts.length-1) {
+    //                             done();
+    //                         }
+    //                     });
+    //                 });
+    //             }
+    //         });
+    //     });
     });
 
 
@@ -107,42 +129,42 @@ describe('test my simple server', function () {
                 })
                 .expect(200,done)
         });
-        // it('should get /projects',function (done) {
-        //     agent
-        //         .get('/projects')
-        //         .expect('Content-Type', /json/)
-        //         .expect(function (res) {
-        //             console.log(res.text);
-        //         })
-        //         .expect(200,done)
-        // });
-        // it('should get /posts',function (done) {
-        //     agent
-        //         .get('/posts')
-        //         .expect('Content-Type', /json/)
-        //         .expect(function (res) {
-        //             console.log(res.text);
-        //         })
-        //         .expect(200,done)
-        // });
-        // it('should get /datasets',function (done) {
-        //     agent
-        //         .get('/datasets')
-        //         .expect('Content-Type', /json/)
-        //         .expect(function (res) {
-        //             console.log(res.text);
-        //         })
-        //         .expect(200,done)
-        // });
-        // it('should get /plots',function (done) {
-        //     agent
-        //         .get('/plots')
-        //         .expect('Content-Type', /json/)
-        //         .expect(function (res) {
-        //             console.log(res.text);
-        //         })
-        //         .expect(200,done)
-        // });
+        it('should get /datasets',function (done) {
+            agent
+                .get('/datasets')
+                .expect('Content-Type', /json/)
+                .expect(function (res) {
+                    console.log(res.text);
+                })
+                .expect(200,done)
+        });
+        it('should get /plots',function (done) {
+            agent
+                .get('/plots')
+                .expect('Content-Type', /json/)
+                .expect(function (res) {
+                    console.log(res.text);
+                })
+                .expect(200,done)
+        });
+        it('should get /posts',function (done) {
+            agent
+                .get('/posts')
+                .expect('Content-Type', /json/)
+                .expect(function (res) {
+                    console.log(res.text);
+                })
+                .expect(200,done)
+        });
+        it('should get /projects',function (done) {
+            agent
+                .get('/projects')
+                .expect('Content-Type', /json/)
+                .expect(function (res) {
+                    console.log(res.text);
+                })
+                .expect(200,done)
+        });
     });
 
 });
