@@ -70,7 +70,7 @@ app.use( function(req,res,next) {
     res.locals.success=req.flash('success');
     next();
 });
-app.use('/', require('./routes'));
+app.use('/', require('./new_server/routes'));
 //Set Port
 app.set('port',(process.env.PORT || 3000));
 app.listen(app.get('port'), function() {

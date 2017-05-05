@@ -164,13 +164,12 @@ let permissionConstructor = (obj) => {
 
     let isAllowedCreate = (user_id, method, model_to_create, in_obj_id) => {
         return (cb) => {
-
             if(method!=='create' || model_to_create === 'users' ) return  cb(new Error('Not supported operation'));
             readObjs('users',{_id:user_id})((err,user) => {
 
                 if (err) return cb(new Error(err));
                 if (user.length === 1) {
-                    if(model_to_create === 'projects' && in_obj_id === null) return cb(null,'allowed');
+                    if(model_to_create === 'projects' && !in_obj_id) return cb(null,'allowed');
 
                     else if(model_to_create === 'posts' || model_to_create === 'datasets') {
                         readObjs('projects', {_id: in_obj_id})((err, proj) => {

@@ -1,13 +1,33 @@
 const router = require('express').Router();
-
-let APIConstructor=require('./API');
-let {createObj, readObjs}=APIConstructor;
+let defender = require('./defender')(router);
+let session_setup = require('./session_setup');
+let APIConstructor=require('../API/index');
+let {readObjs}=APIConstructor;
 
 router.get('/', (req, res) => {
     res.status(200).json([]);
 });
 
-router.get('/users', (req, res) => {
+router.post('/login', (req, res, next) => {
+    session_setup.passport.authenticate('local', {failureFlash: true}, (err, user, info) => {
+        if (err) return next(err);
+        else if (!user) {
+           res.status(404).send('error');
+        }
+        else {
+            req.logIn(user, (err) => {
+                if (err) {
+                    return next(err);
+                }
+                else {
+                    res.status(200).send('all done');
+                }
+            });
+        }
+    })(req,res,next);
+});
+
+router.get('/users', (err, req, res) => {
     let new_users=[];
 
     readObjs('users',{})((err,users) => {
@@ -157,9 +177,5 @@ function confDsets(query,cb) {
         }
     })
 }
-
-
-
-
 
 module.exports=router;

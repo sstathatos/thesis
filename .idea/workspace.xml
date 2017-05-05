@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoTestManager">
-    <enabled-run-configurations>
-      <run-configuration type="mocha-javascript-test-runner" name="serverTest" />
-    </enabled-run-configurations>
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="116c7290-88d7-4e01-a603-fa157eff4828" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/new_server/defender.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/new_server/myapp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/new_server/session_setup.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp.js" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/routes.js" afterPath="$PROJECT_DIR$/new_server/routes.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/routes2.js" afterPath="$PROJECT_DIR$/new_server/routes2.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes2.js" afterPath="$PROJECT_DIR$/routes2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/API/constructors/permissionConstructor.js" afterPath="$PROJECT_DIR$/API/constructors/permissionConstructor.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/serverTEST.js" afterPath="$PROJECT_DIR$/test/serverTEST.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -30,61 +32,71 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
+      <file leaf-file-name="permissionConstructor.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/API/constructors/permissionConstructor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="171">
+              <caret line="165" column="24" lean-forward="false" selection-start-line="165" selection-start-column="24" selection-end-line="165" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="myapp.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myapp.js">
+        <entry file="file://$PROJECT_DIR$/new_server/myapp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+            <state relative-caret-position="291">
+              <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes.js">
+      <file leaf-file-name="session_setup.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/new_server/session_setup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1640">
-              <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+            <state relative-caret-position="340">
+              <caret line="17" column="51" lean-forward="false" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serverTEST.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="serverTEST.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/serverTEST.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="158" column="11" lean-forward="false" selection-start-line="158" selection-start-column="11" selection-end-line="158" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes2.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/routes2.js">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="477">
-              <caret line="91" column="6" lean-forward="true" selection-start-line="91" selection-start-column="6" selection-end-line="91" selection-end-column="6" />
+              <caret line="92" column="39" lean-forward="true" selection-start-line="92" selection-start-column="39" selection-end-line="92" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBopsTEST.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/test/DBopsTEST.js">
+      <file leaf-file-name="routes2.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/new_server/routes2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="197" column="44" lean-forward="false" selection-start-line="197" selection-start-column="44" selection-end-line="197" selection-end-column="44" />
+            <state relative-caret-position="20">
+              <caret line="23" column="17" lean-forward="false" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="defender.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/new_server/defender.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="62" column="54" lean-forward="false" selection-start-line="62" selection-start-column="54" selection-end-line="62" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="permissionTEST.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/test/permissionTEST.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="12" column="37" lean-forward="false" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -101,9 +113,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>get_context_data</find>
-      <find>ac</find>
-      <find>methods</find>
       <find>insp</find>
       <find>ken</find>
       <find>these</find>
@@ -131,6 +140,9 @@
       <find>plots</find>
       <find>console</find>
       <find>dataset_link</find>
+      <find>in_obj</find>
+      <find>dbHost</find>
+      <find>in_obj_id</find>
     </findStrings>
     <replaceStrings>
       <replace>Entity</replace>
@@ -151,11 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/models/acl.js" />
-        <option value="$PROJECT_DIR$/test/test/DAOtest.js" />
-        <option value="$PROJECT_DIR$/class_views/users.js" />
-        <option value="$PROJECT_DIR$/routes/projects.js" />
-        <option value="$PROJECT_DIR$/routes/users.js" />
         <option value="$PROJECT_DIR$/models/entity.js" />
         <option value="$PROJECT_DIR$/DAOmock.js" />
         <option value="$PROJECT_DIR$/helpers.js" />
@@ -190,18 +197,23 @@
         <option value="$PROJECT_DIR$/API/permissionConstructor.js" />
         <option value="$PROJECT_DIR$/API/entitiesGenerator.js" />
         <option value="$PROJECT_DIR$/API/index.js" />
-        <option value="$PROJECT_DIR$/API/constructors/permissionConstructor.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/API/constructors/APIConstructor.js" />
         <option value="$PROJECT_DIR$/serverInitTEST.js" />
-        <option value="$PROJECT_DIR$/myapp.js" />
         <option value="$PROJECT_DIR$/API/constructors/schemaConstructor.js" />
         <option value="$PROJECT_DIR$/API/constructors/DBOpsConstructor.js" />
         <option value="$PROJECT_DIR$/test/test/DBopsTEST.js" />
         <option value="$PROJECT_DIR$/test/test/permissionTEST.js" />
         <option value="$PROJECT_DIR$/routes.js" />
-        <option value="$PROJECT_DIR$/test/serverTEST.js" />
+        <option value="$PROJECT_DIR$/API/constructors/APIConstructor.js" />
+        <option value="$PROJECT_DIR$/myapp.js" />
+        <option value="$PROJECT_DIR$/defender.js" />
         <option value="$PROJECT_DIR$/routes2.js" />
+        <option value="$PROJECT_DIR$/new_server/myapp.js" />
+        <option value="$PROJECT_DIR$/new_server/routes2.js" />
+        <option value="$PROJECT_DIR$/new_server/session_setup.js" />
+        <option value="$PROJECT_DIR$/new_server/defender.js" />
+        <option value="$PROJECT_DIR$/API/constructors/permissionConstructor.js" />
+        <option value="$PROJECT_DIR$/test/serverTEST.js" />
       </list>
     </option>
   </component>
@@ -223,10 +235,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1089" />
-    <option name="y" value="-4" />
-    <option name="width" value="1535" />
-    <option name="height" value="904" />
+    <option name="x" value="64" />
+    <option name="y" value="-11" />
+    <option name="width" value="1537" />
+    <option name="height" value="912" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -262,6 +274,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -322,6 +335,34 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="old_tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thesis-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thesis-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thesis-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thesis-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="new_server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -419,7 +460,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -439,11 +479,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/new_server" />
       <recent name="$PROJECT_DIR$/API/constructors" />
       <recent name="$PROJECT_DIR$/constructors" />
       <recent name="$PROJECT_DIR$/test/test" />
       <recent name="$PROJECT_DIR$/test" />
-      <recent name="$PROJECT_DIR$/test/test/old_tests" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -458,7 +498,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.myapp.js">
+  <component name="RunManager" selected="Mocha.serverTest">
     <configuration default="true" type="ChromiumRemoteDebugType" factoryName="Chromium Remote">
       <method />
     </configuration>
@@ -591,7 +631,7 @@
       <test-file>$PROJECT_DIR$/test/test.js</test-file>
       <method />
     </configuration>
-    <configuration default="false" name="myapp.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="myapp.js" working-dir="$PROJECT_DIR$">
+    <configuration default="false" name="myapp.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="$PROJECT_DIR$/new_server/myapp.js" working-dir="$PROJECT_DIR$">
       <EXTENSION ID="com.jetbrains.nodejs.remote.docker.NodeJSDockerRunConfigurationExtension">
         <option name="envVars">
           <list />
@@ -756,7 +796,9 @@
       <workItem from="1493739130750" duration="17777000" />
       <workItem from="1493801666860" duration="702000" />
       <workItem from="1493807024642" duration="25459000" />
-      <workItem from="1493883640019" duration="32691000" />
+      <workItem from="1493883640019" duration="35095000" />
+      <workItem from="1493977541464" duration="32913000" />
+      <workItem from="1494021115166" duration="2625000" />
     </task>
     <task id="LOCAL-00001" summary="Added simplifications for view and project creations. Added roles">
       <created>1488903036550</created>
@@ -884,43 +926,50 @@
       <option name="project" value="LOCAL" />
       <updated>1493890360464</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Added simple server structure with test">
+      <created>1493919688643</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1493919688643</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="serverTest - 2017.05.04 at 19h 58m 51s.xml">
+    <history-entry file="serverTest - 2017.05.06 at 01h 01m 06s.xml">
       <configuration name="serverTest" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="serverTest - 2017.05.04 at 20h 00m 25s.xml">
+    <history-entry file="serverTest - 2017.05.06 at 01h 09m 28s.xml">
       <configuration name="serverTest" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="serverTest - 2017.05.04 at 20h 00m 40s.xml">
+    <history-entry file="serverTest - 2017.05.06 at 01h 10m 04s.xml">
       <configuration name="serverTest" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="serverTest - 2017.05.04 at 20h 01m 06s.xml">
+    <history-entry file="serverTest - 2017.05.06 at 01h 10m 22s.xml">
       <configuration name="serverTest" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="serverTest - 2017.05.04 at 20h 01m 50s.xml">
+    <history-entry file="serverTest - 2017.05.06 at 01h 10m 58s.xml">
       <configuration name="serverTest" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="serverTest - 2017.05.04 at 20h 01m 59s.xml">
+    <history-entry file="serverTest - 2017.05.06 at 01h 11m 52s.xml">
       <configuration name="serverTest" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="serverTest - 2017.05.04 at 20h 05m 47s.xml">
+    <history-entry file="serverTest - 2017.05.06 at 01h 12m 06s.xml">
       <configuration name="serverTest" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="serverTest - 2017.05.04 at 20h 06m 54s.xml">
+    <history-entry file="serverTest - 2017.05.06 at 01h 12m 41s.xml">
       <configuration name="serverTest" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="serverTest - 2017.05.04 at 20h 07m 14s.xml">
+    <history-entry file="serverTest - 2017.05.06 at 01h 25m 48s.xml">
       <configuration name="serverTest" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="serverTest - 2017.05.04 at 20h 07m 27s.xml">
+    <history-entry file="serverTest - 2017.05.06 at 01h 26m 51s.xml">
       <configuration name="serverTest" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1352867000" />
+    <option name="totallyTimeSpent" value="1390809000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -932,19 +981,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1089" y="-4" width="1535" height="904" extended-state="6" />
-    <editor active="true" />
+    <frame x="64" y="-11" width="1537" height="912" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16137566" sideWeight="0.49485862" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16137566" sideWeight="0.49485862" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.78534704" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.90488434" sideWeight="0.5026455" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7930591" sideWeight="0.4973545" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6388175" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7930591" sideWeight="0.4973545" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.90359896" sideWeight="0.4973545" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39974293" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14153439" sideWeight="0.5051414" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39974293" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1008,7 +1056,8 @@
     <MESSAGE value="Added permissions completed" />
     <MESSAGE value="Added API module" />
     <MESSAGE value="Added simple server structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added simple server structure" />
+    <MESSAGE value="Added simple server structure with test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added simple server structure with test" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1018,20 +1067,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/editproject.handlebars">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/home.handlebars">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="30" column="35" lean-forward="false" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/createproject.handlebars">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
@@ -1211,13 +1246,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/authentication.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="24" column="3" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="24" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -1225,24 +1253,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/API/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="66" lean-forward="false" selection-start-line="0" selection-start-column="52" selection-end-line="0" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/auth_session.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -1254,58 +1268,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/serverInitTEST.js" />
-    <entry file="file://$PROJECT_DIR$/test/old_tests/createUsersnProjects.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="56" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API/constructors/permissionConstructor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="35" lean-forward="false" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API/constructors/APIConstructor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/test/permissionTEST.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="43" column="87" lean-forward="false" selection-start-line="43" selection-start-column="87" selection-end-line="43" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/API/constructors/schemaConstructor.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1291">
           <caret line="164" column="0" lean-forward="true" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1313,7 +1279,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
           <caret line="38" column="59" lean-forward="false" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1321,46 +1286,124 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="19" column="55" lean-forward="false" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API/constructors/DBOpsConstructor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="112" column="6" lean-forward="true" selection-start-line="112" selection-start-column="6" selection-end-line="112" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1640">
-          <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/test/DBopsTEST.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="197" column="44" lean-forward="false" selection-start-line="197" selection-start-column="44" selection-end-line="197" selection-end-column="44" />
+        <state relative-caret-position="700">
+          <caret line="35" column="11" lean-forward="false" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="11" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="8" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/authentication.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/auth_session.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="13" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_server/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1220">
+          <caret line="61" column="22" lean-forward="false" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-100">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/constructors/DBOpsConstructor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1520">
+          <caret line="76" column="17" lean-forward="false" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/constructors/APIConstructor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="63" lean-forward="true" selection-start-line="13" selection-start-column="63" selection-end-line="13" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/old_tests/createUsersnProjects.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test/permissionTEST.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="37" lean-forward="false" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_server/session_setup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="51" lean-forward="false" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_server/myapp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_server/routes2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="23" column="17" lean-forward="false" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_server/defender.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="62" column="54" lean-forward="false" selection-start-line="62" selection-start-column="54" selection-end-line="62" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/constructors/permissionConstructor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="165" column="24" lean-forward="false" selection-start-line="165" selection-start-column="24" selection-end-line="165" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/serverTEST.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="158" column="11" lean-forward="false" selection-start-line="158" selection-start-column="11" selection-end-line="158" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes2.js">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="477">
-          <caret line="91" column="6" lean-forward="true" selection-start-line="91" selection-start-column="6" selection-end-line="91" selection-end-column="6" />
+          <caret line="92" column="39" lean-forward="true" selection-start-line="92" selection-start-column="39" selection-end-line="92" selection-end-column="39" />
           <folding />
         </state>
       </provider>
