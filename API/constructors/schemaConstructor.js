@@ -123,7 +123,7 @@ let schemaConstructor = (mongoose) => {
                 deny: [{type: mongoose.Schema.Types.ObjectId, ref: UserSchema}]
             }
         },
-        inpost: this,
+        inpost: {type: mongoose.Schema.Types.ObjectId, ref: 'posts'},
         inproject: {
             type: mongoose.Schema.Types.ObjectId, ref: ProjectSchema
         },

@@ -110,19 +110,22 @@ let permissionConstructor = (obj) => {
 
     let isAllowed = (user_id, obj_id, method, model_name) => {
         return (cb) => {
-            if (model_name === 'users') return cb(new Error(`this operation is not supported for model: ${model_name}`));
-            let model = entities[model_name];
-
-            readObjs('users',{_id:user_id})((err,user) => {
+            readObjs('users',{_id:user_id})((err,user) => { //CHECK USER_ID
                 if (err) return cb(new Error(err));
                 if (user.length === 1) {
 
-                    readObjs(model_name, {_id: obj_id})((err, obj) => {
+                    readObjs(model_name, {_id: obj_id})((err, obj) => { //CHECK OBJ_ID
 
                         if (err) return cb(new Error(err));
                         if (obj.length === 1) {
 
-                            if(model_name==='plots') {
+                            if (model_name === 'users') {
+                                if(method === 'read') return cb(null,'allowed');
+                                else if(JSON.stringify(obj[0]._id)===JSON.stringify(user[0]._id)) return cb(null,'allowed');
+                                return cb(null,'denied');
+                            }
+
+                            if(model_name === 'plots') {
                                 readObjs('posts',{_id:obj[0].inpost})((err,post) => {
 
                                     if (err) return cb(new Error(err));

@@ -7,6 +7,8 @@ let rules = [
     {route:"/register",method:"POST"}
 ];
 
+let entities=['users','projects','posts','datasets','plots'];
+
 let methodMap = {
     'GET':"read",'POST':"create",'PUT':"update",'DELETE':"delete"
 };
@@ -25,50 +27,60 @@ let defender = (req,res,next) => {
 
     if (!req.isAuthenticated()) {
         console.log('NOT ALLOWED!');
-        res.status(418).send("NOT ALLOWED!");
+        return res.status(418).send({perm:"denied"});
     }
-    else checkPermission(req,res);
+
+    else checkPermission(req,res,next);
 
 };
 
-let checkPermission = (req,res) => {
+let checkPermission = (req,res,next) => {
     let {query,method,path} = req;
     let model=path.split('/');
     console.log(model[1],query,method);
 
-    if (method ==='POST') {
+    if(model[1]==='logout') {
+        return next('route');
+    }
+
+    if(!entities.includes(model[1])) {
+        return res.status(418).send({perm:"denied"});
+    }
+
+    else if (method ==='POST') {
         isAllowedCreate(req.user._id,methodMap[method],model[1],query._id)((err,perm) => {
-            if(err) throw err;
+            if(err) {
+                console.log(err.message);
+                return res.status(418).send({perm:"denied"});
+            }
             if(perm==='allowed') {
-                console.log('ALLOWED to create');
-                res.status(200).send('ALLOWED to create');
-                //next();
+                // res.status(200).send('allowed');
+                return next();
             }
             else {
-                console.log('ACCESS DENIED TO CREATE');
-                res.status(418).send('ACCESS DENIED!');
+                return res.status(418).send({perm:"denied"});
             }
         });
     }
 
     else if ((method === 'GET') || (method === 'PUT') || (method === 'DELETE')) {
+      // /users && method 'get'
         isAllowed(req.user._id,query._id,methodMap[method],model[1])((err,perm) => {
-            if(err) throw err;
+            if(err) {
+                console.log(err.message);
+                return res.status(418).send({perm:"denied"});  //404 normally
+            }
             if(perm==='allowed') {
-                console.log(`ALLOWED to ${methodMap[method]}`);
-                res.status(200).send(`ALLOWED to ${methodMap[method]}`);
-                //next();
+                return next(); 
             }
             else {
-                console.log(`ACCESS DENIED TO ${methodMap[method]}`);
-                res.status(418).send('ACCESS DENIED!');
+                return res.status(418).send({perm:"denied"});
             }
         })
     }
 
     else {
-        console.log('NOT ALLOWED vol2!');
-        res.status(418).send("NOT ALLOWED vol2!");
+        return res.status(418).send({perm:"denied"}); 
     }
 };
 

@@ -13,5 +13,12 @@
     <orderEntry type="library" name="supertest-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="passport-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="express-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="supertest-as-promised-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="superagent-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="es6-promise-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="es6-weak-map-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="request-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="request-promise-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="request-promise-native-DefinitelyTyped" level="application" />
   </component>
 </module>

@@ -5,14 +5,14 @@ let APIConstructor=require('../API/index');
 let {readObjs}=APIConstructor;
 
 router.get('/', (req, res) => {
-    res.status(200).json([]);
+    res.status(200).send({perm:'allowed',msg:'all done'});
 });
 
 router.post('/login', (req, res, next) => {
     session_setup.passport.authenticate('local', {failureFlash: true}, (err, user, info) => {
         if (err) return next(err);
         else if (!user) {
-           res.status(404).send('error');
+            res.status(404).send('error');
         }
         else {
             req.logIn(user, (err) => {
@@ -27,13 +27,26 @@ router.post('/login', (req, res, next) => {
     })(req,res,next);
 });
 
-router.get('/users', (err, req, res) => {
-    let new_users=[];
+router.get('/logout', (req, res) => {
+    req.session.destroy(() => {
+        res.clearCookie('connect.sid');
+        res.status(200).send({perm:'allowed',msg:'all done'});
+    });
+});
 
-    readObjs('users',{})((err,users) => {
+
+router.get('/users', (req, res) => {
+    let {query} = req;
+    readObjs('users',{_id:query._id})((err,users) => {
         if (err) throw err;
-        new_users=users.map((obj)=>{return {"name":obj.name,"username":obj.username,"email" : obj.email}});
-        res.status(200).json(new_users);
+        let new_user=users.map((obj)=>{return {"name":obj.name,"username":obj.username,"email" : obj.email}})[0];
+        new_user['projects']=[];
+        let qpath="acl.read.allow";
+        readObjs('projects',{[qpath]:query._id})((err,projs) => {
+            if (err) throw err;
+            new_user['projects'].push(projs.map((obj)=>{return {"name":obj.name,"description":obj.description,"date":obj.date.toISOString().slice(0, 10)}}));
+            res.status(200).send({perm:'allowed',data:new_user});
+        });
     });
 });
 
@@ -58,57 +71,55 @@ router.get('/plots',(req,res) => {
 });
 
 router.get('/posts',(req,res) => {
-    let new_posts=[];
-    let cnt=0;
-    let cnt1=0;
-    readObjs('posts',{})((err,posts) => {
-        if (err) throw err;
-        if (posts.length ===0)  res.status(200).json(new_posts);
-        let parents=posts.filter((obj)=>{ if(!obj.inpost) return obj });
-        let kids= posts.filter((obj) => { if(obj.inpost) return obj});
-
-        for (let i=0;i<parents.length;i++) {
-            confPost(parents[i],(err,ppost) => {
-                if (err) throw err;
-                new_posts.push({parent:ppost,kids:[]});
-                if(cnt===parents.length-1)  {
-                    for (let i=0;i<kids.length;i++) {
-                        confPost(kids[i],(err,kpost) => {
-                            if (err) throw err;
-                            new_posts.filter((obj) =>{ if(JSON.stringify(obj.parent._id)===JSON.stringify(kpost.inpost)) {
-                                obj.kids.push(kpost);
-                            }});
-                            if(cnt1===kids.length-1)  {
-                                res.status(200).json(new_posts);
-                            }
-                            cnt1++;
-                        })
-                    }
-                }
-                cnt++;
-            })
+    searchRelatedPosts(req.query,(err,posts) => {
+        if (err) {
+            console.log(err);
+            return res.status(404).send({perm:'allowed',data:{}});
         }
+        return res.status(200).send({perm:'allowed',data:posts});
     });
 });
 
-router.get('/projects' ,(req,res) => {
-    let new_projects = [];
-    let cnt1=0;
-    readObjs('projects',{})((err,projs) => {
-        if (err) throw err;
-
-        if(projs.length===0) res.status(200).json(new_projects);
-
+function searchRelatedPosts(query,cb) {
+    readObjs('posts',{_id:query._id})((err,posts) => {
+        if (err) return cb(new Error(err));
+        if(posts[0].inpost) return searchRelatedPosts({_id:posts[0].inpost},cb);
         else {
-            for (let i in projs) {
-                confProject(projs[i],(err,proj) => {
-                    if(err) throw err;
-                    new_projects.push(proj);
-                    if(cnt1 === projs.length-1) res.status(200).json(new_projects);
-                    cnt1++;
-                })
-            }
+            let whole_post = {kids:[]};
+            let cnt=0;
+            readObjs('posts',{$or :[{_id:query._id},{inpost:query._id}]})((err,posts) => {
+                if (err) return cb(new Error(err));
+                for(let i in posts){
+
+                    if (JSON.stringify(posts[i]._id)===JSON.stringify(query._id)) { //parent
+                        confPost(posts[i],(err,post) => {
+                            if (err) return cb(new Error(err));
+                            whole_post['parent']=post;
+                            if(cnt ===posts.length -1) return cb(null,whole_post);
+                            cnt++;
+                        })
+                    }
+                    else { //kid
+                        confPost(posts[i],(err,post) => {
+                            if (err) return cb(new Error(err));
+                            whole_post.kids.push(post);
+                            if(cnt ===posts.length -1) return cb(null,whole_post);
+                            cnt++;
+                        })
+                    }
+                }
+            });
         }
+    });
+}
+
+router.get('/projects' ,(req,res) => {
+    readObjs('projects',req.query._id)((err,proj) => {
+        if (err) throw err;
+        confProject(proj[0],(err,proj) => {
+            if(err) throw err;
+            res.status(200).json({perm:'allowed',data:proj});
+        })
     })
 });
 
@@ -178,4 +189,43 @@ function confDsets(query,cb) {
     })
 }
 
+router.all('*' ,(req,res) => {
+    res.status(200).send({perm:'allowed'});
+});
+
 module.exports=router;
+
+
+
+
+// let new_post=[];
+// let cnt=0;
+// let cnt1=0;
+// readObjs('posts',{_id:query._id})((err,post) => {
+//     if (err) throw err;
+//     let parents=post.filter((obj)=>{ if(!obj.inpost) return obj });
+//     let kids= post.filter((obj) => { if(obj.inpost) return obj});
+//
+//     for (let i=0;i<parents.length;i++) {
+//         confPost(parents[i],(err,ppost) => {
+//             if (err) throw err;
+//             new_posts.push({parent:ppost,kids:[]});
+//             if(cnt===parents.length-1)  {
+//                 for (let i=0;i<kids.length;i++) {
+//                     confPost(kids[i],(err,kpost) => {
+//                         if (err) throw err;
+//                         new_posts.filter((obj) =>{ if(JSON.stringify(obj.parent._id)===JSON.stringify(kpost.inpost)) {
+//                             obj.kids.push(kpost);
+//                         }});
+//                         if(cnt1===kids.length-1)  {
+//                             console.log('here');
+//                             res.status(200).json(new_posts);
+//                         }
+//                         cnt1++;
+//                     })
+//                 }
+//             }
+//             cnt++;
+//         })
+//     }
+// });
