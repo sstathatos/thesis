@@ -10,7 +10,6 @@ mongoose.createConnection(dbHost, {}); // TO BE CHANGED
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(cookieParser());
@@ -28,7 +27,6 @@ app.use(session({
 //Passport init
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use('/', require('./routes2'));
 
 app.set('port',(process.env.PORT || 3000));

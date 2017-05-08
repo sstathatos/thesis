@@ -2,6 +2,10 @@ const router = require('express').Router();
 let defender = require('./defender')(router);
 let session_setup = require('./session_setup');
 let APIConstructor=require('../API/index');
+let fs = require('fs');
+let shortid = require('shortid');
+let Busboy = require('busboy');
+
 let {readObjs}=APIConstructor;
 
 router.get('/', (req, res) => {
@@ -44,27 +48,76 @@ router.get('/users', (req, res) => {
         let qpath="acl.read.allow";
         readObjs('projects',{[qpath]:query._id})((err,projs) => {
             if (err) throw err;
-            new_user['projects'].push(projs.map((obj)=>{return {"name":obj.name,"description":obj.description,"date":obj.date.toISOString().slice(0, 10)}}));
+            new_user['projects'].push(projs.map((obj)=>{return {"name":obj.name,
+                "description":obj.description,"date":obj.date.toISOString().slice(0, 10)}}));
             res.status(200).send({perm:'allowed',data:new_user});
         });
     });
 });
 
+
+
 router.get('/datasets',(req,res) => {
+    let {query} = req;
     let new_dsets = [];
-    readObjs('datasets',{})((err,dsets) => {
+    readObjs('datasets',query)((err,dset) => {
         if (err) throw err;
-        new_dsets=dsets.map((obj)=>{return {"name":obj.name,"creator":obj.creator,"date" : obj.date.toISOString().slice(0, 10),"data":[{'x':3,'y':5},{'x':3,'y':5}]}});
+
+        // new_dsets=dset.map((obj)=>{return {"name":obj.name,"creator":obj.creator,
+        //     "date" : obj.date.toISOString().slice(0, 10),"data":[{'x':3,'y':5},{'x':3,'y':5}]}});
         //hdf function must be called
         res.status(200).json(new_dsets);
     })
 });
 
+router.post('/upload', (req,res) => {
+    save_data(req,(err,data_path) => {
+        console.log(data_path);
+        res.status(200).send({perm:'allowed',data:data_path});
+    })
+});
+
+function save_data(req, cb) {
+    let busboy = new Busboy({headers: req.headers});
+    busboy.on('file', function (fieldname, file, filename, encoding, mimetype) {
+        if (!filename.includes('.h5')) cb('This file extension is not supported.', null);
+        else {
+            file.fileRead = []; //collect al8l chunks
+            let size = 0; //count size of chunks
+            file.on('data', function (chunk) {
+                size += chunk.length;
+                file.fileRead.push(chunk);
+            });
+            file.on('end', function () {
+                console.log(size);
+                let data = Buffer.concat(file.fileRead, size);//concat all chunks
+                let new_name=__dirname+'/hdf_saved_files/'+shortid.generate()+'.h5';
+                fs.writeFile(new_name, data, (err) => {
+                    if (err) throw err;
+                    console.log('The file has been saved!');
+                    cb(null,new_name);
+                });
+            });
+            file.on('limit', function () {
+                console.log("limit!!");
+            });
+        }
+    });
+    busboy.on('finish', function () {
+        console.log('Done parsing form!');
+    });
+    busboy.on('error', function (err) {
+        cb(new Error(err));
+    });
+    req.pipe(busboy);
+}
+
 router.get('/plots',(req,res) => {
     let new_plots = [];
     readObjs('plots',{})((err,plots) => {
         if (err) throw err;
-        new_plots=plots.map((obj)=>{return {"title":obj.title,"description":obj.description,"plot_metadata":obj.plot_metadata,"data":[{'x':3,'y':5},{'x':3,'y':5}]}});
+        new_plots=plots.map((obj)=>{return {"title":obj.title,"description":obj.description,
+            "plot_metadata":obj.plot_metadata,"data":[{'x':3,'y':5},{'x':3,'y':5}]}});
         //hdf
         res.status(200).json(new_plots);
     })
@@ -78,6 +131,16 @@ router.get('/posts',(req,res) => {
         }
         return res.status(200).send({perm:'allowed',data:posts});
     });
+});
+
+router.get('/projects' ,(req,res) => {
+    readObjs('projects',req.query._id)((err,proj) => {
+        if (err) throw err;
+        confProject(proj[0],(err,proj) => {
+            if(err) throw err;
+            res.status(200).json({perm:'allowed',data:proj});
+        })
+    })
 });
 
 function searchRelatedPosts(query,cb) {
@@ -113,15 +176,6 @@ function searchRelatedPosts(query,cb) {
     });
 }
 
-router.get('/projects' ,(req,res) => {
-    readObjs('projects',req.query._id)((err,proj) => {
-        if (err) throw err;
-        confProject(proj[0],(err,proj) => {
-            if(err) throw err;
-            res.status(200).json({perm:'allowed',data:proj});
-        })
-    })
-});
 
 function confProject(proj,cb) {
     let obj ={};
@@ -194,38 +248,3 @@ router.all('*' ,(req,res) => {
 });
 
 module.exports=router;
-
-
-
-
-// let new_post=[];
-// let cnt=0;
-// let cnt1=0;
-// readObjs('posts',{_id:query._id})((err,post) => {
-//     if (err) throw err;
-//     let parents=post.filter((obj)=>{ if(!obj.inpost) return obj });
-//     let kids= post.filter((obj) => { if(obj.inpost) return obj});
-//
-//     for (let i=0;i<parents.length;i++) {
-//         confPost(parents[i],(err,ppost) => {
-//             if (err) throw err;
-//             new_posts.push({parent:ppost,kids:[]});
-//             if(cnt===parents.length-1)  {
-//                 for (let i=0;i<kids.length;i++) {
-//                     confPost(kids[i],(err,kpost) => {
-//                         if (err) throw err;
-//                         new_posts.filter((obj) =>{ if(JSON.stringify(obj.parent._id)===JSON.stringify(kpost.inpost)) {
-//                             obj.kids.push(kpost);
-//                         }});
-//                         if(cnt1===kids.length-1)  {
-//                             console.log('here');
-//                             res.status(200).json(new_posts);
-//                         }
-//                         cnt1++;
-//                     })
-//                 }
-//             }
-//             cnt++;
-//         })
-//     }
-// });

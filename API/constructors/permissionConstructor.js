@@ -156,7 +156,7 @@ let permissionConstructor = (obj) => {
                             }
                             else return cb(null,'denied');
                         }
-                        else return cb(new Error(`Obj id: ${obj_id} does not exist in the collection: ${model_name} db`));
+                        else return cb(new Error(`Obj id does not exist in the collection: ${model_name} db`));
                     });
                 }
 
