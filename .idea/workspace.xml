@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="116c7290-88d7-4e01-a603-fa157eff4828" name="Default" comment="Added some routes with permissions and testing">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/test/datasetUploadTEST.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/test/initDBTEST.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/test/serverTEST.js" afterPath="$PROJECT_DIR$/test/test/serverPermsTEST.js" />
+    <list default="true" id="116c7290-88d7-4e01-a603-fa157eff4828" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/new_server/data_generator/python_generator.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/API/constructors/permissionConstructor.js" afterPath="$PROJECT_DIR$/API/constructors/permissionConstructor.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_server/defender.js" afterPath="$PROJECT_DIR$/new_server/defender.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_server/myapp.js" afterPath="$PROJECT_DIR$/new_server/myapp.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_server/routes2.js" afterPath="$PROJECT_DIR$/new_server/routes2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test.js" afterPath="$PROJECT_DIR$/test/test.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test/datasetUploadTEST.js" afterPath="$PROJECT_DIR$/test/test/datasetUploadTEST.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,8 +31,8 @@
       <file leaf-file-name="defender.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/new_server/defender.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+            <state relative-caret-position="1320">
+              <caret line="66" column="5" lean-forward="false" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -46,38 +41,58 @@
       <file leaf-file-name="routes2.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/new_server/routes2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="80" column="35" lean-forward="false" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
+            <state relative-caret-position="140">
+              <caret line="88" column="18" lean-forward="false" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="datasetUploadTEST.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="python_generator.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/new_server/data_generator/python_generator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1080">
+              <caret line="54" column="45" lean-forward="true" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="upload.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/upload.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project.handlebars" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/project.handlebars">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="620">
+              <caret line="31" column="72" lean-forward="false" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="schemaConstructor.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/API/constructors/schemaConstructor.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1240">
+              <caret line="62" column="14" lean-forward="false" selection-start-line="62" selection-start-column="14" selection-end-line="62" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="datasetUploadTEST.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/test/datasetUploadTEST.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="55" column="8" lean-forward="true" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="initDBTEST.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/test/initDBTEST.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-100">
-              <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="datasets.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/datasets.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="26" column="34" lean-forward="false" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+            <state relative-caret-position="1220">
+              <caret line="61" column="47" lean-forward="false" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -86,7 +101,7 @@
       <file leaf-file-name="data_converter.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_converter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
+            <state relative-caret-position="520">
               <caret line="28" column="41" lean-forward="false" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -98,8 +113,8 @@
       <file leaf-file-name="myapp.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/new_server/myapp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+            <state relative-caret-position="540">
+              <caret line="27" column="31" lean-forward="false" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -169,8 +184,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/DAO.js" />
-        <option value="$PROJECT_DIR$/wrapper.js" />
         <option value="$PROJECT_DIR$/userRolesmock.js" />
         <option value="$PROJECT_DIR$/permissionsConstructor.js" />
         <option value="$PROJECT_DIR$/entitiesConstructor.js" />
@@ -217,9 +230,11 @@
         <option value="$PROJECT_DIR$/test/test/serverPermsTEST.js" />
         <option value="$PROJECT_DIR$/test/test/initDBTEST.js" />
         <option value="$PROJECT_DIR$/new_server/defender.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/new_server/routes2.js" />
         <option value="$PROJECT_DIR$/test/test/datasetUploadTEST.js" />
+        <option value="$PROJECT_DIR$/new_server/routes2.js" />
+        <option value="$PROJECT_DIR$/new_server/data_generator/python_generator.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/new_server/data_generator/python_generator.py" />
       </list>
     </option>
   </component>
@@ -241,10 +256,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1088" />
-    <option name="y" value="-11" />
-    <option name="width" value="1537" />
-    <option name="height" value="912" />
+    <option name="x" value="1089" />
+    <option name="y" value="-4" />
+    <option name="width" value="1535" />
+    <option name="height" value="904" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -290,6 +305,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="thesis-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thesis-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thesis-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -367,7 +396,61 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thesis-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thesis-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="new_server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thesis-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thesis-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="new_server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data_generator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thesis-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thesis-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="new_server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data_generator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="h5examples" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -486,7 +569,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/test/test/datasetUploadTEST.js" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.textmate.bundles" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/node_modules/mocha" />
     <property name="js.eslint.eslintPackage" value="" />
@@ -836,7 +919,10 @@
       <workItem from="1494152254941" duration="25099000" />
       <workItem from="1494182928235" duration="8862000" />
       <workItem from="1494233906679" duration="13001000" />
-      <workItem from="1494267596000" duration="8858000" />
+      <workItem from="1494267596000" duration="10002000" />
+      <workItem from="1494320589268" duration="2856000" />
+      <workItem from="1494327633091" duration="13973000" />
+      <workItem from="1494351489422" duration="13142000" />
     </task>
     <task id="LOCAL-00001" summary="Added simplifications for view and project creations. Added roles">
       <created>1488903036550</created>
@@ -985,31 +1071,17 @@
       <option name="project" value="LOCAL" />
       <updated>1494177558047</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Added upload with testing">
+      <created>1494282328591</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1494282328592</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="datasetUploadTEST - 2017.05.09 at 00h 51m 12s.xml">
-      <configuration name="datasetUploadTEST" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="datasetUploadTEST - 2017.05.09 at 00h 52m 51s.xml">
-      <configuration name="datasetUploadTEST" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="datasetUploadTEST - 2017.05.09 at 00h 53m 52s.xml">
-      <configuration name="datasetUploadTEST" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="datasetUploadTEST - 2017.05.09 at 00h 54m 46s.xml">
-      <configuration name="datasetUploadTEST" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="datasetUploadTEST - 2017.05.09 at 00h 57m 38s.xml">
-      <configuration name="datasetUploadTEST" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="datasetUploadTEST - 2017.05.09 at 01h 05m 12s.xml">
-      <configuration name="datasetUploadTEST" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="datasetUploadTEST - 2017.05.09 at 01h 12m 18s.xml">
-      <configuration name="datasetUploadTEST" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
     <history-entry file="datasetUploadTEST - 2017.05.09 at 01h 19m 39s.xml">
       <configuration name="datasetUploadTEST" configurationId="mocha-javascript-test-runner" />
     </history-entry>
@@ -1019,9 +1091,30 @@
     <history-entry file="datasetUploadTEST - 2017.05.09 at 01h 21m 59s.xml">
       <configuration name="datasetUploadTEST" configurationId="mocha-javascript-test-runner" />
     </history-entry>
+    <history-entry file="datasetUploadTEST - 2017.05.09 at 12h 42m 02s.xml">
+      <configuration name="datasetUploadTEST" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="datasetUploadTEST - 2017.05.09 at 12h 45m 34s.xml">
+      <configuration name="datasetUploadTEST" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="datasetUploadTEST - 2017.05.09 at 12h 50m 03s.xml">
+      <configuration name="datasetUploadTEST" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="datasetUploadTEST - 2017.05.09 at 12h 54m 03s.xml">
+      <configuration name="datasetUploadTEST" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="datasetUploadTEST - 2017.05.09 at 12h 54m 19s.xml">
+      <configuration name="datasetUploadTEST" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="datasetUploadTEST - 2017.05.09 at 14h 08m 26s.xml">
+      <configuration name="datasetUploadTEST" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="datasetUploadTEST - 2017.05.09 at 14h 09m 07s.xml">
+      <configuration name="datasetUploadTEST" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1460455000" />
+    <option name="totallyTimeSpent" value="1491570000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1033,19 +1126,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1088" y="-11" width="1537" height="912" extended-state="6" />
+    <frame x="1089" y="-4" width="1535" height="904" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19444445" sideWeight="0.49485862" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.78534704" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.90488434" sideWeight="0.5026455" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6388175" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7930591" sideWeight="0.4973545" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6388175" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.90359896" sideWeight="0.4973545" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14153439" sideWeight="0.5051414" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39974293" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14153439" sideWeight="0.5051414" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1112,7 +1205,8 @@
     <MESSAGE value="Added simple server structure with test" />
     <MESSAGE value="Added The Defenders with Testing" />
     <MESSAGE value="Added some routes with permissions and testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some routes with permissions and testing" />
+    <MESSAGE value="Added upload with testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added upload with testing" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1122,41 +1216,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/partials/flash.handlebars">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/class_views/projects.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1920">
-          <caret line="103" column="23" lean-forward="false" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/projects.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="71" column="29" lean-forward="true" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/posts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="24" lean-forward="false" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/helpers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/old_tests/DAOtest.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1336,13 +1395,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/API/constructors/schemaConstructor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="114" column="21" lean-forward="true" selection-start-line="114" selection-start-column="21" selection-end-line="114" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/API/constructors/DBOpsConstructor.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="344">
@@ -1361,7 +1413,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="800">
           <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1376,7 +1427,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="531">
           <caret line="33" column="13" lean-forward="true" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1384,7 +1434,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="20" column="57" lean-forward="false" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1392,24 +1441,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="27" lean-forward="false" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-          <folding>
-            <element signature="e#1615#1846#0" expanded="false" />
-            <element signature="e#1911#3888#0" expanded="false" />
-            <element signature="e#3941#6305#0" expanded="false" />
-            <element signature="e#6361#6590#0" expanded="false" />
-            <element signature="e#6640#6871#0" expanded="false" />
-            <element signature="e#6941#8896#0" expanded="false" />
-            <element signature="e#8950#10877#0" expanded="false" />
-            <element signature="e#10932#11161#0" expanded="false" />
-            <element signature="e#11213#11446#0" expanded="false" />
-            <element signature="e#11515#14403#0" expanded="false" />
-            <element signature="e#14459#16850#0" expanded="false" />
-            <element signature="e#16907#17136#0" expanded="false" />
-            <element signature="e#17188#17421#0" expanded="false" />
-            <element signature="e#17485#19873#0" expanded="false" />
-            <element signature="e#19929#21849#0" expanded="false" />
-            <element signature="e#21906#22135#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1417,15 +1448,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" column="34" lean-forward="false" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_server/defender.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1433,13 +1455,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
           <caret line="26" column="34" lean-forward="false" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data_converter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
+        <state relative-caret-position="520">
           <caret line="28" column="41" lean-forward="false" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -1447,42 +1468,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_server/myapp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/test/initDBTEST.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-100">
-          <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="23" />
+        <state relative-caret-position="220">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/constructors/schemaConstructor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1240">
+          <caret line="62" column="14" lean-forward="false" selection-start-line="62" selection-start-column="14" selection-end-line="62" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_server/routes2.js">
+    <entry file="file://$PROJECT_DIR$/public/upload.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="80" column="35" lean-forward="false" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/project.handlebars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="31" column="72" lean-forward="false" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_server/defender.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="66" column="5" lean-forward="false" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/test/datasetUploadTEST.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="55" column="8" lean-forward="true" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+        <state relative-caret-position="1220">
+          <caret line="61" column="47" lean-forward="false" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_creators/h5_3d_creator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_server/data_generator/python_generator.js" />
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_server/myapp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="27" column="31" lean-forward="false" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_server/routes2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="88" column="18" lean-forward="false" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_server/data_generator/python_generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="54" column="45" lean-forward="true" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
           <folding />
         </state>
       </provider>

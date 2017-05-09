@@ -6,7 +6,7 @@ let fs = require('fs');
 let shortid = require('shortid');
 let Busboy = require('busboy');
 
-let {readObjs}=APIConstructor;
+let {readObjs,updateObj}=APIConstructor;
 
 router.get('/', (req, res) => {
     res.status(200).send({perm:'allowed',msg:'all done'});
@@ -70,10 +70,19 @@ router.get('/datasets',(req,res) => {
     })
 });
 
+function getHDFContentsForView(path,cb) {
+
+}
+
+
 router.post('/upload', (req,res) => {
+    let {query} = req;
     save_data(req,(err,data_path) => {
         console.log(data_path);
-        res.status(200).send({perm:'allowed',data:data_path});
+        updateObj('datasets',query,{path_saved:data_path})((err) => {
+            if (err) throw err;
+            res.status(200).send({perm:'allowed',data:data_path});
+        });
     })
 });
 

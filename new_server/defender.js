@@ -4,8 +4,7 @@ let {isAllowed,isAllowedCreate}=APIConstructor;
 let rules = [
     {route:"/",method:"GET"},
     {route:"/login",method:"POST"},
-    {route:"/register",method:"POST"},
-    {route:"/upload", method: "POST"}
+    {route:"/register",method:"POST"}
 ];
 
 let entities=['users','projects','posts','datasets','plots'];
@@ -58,8 +57,8 @@ let checkPermission = (req,res,next) => {
     let model=path.split('/');
     console.log(model[1],query,method);
 
-    if(url==='/logout') {
-        return next('route');
+    if(model[1]==='upload' || model[1]==='logout') {
+        return next();
     }
 
     if(!entities.includes(model[1])) {

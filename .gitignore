@@ -1,4 +1,5 @@
 *.sw*
+*.h5*
 *~
 
 node_modules/
