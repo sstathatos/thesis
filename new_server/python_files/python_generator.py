@@ -2,9 +2,10 @@ import h5py
 import numpy as np
 import random
 
-x=3000
-y=40
-z=50
+
+x=15
+y=10
+z=5
 
 numpy3d=np.random.randint(100,size=(x,y,z))
 numpy2d=np.random.randint(100,size=(x,y))
@@ -16,6 +17,7 @@ file = h5py.File('h5examples/asdf.h5','w')
 file['d3dset']=numpy3d
 file['d3dset'].dims[0].label = 'x'
 file['d3dset'].dims[1].label = 'y'
+file['d3dset'].dims[2].label = 'z'
 # file['d3dset'].dims[2].label = 'z'
 
 subg1 = file.create_group("subgroup1")
@@ -32,9 +34,9 @@ subg2 = subg1.create_group("subgroup2")
 subg2['d1dset']=numpy1d
 subg2['d1dset'].dims[0].label = 'x'
 
-print('start sorting...')
-print(np.sort(file['d3dset']))
-print('sort done')
+# print('start sorting...')
+# print(np.sort(file['d3dset']))
+# print('sort done')
 
 
 # print (file.name)#
@@ -43,17 +45,4 @@ print('sort done')
 # print (list(file.items()))
 # print (list(d3dset.shape))#
 # print (d3dset.size) #
-
-def print_attrs(name, obj):
-    if isinstance(obj, h5py.Dataset):
-        print ("name: "+name)
-        print (list(obj.shape))#
-        print (obj.size) #
-        for i in range(0,len(obj.dims)):
-            if not obj.dims[i].label:
-                print ("empty")
-            else: print (obj.dims[i].label) #
-
-file.visititems(print_attrs)
-print ("All done")
 file.close()

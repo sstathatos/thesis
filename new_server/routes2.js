@@ -1,10 +1,11 @@
 const router = require('express').Router();
-let defender = require('./defender')(router);
+//let defender = require('./defender')(router);
 let session_setup = require('./session_setup');
 let APIConstructor=require('../API/index');
 let fs = require('fs');
 let shortid = require('shortid');
 let Busboy = require('busboy');
+let spawn=require('child_process').spawn;
 
 let {readObjs,updateObj}=APIConstructor;
 
@@ -62,16 +63,55 @@ router.get('/datasets',(req,res) => {
     let new_dsets = [];
     readObjs('datasets',query)((err,dset) => {
         if (err) throw err;
-
-        // new_dsets=dset.map((obj)=>{return {"name":obj.name,"creator":obj.creator,
-        //     "date" : obj.date.toISOString().slice(0, 10),"data":[{'x':3,'y':5},{'x':3,'y':5}]}});
-        //hdf function must be called
-        res.status(200).json(new_dsets);
+        console.log(dset[0].path_saved);
+        getHDFContentsForView(dset[0].path_saved,(err,contents) => {
+            let con =  JSON.parse(JSON.stringify(contents));
+            console.log(con);
+            res.status(200).send('all done');
+        });
     })
 });
 
-function getHDFContentsForView(path,cb) {
+router.get('/datasets/grid',(req,res) => {
+    //let {path,direction,xstart,xend,ystart,yend,_id} = req.query;
+    readObjs('datasets',{_id:req.query._id})((err,dset) => {
+        if (err) throw err;
+        console.log(dset[0]._id);
+        //console.log({path,direction,xstart,xend,ystart,yend,_id});
+        getHDFArray(dset[0].path_saved,req.query,(err,contents) => {
+            let con =  JSON.parse(JSON.stringify(contents));
+            //console.log(con);
+            res.status(200).send(con);
+        });
+    })
+});
 
+function getHDFArray(path_saved,obj,cb) {
+    let {path,direction,xstart,xend,ystart,yend}=obj;
+    let sp_child= spawn('python3',[__dirname+"/python_files/getHDFArray.py",path_saved,path,direction,xstart,xend,ystart,yend]);
+
+    sp_child.stderr.on('data', function (data) {
+        console.log('stderr: ' + data);
+    });
+    sp_child.stdout.on('data', function (data) {
+        let arr = data.toString();
+        cb(null,arr)
+        //var array = JSON.parse(arr); //parse data into JSON form
+    });
+}
+
+
+function getHDFContentsForView(path,cb) {
+    let sp_child= spawn('python3',[__dirname+"/python_files/getHDFContent.py",path]);
+
+    sp_child.stderr.on('data', function (data) {
+        console.log('stderr: ' + data);
+    });
+    sp_child.stdout.on('data', function (data) {
+        let arr = data.toString();
+        cb(null,arr)
+        //var array = JSON.parse(arr); //parse data into JSON form
+    });
 }
 
 
@@ -79,8 +119,9 @@ router.post('/upload', (req,res) => {
     let {query} = req;
     save_data(req,(err,data_path) => {
         console.log(data_path);
-        updateObj('datasets',query,{path_saved:data_path})((err) => {
+        updateObj('datasets',query,{path_saved:data_path})((err,data) => {
             if (err) throw err;
+            //console.log(data);
             res.status(200).send({perm:'allowed',data:data_path});
         });
     })
