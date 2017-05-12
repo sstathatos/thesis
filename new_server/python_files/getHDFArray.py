@@ -4,77 +4,113 @@ import h5py
 import numpy as np
 np.set_printoptions(threshold=np.inf)
 
-def pretty_print(arr):
-    print(np.flipud(np.transpose(arr)))
+json_arr={}
+
+def save_to_json(arr,xstart,xend,ystart,yend):
+    if xstart < 0 or xend <0 or ystart <0 or yend <0:
+        json_arr['current array']=[].tolist()
+    else:
+        json_arr['current array edge points: ']=[xstart,xend,ystart,yend]
+        json_arr["current array: "]=np.flipud(np.transpose(arr[xstart:xend,ystart:yend])).tolist()
+
+def save_to_json1D(a,b,c) :
+    json_arr["current array shape"]=[a,b]
+    json_arr["current array"]=c.tolist()
+
+def format_3Ddset(dset,dim1,dim2,dim3Value):
+    if dim1 == 1 and dim2 ==2:
+        return dset[:,:,dim3Value]
+    if dim1 == 2 and dim2 ==3:
+        return dset[dim3Value,:,:]
+    if dim1 == 1 and dim2 ==3:
+        return dset[:,dim3Value,:]
 
 path=sys.argv[1]
 array_path= sys.argv[2]
 direction=str(sys.argv[3])
 xstart=int(sys.argv[4])
 xend = int(sys.argv[5])
-ystart = int(sys.argv[6])
-yend = int(sys.argv[7])
+
+if len(sys.argv) == 8:
+    ystart = int(sys.argv[6])
+    yend = int(sys.argv[7])
+
+elif len(sys.argv) == 11:
+    ystart = int(sys.argv[6])
+    yend = int(sys.argv[7])
+    dim1 = int(sys.argv[8])
+    dim2 = int(sys.argv[9])
+    dim3Value = int(sys.argv[10])
+
 MAX = 5
-
 file = h5py.File(path,'r')
-
 dset = file[array_path]
 
-print (list(dset.shape))
-print (len(dset.dims))
-pretty_print(dset)
-
-
 if len(dset.dims) == 1:
-    if direction == 'right':
-        if len(dset[index1:]) > MAX:
-            print (dset[index1:index1+MAX])
+    json_arr["number of dimentions: "]=len(dset.dims)
+    json_arr["shape of array: "]=list(dset.shape)
+    json_arr["whole array"]=dset[()].tolist()
+
+    if direction == 'init':
+            if len(dset[0:]) > MAX:
+                save_to_json1D(0,MAX,dset[0:MAX])
+            else:
+                save_to_json1D(0,len(dset[0:]),dset[0:])
+    elif direction == 'right':
+        if len(dset[xend:]) > MAX:
+            save_to_json1D(xend,xend+MAX,dset[xend:xend+MAX])
         else:
-            print(dset[index1:])
+            save_to_json1D(xend,xend+len(dset[xend:]),dset[xend:])
     else:
-        if len(dset[:index1]) > MAX:
-            print (dset[index1- MAX :index1])
+        if len(dset[:xstart]) > MAX:
+            save_to_json1D(xstart-MAX,xstart,dset[xstart- MAX :xstart])
         else:
-            print(dset[:index1])
+            save_to_json1D(xstart-len(dset[:xstart]),xstart,dset[:xstart])
 
-print(dset[:,0])
-print(dset[0,:])
+else:
 
-if len(dset.dims) == 2:
+    if len(dset.dims) == 3:
+        dset= format_3Ddset(dset,dim1,dim2,dim3Value)
 
-    if xstart == xend == ystart == yend == 0:
+    json_arr["number of dimentions: "]=len(dset.shape)
+    json_arr["shape of array: "]=list(dset.shape)
+#     print(dset[:,0])
+#     print(dset[0,:])
+    json_arr["whole array: "]=np.flipud(np.transpose(dset[:,:])).tolist()
+
+    if direction == 'init':
         if len(dset[0:]) > MAX:
              if len(dset[0,0:]) > MAX:
-                pretty_print(dset[0:0+MAX,0:0+MAX])
+                save_to_json(dset,0,0+MAX,0,0+MAX)
              else:
-                pretty_print(dset[0:0+MAX,0:])
+                save_to_json(dset,0,0+MAX,0,len(dset[0,0:]))
         else:
              if len(dset[0:]) > MAX:
-                pretty_print(dset[0:,0:0+MAX])
+                save_to_json(dset,0,len(dset[0:]),0,0+MAX)
              else:
-                pretty_print(dset[0:,0:])
+                save_to_json(dset,0,len(dset[0:]),0,len(dset[0,0:]))
 
     elif direction == 'right':
         if len(dset[xend:]) > MAX:
-            pretty_print(dset[xend:xend+MAX,ystart:yend])
+            save_to_json(dset,xend,xend+MAX,ystart,yend)
         else:
-            pretty_print(dset[xend:,ystart:yend])
+            save_to_json(dset,xend,xend+len(dset[xend:]),ystart,yend)
     elif direction == 'left':
         if len(dset[:xstart]) > MAX:
-            pretty_print(dset[xstart-MAX:xstart,ystart:yend])
+            save_to_json(dset,xstart-MAX,xstart,ystart,yend)
         else:
-            pretty_print(dset[:xstart,ystart:yend])
+            save_to_json(dset,xstart-len(dset[:xstart]),xstart,ystart,yend)
     elif direction == 'up':
         if len(dset[0,yend:]) > MAX:
-            pretty_print(dset[xstart:xend,yend:yend+MAX])
+            save_to_json(dset,xstart,xend,yend,yend+MAX)
         else:
-            pretty_print(dset[xstart:xend,yend:])
+            save_to_json(dset,xstart,xend,yend,yend+len(dset[0,yend:]))
     elif direction == 'down':
         if len(dset[0,:ystart]) > MAX:
-            pretty_print(dset[xstart:xend,ystart-MAX:ystart])
+            save_to_json(dset,xstart,xend,ystart-MAX,ystart)
         else:
-            pretty_print(dset[xstart:xend,:ystart])
+            save_to_json(dset,xstart,xend,ystart-len(dset[0,:ystart]),ystart)
 
-
+arr=json.dumps(json_arr)
+print(arr)
 file.close()
-# myjson=json.dumps(dsets)

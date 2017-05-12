@@ -86,9 +86,28 @@ router.get('/datasets/grid',(req,res) => {
     })
 });
 
+router.get('/grid',(req,res) => {
+    readObjs('datasets',{})((err,dset) => {
+        if (err) throw err;
+        console.log(dset[0]._id);
+        getHDFArray(dset[0].path_saved,req.query,(err,contents) => {
+            let con =  JSON.parse(JSON.stringify(contents));
+            res.status(200).json(con);
+        });
+    })
+});
+
 function getHDFArray(path_saved,obj,cb) {
-    let {path,direction,xstart,xend,ystart,yend}=obj;
-    let sp_child= spawn('python3',[__dirname+"/python_files/getHDFArray.py",path_saved,path,direction,xstart,xend,ystart,yend]);
+    let {path,direction,xstart,xend,ystart,yend,dim1,dim2,dim3Value}=obj;
+    let sp_child;
+    if(dim1 && dim2 && dim3Value) {
+        sp_child= spawn('python3',[__dirname+"/python_files/getHDFArray.py",path_saved,path,
+            direction,xstart,xend,ystart,yend,dim1,dim2,dim3Value]);
+    }
+    else {
+            sp_child= spawn('python3',[__dirname+"/python_files/getHDFArray.py",path_saved,path,
+                direction,xstart,xend,ystart,yend]);
+    }
 
     sp_child.stderr.on('data', function (data) {
         console.log('stderr: ' + data);
