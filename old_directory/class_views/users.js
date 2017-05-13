@@ -1,7 +1,7 @@
 let CreateView = require('./generic/base').CreateView;
 let DeleteView = require('./generic/base').DeleteView;
 
-const Entities = require('./../models/entity').Entities;
+const Entities = require('../models/entity').Entities;
 const users = Entities[0];
 
 class UserCreateView extends CreateView {

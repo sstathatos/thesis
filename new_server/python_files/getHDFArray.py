@@ -8,14 +8,14 @@ json_arr={}
 
 def save_to_json(arr,xstart,xend,ystart,yend):
     if xstart < 0 or xend <0 or ystart <0 or yend <0:
-        json_arr['current array']=[].tolist()
+        json_arr["current_array"]=[].tolist()
     else:
-        json_arr['current array edge points: ']=[xstart,xend,ystart,yend]
-        json_arr["current array: "]=np.flipud(np.transpose(arr[xstart:xend,ystart:yend])).tolist()
+        json_arr["current_array_edge_points"]=[xstart,xend,ystart,yend]
+        json_arr["current_array"]=np.flipud(np.transpose(arr[xstart:xend,ystart:yend])).tolist()
 
 def save_to_json1D(a,b,c) :
-    json_arr["current array shape"]=[a,b]
-    json_arr["current array"]=c.tolist()
+    json_arr["current_array_shape"]=[a,b]
+    json_arr["current_array"]=c.tolist()
 
 def format_3Ddset(dset,dim1,dim2,dim3Value):
     if dim1 == 1 and dim2 ==2:
@@ -47,9 +47,9 @@ file = h5py.File(path,'r')
 dset = file[array_path]
 
 if len(dset.dims) == 1:
-    json_arr["number of dimentions: "]=len(dset.dims)
-    json_arr["shape of array: "]=list(dset.shape)
-    json_arr["whole array"]=dset[()].tolist()
+    json_arr["number_of_dimentions"]=len(dset.dims)
+    json_arr["shape_of_array"]=list(dset.shape)
+    json_arr["whole_array"]=dset[()].tolist()
 
     if direction == 'init':
             if len(dset[0:]) > MAX:
@@ -72,11 +72,11 @@ else:
     if len(dset.dims) == 3:
         dset= format_3Ddset(dset,dim1,dim2,dim3Value)
 
-    json_arr["number of dimentions: "]=len(dset.shape)
-    json_arr["shape of array: "]=list(dset.shape)
+    json_arr["number_of_dimentions"]=len(dset.shape)
+    json_arr["shape_of_array"]=list(dset.shape)
 #     print(dset[:,0])
 #     print(dset[0,:])
-    json_arr["whole array: "]=np.flipud(np.transpose(dset[:,:])).tolist()
+    json_arr["whole_array"]=np.flipud(np.transpose(dset[:,:])).tolist()
 
     if direction == 'init':
         if len(dset[0:]) > MAX:
@@ -111,6 +111,6 @@ else:
         else:
             save_to_json(dset,xstart,xend,ystart-len(dset[0,:ystart]),ystart)
 
-arr=json.dumps(json_arr)
-print(arr)
+# arr=json.dumps(json_arr)
+print(json_arr)
 file.close()

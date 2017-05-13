@@ -1,12 +1,12 @@
 let ListView = require('./generic/base').ListView;
 let CreateView = require('./generic/base').CreateView;
 let DeleteView = require('./generic/base').DeleteView;
-const Entities = require('./../models/entity').Entities;
+const Entities = require('../models/entity').Entities;
 //const Permission = require('../models/acl').Permission;
 //const projectpermissions = Entities[2];
 const projects = Entities[1];
 const users = Entities[0];
-let acl = require('../models/acl').Acl;
+let acl = require('../old_directory/models/acl').Acl;
 
 class ProjectCreateView extends CreateView {
     constructor(req, res) {

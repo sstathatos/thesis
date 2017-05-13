@@ -7,13 +7,13 @@ let ProjectMembersListView = require('../class_views/projects').ProjectMembersLi
 let ProjectMemberCreateView = require('../class_views/projects').ProjectMemberCreateView;
 let ProjectDeleteView = require('../class_views/projects').ProjectDeleteView;
 let ProjectLeaveView = require('../class_views/projects').ProjectLeaveView;
-const Permission = require('../models/acl').Permission;
+const Permission = require('../old_directory/models/acl').Permission;
 const projects = Entities[1];
 let users = Entities[0];
 const projectpermissions = Entities[2];
 let DetailView = require('../class_views/generic/base').DetailView;
 let RedirectView = require('../class_views/generic/base').RedirectView;
-let acl = require('../models/acl').Acl;
+let acl = require('../old_directory/models/acl').Acl;
 
 //Get create project page
 router.all('/create', (req, res) => {

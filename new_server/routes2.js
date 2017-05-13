@@ -9,8 +9,24 @@ let spawn=require('child_process').spawn;
 
 let {readObjs,updateObj}=APIConstructor;
 
+
 router.get('/', (req, res) => {
-    res.status(200).send({perm:'allowed',msg:'all done'});
+    let code = fs.readFileSync(__dirname+"/../client/bundle.js");
+    let home = `
+        <!doctype html>
+        <html lang=en>
+        <head>
+            <meta charset=utf-8>
+            <title>blah</title>
+        </head>
+        <body>
+            <div id="app"></div>
+            
+            <script>${code}</script>
+        </body>
+        </html>
+    `;
+    res.set('Content-Type','text/html').status(200).send(home);
 });
 
 router.post('/login', (req, res, next) => {
@@ -91,8 +107,7 @@ router.get('/grid',(req,res) => {
         if (err) throw err;
         console.log(dset[0]._id);
         getHDFArray(dset[0].path_saved,req.query,(err,contents) => {
-            let con =  JSON.parse(JSON.stringify(contents));
-            res.status(200).json(con);
+            res.status(200).json(contents);
         });
     })
 });
@@ -113,9 +128,9 @@ function getHDFArray(path_saved,obj,cb) {
         console.log('stderr: ' + data);
     });
     sp_child.stdout.on('data', function (data) {
-        let arr = data.toString();
+        let exp=/'/g ;
+        let arr = JSON.parse(data.toString().replace(exp,"\""));
         cb(null,arr)
-        //var array = JSON.parse(arr); //parse data into JSON form
     });
 }
 

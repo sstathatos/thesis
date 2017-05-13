@@ -4,7 +4,7 @@ let mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 mongoose.connect(dbHost, {});
 const MongoClient = require('mongodb').MongoClient;
-const Entities = require('../../models/entity').Entities;
+const Entities = require('../models/entity').Entities;
 let users = Entities[0];
 
 describe('test db', function () {
