@@ -3,9 +3,9 @@ import numpy as np
 import random
 
 
-x=16
-y=9
-z=5
+x=26
+y=10
+z=3
 
 numpy3d=np.random.randint(100,size=(x,y,z))
 numpy2d=np.random.randint(100,size=(x,y))

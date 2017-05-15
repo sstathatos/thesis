@@ -14,7 +14,7 @@
     "watchify": "*"
   },
   "dependencies": {
-    "redom": "^2.4.3",
+    "incremental-dom": "^0.5.1",
     "xhr": "^2.4.0"
   }
 }

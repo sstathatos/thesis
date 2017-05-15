@@ -1,9 +1,5 @@
-let {el,mount,list} = require('redom');
+let {elementOpen,elementVoid,elementClose,text,patch}=require('incremental-dom');
 let {get,post,pu,del} = require('xhr');
-
-const hello =el('h1','Hello World');
-
-mount(document.body,hello);
 
 get({uri:"/grid?path=d3dset&direction=init&xstart=0&xend=0&ystart=0&yend=0" +
 "&dim1=1&dim2=2&dim3Value=4"}, function (err, resp,body) {
@@ -13,102 +9,114 @@ get({uri:"/grid?path=d3dset&direction=init&xstart=0&xend=0&ystart=0&yend=0" +
     let whole= whole_data["whole_array"];
     let edges= whole_data["current_array_edge_points"];
 
-    let rows2 = whole.map((row) => {
-        let entries = row.map((entry) => {
-            return el('td',entry);
-        });
-        return el('tr',entries);
+    patch(document.getElementById('app'), function() {
+        text('Whole Array');
+        render2DArray(whole);
+        text('Current Array');
+        render2DArray(cur);
+        text('Current Array edges');
+        renderArray(edges);
     });
 
-    const war =el('h1','Whole Array');
-    mount(document.body,war);
-    let table2 = el('table',rows2);
-    mount(document.body,table2);
+    get({uri:`/grid?path=d3dset&direction=right&xstart=${edges[0]}&xend=${edges[1]}&ystart=${edges[2]}&yend=${edges[3]}` +
+    `&dim1=1&dim2=2&dim3Value=4`}, function (err, resp,body) {
 
-    let rows1 = cur.map((row) => {
-        let entries = row.map((entry) => {
-            return el('td',entry);
-        });
-        return el('tr',entries);
-    });
-
-    const car=el('h1','Current Array');
-    mount(document.body,car);
-    let table1 = el('table',rows1);
-    mount(document.body,table1);
-
-    get({uri:`/grid?path=d3dset&direction=right&xstart=${edges[0]}&xend=${edges[1]}&ystart=
-        ${edges[2]}&yend=${edges[3]}&dim1=1&dim2=2&dim3Value=4`}, function (err, resp,body) {
-
-        //console.log(JSON.parse(body));
         let whole_data=JSON.parse(body);
         let cur= whole_data["current_array"];
+        let whole= whole_data["whole_array"];
         let edges= whole_data["current_array_edge_points"];
 
-
-        let td= (value) => {
-            return {
-                element : el('td', value),
-                update : (newData) => {
-                    element.textContent = newData;
-                }
-            }
-        };
-
-        let tr= (value) => {
-            let element = el('tr', value);
-            let listt= list(element, td);
-            return {
-                element : element,
-                list : listt,
-                update :(newData) => {
-                    listt.update(newData);
-                }
-            }
-        };
-
-        let table= list('table',tr);
-        mount(document.body,table);
-
-
-        //table.update(cur);
-        //console.log(rows);
-
-        // //
-        // // console.log(rows1);
-        // const car=el('h1','Current Array');
-        // mount(document.body,car);
-        //
-        // let table1 = el('table',rows1);
-        //
-        // table1.update = (newData) => {
-        //     for(let row of rows1) {
-        //
-        //     }
-        //     table1.textContent = newData;
-        // };
-        //
-        // mount(document.body,table1);
-        //
-        //
-        get({uri:`/grid?path=d3dset&direction=up&xstart=${edges[0]}&xend=${edges[1]}&ystart=
-            ${edges[2]}&yend=${edges[3]}&dim1=1&dim2=2&dim3Value=4`}, function (err, resp,body) {
-
-            //console.log(JSON.parse(body));
-            let whole_data=JSON.parse(body);
-            let cur= whole_data["current_array"];
-            let edges= whole_data["current_array_edge_points"];
-
-            let rows1 = cur.map((row) => {
-                let entries = row.map((entry) => {
-                    return el('td',entry);
-                });
-                return el('tr',entries);
-            });
-            //table.update(rows1);
-
-
+        patch(document.body, function() {
+            text('MOVED TO THE RIGHT ');
+            text('Current Array');
+            render2DArray(cur);
+            text('Current Array edges');
+            renderArray(edges);
         });
 
+        get({uri:`/grid?path=d3dset&direction=up&xstart=${edges[0]}&xend=${edges[1]}&ystart=${edges[2]}&yend=${edges[3]}` +
+        `&dim1=1&dim2=2&dim3Value=4`}, function (err, resp,body) {
+
+            let whole_data=JSON.parse(body);
+            let cur= whole_data["current_array"];
+            let whole= whole_data["whole_array"];
+            let edges= whole_data["current_array_edge_points"];
+
+            patch(document.body, function() {
+                text('MOVED UP ');
+                text('Current Array');
+                render2DArray(cur);
+                text('Current Array edges');
+                renderArray(edges);
+            });
+
+            get({uri:`/grid?path=d3dset&direction=right&xstart=${edges[0]}&xend=${edges[1]}&ystart=${edges[2]}&yend=${edges[3]}` +
+            `&dim1=1&dim2=2&dim3Value=4`}, function (err, resp,body) {
+
+                let whole_data=JSON.parse(body);
+                let cur= whole_data["current_array"];
+                let whole= whole_data["whole_array"];
+                let edges= whole_data["current_array_edge_points"];
+
+                patch(document.body, function() {
+                    text('MOVED RIGHT AGAIN');
+                    text('Current Array');
+                    render2DArray(cur);
+                    text('Current Array edges');
+                    renderArray(edges);
+                });
+
+                get({uri:`/grid?path=d3dset&direction=right&xstart=${edges[0]}&xend=${edges[1]}&ystart=${edges[2]}&yend=${edges[3]}` +
+                `&dim1=1&dim2=2&dim3Value=4`}, function (err, resp,body) {
+
+                    let whole_data=JSON.parse(body);
+                    let cur= whole_data["current_array"];
+                    let whole= whole_data["whole_array"];
+                    let edges= whole_data["current_array_edge_points"];
+
+                    patch(document.body, function() {
+                        text('MOVED RIGHT AGAIN');
+                        text('Current Array');
+                        render2DArray(cur);
+                        text('Current Array edges');
+                        renderArray(edges);
+                    });
+
+
+                });
+            });
+        });
     });
 });
+
+
+
+
+
+
+function  renderArray (data) {
+    elementOpen('table', '', ['class', 'tableComponent']);
+    for (let i = 0; i < data.length; i++) {
+        let row = data[i];
+        elementOpen('td');
+        text(row);
+        elementClose('td');
+    }
+    return elementClose('table');
+}
+
+function render2DArray(data) {
+    elementOpen('table', '', ['class', 'tableComponent']);
+    for (let i = 0; i < data.length; i++) {
+        let row = data[i];
+        elementOpen('tr');
+        for (let j = 0; j < row.length; j++) {
+            let value = row[j];
+            elementOpen('td');
+            text(value);
+            elementClose('td');
+        }
+        elementClose('tr');
+    }
+    return elementClose('table');
+}

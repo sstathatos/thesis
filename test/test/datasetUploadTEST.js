@@ -56,28 +56,28 @@ describe('read all objs and save them', function () {
                     })
             }
         });
-        it('should get contents of an hdf file', function (done) {
-            agent
-                .get(`/datasets/?_id=${datasetsArr[0]._id}`)
-                .expect(function (res) {
-                    console.log(res.text);
-                })
-                .expect(200)
-                .end(function (err, result) {
-                    done();
-                })
-
-        });
-        it('should get array data', function (done) {
-            agent
-                .get(`/datasets/grid/?_id=${datasetsArr[0]._id}&path=d3dset&direction=left&xstart=0&xend=0&ystart=0&yend=0`)
-                .expect(function (res) {
-                    console.log(res.text);
-                })
-                .expect(200)
-                .end(function (err, result) {
-                    done();
-                })
-        });
+        // it('should get contents of an hdf file', function (done) {
+        //     agent
+        //         .get(`/datasets/?_id=${datasetsArr[0]._id}`)
+        //         .expect(function (res) {
+        //             console.log(res.text);
+        //         })
+        //         .expect(200)
+        //         .end(function (err, result) {
+        //             done();
+        //         })
+        //
+        // });
+        // it('should get array data', function (done) {
+        //     agent
+        //         .get(`/datasets/grid/?_id=${datasetsArr[0]._id}&path=d3dset&direction=left&xstart=0&xend=0&ystart=0&yend=0`)
+        //         .expect(function (res) {
+        //             console.log(res.text);
+        //         })
+        //         .expect(200)
+        //         .end(function (err, result) {
+        //             done();
+        //         })
+        // });
     });
 });
