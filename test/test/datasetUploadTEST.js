@@ -33,28 +33,40 @@ describe('read all objs and save them', function () {
 
     describe('test server routes', function() {
         let credentialsKen = {username: 'ken', password: 'ken'};
-        it('should login ken', function (done) {
+        // it('should login ken', function (done) {
+        //     agent
+        //         .post('/login')
+        //         .send(credentialsKen)
+        //         .end(function (err) {
+        //             if (err) return done(err);
+        //             done();
+        //         });
+        // });
+        //
+        // it('should check upload', function (done) {
+        //     for (let i = 0; i < 1; i++) {
+        //         agent
+        //             .post(`/upload/?_id=${datasetsArr[0]._id}`)
+        //             .attach('hdf', './new_server/python_files/h5examples/asdf.h5')
+        //             .expect(function (res) {
+        //                 console.log(res.text);
+        //             })
+        //             .end(function (err, result) {
+        //                 if (i === 0) done();
+        //             })
+        //     }
+        // });
+        it('should get plot data', function (done) {
             agent
-                .post('/login')
-                .send(credentialsKen)
-                .end(function (err) {
-                    if (err) return done(err);
+                .get(`/plot/?path=d3dset&dim1=1&dim2=2&dim3Value=0&dim2Value=2
+                    &currystart=0&curryend=0&zoomstart=0&zoomend=0&direction=init`)
+                .expect(function (res) {
+                    console.log(res.text);
+                })
+                .expect(200)
+                .end(function (err, result) {
                     done();
-                });
-        });
-
-        it('should check upload', function (done) {
-            for (let i = 0; i < 1; i++) {
-                agent
-                    .post(`/upload/?_id=${datasetsArr[0]._id}`)
-                    .attach('hdf', './new_server/python_files/h5examples/asdf.h5')
-                    .expect(function (res) {
-                        console.log(res.text);
-                    })
-                    .end(function (err, result) {
-                        if (i === 0) done();
-                    })
-            }
+                })
         });
         // it('should get contents of an hdf file', function (done) {
         //     agent

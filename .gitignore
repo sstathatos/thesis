@@ -4,6 +4,7 @@
 
 node_modules/
 
+client/bundle.js
 new_server/hdf_saved_files/
 
 data_creators/one_dim.h5

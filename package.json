@@ -4,7 +4,8 @@
   "description": "test",
   "main": "app.js",
   "scripts": {
-    "test": "mocha --no-timeouts"
+    "test": "mocha --no-timeouts",
+    "dev": "watchify -o ./client/bundle.js ./client/main.js"
   },
   "author": "Stefanos Stathatos",
   "license": "ISC",
@@ -28,5 +29,8 @@
     "request": "^2.79.0",
     "shortid": "^2.2.8",
     "supertest": "*"
+  },
+  "devDependencies": {
+    "watchify": "*"
   }
 }

@@ -5,7 +5,7 @@ let APIConstructor=require('../API/index');
 let fs = require('fs');
 let shortid = require('shortid');
 let Busboy = require('busboy');
-let spawn=require('child_process').spawn;
+let {spawn}=require('child_process');
 
 let {readObjs,updateObj}=APIConstructor;
 
@@ -112,6 +112,33 @@ router.get('/grid',(req,res) => {
     })
 });
 
+router.get('/plot',(req,res) => {
+    readObjs('datasets',{})((err,dset) => {
+        if (err) throw err;
+        console.log(dset[0]._id);
+        getHDFPlot(dset[0].path_saved,req.query,(err,contents) => {
+            res.status(200).json(contents);
+        });
+    })
+});
+
+function getHDFPlot(path_saved,obj,cb) {
+    let {path,direction,dim2Value,currystart,curryend,zoomstart,dim1,dim2,dim3Value,zoomend}=obj;
+    let sp_child;
+    sp_child= spawn('python3',[__dirname+"/python_files/getHDFPlot.py",path_saved,path,
+        dim1,dim2,dim3Value,dim2Value,currystart,curryend,zoomstart,zoomend,direction]);
+
+    sp_child.stderr.on('data', function (data) {
+        console.log('stderr: ' + data);
+    });
+    sp_child.stdout.on('data', function (data) {
+        let exp=/'/g ;
+        let arr = JSON.parse(data.toString().replace(exp,"\""));
+        cb(null,arr)
+    });
+}
+
+
 function getHDFArray(path_saved,obj,cb) {
     let {path,direction,xstart,xend,ystart,yend,dim1,dim2,dim3Value}=obj;
     let sp_child;
@@ -120,8 +147,8 @@ function getHDFArray(path_saved,obj,cb) {
             direction,xstart,xend,ystart,yend,dim1,dim2,dim3Value]);
     }
     else {
-            sp_child= spawn('python3',[__dirname+"/python_files/getHDFArray.py",path_saved,path,
-                direction,xstart,xend,ystart,yend]);
+        sp_child= spawn('python3',[__dirname+"/python_files/getHDFArray.py",path_saved,path,
+            direction,xstart,xend,ystart,yend]);
     }
 
     sp_child.stderr.on('data', function (data) {
