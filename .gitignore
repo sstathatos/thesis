@@ -5,6 +5,7 @@
 node_modules/
 
 client/bundle.js
+bundle.js
 new_server/hdf_saved_files/
 
 data_creators/one_dim.h5
@@ -15,6 +16,8 @@ data_creators/three_dim.h5
 
 data_creators/six.h5
 
+
+old_directory/
 build/
 
 .idea/

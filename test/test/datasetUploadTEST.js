@@ -43,31 +43,34 @@ describe('read all objs and save them', function () {
         //         });
         // });
         //
-        // it('should check upload', function (done) {
-        //     for (let i = 0; i < 1; i++) {
+        it('should check upload', function (done) {
+            for (let i = 0; i < 1; i++) {
+                agent
+                    .post(`/upload/?_id=${datasetsArr[0]._id}`)
+                    .attach('hdf', './new_server/python_files/h5examples/asdf.h5')
+                    .expect(function (res) {
+                        console.log(res.text);
+                    })
+                    .end(function (err, result) {
+                        if (i === 0) done();
+                    })
+            }
+        });
+        // let j=0;
+        // it('should get plot data', function (done) {
+        //     for (let i=0; i <1; i++) {
         //         agent
-        //             .post(`/upload/?_id=${datasetsArr[0]._id}`)
-        //             .attach('hdf', './new_server/python_files/h5examples/asdf.h5')
+        //             .get(`/plot/?path=d3dset&dim1=1&dim2=2&dim3Value=0&dim2Value=2&currystart=0&curryend=0&zoomstart=0&zoomend=0&direction=init`)
         //             .expect(function (res) {
         //                 console.log(res.text);
         //             })
+        //             .expect(200)
         //             .end(function (err, result) {
-        //                 if (i === 0) done();
+        //                 if (j === 0) done();
+        //                 j++;
         //             })
         //     }
         // });
-        it('should get plot data', function (done) {
-            agent
-                .get(`/plot/?path=d3dset&dim1=1&dim2=2&dim3Value=0&dim2Value=2
-                    &currystart=0&curryend=0&zoomstart=0&zoomend=0&direction=init`)
-                .expect(function (res) {
-                    console.log(res.text);
-                })
-                .expect(200)
-                .end(function (err, result) {
-                    done();
-                })
-        });
         // it('should get contents of an hdf file', function (done) {
         //     agent
         //         .get(`/datasets/?_id=${datasetsArr[0]._id}`)

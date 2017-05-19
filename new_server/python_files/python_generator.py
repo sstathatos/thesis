@@ -3,8 +3,8 @@ import numpy as np
 import random
 
 
-x=26
-y=10
+x=2600
+y=14
 z=3
 
 numpy3d=np.random.randint(100,size=(x,y,z))

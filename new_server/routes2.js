@@ -12,12 +12,14 @@ let {readObjs,updateObj}=APIConstructor;
 
 router.get('/', (req, res) => {
     let code = fs.readFileSync(__dirname+"/../client/bundle.js");
+    let c3css = fs.readFileSync(__dirname+"/../client/node_modules/c3/c3.css");
     let home = `
         <!doctype html>
         <html lang=en>
         <head>
             <meta charset=utf-8>
             <title>blah</title>
+            <style>${c3css}</style>
         </head>
         <body>
             <div id="app"></div>
@@ -113,10 +115,33 @@ router.get('/grid',(req,res) => {
 });
 
 router.get('/plot',(req,res) => {
+    //console.log(req.query);
     readObjs('datasets',{})((err,dset) => {
         if (err) throw err;
         console.log(dset[0]._id);
         getHDFPlot(dset[0].path_saved,req.query,(err,contents) => {
+            console.log('done');
+            res.status(200).json(contents);
+        });
+    })
+});
+
+router.get('/plottest',(req,res) => {
+    let query={ path: 'd3dset',
+        dim1: '1',
+        dim2: '2',
+        dim3Value: '0',
+        dim2Value: '2',
+        currystart: '0',
+        curryend: '0',
+        zoomstart: '0',
+        zoomend: '0',
+        direction: 'init' };
+    readObjs('datasets',{})((err,dset) => {
+        if (err) throw err;
+        console.log(dset[0]._id);
+        getHDFPlot(dset[0].path_saved,query,(err,contents) => {
+            console.log('done');
             res.status(200).json(contents);
         });
     })

@@ -1,50 +1,28 @@
-console.time('bench');
-
 let {elementOpen,elementVoid,elementClose,text,patch}=require('incremental-dom');
 let {get,post,pu,del} = require('xhr');
-var Plotly = require('plotly.js/lib/core');
-
-
+let {transformData}= require('./DataTransformConstructor');
+let {generateChart,zoomListener,updateChart,zoomOutListener}= require('./PlotConstructor');
 
 get({uri:"/plot/?path=d3dset&dim1=1&dim2=2&dim3Value=0&" +
-"dim2Value=2&currystart=0&curryend=0&zoomstart=0&zoomend=0&direction=init"},(err,resp,body)=> {
-    console.timeEnd('bench');
-    let whole_data=JSON.parse(body);
-    let final= whole_data["final_arr"];
-    let whole= whole_data["sorted_slice"];
-    let limits= whole_data["final_arr_limits"];
-    let dims=whole_data["final_arr_dims"];
-    console.time('binch');
-    //<div id="tester" style="width:600px;height:250px;"></div>
+"dim2Value=0&currystart=0&curryend=8&zoomstart=0&zoomend=0&direction=init"},(err,resp,body)=> {
+    let arr=transformData(body);
+    console.log(arr);
+    let chart= generateChart(arr);
+    zoomListener(document,(err,first,second) => {
+        if (err) throw err;
+        get({uri:`/plot/?path=d3dset&dim1=1&dim2=2&dim3Value=0&dim2Value=0&currystart=0&curryend=8&zoomstart=${arr[0][first+1]}&zoomend=${arr[0][second+1]}&direction=static`},(err,resp,body)=> {
+            let arr=transformData(body);
+            updateChart(chart,arr);
+            zoomOutListener(() => {
+                get({uri:"/plot/?path=d3dset&dim1=1&dim2=2&dim3Value=0&" +
+                "dim2Value=0&currystart=0&curryend=8&zoomstart=0&zoomend=0&direction=init"},(err,resp,body)=> {
+                    let arr = transformData(body);
+                    updateChart(chart,arr);
+                });
+            });
+        });
+    });
 
-    let TESTER = document.body;
-    Plotly.plot( TESTER, [{
-        x: whole[2],
-        y: whole[0]
-    },{
-        x: whole[2],
-        y: whole[1]
-    },
-        {
-            x: whole[2],
-            y: whole[3]
-        },
-        {
-            x: whole[2],
-            y: whole[4]
-        },
-        {
-            x: whole[2],
-            y: whole[5]
-        },{
-            x: whole[2],
-            y: whole[6]
-        },{
-            x: whole[2],
-            y: whole[7]
-        }], {
-        margin: { t: 0 } } );
-    console.timeEnd('binch');
 });
 
 
