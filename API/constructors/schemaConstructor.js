@@ -149,8 +149,10 @@ let schemaConstructor = (mongoose) => {
             x_axis_name: {type: String},
             y_axis_name: {type: String},
             y: [{name: {type: String}, color: {type: String}}],
-            dimension_name_x: {type: String},
-            dimension_name_y: {type: String},
+            dim1: {type: Number},
+            dim2: {type: Number},
+            dim3Value:{type: Number},
+            dim2Value: {type: Number},
             plot_type: {type: String}
         }
     };

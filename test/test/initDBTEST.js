@@ -139,26 +139,30 @@ describe('initialize my db', function () {
                 for (let i = 0; i < posts.length; i++) {
                     createObj('plots', {
                         title: `plot ${i}`, description: `plot ${i}`,
-                        inpost: posts[i]._id, array_path_saved: `array${i}`,
+                        inpost: posts[i]._id, array_path_saved: `/d3dset`,
                         plot_metadata: {
                             x_axis_name: `x_axis${i}`,
                             y_axis_name: `y_axis${i}`,
                             y: [{name: `f(x1) ${i}`, color: 'red'}, {name: `f(x2) ${i}`, color: 'blue'}],
-                            dimension_name_x: `dim0 ${i}`,
-                            dimension_name_y: `dim1 ${i}`,
+                            dim1:1,
+                            dim2:2,
+                            dim3Value:0,
+                            dim2Value:0,
                             plot_type: `simple${i}`
                         }
                     })((err, plot) => {
                         if (err) throw err;
                         createObj('plots', {
                             title: `plot ${i}`, description: `plot ${i}`,
-                            inpost: posts[i]._id, array_path_saved: `array${i}`,
+                            inpost: posts[i]._id, array_path_saved: `/d3dset`,
                             plot_metadata: {
                                 x_axis_name: `x_axis${i}`,
                                 y_axis_name: `y_axis${i}`,
                                 y: [{name: `f(x1) ${i}`, color: 'red'}, {name: `f(x2) ${i}`, color: 'blue'}],
-                                dimension_name_x: `dim0 ${i}`,
-                                dimension_name_y: `dim1 ${i}`,
+                                dim1:1,
+                                dim2:2,
+                                dim3Value:0,
+                                dim2Value:0,
                                 plot_type: `simple${i}`
                             }
                         })((err) => {

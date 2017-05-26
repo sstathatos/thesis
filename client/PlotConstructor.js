@@ -1,13 +1,15 @@
 let c3 = require('c3');
 
 let PlotConstructor = () => {
+    let pivot = undefined;
 
     let generateChart = (arr) => {
-        let chart=c3.generate({
+        return c3.generate({
             bindto: '#app',
             data: {
                 x: arr[0][0],
-                columns: arr
+                columns: arr,
+                type: 'bar'
             },
             zoom: {
                 enabled: true
@@ -22,27 +24,32 @@ let PlotConstructor = () => {
                 }
             }
         });
-        return chart;
     };
 
     let updateChart = (chart,arr) => {
         chart.load({
             columns:arr,
-            unload: arr
+            unload: arr.map((data) => {return data[0]})
         })
     };
 
     let zoomListener = (element=document,cb) => {
         let points = element.getElementsByClassName("c3-event-rect");
-        let waiting;
 
         for(let point=0; point<points.length; point++) {
 
             points[point].addEventListener("mouseup",() => {
-                waiting(point,cb);
+                if (pivot !== point) {
+                    if (point < pivot) {
+                        cb(null, point, pivot);
+                    } else {
+                        cb(null, pivot, point);
+                    };
+                }
             });
+
             points[point].addEventListener("mousedown",() => {
-                waiting = getPair(point);
+                pivot = point;
             });
         }
     };
@@ -55,17 +62,18 @@ let PlotConstructor = () => {
         })
     };
 
-    let getPair = (first) => {
 
-        return (second,cb) => {
+    let init =  (onzoom) => {
 
-            if(second < first) {
-                let temp = first;
-                first=second;
-                second=temp;
-            }
-            cb(null,first,second);
-        }
+        return (initial_arr) => {
+
+            generateChart(initial_arr);
+            zoomListener(document,onzoom);
+        };
+    };
+
+    let update = (onzoom,onzoomout) =>{
+
     };
 
     return {

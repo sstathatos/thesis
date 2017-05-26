@@ -7,8 +7,8 @@ np.set_printoptions(threshold=np.inf)
 
 final_arr={}
 
-path=sys.argv[1]
-array_path= sys.argv[2]
+path=str(sys.argv[1])
+array_path= str(sys.argv[2])
 dim1=int(sys.argv[3])
 dim2=int(sys.argv[4])
 dim3Value = int(sys.argv[5])
