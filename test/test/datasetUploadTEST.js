@@ -1,4 +1,4 @@
-let initDB= require('./initDBTEST');
+//let initDB= require('./initDBTEST');
 const request = require('supertest');
 const agent = request.agent('http://localhost:3000');
 let assert= require('assert');
@@ -48,19 +48,19 @@ describe('read all objs and save them', function () {
         //         });
         // });
         //
-        it('should check upload', function (done) {
-            for (let i = 0; i < 2; i++) {
-                agent
-                    .post(`/upload/?_id=${datasetsArr[i]._id}`)
-                    .attach('hdf', './new_server/python_files/h5examples/asdf.h5')
-                    .expect(function (res) {
-                        console.log(res.text);
-                    })
-                    .end(function (err, result) {
-                        if (i === 1) done();
-                    })
-            }
-        });
+        // it('should check upload', function (done) {
+        //     for (let i = 0; i < 2; i++) {
+        //         agent
+        //             .post(`/upload/?_id=${datasetsArr[i]._id}`)
+        //             .attach('hdf', './new_server/python_files/h5examples/asdf.h5')
+        //             .expect(function (res) {
+        //                 console.log(res.text);
+        //             })
+        //             .end(function (err, result) {
+        //                 if (i === 1) done();
+        //             })
+        //     }
+        // });
         // let j=0;
         // it('should get plot data', function (done) {
         //     for (let i=0; i <1; i++) {

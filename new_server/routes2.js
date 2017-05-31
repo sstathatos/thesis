@@ -7,7 +7,7 @@ let helperConstructor=require('./helpers');
 
 let {readObjs,updateObj}=APIConstructor;
 let {getUserProjects,getHDFPlot,getHDFArray,getHDFContentsForView,
-    confProject,searchRelatedPosts,save_data}= helperConstructor;
+    confProject,searchRelatedPosts,save_data,getDataFromPlotID}= helperConstructor;
 
 router.get('/', (req, res) => {
     let code = fs.readFileSync(__dirname+"/../client/bundle.js");
@@ -106,32 +106,6 @@ router.get('/plots',(req,res) => {
         res.status(200).json(data);
     })
 });
-
-function getDataFromPlotID(req,cb) {
-    let new_plot = [];
-    let {_id,direction,currystart,curryend,zoomstart,zoomend}=req.query;
-
-    readObjs('plots',{_id:_id})((err,plot) => {
-        if (err) throw err;
-
-        readObjs('posts',{_id:plot[0].inpost})((err,post) => {
-            if (err) cb(new Error(err));
-            let {dim1,dim2,dim3Value,dim2Value}=plot[0].plot_metadata;
-
-            readObjs('datasets',{_id:post[0].dset_link})((err,dset) => {
-                if (err) cb(new Error(err));
-                let obj={direction:direction,currystart:currystart,curryend:curryend,zoomstart:zoomstart,
-                    zoomend:zoomend,dim1:dim1,dim2:dim2,dim3Value:dim3Value,dim2Value:dim2Value,path:plot[0].array_path_saved};
-
-                getHDFPlot(dset[0].path_saved,obj,(err,data) => {
-                    if (err) cb(new Error(err));
-                    new_plot=plot.map((obj)=>{return {"title":obj.title,"description":obj.description,"data":data}});
-                    cb(null,new_plot);
-                });
-            });
-        });
-    })
-}
 
 router.get('/posts',(req,res) => {
     searchRelatedPosts(req.query,(err,posts) => {
