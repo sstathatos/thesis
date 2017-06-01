@@ -1,51 +1,49 @@
+let html = require('./html');
 
-let loginComponentConstructor = (obj) => {
-    let {app,post} = obj;
 
-    let instances = {};
-    let loginHandler = (e) => {
-        let {usernameInput,passwordInput} = instances;
 
-        console.log(usernameInput.value,passwordInput.value);
-        post({uri:`/login/?username=${usernameInput.value}&password=${passwordInput.value}`}, (err,response,body) => {
+let loginHandlerConstructor  = (obj) => {
+    let {username,password,post}= obj;
 
+    let loginHandler = () => {
+        post({uri:`/login/?username=${username()}&password=${password()}`}, (err,response,body) => {
             console.log({err,response,body});
         })
     };
 
-    let mount = () => {
-        let login = document.createElement('div');
+    return loginHandler;
+};
 
-        let usernameInput = document.createElement('input');
-        usernameInput.placeholder = 'Username';
+let loginComponentConstructor = (obj) => {
+    let {app, post} = obj;
 
-        let passwordInput = document.createElement('input');
-        passwordInput.placeholder = 'Password';
-        passwordInput.type = 'password';
+    let init = () => {
+        let login = html.create('div');
 
-        let loginButton = document.createElement('button');
-        loginButton.textContent = 'Login';
-        loginButton.addEventListener('click',loginHandler,true);
+        let usernameInput = html.create('input',{placeholder : 'Username'});
+        let passwordInput = html.create('input',{placeholder : 'Password',type : 'password'});
 
-        login.appendChild(usernameInput);
-        login.appendChild(passwordInput);
-        login.appendChild(loginButton);
+        let loginHandler = loginHandlerConstructor({
+            username: () => usernameInput.value,
+            password: () => passwordInput.value,
+            post
+        });
 
-        app.appendChild(login);
-        instances.login = login;
-        instances.loginButton = loginButton;
-        instances.usernameInput = usernameInput;
-        instances.passwordInput = passwordInput;
-    };
+        let loginButton = html.create('button',{'textContent' : 'Login'});
+        let addListenerToLoginButton = html.addListenerTo(loginButton);
+        addListenerToLoginButton('click',loginHandler);
 
-    let unmount = () => {
-        instances.loginButton.removeListener('click',loginHandler,true);
-        app.removeChild(instances.login);
+        let mountToLogin = html.mountTo(login);
 
+        [usernameInput, passwordInput, loginButton].map((element) => mountToLogin(element));
+
+        html.mountTo(app)(login);
+
+        return {login,loginButton,usernameInput,passwordInput};
     };
 
     return {
-        mount,unmount
+        init
     }
 
 };

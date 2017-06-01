@@ -1,57 +1,58 @@
-let registerComponentConstructor  = (obj) => {
+let html = require('./html');
 
-    let {app,post} = obj;
+let registerHandlerConstructor = (obj) => {
+    let {username,password,email,name,post}= obj;
 
-    let instances = {};
-    let registerHandler = (e) => {
-        let {usernameInput,passwordInput,confirmInput,emailInput,nameInput} = instances;
+    let registerHandler = () => {
 
-        console.log(usernameInput.value,passwordInput.value,confirmInput.value,emailInput.value,nameInput.value);
-
-        post({uri:`/register/?username=${usernameInput.value}&password=${passwordInput.value}&email=${emailInput.value}&name=${nameInput.value}`}, (err,response,body) => {
+        post({uri:`/register/?username=${username()}&password=${password()}&email=${email()}&name=${name()}`}, (err,response,body) => {
             console.log({err,response,body});
         })
     };
 
+    return registerHandler;
+};
 
-    let mount = () => {
-        let register = document.createElement('div');
+let registerComponentConstructor  = (obj) => {
 
-        let usernameInput = document.createElement('input');
-        usernameInput.placeholder = 'Username';
-        let nameInput = document.createElement('input');
-        nameInput.placeholder = 'Name';
-        let emailInput = document.createElement('input');
-        emailInput.placeholder = 'Email';
-        let passwordInput = document.createElement('input');
-        passwordInput.placeholder = 'Password';
-        passwordInput.type = 'password';
-        let confirmInput = document.createElement('input');
-        confirmInput.placeholder = 'Confirm Password';
-        confirmInput.type = 'password';
+    let {app,post} = obj;
 
-        let registerButton = document.createElement('button');
-        registerButton.textContent = 'Register';
-        registerButton.addEventListener('click',registerHandler,true);
+    let init = () => {
+        let register = html.create('div');
 
-        register.appendChild(usernameInput);
-        register.appendChild(nameInput);
-        register.appendChild(emailInput);
-        register.appendChild(passwordInput);
-        register.appendChild(confirmInput);
-        register.appendChild(registerButton);
+        let usernameInput = html.create('input',{placeholder : 'Username'});
+        let nameInput = html.create('input',{placeholder : 'Name'});
+        let emailInput = html.create('input',{placeholder : 'Email'});
+        let passwordInput = html.create('input',{placeholder : 'Password',type : 'password'});
+        let confirmInput = html.create('input',{placeholder : 'Confirm Password',type : 'password'});
 
-        app.appendChild(register);
+        let registerHandler = registerHandlerConstructor({
+            username: () => usernameInput.value,
+            password: () => passwordInput.value,
+            email: () => emailInput.value,
+            name: () => nameInput.value,
+            post
+        });
 
-        instances.usernameInput = usernameInput;
-        instances.passwordInput = passwordInput;
-        instances.confirmInput = confirmInput;
-        instances.emailInput = emailInput;
-        instances.nameInput = nameInput;
+        let registerButton = html.create('button',{textContent : 'Register'});
+        let addListenerToRegisterButton = html.addListenerTo(registerButton);
+        addListenerToRegisterButton('click',registerHandler);
+
+        let mountToRegister = html.mountTo(register);
+
+        [usernameInput,nameInput,emailInput,passwordInput,registerButton].map((el) => {
+            mountToRegister(el);
+        });
+
+        html.mountTo(app)(register);
+
+        return {register,registerButton,usernameInput,
+            passwordInput,emailInput,nameInput};
+
     };
 
     return  {
-        mount
+        init
     }
 };
 
