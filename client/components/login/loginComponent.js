@@ -1,21 +1,7 @@
-let html = require('./html');
-
-
-
-let loginHandlerConstructor  = (obj) => {
-    let {username,password,post}= obj;
-
-    let loginHandler = () => {
-        post({uri:`/login/?username=${username()}&password=${password()}`}, (err,response,body) => {
-            console.log({err,response,body});
-        })
-    };
-
-    return loginHandler;
-};
+let html = require('../html');
 
 let loginComponentConstructor = (obj) => {
-    let {app, post} = obj;
+    let {app,post,loginHandlerConstructor,errorHandler,isLoggedIn} = obj;
 
     let init = () => {
         let login = html.create('div');
@@ -26,7 +12,8 @@ let loginComponentConstructor = (obj) => {
         let loginHandler = loginHandlerConstructor({
             username: () => usernameInput.value,
             password: () => passwordInput.value,
-            post
+            post,
+            isLoggedIn
         });
 
         let loginButton = html.create('button',{'textContent' : 'Login'});
@@ -39,7 +26,7 @@ let loginComponentConstructor = (obj) => {
 
         html.mountTo(app)(login);
 
-        return {login,loginButton,usernameInput,passwordInput};
+        return {static:[login,loginButton,usernameInput,passwordInput],dynamic:[]};
     };
 
     return {

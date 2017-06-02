@@ -51,7 +51,24 @@ describe('initialize my db', function () {
                                             if (err) throw err;
                                             addUserRole(users[2]._id, proj._id, 'member', 'projects')((err) => {
                                                 if (err) throw err;
-                                                done();
+
+                                                createObj('projects', {name: `project test`, description: `project test`})((err, proj) => {
+                                                    if (err) throw err;
+                                                    projectsArr[0] = proj;
+                                                    readObjs('users', {})((err, users) => {
+                                                        if (err) throw err;
+                                                        addUserRole(users[0]._id, proj._id, 'owner', 'projects')((err) => {
+                                                            if (err) throw err;
+                                                            addUserRole(users[1]._id, proj._id, 'member', 'projects')((err) => {
+                                                                if (err) throw err;
+                                                                addUserRole(users[2]._id, proj._id, 'member', 'projects')((err) => {
+                                                                    if (err) throw err;
+                                                                    done();
+                                                                })
+                                                            })
+                                                        })
+                                                    });
+                                                });
                                             })
                                         })
                                     })

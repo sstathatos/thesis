@@ -5,7 +5,7 @@ let fs = require('fs');
 let APIConstructor=require('../API/index');
 let helperConstructor=require('./helpers');
 
-let {readObjs,updateObj}=APIConstructor;
+let {readObjs,updateObj,createObj}=APIConstructor;
 let {getUserProjects,getHDFPlot,getHDFArray,getHDFContentsForView,
     confProject,searchRelatedPosts,save_data,getDataFromPlotID}= helperConstructor;
 
@@ -47,6 +47,30 @@ router.post('/login', (req, res, next) => {
             });
         }
     })(req,res,next);
+});
+
+router.post('/register', (req,res) => {
+    let {query} = req;
+    createObj('users',query)((err,user) => {
+        if (err) throw err;
+        res.status(200).send({perm:'allowed',data:user});
+    })
+});
+
+router.post('/projects', (req,res) => {
+    let {query} = req;
+    createObj('projects',query)((err,proj) => {
+        if (err) throw err;
+        res.status(200).send({perm:'allowed',data:proj});
+    })
+});
+
+router.post('/datasets', (req,res) => {
+    let {query} = req;
+    createObj('projects',query)((err,proj) => {
+        if (err) throw err;
+        res.status(200).send({perm:'allowed',data:proj});
+    })
 });
 
 router.get('/logout', (req, res) => {

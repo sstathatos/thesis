@@ -1,28 +1,27 @@
 let app = document.getElementById('app');
 let {get,post,put,del} = require('xhr');
-
-let loginComponentConstructor = require('./components/loginComponent');
-let registerComponentConstructor = require('./components/registerComponent');
-let userProfileComponentConstructor = require('./components/userProfileComponent');
-
 let html = require('./components/html');
 
-let loginComponent = loginComponentConstructor({app, post});
-let registerComponent = registerComponentConstructor({app,post});
-let userProfileComponent = userProfileComponentConstructor({app,get});
+let loginComponentConstructor = require('./components/login/loginComponent');
+let loginHandlerConstructor =require('./components/login/loginHandler');
 
-// loginComponent.init();
-// registerComponent.init();
-let {p1,p2,p3,userdata} = userProfileComponent.init();
-userProfileComponent.retrieveUser('59286b77cf84fc3f0ff45a66',({err,response,body}) => {
-    let keik = {username:p1,email:p2,name:p3,data:body};
-    userProfileComponent.update(keik);
-});
+let registerComponentConstructor = require('./components/register/registerComponent');
+let registerHandlerConstructor = require('./components/register/registerHandler');
 
+let usersComponentConstructor = require('./components/users/usersComponent');
+let isLoggedInConstructor = require('./components/users/isLoggedIn');
+let usersButtonCreateHandlerConstructor = require('./components/users/usersButtonCreateHandler');
 
+let errorHandler =console.log;
 
 
+let isLoggedIn = isLoggedInConstructor(errorHandler);
+let loginComponent = loginComponentConstructor({app, post,loginHandlerConstructor,errorHandler,isLoggedIn});
+loginComponent.init();
 
+let registerComponent = registerComponentConstructor({app,post,registerHandlerConstructor});
+registerComponent.init();
 
+let usersComponent = usersComponentConstructor({app,get,id:'5931b0a86b3bc32dee7dbc8c',errorHandler,usersButtonCreateHandlerConstructor});
+usersComponent.update(usersComponent.init());
 
-// window.loginComponent = loginComponent;

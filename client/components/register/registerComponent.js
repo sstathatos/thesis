@@ -1,21 +1,8 @@
-let html = require('./html');
-
-let registerHandlerConstructor = (obj) => {
-    let {username,password,email,name,post}= obj;
-
-    let registerHandler = () => {
-
-        post({uri:`/register/?username=${username()}&password=${password()}&email=${email()}&name=${name()}`}, (err,response,body) => {
-            console.log({err,response,body});
-        })
-    };
-
-    return registerHandler;
-};
+let html = require('../html');
 
 let registerComponentConstructor  = (obj) => {
 
-    let {app,post} = obj;
+    let {app,post,registerHandlerConstructor} = obj;
 
     let init = () => {
         let register = html.create('div');
@@ -46,8 +33,8 @@ let registerComponentConstructor  = (obj) => {
 
         html.mountTo(app)(register);
 
-        return {register,registerButton,usernameInput,
-            passwordInput,emailInput,nameInput};
+        return {static:[register,registerButton,usernameInput,
+            passwordInput,emailInput,nameInput],dynamic:[]};
 
     };
 

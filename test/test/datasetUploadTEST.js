@@ -1,4 +1,4 @@
-//let initDB= require('./initDBTEST');
+let initDB= require('./initDBTEST');
 const request = require('supertest');
 const agent = request.agent('http://localhost:3000');
 let assert= require('assert');
@@ -100,64 +100,64 @@ describe('read all objs and save them', function () {
         //         })
         // });
 
-        it('should get a user profile', function (done) {
-            agent
-                .get(`/users/?_id=${usersArr[0]._id}`)
-                .expect(function (res) {
-                    console.log(res.text);
-                })
-                .expect(200)
-                .end(function (err, result) {
-                    done();
-                })
-        });
-
-        it('should get contents of ONE dataset', function (done) {
-            agent
-                .get(`/datasets/?_id=${datasetsArr[0]._id}`)
-                .expect(function (res) {
-                    console.log(res.text);
-                })
-                .expect(200)
-                .end(function (err, result) {
-                    done();
-                })
-        });
-
-        it('should get contents of ONE project', function (done) {
-            agent
-                .get(`/projects/?_id=${projectsArr[0]._id}`)
-                .expect(function (res) {
-                    console.log(res.text);
-                })
-                .expect(200)
-                .end(function (err, result) {
-                    done();
-                })
-        });
-
-        it('should get contents of ONE post', function (done) {
-            agent
-                .get(`/posts/?_id=${postsArr[0]._id}`)
-                .expect(function (res) {
-                    console.log(res.text);
-                })
-                .expect(200)
-                .end(function (err, result) {
-                    done();
-                })
-        });
-
-        it('should get data of ONE plot', function (done) {
-            agent
-                .get(`/plots/?_id=${plotsArr[0]._id}&direction=init&currystart=0&curryend=0&zoomstart=0&zoomend=0`)
-                .expect(function (res) {
-                    console.log(res.text);
-                })
-                .expect(200)
-                .end(function (err, result) {
-                    done();
-                })
-        });
+        // it('should get a user profile', function (done) {
+        //     agent
+        //         .get(`/users/?_id=${usersArr[0]._id}`)
+        //         .expect(function (res) {
+        //             console.log(res.text);
+        //         })
+        //         .expect(200)
+        //         .end(function (err, result) {
+        //             done();
+        //         })
+        // });
+        //
+        // it('should get contents of ONE dataset', function (done) {
+        //     agent
+        //         .get(`/datasets/?_id=${datasetsArr[0]._id}`)
+        //         .expect(function (res) {
+        //             console.log(res.text);
+        //         })
+        //         .expect(200)
+        //         .end(function (err, result) {
+        //             done();
+        //         })
+        // });
+        //
+        // it('should get contents of ONE project', function (done) {
+        //     agent
+        //         .get(`/projects/?_id=${projectsArr[0]._id}`)
+        //         .expect(function (res) {
+        //             console.log(res.text);
+        //         })
+        //         .expect(200)
+        //         .end(function (err, result) {
+        //             done();
+        //         })
+        // });
+        //
+        // it('should get contents of ONE post', function (done) {
+        //     agent
+        //         .get(`/posts/?_id=${postsArr[0]._id}`)
+        //         .expect(function (res) {
+        //             console.log(res.text);
+        //         })
+        //         .expect(200)
+        //         .end(function (err, result) {
+        //             done();
+        //         })
+        // });
+        //
+        // it('should get data of ONE plot', function (done) {
+        //     agent
+        //         .get(`/plots/?_id=${plotsArr[0]._id}&direction=init&currystart=0&curryend=0&zoomstart=0&zoomend=0`)
+        //         .expect(function (res) {
+        //             console.log(res.text);
+        //         })
+        //         .expect(200)
+        //         .end(function (err, result) {
+        //             done();
+        //         })
+        // });
     });
 });
