@@ -322,7 +322,7 @@ createItem({
 function addUserRoleForResource(user_id, obj_id, role, model) {
     assert(db.users.some((obj) => {
         return obj._id === user_id;
-    })); //check if user exists in users
+    })); //check if user exists in get_user_profile
     assert(db[[model]].some((obj) => {
         return obj._id === obj_id;
     }));//same for project
@@ -387,7 +387,7 @@ console.log(util.inspect(db.plots, false, null));
 function removeUserRolefromResource(user_id, obj_id, role, model) {
     assert(db.users.some((obj) => {
         return obj._id === user_id;
-    })); //check if user exists in users
+    })); //check if user exists in get_user_profile
     assert(db[[model]].some((obj) => {
         return obj._id === obj_id;
     }));//same for project
@@ -420,12 +420,12 @@ console.log(util.inspect(db.datasets, false, null));
 
 /*
  * is allowed
- * works for everything after /projects and not create
+ * works for everything after /get_create_project and not create
  * */
 function isAllowed(user_id, obj_id, model, method) {
     assert(db.users.some((obj) => {
         return obj._id === user_id;
-    })); //check if user exists in users
+    })); //check if user exists in get_user_profile
     assert(methods.includes(method));
     assert(db[[model]].some((obj) => {
         return obj._id === obj_id;
@@ -591,7 +591,7 @@ function getProjectPermissionsForUser(user_id, project_id) {
     let data = {};
     assert(db.users.some((obj) => {
         return obj._id === user_id;
-    })); //check if user exists in users
+    })); //check if user exists in get_user_profile
     assert(db.projects.some((obj) => {
         return obj._id === project_id;
     }));//same for project
@@ -617,28 +617,28 @@ console.log(getProjectPermissionsForUser(id_2, project_id));
 //
 //
 // /*
-//  * get All users with a specific role in a specific project
+//  * get All get_user_profile with a specific role in a specific project
 //  * */
 // function getRoleUsersOfProject(project_id,role) {
-//     assert(db.projects.some((obj)=> {return obj._id===project_id;}));//same for project
+//     assert(db.get_create_project.some((obj)=> {return obj._id===project_id;}));//same for project
 //     let role_methods=roles[[role]];
-//     let users=[];
+//     let get_user_profile=[];
 //     let cnt=0;
 //     for(let method in role_methods) {
 //         if(cnt===0){
-//             users=db.projects.filter((obj) => {return obj._id===project_id})[0].acl[[method]][map_allow[role_methods[method]]];
+//             get_user_profile=db.get_create_project.filter((obj) => {return obj._id===project_id})[0].acl[[method]][map_allow[role_methods[method]]];
 //         }
 //         else {
-//             let perm_users=db.projects.filter((obj) => {return obj._id===project_id})[0].acl[[method]][map_allow[role_methods[method]]];
-//             for(let puser in users){
-//                 if (!perm_users.includes(users[puser])) {
-//                     users=users.filter(obj=> obj!==users[puser]);
+//             let perm_users=db.get_create_project.filter((obj) => {return obj._id===project_id})[0].acl[[method]][map_allow[role_methods[method]]];
+//             for(let puser in get_user_profile){
+//                 if (!perm_users.includes(get_user_profile[puser])) {
+//                     get_user_profile=get_user_profile.filter(obj=> obj!==get_user_profile[puser]);
 //                 }
 //             }
 //         }
 //         cnt++;
 //     }
-//     return users;
+//     return get_user_profile;
 // }
 // // console.log(getRoleUsersOfProject(project_id,'member'));
 // // console.log(getRoleUsersOfProject(project_id,'owner'));
@@ -654,14 +654,14 @@ console.log(getProjectPermissionsForUser(id_2, project_id));
 // //THESE ARE LISTVIEWS,
 //
 // /*
-//  * Get all projects of a specific user
+//  * Get all get_create_project of a specific user
 //  * */
 // function getAllProjectsForUser(user_id) {
-//     assert(db.users.some((obj)=> {return obj._id===user_id;})); //check if user exists in users
+//     assert(db.get_user_profile.some((obj)=> {return obj._id===user_id;})); //check if user exists in get_user_profile
 //     let data=[];
-//     for(let proj in db.projects) {
-//         if(db.projects[proj].acl['read'].allow.includes(user_id)) {
-//             data.push(db.projects[proj]);
+//     for(let proj in db.get_create_project) {
+//         if(db.get_create_project[proj].acl['read'].allow.includes(user_id)) {
+//             data.push(db.get_create_project[proj]);
 //         }
 //     }
 //     return data;
@@ -675,8 +675,8 @@ console.log(getProjectPermissionsForUser(id_2, project_id));
 //  *Get all posts of a specific project for a specific user
 //  * */
 // function getAllPostsForUser(project_id,user_id) {
-//     assert(db.users.some((obj)=> {return obj._id===user_id;})); //check if user exists in users
-//     assert(db.projects.some((obj)=> {return obj._id===project_id;}));//same for project
+//     assert(db.get_user_profile.some((obj)=> {return obj._id===user_id;})); //check if user exists in get_user_profile
+//     assert(db.get_create_project.some((obj)=> {return obj._id===project_id;}));//same for project
 //     console.log(db.posts.filter((obj)=>{return obj['inproject']===project_id;}));
 // }
 // // getAllPostsForUser(project_id,id);

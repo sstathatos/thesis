@@ -16,7 +16,7 @@ describe('test my project Permissions', function() {
         });
     });
 
-    describe('CREATE user and 2 projects',function(){
+    describe('CREATE user and 2 get_create_project',function(){
         let credentialsStef = {username: 'stef', password: 'test'};
         let userStef = {username: 'stef', password: 'test', email: 'stef@stef.com', name: "stef"};
         it('should register', function (done) {
@@ -46,7 +46,7 @@ describe('test my project Permissions', function() {
             };
             for(let i=0;i<2;i++) {
                 agent
-                    .post('/projects/create')
+                    .post('/get_create_project/create')
                     .send(project)
                     .end(function (err, res) {
                         if (err) return done(err);
@@ -58,7 +58,7 @@ describe('test my project Permissions', function() {
     });
 
 
-    describe('CREATE user and 2 projects',function(){
+    describe('CREATE user and 2 get_create_project',function(){
         let credentialsFilip = {username: 'filip', password: 'test'};
         let userFilip = {username: 'filip', password: 'test', email: 'filip@filip.com', name: "filip"};
         it('should register FILIP', function (done) {
@@ -89,7 +89,7 @@ describe('test my project Permissions', function() {
             };
             for(let i=0;i<2;i++) {
                 agent
-                    .post('/projects/create')
+                    .post('/get_create_project/create')
                     .send(project2)
                     .end(function (err, res) {
                         if (err) return done(err);
@@ -100,7 +100,7 @@ describe('test my project Permissions', function() {
         });
     });
 
-    describe('CREATE user and 2 projects', function () {
+    describe('CREATE user and 2 get_create_project', function () {
         let credentialsKwnna = {username: 'kwnna', password: 'test'};
         let userKwnna = {username: 'kwnna', password: 'test', email: 'kwnna@kwnna.com', name: "kwnna"};
         it('should register Kwnna', function (done) {
@@ -131,7 +131,7 @@ describe('test my project Permissions', function() {
             };
             for (let i = 0; i < 2; i++) {
                 agent
-                    .post('/projects/create')
+                    .post('/get_create_project/create')
                     .send(project3)
                     .end(function (err, res) {
                         if (err) return done(err);

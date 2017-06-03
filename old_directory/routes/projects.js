@@ -60,7 +60,7 @@ router.delete('/:_id', function (req, res) {
 
 router.delete('/:_id/leave', (req, res) => {
     acl.removeUserRole(projects, 'member', req.params._id, [req.user._id], (err, res) => {
-        let my_view = new RedirectView(req, res, "/users/" + req.user.username, "User member removed");
+        let my_view = new RedirectView(req, res, "/get_user_profile/" + req.user.username, "User member removed");
         my_view.as_view();
     })
 

@@ -4,7 +4,7 @@ router.get('/', (req, res) => {
     res.status(200).json([]);
 });
 
-router.get('/users', (req, res) => {
+router.get('/get_user_profile', (req, res) => {
     let users= [
         {
             username : 'stef',
@@ -20,7 +20,7 @@ router.get('/users', (req, res) => {
     res.status(200).json(users);
 });
 
-router.get('/projects', (req, res) => {
+router.get('/get_create_project', (req, res) => {
     let projects= [
         {
             name : 'project 1 name',

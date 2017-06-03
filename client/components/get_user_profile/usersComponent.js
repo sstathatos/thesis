@@ -1,22 +1,24 @@
 let html = require('../html');
-let usersInfoComponentConstructor = require('./usersInfoComponent');
-let usersMatrixComponentConstructor = require('./usersMatrixComponent');
-let usersButtonCreateComponentConstructor = require('./usersButtonCreateComponent');
-let usersGetDataComponentConstructor = require('./usersGetDataComponent');
+let usersInfoComponentConstructor = require('./usersSubComponents/usersInfoComponent');
+let usersMatrixComponentConstructor = require('./usersSubComponents/usersMatrixComponent');
+let usersBttnCreateComponentConstructor = require('./usersSubComponents/usersBttnCreateComponent');
+let usersGetDataComponentConstructor = require('./usersSubComponents/usersGetDataComponent');
+let usersBttnCreateHandlerConstructor = require('./usersSubComponents/usersBttnCreateHandler');
+
 
 let usersConstructor = (obj) => {
-    let {app,get,id,errorHandler,usersButtonCreateHandlerConstructor} = obj;
+    let {app,get,id,errorHandler} = obj;
 
     let usersInfoComponent = usersInfoComponentConstructor({app,get});
     let usersMatrixComponent = usersMatrixComponentConstructor({app});
-    let usersButtonCreateComponent = usersButtonCreateComponentConstructor({app,usersButtonCreateHandlerConstructor});
+    let usersBttnCreateComponent = usersBttnCreateComponentConstructor({app,usersBttnCreateHandlerConstructor});
     let usersGetDataComponent=usersGetDataComponentConstructor(id,get);
 
     let init = () => {
         return {
             usersInfoEl : usersInfoComponent.init(),
             usersMatrixEl : usersMatrixComponent.init(),
-            usersButtonEl : usersButtonCreateComponent.init()
+            usersButtonEl : usersBttnCreateComponent.init()
         }
     };
 

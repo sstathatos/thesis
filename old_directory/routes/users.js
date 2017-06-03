@@ -12,7 +12,7 @@ let ProjectListView = require('../class_views/projects').ProjectListView;
 let UserDeleteView = require('../class_views/users').UserDeleteView;
 let UserUpdateView = require('../class_views/users').UserUpdateView;
 
-//todo searchbar projects and users/ add *
+//todo searchbar get_create_project and get_user_profile/ add *
 
 //get UserPAGE
 router.get('/:username', (req, res) => {

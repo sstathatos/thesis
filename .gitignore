@@ -3,6 +3,7 @@
 *~
 
 node_modules/
+old_directory/
 
 client/bundle.js
 bundle.js
@@ -16,8 +17,6 @@ data_creators/three_dim.h5
 
 data_creators/six.h5
 
-
-old_directory/
 build/
 
 .idea/

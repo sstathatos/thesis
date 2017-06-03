@@ -1,4 +1,5 @@
 const express = require('express');
+let {join} = require('path');
 let passport = require('passport');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -13,6 +14,9 @@ const MongoStore = require('connect-mongo')(session);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(cookieParser());
+
+app.use(express.static(join(__dirname, '../client')));
+app.use(express.static(join(__dirname, '../client/node_modules/c3')));
 
 //Express session/mongostore
 app.use(session({

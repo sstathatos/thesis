@@ -26,14 +26,14 @@ describe('test my dao', function() {
             });
     });
 
-    describe('test my projects', function(){
+    describe('test my get_create_project', function(){
         let project={
             name: "some new newnewnewnewn project",
             description : "some new description"
         };
         it('should create project', function (done) {
             agent
-                .post('/users/'+credentials.username+'/projects')
+                .post('/get_user_profile/'+credentials.username+'/get_create_project')
                 .send(project)
                 .end(function (err, res) {
                     if (err) return done(err);
@@ -45,7 +45,7 @@ describe('test my dao', function() {
         it('should show myprojects', function (done) {
             let query={name:"some new newnewnewnewn project"};
             agent
-                .get('/users/'+credentials.username)
+                .get('/get_user_profile/'+credentials.username)
                 .send()
                 .end(function (err, res) {
                     if (err) return done(err);
@@ -56,7 +56,7 @@ describe('test my dao', function() {
         });
         it('should search a project', function (done) {
             agent
-                .get('/users/'+credentials.username+'/projects/search')
+                .get('/get_user_profile/'+credentials.username+'/get_create_project/search')
                 .end(function (err, res) {
                     if (err) return done(err);
 
@@ -76,7 +76,7 @@ describe('test my dao', function() {
         // let url = 'mongodb://localhost/test';
         // MongoClient.connect(url, function(err, db) {
         //     db.dropDatabase();  //will be used :)
-        //     // let collections=["projectpermissions","projects","users"];
+        //     // let collections=["projectpermissions","get_create_project","get_user_profile"];
         //     // for(let i in collections) {
         //     //     db.dropCollection(collections[i], function(err) {
         //     //         if(!err) {

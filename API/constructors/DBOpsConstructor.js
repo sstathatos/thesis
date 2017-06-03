@@ -129,7 +129,7 @@ module.exports = DBOpsConstructor;
 // }) };
 // let creates=[];
 // for(let i=0;i<10;i++) {
-//     creates.push(wrapper.createObj('users',{name:`stefanos${i}`,username:`stefanos${i}`, email:`stefanos${i}`,password:`stefanos${i}`}))
+//     creates.push(wrapper.createObj('get_user_profile',{name:`stefanos${i}`,username:`stefanos${i}`, email:`stefanos${i}`,password:`stefanos${i}`}))
 // }
 //
 // for(let cr in creates) {
@@ -139,9 +139,9 @@ module.exports = DBOpsConstructor;
 //         console.log(data);
 //     });
 // }
-// wrapper.createObj('users',{name:'stefanos',username:'stef', email:'stef@stef.com',password:'test'})((err,data)=> {
+// wrapper.createObj('get_user_profile',{name:'stefanos',username:'stef', email:'stef@stef.com',password:'test'})((err,data)=> {
 //     if(err) throw err;
-//     wrapper.createObj('users',{name:'mpla',username:'mpla', email:'stef@stef.com',password:'test'})((err,res) => {
+//     wrapper.createObj('get_user_profile',{name:'mpla',username:'mpla', email:'stef@stef.com',password:'test'})((err,res) => {
 //         if(err) throw err;
 //         wrapper.createObj('posts',{inpost:'fjsdakjf'})((err,res) => {
 //             if(err) throw err;
@@ -149,15 +149,15 @@ module.exports = DBOpsConstructor;
 //     });
 // });
 // wrapper
-//     .createObjPromise('users',{name:'asdffdsasdf',username:'asdfdsafdsf', email:'stfdfdassef@asdf.com',password:'tesasdft'})
-//     .then(() => {wrapper.createObjPromise('users',{name:'ken',username:'ken', email:'ken@ken.com',password:'test'}).catch((e)=> {console.log(e)})})
-//     .then(() => {wrapper.createObjPromise('users',{name:'asdffdsasdf',username:'asdfdsafdsf', email:'stfdfdassef@asdf.com',password:'tesasdft'}).catch((e)=> {console.log(e)})})
+//     .createObjPromise('get_user_profile',{name:'asdffdsasdf',username:'asdfdsafdsf', email:'stfdfdassef@asdf.com',password:'tesasdft'})
+//     .then(() => {wrapper.createObjPromise('get_user_profile',{name:'ken',username:'ken', email:'ken@ken.com',password:'test'}).catch((e)=> {console.log(e)})})
+//     .then(() => {wrapper.createObjPromise('get_user_profile',{name:'asdffdsasdf',username:'asdfdsafdsf', email:'stfdfdassef@asdf.com',password:'tesasdft'}).catch((e)=> {console.log(e)})})
 //     .catch((e)=> {console.log(e)});
 
 // let arr=[
-//     wrapper.createObjPromise('users',{name:'asdffdsasdf',username:'asdfdsafdsf', email:'stfdfdassef@asdf.com',password:'tesasdft'}),
-//     wrapper.createObjPromise('users',{name:'ken',username:'ken', email:'ken@ken.com',password:'test'}),
-//     wrapper.createObjPromise('users',{name:'asdffdsasdf',username:'asdfdsafdsf', email:'stfdfdassef@asdf.com',password:'tesasdft'})
+//     wrapper.createObjPromise('get_user_profile',{name:'asdffdsasdf',username:'asdfdsafdsf', email:'stfdfdassef@asdf.com',password:'tesasdft'}),
+//     wrapper.createObjPromise('get_user_profile',{name:'ken',username:'ken', email:'ken@ken.com',password:'test'}),
+//     wrapper.createObjPromise('get_user_profile',{name:'asdffdsasdf',username:'asdfdsafdsf', email:'stfdfdassef@asdf.com',password:'tesasdft'})
 // ];
 //
 // Promise.all(arr)

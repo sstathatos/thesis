@@ -23,7 +23,7 @@ class UserUpdateView extends CreateView {
         this.template_name = "editprofile";
         this.msg = "User updated successfully";
         this.query = {_id: req.user._id};
-        this.success_url = '/users/' + req.user.username;
+        this.success_url = '/get_user_profile/' + req.user.username;
     }
     //todo override validate
 }

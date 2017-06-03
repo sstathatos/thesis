@@ -10,20 +10,20 @@ let {getUserProjects,getHDFPlot,getHDFArray,getHDFContentsForView,
     confProject,searchRelatedPosts,save_data,getDataFromPlotID}= helperConstructor;
 
 router.get('/', (req, res) => {
-    let code = fs.readFileSync(__dirname+"/../client/bundle.js");
-    let c3css = fs.readFileSync(__dirname+"/../client/node_modules/c3/c3.css");
+    let code = "/bundle.js";
+    let c3css = "/c3.css";
     let home = `
         <!doctype html>
         <html lang=en>
         <head>
             <meta charset=utf-8>
             <title>blah</title>
-            <style>${c3css}</style>
+            <link rel="stylesheet" type="text/css" href="${c3css}">
         </head>
         <body>
             <div id="app"></div>
             
-            <script>${code}</script>
+            <script src="${code}"></script>
         </body>
         </html>
     `;
@@ -57,22 +57,6 @@ router.post('/register', (req,res) => {
     })
 });
 
-router.post('/projects', (req,res) => {
-    let {query} = req;
-    createObj('projects',query)((err,proj) => {
-        if (err) throw err;
-        res.status(200).send({perm:'allowed',data:proj});
-    })
-});
-
-router.post('/datasets', (req,res) => {
-    let {query} = req;
-    createObj('projects',query)((err,proj) => {
-        if (err) throw err;
-        res.status(200).send({perm:'allowed',data:proj});
-    })
-});
-
 router.get('/logout', (req, res) => {
     req.session.destroy(() => {
         res.clearCookie('connect.sid');
@@ -92,6 +76,27 @@ router.get('/users', (req, res) => {
             res.status(200).send({perm:'allowed',data:new_user});
         });
     });
+});
+
+router.post('/projects', (req,res) => {
+    let {query} = req; //MUST BE CHANGED remember project members etc
+    createObj('projects',query)((err,proj) => {
+        if (err) throw err;
+        res.status(200).send({perm:'allowed',data:proj});
+    })
+});
+
+router.post('/datasets', (req,res) => {
+    let {query} = req;
+    query['creator'] = '5931b0a96b3bc32dee7dbc8f';//req.user._id MUST BE CHANGED
+    save_data(req,(err,data_path) => {
+        query['path_saved']=data_path;
+        createObj('datasets',query)((err,dset) => {
+            if (err) throw err;
+            res.status(200).send({perm:'allowed',data:dset});
+        })
+    });
+
 });
 
 //read contents of ONE dataset... use of PYTHON
@@ -123,9 +128,7 @@ router.get('/datasets/grid',(req,res) => {
     })
 });
 
-//
 router.get('/plots',(req,res) => {
-
     getDataFromPlotID(req,(err,data) => {
         res.status(200).json(data);
     })
@@ -152,20 +155,26 @@ router.get('/projects' ,(req,res) => {
     })
 });
 
+
+
+
+
+
+
+//testing
 router.post('/upload', (req,res) => {
     let {query} = req;
+    console.log(req.headers);
     save_data(req,(err,data_path) => {
         console.log(data_path);
-        updateObj('datasets',query,{path_saved:data_path})((err,data) => {
-            if (err) throw err;
-            //console.log(data);
-            res.status(200).send({perm:'allowed',data:data_path});
-        });
+        res.status(200).send({perm:'allowed',data:data_path});
+        // updateObj('datasets',query,{path_saved:data_path})((err,data) => {
+        //     if (err) throw err;
+        //     //console.log(data);
+        //     res.status(200).send({perm:'allowed',data:data_path});
+        // });
     })
 });
-
-
-
 //for testing
 router.get('/plot',(req,res) => {
     //console.log(req.query);

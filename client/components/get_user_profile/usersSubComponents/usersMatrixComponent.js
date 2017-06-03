@@ -1,4 +1,4 @@
-let html = require('../html');
+let html = require('../../html');
 
 let usersMatrixConstructor = (obj) => {
     let {app} = obj;

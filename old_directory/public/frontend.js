@@ -72,7 +72,7 @@ myApp.controller('searchProjectInstanceCtrl',['$uibModalInstance','$scope','$htt
 
 myApp.controller('currentProjectsController',['$http','$scope', function ($http,$scope) {
     $scope.init=function() {
-        $http({method:'GET',url:'/projects'})
+        $http({method:'GET',url:'/get_create_project'})
             .then(function successCallback(res) {
                 $scope.results=res.data;
                 console.log(res);

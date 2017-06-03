@@ -84,7 +84,7 @@ let checkPermission = (req,res,next) => {
     }
 
     else if ((method === 'GET') || (method === 'PUT') || (method === 'DELETE')) {
-        // /users && method 'get'
+        // /get_user_profile && method 'get'
         isAllowed(req.user._id,query._id,methodMap[method],model[1])((err,perm) => {
             if(err) {
                 console.log(err.message);

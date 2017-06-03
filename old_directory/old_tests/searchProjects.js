@@ -25,7 +25,7 @@ describe('test search', function() {
         it('should search a project', function (done) {
             data={name: 'pro'};
             agent
-                .get('/users/'+credentials.username+'/projects/search')
+                .get('/get_user_profile/'+credentials.username+'/get_create_project/search')
                 .send(data)
                 .end(function (err, res) {
                     if (err) return done(err);

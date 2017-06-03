@@ -102,7 +102,7 @@ describe('read all objs and save them', function () {
 
         // it('should get a user profile', function (done) {
         //     agent
-        //         .get(`/users/?_id=${usersArr[0]._id}`)
+        //         .get(`/get_user_profile/?_id=${usersArr[0]._id}`)
         //         .expect(function (res) {
         //             console.log(res.text);
         //         })
@@ -126,7 +126,7 @@ describe('read all objs and save them', function () {
         //
         // it('should get contents of ONE project', function (done) {
         //     agent
-        //         .get(`/projects/?_id=${projectsArr[0]._id}`)
+        //         .get(`/get_create_project/?_id=${projectsArr[0]._id}`)
         //         .expect(function (res) {
         //             console.log(res.text);
         //         })

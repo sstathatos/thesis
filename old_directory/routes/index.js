@@ -34,10 +34,10 @@ router.get('/error', (req, res) => {
 });
 
 router.use('/', require('./authentication.js'));
-router.use('/users/', require('./users'));
-router.use('/projects/', require('./projects'));
+router.use('/get_user_profile/', require('./users'));
+router.use('/get_create_project/', require('./projects'));
 router.use('/posts/', require('./posts'));
-router.use('/projects/', require('./datasets'));
+router.use('/get_create_project/', require('./datasets'));
 
 
 module.exports = router;

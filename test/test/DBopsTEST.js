@@ -17,7 +17,7 @@ describe('test my DB CRUD OPERATIONS', function () {
     });
 
     describe('test CREATE', function () {
-        it('should create users', function (done) {
+        it('should create get_user_profile', function (done) {
             for (let i = 0; i < 10; i++) {
                 createObj('users', {name: `stefanos${i}`, username: `stefanos${i}`, email: `stefanos${i}`, password: `stefanos${i}`})((err, data) => {
                     if (err) throw err;
@@ -34,7 +34,7 @@ describe('test my DB CRUD OPERATIONS', function () {
                 });
             }
         });
-        it('should create projects', function (done) {
+        it('should create get_create_project', function (done) {
             for (let i = 0; i < 5; i++) {
                 if (i === 0) console.log('2');
                 createObj('projects', {name: `project stefanos${i}`, description: `project stefanos${i}`})((err, data) => {
@@ -179,7 +179,7 @@ describe('test my DB CRUD OPERATIONS', function () {
     });
 
     describe('test UPDATE', function () {
-        it('should update users', function (done) {
+        it('should update get_user_profile', function (done) {
             readObjs('users',{})((err,users) =>{
                 if (err) throw err;
                 for (let i = 0; i < users.length / 2; i++) {

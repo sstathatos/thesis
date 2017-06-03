@@ -33,7 +33,7 @@ app.controller('uploaderCtrl', ['$scope', '$http', '$rootScope', '$window', func
         fd.append('data', $scope.file);
         $http({
             method: 'POST',
-            url: '/projects/' + param + '/datasets/create',
+            url: '/get_create_project/' + param + '/datasets/create',
             data: fd,
             transformRequest: angular.identity,
             headers: {'Content-Type': undefined}
@@ -50,7 +50,7 @@ app.controller('uploaderCtrl', ['$scope', '$http', '$rootScope', '$window', func
     // $scope.loadDsets = function (param) {
     //     $http({
     //         method: 'GET',
-    //         url: '/projects/' + param + '/datasets',
+    //         url: '/get_create_project/' + param + '/datasets',
     //     }).then(function successCallback(data) {
     //
     //         console.log(data.data[0].data);

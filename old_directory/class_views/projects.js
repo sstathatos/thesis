@@ -22,7 +22,7 @@ class ProjectCreateView extends CreateView {
     }
 
     post() {
-        this.success_url = "/users/" + this.req.user.username;
+        this.success_url = "/get_user_profile/" + this.req.user.username;
         if (this.validate()) {
             this.req.body['date'] = Date.now();
             this.data = this.req.body;
@@ -43,7 +43,7 @@ class ProjectCreateView extends CreateView {
                     if (this.req.body.member) {
                         users.dao.all().find({'username': {$in: this.req.body.member}}, (err, members) => {
                             if (err) this.crud_error(err);
-                            //users exist, ready to insert them to project as members
+                            //get_user_profile exist, ready to insert them to project as members
                             acl.addUserRole(this.model, 'member', item._id, members, (err, res) => {
                                 this.req.flash('success', "Project members Added");
                                 return super.done();
@@ -74,7 +74,7 @@ class ProjectMemberCreateView extends CreateView {
     }
 
     post() {
-        // this.success_url = '/users/' + this.req.user.username;
+        // this.success_url = '/get_user_profile/' + this.req.user.username;
         // this.data = new Permission.add(this.req.user, 'member', this.req.params._id);
         // super.post();
     }
@@ -142,7 +142,7 @@ class ProjectSearchListView extends ListView {
 class ProjectLeaveView extends DeleteView {
     constructor(req, res) {
         super(req, res);
-        this.success_url = '/users/' + this.req.user.username;
+        this.success_url = '/get_user_profile/' + this.req.user.username;
     }
 
     delete() {
@@ -161,8 +161,8 @@ class ProjectDeleteView extends DeleteView {
     }
 
     delete() {
-        this.success_url = '/users/' + this.req.user.username;
-        // projectpermissions.dao.all().find({obj_id: this.req.params._id}, (err, result) => { //get all project permissions for all users
+        this.success_url = '/get_user_profile/' + this.req.user.username;
+        // projectpermissions.dao.all().find({obj_id: this.req.params._id}, (err, result) => { //get all project permissions for all get_user_profile
         //     if (err) this.crud_error(err);
         //     else {
         //         this.query = {
@@ -175,7 +175,7 @@ class ProjectDeleteView extends DeleteView {
         //         this.model = projectpermissions;
         //         super.delete(() => { //delete all project permissions
         //             this.query = {_id: this.req.params._id};
-        //             this.model = projects;
+        //             this.model = get_create_project;
         //             super.delete(() => { //delete the project
         //                 this.msg = "Your project and all permissions were deleted";
         //                 this.done();

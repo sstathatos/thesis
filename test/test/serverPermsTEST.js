@@ -513,7 +513,7 @@ describe('test my simple server', function () {
                 })
                 .expect(200,done)
         });
-        it('should get /users',function (done) {
+        it('should get /get_user_profile',function (done) {
             agent
                 .get(`/users/?_id=${usersArr[1]._id}`)
                 .expect('Content-Type', /json/)
@@ -523,7 +523,7 @@ describe('test my simple server', function () {
                 .expect(200,done)
         });
 
-        it('should get /projects',function (done) {
+        it('should get /get_create_project',function (done) {
             agent
                 .get(`/projects/?_id=${projectsArr[0]._id}`)
                 .expect(function (res) {

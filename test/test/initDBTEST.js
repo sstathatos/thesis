@@ -23,7 +23,7 @@ describe('initialize my db', function () {
     });
 
     describe('init my db', function () {
-        it('should create users and projects', function (done) {
+        it('should create get_user_profile and get_create_project', function (done) {
             createObj('users', {name: `stefanos`, username: `stefanos`,
                 email: `stefanos`, password: `stefanos`})((err, data) => {
                 if (err) throw err;
