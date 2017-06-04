@@ -7,7 +7,7 @@ let helperConstructor=require('./helpers');
 
 let {readObjs,updateObj,createObj}=APIConstructor;
 let {getUserProjects,getHDFPlot,getHDFArray,getHDFContentsForView,
-    confProject,searchRelatedPosts,save_data,getDataFromPlotID}= helperConstructor;
+    confProject,searchRelatedPosts,save_data,getDataFromPlotID,confDsets}= helperConstructor;
 
 router.get('/', (req, res) => {
     let code = "/bundle.js";
@@ -95,6 +95,14 @@ router.post('/datasets', (req,res) => {
             if (err) throw err;
             res.status(200).send({perm:'allowed',data:dset});
         })
+    });
+});
+
+router.get('/datasetlist', (req,res) => {
+    let {query} = req;
+    confDsets({inproject:query._id},(err,dsets) => {
+        if (err) throw err;
+        res.status(200).send({perm:'allowed',data:dsets});
     });
 
 });

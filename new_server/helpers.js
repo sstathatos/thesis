@@ -236,7 +236,7 @@ let helperConstructor = () => {
 
     return {
         getUserProjects,getHDFPlot,getHDFArray,getHDFContentsForView,confPost,
-        confProject,confDsets,searchRelatedPosts,save_data,getDataFromPlotID
+        confProject,confDsets,searchRelatedPosts,save_data,getDataFromPlotID,confDsets
     }
 };
 

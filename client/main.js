@@ -11,12 +11,16 @@ let html = require('./components/html');
 //
 // let usersComponentConstructor = require('./components/get_user_profile/usersComponent');
 //
-let createProjectComponentConstructor = require('./components/get_create_project/createProjectComponent');
-let submitButtonProjectHandlerConstructor = require('./components/get_create_project/submitProjectButtonHandler');
+// let createProjectComponentConstructor = require('./components/get_create_project/createProjectComponent');
+// let submitButtonProjectHandlerConstructor = require('./components/get_create_project/submitProjectButtonHandler');
+//
+// let createDatasetComponentConstructor =  require('./components/get_create_dataset/createDatasetComponent');
+//
+// let submitButtonDatasetHandlerConstructor = require('./components/get_create_dataset/submitDatasetButtonHandler');
 
-let createDatasetComponentConstructor =  require('./components/get_create_dataset/createDatasetComponent');
+let createPostComponentConstructor = require('./components/get_create_post/createPostComponent');
 
-let submitButtonDatasetHandlerConstructor = require('./components/get_create_dataset/submitDatasetButtonHandler');
+
 let errorHandler =console.log;
 
 
@@ -26,13 +30,17 @@ let errorHandler =console.log;
 //
 // let registerComponent = registerComponentConstructor({app,post,registerHandlerConstructor});
 // registerComponent.init();
-//
+
+//USED ID EXAMPLE
 // let usersComponent = usersComponentConstructor({app,get,id:'5931b0a86b3bc32dee7dbc8c',errorHandler});
 // usersComponent.update(usersComponent.init());
 //
-let createProjectComponent = createProjectComponentConstructor({app,post,submitButtonProjectHandlerConstructor});
-createProjectComponent.init();
+// let createProjectComponent = createProjectComponentConstructor({app,post,submitButtonProjectHandlerConstructor});
+// createProjectComponent.init();
+//
+// let createDatasetComponent =createDatasetComponentConstructor({app,post,submitButtonDatasetHandlerConstructor});
+// createDatasetComponent.init();
 
-let createDatasetComponent =createDatasetComponentConstructor({app,post,submitButtonDatasetHandlerConstructor});
-createDatasetComponent.init();
-
+//USED ID EXAMPLE
+let createPostComponent = createPostComponentConstructor({app,get,id:'5932a79e92e05018ccfc246e',post,errorHandler});
+createPostComponent.update(createPostComponent.init());
