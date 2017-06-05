@@ -3,33 +3,39 @@ let c3 = require('c3');
 let PlotConstructor = () => {
     let pivot = undefined;
 
-    let generateChart = (arr) => {
-        return c3.generate({
-            bindto: '#app',
-            data: {
-                x: arr[0][0],
-                columns: arr,
-                type: 'bar'
-            },
-            zoom: {
-                enabled: true
-            },
-            axis: {
-                x: {
-                    tick: {
-                        culling: {
-                            max: 26
+    let generateChart = (mount_point) => {
+            return c3.generate({
+                bindto: mount_point,
+                data: {
+                    x: 'x',
+                    columns: [],
+                    type: 'line',
+                    empty: {
+                        label: {
+                            text: "No Data"
                         }
                     }
+                },
+                axis: {
+                    x: {
+                        tick: {
+                            culling: {
+                                max: 26
+                            }
+                        }
+                    }
+                },
+                zoom: {
+                    enabled: true
                 }
-            }
-        });
+            });
     };
 
     let updateChart = (chart,arr) => {
+        console.log(arr);
         chart.load({
-            columns:arr,
-            unload: arr.map((data) => {return data[0]})
+            columns: arr,
+            unload: true
         })
     };
 
@@ -44,7 +50,7 @@ let PlotConstructor = () => {
                         cb(null, point, pivot);
                     } else {
                         cb(null, pivot, point);
-                    };
+                    }
                 }
             });
 

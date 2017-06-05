@@ -48,19 +48,19 @@ describe('read all objs and save them', function () {
         //         });
         // });
         //
-        // it('should check upload', function (done) {
-        //     for (let i = 0; i < 2; i++) {
-        //         agent
-        //             .post(`/upload/?_id=${datasetsArr[i]._id}`)
-        //             .attach('hdf', './new_server/python_files/h5examples/asdf.h5')
-        //             .expect(function (res) {
-        //                 console.log(res.text);
-        //             })
-        //             .end(function (err, result) {
-        //                 if (i === 1) done();
-        //             })
-        //     }
-        // });
+        it('should check upload', function (done) {
+            for (let i = 0; i < 2; i++) {
+                agent
+                    .post(`/upload/?_id=${datasetsArr[i]._id}`)
+                    .attach('hdf', './new_server/python_files/h5examples/asdf.h5')
+                    .expect(function (res) {
+                        console.log(res.text);
+                    })
+                    .end(function (err, result) {
+                        if (i === 1) done();
+                    })
+            }
+        });
         // let j=0;
         // it('should get plot data', function (done) {
         //     for (let i=0; i <1; i++) {
@@ -148,16 +148,17 @@ describe('read all objs and save them', function () {
         //         })
         // });
         //
-        // it('should get data of ONE plot', function (done) {
-        //     agent
-        //         .get(`/plots/?_id=${plotsArr[0]._id}&direction=init&currystart=0&curryend=0&zoomstart=0&zoomend=0`)
-        //         .expect(function (res) {
-        //             console.log(res.text);
-        //         })
-        //         .expect(200)
-        //         .end(function (err, result) {
-        //             done();
-        //         })
-        // });
+        console.log(plotsArr[0]);
+        it('should get data of ONE plot', function (done) {
+            agent
+                .get(`/plots/?_id=${plotsArr[0]._id}&direction=init&currystart=0&curryend=0&zoomstart=0&zoomend=0`)
+                .expect(function (res) {
+                    console.log(res.text);
+                })
+                .expect(200)
+                .end(function (err, result) {
+                    done();
+                })
+        });
     });
 });

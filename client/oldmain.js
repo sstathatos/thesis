@@ -1,7 +1,7 @@
 let {elementOpen,elementVoid,elementClose,text,patch}=require('incremental-dom');
 let {get,post,pu,del} = require('xhr');
-let {transformData}= require('./DataTransformConstructor');
-let {generateChart,zoomListener,updateChart,zoomOutListener}= require('./PlotConstructor');
+let {transformData}= require('./components/get_plot/subComponents/DataTransformConstructor');
+let {generateChart,zoomListener,updateChart,zoomOutListener}= require('./components/get_plot/subComponents/PlotConstructor');
 
 get({uri:"/plot/?path=d3dset&dim1=1&dim2=2&dim3Value=0&" +
 "dim2Value=0&currystart=0&curryend=8&zoomstart=0&zoomend=0&direction=init"},(err,resp,body)=> {
@@ -22,7 +22,6 @@ get({uri:"/plot/?path=d3dset&dim1=1&dim2=2&dim3Value=0&" +
             });
         });
     });
-
 });
 
 

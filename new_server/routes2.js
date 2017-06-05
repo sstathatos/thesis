@@ -102,7 +102,18 @@ router.get('/datasetlist', (req,res) => {
     let {query} = req;
     confDsets({inproject:query._id},(err,dsets) => {
         if (err) throw err;
-        res.status(200).send({perm:'allowed',data:dsets});
+        let cnt=0;
+        for(let i=0;i<dsets.length;i++) {
+            readObjs('users',dsets[i].creator)((err,user) => {
+                if (err) throw err;
+                dsets[i]['creator_username']=user[0].username;
+                if(cnt === dsets.length-1) {
+                    console.log(dsets);
+                    res.status(200).send({perm:'allowed',data:dsets});
+                }
+                cnt++;
+            })
+        }
     });
 
 });
@@ -137,8 +148,11 @@ router.get('/datasets/grid',(req,res) => {
 });
 
 router.get('/plots',(req,res) => {
+    console.log('hello');
     getDataFromPlotID(req,(err,data) => {
-        res.status(200).json(data);
+        if (err) throw err;
+
+        res.status(200).send({perm:'allowed',data:data});
     })
 });
 
@@ -175,12 +189,11 @@ router.post('/upload', (req,res) => {
     console.log(req.headers);
     save_data(req,(err,data_path) => {
         console.log(data_path);
-        res.status(200).send({perm:'allowed',data:data_path});
-        // updateObj('datasets',query,{path_saved:data_path})((err,data) => {
-        //     if (err) throw err;
-        //     //console.log(data);
-        //     res.status(200).send({perm:'allowed',data:data_path});
-        // });
+        updateObj('datasets',query,{path_saved:data_path})((err,data) => {
+            if (err) throw err;
+            //console.log(data);
+            res.status(200).send({perm:'allowed',data:data_path});
+        });
     })
 });
 //for testing

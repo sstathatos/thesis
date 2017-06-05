@@ -1,8 +1,7 @@
 
 let DataTransformConstructor = () => {
 
-    let transformData = (body) => {
-        let whole_data=JSON.parse(body);
+    let transformData = (whole_data) => {
         let x_axis= whole_data['xaxis'];
         let dim_names=whole_data['dim_names'];
         let arr= whole_data['arr'];

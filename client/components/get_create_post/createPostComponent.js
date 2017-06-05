@@ -28,6 +28,7 @@ let createPostComponentConstructor = (obj) => {
     let update = (obj) => {
         let {listEls} =obj;
         createPostGetDatasetListComponent.getData((err,data) => {
+            console.log(data);
             if (err) return errorHandler(err);
             createPostListComponent.update({data,listEls});
         });
