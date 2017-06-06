@@ -20,7 +20,9 @@ let html = require('./components/html');
 
 // let createPostComponentConstructor = require('./components/get_create_post/createPostComponent');
 
-let getPlotComponentConstructor = require('./components/get_plot/getPlotComponent');
+//let getPlotComponentConstructor = require('./components/get_plot/getPlotComponent');
+
+let getProjectComponentConstructor = require('./components/get_project/getProjectComponent');
 
 let errorHandler =console.log;
 
@@ -43,9 +45,12 @@ let errorHandler =console.log;
 // createDatasetComponent.init();
 
 //USED ID EXAMPLE
-// let createPostComponent = createPostComponentConstructor({app,get,id:'5932a79e92e05018ccfc246e',post,errorHandler});
+// let createPostComponent = createPostComponentConstructor({app,get,id:'59356d2584ca9e2539b49b93',post,errorHandler});
 // createPostComponent.update(createPostComponent.init());
 
-let getPlotComponent = getPlotComponentConstructor({app,get,id:'59356d2784ca9e2539b49bad'});
-getPlotComponent.update(getPlotComponent.init());
+// let getPlotComponent = getPlotComponentConstructor({app,get,id:'59356d2784ca9e2539b49bad'});
+// getPlotComponent.update(getPlotComponent.init());
+
+let getProjectComponent = getProjectComponentConstructor({app,get,post,id:'59356d2584ca9e2539b49b93'},errorHandler);
+getProjectComponent.update(getProjectComponent.init());
 

@@ -6,8 +6,8 @@ let fs = require('fs');
 let shortid = require('shortid');
 
 /*
-* A collection of helper functions used by routes
-* */
+ * A collection of helper functions used by routes
+ * */
 
 let helperConstructor = () => {
 
@@ -192,17 +192,24 @@ let helperConstructor = () => {
         readObjs('datasets',query)((err,dsets) => {
             if (err) return cb(new Error(err));
             if(dsets.length===0) return cb(err,[]);
+            let cnt=0;
             for(let i=0;i<dsets.length;i++) {
                 let obj={};
                 obj['name']=dsets[i].name;
                 obj['_id']=dsets[i]._id;
                 obj['creator']=dsets[i].creator;//use search function
                 obj['date'] = dsets[i].date.toISOString().slice(0, 10);
-                new_dsets.push(obj);
 
-                if(i === dsets.length-1) {
-                    return cb(null,new_dsets);
-                }
+                readObjs('users',dsets[i].creator)((err,user) => {
+                    if (err) throw err;
+                    obj['creator_username']=user[0].username;
+                    new_dsets.push(obj);
+                    if(cnt === dsets.length-1) {
+                        return cb(null,new_dsets);
+                    }
+                    cnt++;
+                });
+
             }
         })
     };

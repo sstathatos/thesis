@@ -102,20 +102,8 @@ router.get('/datasetlist', (req,res) => {
     let {query} = req;
     confDsets({inproject:query._id},(err,dsets) => {
         if (err) throw err;
-        let cnt=0;
-        for(let i=0;i<dsets.length;i++) {
-            readObjs('users',dsets[i].creator)((err,user) => {
-                if (err) throw err;
-                dsets[i]['creator_username']=user[0].username;
-                if(cnt === dsets.length-1) {
-                    console.log(dsets);
-                    res.status(200).send({perm:'allowed',data:dsets});
-                }
-                cnt++;
-            })
-        }
+        res.status(200).send({perm:'allowed',data:dsets});
     });
-
 });
 
 //read contents of ONE dataset... use of PYTHON
@@ -127,7 +115,7 @@ router.get('/datasets',(req,res) => {
         console.log(dset[0].path_saved);
         getHDFContentsForView(dset[0].path_saved,(err,contents) => {
             let con =  JSON.parse(JSON.stringify(contents));
-            res.status(200).send(con);
+            res.status(200).send({perm:'allowed',data:contents});
         });
     })
 });
@@ -148,7 +136,6 @@ router.get('/datasets/grid',(req,res) => {
 });
 
 router.get('/plots',(req,res) => {
-    console.log('hello');
     getDataFromPlotID(req,(err,data) => {
         if (err) throw err;
 
@@ -172,7 +159,7 @@ router.get('/projects' ,(req,res) => {
         if (err) throw err;
         confProject(proj[0],(err,proj) => {
             if(err) throw err;
-            res.status(200).json({perm:'allowed',data:proj});
+            res.status(200).send({perm:'allowed',data:proj});
         })
     })
 });
