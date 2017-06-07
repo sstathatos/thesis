@@ -67,8 +67,9 @@ let helperConstructor = () => {
             console.log('stderr: ' + data);
         });
         sp_child.stdout.on('data', function (data) {
-            let arr = data.toString();
-            cb(null,arr)
+            let exp=/'/g ;
+            let arr = JSON.parse(data.toString().replace(exp,"\""));
+            cb(null,arr);
             //var array = JSON.parse(arr); //parse data into JSON form
         });
     };

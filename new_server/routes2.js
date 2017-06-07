@@ -98,6 +98,15 @@ router.post('/datasets', (req,res) => {
     });
 });
 
+router.post('/plots' ,(req,res) => {
+    let {query} = req;
+    console.log(query);
+    createObj('plots',query)((err,plot) => {
+        if (err) throw err;
+        res.status(200).send({perm:'allowed',data:plot});
+    })
+});
+
 router.get('/datasetlist', (req,res) => {
     let {query} = req;
     confDsets({inproject:query._id},(err,dsets) => {
@@ -114,7 +123,7 @@ router.get('/datasets',(req,res) => {
         if (err) throw err;
         console.log(dset[0].path_saved);
         getHDFContentsForView(dset[0].path_saved,(err,contents) => {
-            let con =  JSON.parse(JSON.stringify(contents));
+            // let con =  JSON.parse(JSON.stringify(contents));
             res.status(200).send({perm:'allowed',data:contents});
         });
     })

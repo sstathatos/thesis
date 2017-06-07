@@ -52,7 +52,8 @@ let getProjectDatasetComponentConstructor = (obj) => {
             let getDatasetContentsHandler = getDatasetContentsHandlerConstructor({
                 id: () => dsets[row]._id,
                 get,
-                gotContents
+                gotContents,
+                getproject_dataset_tr_el
             });
 
             let addListenerToTr = html.addListenerTo(getproject_dataset_tr_el);

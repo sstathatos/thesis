@@ -2,6 +2,7 @@ let app = document.getElementById('app');
 let {get,post,put,del} = require('xhr');
 let html = require('./components/html');
 
+// let postStructurer  =require('./components/structure_helpers/postStructurer');
 // let loginComponentConstructor = require('./components/login/loginComponent');
 // let loginHandlerConstructor =require('./components/login/loginHandler');
 // let isLoggedInConstructor = require('./components/login/isLoggedIn');
@@ -22,8 +23,11 @@ let html = require('./components/html');
 
 //let getPlotComponentConstructor = require('./components/get_plot/getPlotComponent');
 
-let getProjectComponentConstructor = require('./components/get_project/getProjectComponent');
+// let getProjectComponentConstructor = require('./components/get_project/getProjectComponent');
 
+// let getPostComponentConstructor = require('./components/get_post/getPostComponent');
+
+let createPlotComponentConstructor =require('./components/get_create_plot/createPlotComponent');
 let errorHandler =console.log;
 
 
@@ -51,6 +55,14 @@ let errorHandler =console.log;
 // let getPlotComponent = getPlotComponentConstructor({app,get,id:'59356d2784ca9e2539b49bad'});
 // getPlotComponent.update(getPlotComponent.init());
 
-let getProjectComponent = getProjectComponentConstructor({app,get,post,id:'59356d2584ca9e2539b49b93'},errorHandler);
-getProjectComponent.update(getProjectComponent.init());
+// let getProjectComponent = getProjectComponentConstructor({app,get,post,id:'59356d2584ca9e2539b49b93',postStructurer,errorHandler});
+// getProjectComponent.update(getProjectComponent.init());
+
+
+// let getPostComponent = getPostComponentConstructor({app,get,post,id:'59356d2684ca9e2539b49b97'});
+// getPostComponent.update(getPostComponent.init());
+
+let createPlotComponent = createPlotComponentConstructor({app,get,post,id:'59356d2684ca9e2539b49b95'});
+createPlotComponent.update(createPlotComponent.init());
+
 
