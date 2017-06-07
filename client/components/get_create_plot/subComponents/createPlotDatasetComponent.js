@@ -99,7 +99,7 @@ let getPlotDatasetComponentConstructor = (obj) => {
                     mountToDiv(el);
                 })
             }
-            
+
             options_div.innerHTML = temp.innerHTML;
 
         };
