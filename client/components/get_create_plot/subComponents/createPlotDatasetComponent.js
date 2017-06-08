@@ -2,7 +2,7 @@ let html = require('../../html');
 
 let getPlotDatasetComponentConstructor = (obj) => {
 
-    let {app} = obj;
+    let {app,get,post,saveButtonHandlerConstructor,post_id} = obj;
     let init = () => {
         let plot_dataset_div_el = html.create('div');
 
@@ -42,7 +42,7 @@ let getPlotDatasetComponentConstructor = (obj) => {
     };
 
     let update = (obj) => {
-        let {table_div,data,dset_div,options_div} = obj;
+        let {table_div,data,dset_div,options_div,title_el,descr_el} = obj;
 
         let checkboxes = [];
 
@@ -69,56 +69,93 @@ let getPlotDatasetComponentConstructor = (obj) => {
             html.mountTo(table_div)(new_row_el);
         }
 
-        let enable_extra = (el) => {
+        let enable_extra = (el,row_array) => {
+            options_div.innerHTML = "";
             let dims = Number(el.parentElement.parentElement.children[2].textContent);
 
             let first_dim_name_el = html.create('p',{textContent:'First dimention:'});
-            let first_dim_input_el = html.create('input');
+            let first_dim_input_el = html.create('input',{type:'number',value:0,max:5});
 
             let second_dim_name_el = html.create('p',{textContent:'Second dimention:'});
-            let second_dim_input_el = html.create('input');
+            let second_dim_input_el = html.create('input',{type:'number',value:0});
+
+            let dropdown_name_el = html.create('p',{textContent:'Select plot type:'});
+            let dropdown_el = html.create('select');
+
+            let option_line_el = html.create('option',{textContent:'line'});
+            let option_step_el = html.create('option',{textContent:'step'});
+            let option_scatter_el = html.create('option',{textContent:'scatter'});
+
+            let mountToDropdown = html.mountTo(dropdown_el);
+            [option_line_el,option_step_el,option_scatter_el].map((el) =>{
+                mountToDropdown(el);
+            });
 
             let second_dim_value_name_el = html.create('p',{textContent:'Second dimention value:'});
-            let second_dim_value_input_el = html.create('input');
+            let second_dim_value_input_el = html.create('input',{type:'number',value:0});
 
-            let temp = html.create('div');
+            //let temp = html.create('div');
 
-            let mountToDiv = html.mountTo(temp);
+            let mountToDiv = html.mountTo(options_div);
             [first_dim_name_el,first_dim_input_el,
-                second_dim_name_el,second_dim_input_el,
+                second_dim_name_el,second_dim_input_el,dropdown_name_el,dropdown_el,
                 second_dim_value_name_el,second_dim_value_input_el].map((el) => {
                 mountToDiv(el);
             });
 
+            let handler_object = {
+                array:row_array,
+                dim1:()=>first_dim_input_el.value,
+                dim2:()=>second_dim_input_el.value,
+                dim2Value:()=> second_dim_value_input_el.value,
+                plot_type: dropdown_el.value,
+                title: title_el.value,
+                description: descr_el.value,
+                post,
+                post_id
+            };
 
             if (dims === 3) {
                 let third_dim_value_name_el = html.create('p',{textContent:'Third dimention value:'});
-                let third_dim_value_input_el = html.create('input');
+                let third_dim_value_input_el = html.create('input',{type:'number',value:0});
 
                 [third_dim_value_name_el,third_dim_value_input_el].map((el) => {
                     mountToDiv(el);
-                })
+                });
+
+                handler_object['dim3Value'] = ()=>third_dim_value_input_el.value;
             }
 
-            options_div.innerHTML = temp.innerHTML;
+            let plot_save_button_el = html.create('button',{textContent:'Save Plot'});
+            //mountToDiv(plot_save_button_el);
+
+            //options_div.innerHTML = temp.innerHTML;
+
+            let addListenerToSaveButton = html.addListenerTo(plot_save_button_el);
+            let saveButtonHandler = saveButtonHandlerConstructor(handler_object);
+            addListenerToSaveButton('click',saveButtonHandler);
+            html.mountTo(options_div)(plot_save_button_el);
+
+            // let listenerToInput =html.addListenerTo(second_dim_value_input_el);
+            // listenerToInput('mouseup',do_some);
+            //html.mountTo(options_div)();
 
         };
 
-
-        let unique_handler = (enable_extra) => {
+        let unique_handler = (enable_extra,row_array) => {
             return (e) => {
                 checkboxes.map((box) => box.checked = false);
                 e.srcElement.checked = true;
-                enable_extra(e.srcElement);
+                enable_extra(e.srcElement,row_array);
             };
         };
 
-        let handler = unique_handler(enable_extra);
-
-        checkboxes.map((box) => {
-            html.addListenerTo(box)('click',handler);
-        })
-    };
+        let cnt = 0;
+        for (let row in data) {
+            html.addListenerTo(checkboxes[cnt])('click',unique_handler(enable_extra,data[row]));
+            cnt++;
+        }
+     };
 
     return {init,update};
 

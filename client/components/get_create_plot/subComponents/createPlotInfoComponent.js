@@ -9,10 +9,10 @@ let userInfoConstructor = (obj) => {
         let plot_newplot_name_el = html.create('p',{textContent:`New Plot:`});
 
         let plot_title_name_el = html.create('p',{textContent:`Title:`});
-        let plot_title_el = html.create('input');
+        let plot_title_el = html.create('input',{value:'new plot'});
 
         let plot_descr_name_el = html.create('p',{textContent:`Description:`});
-        let plot_descr_el = html.create('input');
+        let plot_descr_el = html.create('input',{value:'new description'});
 
 
         let mountToDiv = html.mountTo(plot_div_el);

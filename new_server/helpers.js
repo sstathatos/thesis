@@ -55,6 +55,7 @@ let helperConstructor = () => {
         });
         sp_child.stdout.on('data', function (data) {
             let exp=/'/g ;
+            console.log(data.toString());
             let arr = JSON.parse(data.toString().replace(exp,"\""));
             cb(null,arr)
         });

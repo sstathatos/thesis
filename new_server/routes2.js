@@ -100,8 +100,17 @@ router.post('/datasets', (req,res) => {
 
 router.post('/plots' ,(req,res) => {
     let {query} = req;
-    console.log(query);
-    createObj('plots',query)((err,plot) => {
+    let {inpost,dim1,dim2,dim3Value,dim2Value,plot_type,title,description,array_path_saved} = query;
+    let plot_metadata ={dim1,dim2,dim3Value,dim2Value,plot_type};
+
+    let new_obj = {
+        inpost,
+        title,
+        description,
+        array_path_saved,
+        plot_metadata
+    };
+    createObj('plots',new_obj)((err,plot) => {
         if (err) throw err;
         res.status(200).send({perm:'allowed',data:plot});
     })
@@ -131,15 +140,14 @@ router.get('/datasets',(req,res) => {
 
 //read data of ONE dataset ...use of PYTHON
 router.get('/datasets/grid',(req,res) => {
+    let {query} = req;
     //let {path,direction,xstart,xend,ystart,yend,_id} = req.query;
-    readObjs('datasets',{_id:req.query._id})((err,dset) => {
+    readObjs('datasets',{_id:query._id})((err,dset) => {
         if (err) throw err;
-        console.log(dset[0]._id);
-        //console.log({path,direction,xstart,xend,ystart,yend,_id});
-        getHDFArray(dset[0].path_saved,req.query,(err,contents) => {
-            let con =  JSON.parse(JSON.stringify(contents));
-            //console.log(con);
-            res.status(200).send(con);
+        console.log(query);
+        console.log(dset[0].path_saved);
+        getHDFArray(dset[0].path_saved,query,(err,contents) => {
+            res.status(200).send({perm:'allowed',data:contents});
         });
     })
 });

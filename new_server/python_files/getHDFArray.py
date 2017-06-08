@@ -76,7 +76,7 @@ else:
     json_arr["shape_of_array"]=list(dset.shape)
 #     print(dset[:,0])
 #     print(dset[0,:])
-    json_arr["whole_array"]=np.flipud(np.transpose(dset[:,:])).tolist()
+    #json_arr["whole_array"]=np.flipud(np.transpose(dset[:,:])).tolist()
 
     if direction == 'init':
         if len(dset[0:]) > MAX:

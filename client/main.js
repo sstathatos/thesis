@@ -28,6 +28,9 @@ let html = require('./components/html');
 // let getPostComponentConstructor = require('./components/get_post/getPostComponent');
 
 let createPlotComponentConstructor =require('./components/get_create_plot/createPlotComponent');
+
+let getDatasetComponentConstructor = require('./components/get_dataset/getDatasetComponent');
+
 let errorHandler =console.log;
 
 
@@ -62,7 +65,8 @@ let errorHandler =console.log;
 // let getPostComponent = getPostComponentConstructor({app,get,post,id:'59356d2684ca9e2539b49b97'});
 // getPostComponent.update(getPostComponent.init());
 
-let createPlotComponent = createPlotComponentConstructor({app,get,post,id:'59356d2684ca9e2539b49b95'});
+let createPlotComponent = createPlotComponentConstructor({app,get,post,id:'59356d2684ca9e2539b49b95',post_id:'59356d2684ca9e2539b49b97'});
 createPlotComponent.update(createPlotComponent.init());
 
-
+let getDatasetComponent = getDatasetComponentConstructor({app,get,id:'59356d2684ca9e2539b49b95',path:'d3dset'});
+getDatasetComponent.update(getDatasetComponent.init());
