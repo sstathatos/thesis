@@ -5,7 +5,10 @@ let loginHandlerConstructor  = (obj) => {
         post({uri:`/login/?username=${username()}&password=${password()}`}, (err,response,body) => {
             console.log(err,response,body);
             if (err) return isLoggedIn(new Error(err));
-            return isLoggedIn(null,true);
+            let user = JSON.parse(body).data;
+            store.setItem('username',user.username);
+            store.setItem('user_id',user._id);
+            return isLoggedIn(null);
         })
     };
 

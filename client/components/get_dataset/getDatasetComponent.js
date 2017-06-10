@@ -1,33 +1,20 @@
 let getDatasetOptionsComponentConstructor = require('./subComponents/getDatasetOptionsComponent');
-let getDatasetGridComponentConstructor = require('./subComponents/getDatasetGridComponent');
-let getDatasetConstrolComponentConstructor = require('./subComponents/getDatasetControlComponent');
 
-let buttonHandlerConstructor = require('./subComponents/buttonHandler');
+let retrieveDataConstructor = require('./subComponents/retrieveDataConstructor');
 
 let getDatasetComponentConstructor = (obj) => {
     let {app,get,id,path} = obj;
 
-    let {buttonHandler} = buttonHandlerConstructor({id,path,get});
-    let getDatasetOptionsComponent = getDatasetOptionsComponentConstructor({app,buttonHandler});
-    let getDataGridComponent = getDatasetGridComponentConstructor({app});
-    let getDatasetControlComponent = getDatasetConstrolComponentConstructor({app});
+    let {retrieveData} = retrieveDataConstructor({id,path,get});
+    let getDatasetOptionsComponent = getDatasetOptionsComponentConstructor({app,retrieveData});
 
     let init = () => {
         return {
-            optionsEls:getDatasetOptionsComponent.init(),
-            dataGridEls:getDataGridComponent.init(),
-            controlEls: getDatasetControlComponent.init()
+            optionsEls:getDatasetOptionsComponent.init()
         }
     };
 
-    let update = (obj) => {
-        let {dataGridEls} =obj;
-        // getDataComponent.getData({direction:'init',xstart:0,xend:0,ystart:0,yend:0,dim3Value:0})((err,body) => {
-        //     console.log(body);
-        // });
-    };
-
-    return {init,update};
+    return {init};
 
 };
 module.exports = getDatasetComponentConstructor;

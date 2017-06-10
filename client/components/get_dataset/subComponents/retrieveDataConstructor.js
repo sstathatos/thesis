@@ -1,16 +1,15 @@
-let buttonHandlerConstructor = ({id,path,get}) => {
+let retrieveDataConstructor = ({id,path,get}) => {
 
-    let buttonHandler = (obj) => {
-        let {direction,xstart,xend,ystart,yend,dim3Value,dim1,dim2} = obj;
+    let retrieveData = (obj) => {
+        let {direction,xstart,xend,ystart,yend,dim3Value,dim1,dim2,cnt} = obj;
         return (cb) => {
             get({uri:`/datasets/grid/?_id=${id}&path=${path}&direction=${direction}&xstart=${xstart}&xend=${xend}&ystart=${ystart}&yend=${yend}&dim1=${dim1}&dim2=${dim2}&dim3Value=${dim3Value}`}, (err, response, body) => {
-                console.log(body);
                 if (err) return cb(new Error(err));
                 return cb(null, JSON.parse(body).data);
             });
         };
     };
 
-    return {buttonHandler};
+    return {retrieveData};
 };
-module.exports = buttonHandlerConstructor;
+module.exports = retrieveDataConstructor;

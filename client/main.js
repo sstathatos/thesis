@@ -3,13 +3,13 @@ let {get,post,put,del} = require('xhr');
 let html = require('./components/html');
 
 // let postStructurer  =require('./components/structure_helpers/postStructurer');
-// let loginComponentConstructor = require('./components/login/loginComponent');
-// let loginHandlerConstructor =require('./components/login/loginHandler');
-// let isLoggedInConstructor = require('./components/login/isLoggedIn');
-//
-// let registerComponentConstructor = require('./components/register/registerComponent');
-// let registerHandlerConstructor = require('./components/register/registerHandler');
-//
+let loginComponentConstructor = require('./components/login/loginComponent');
+let loginHandlerConstructor =require('./components/login/loginHandler');
+let isLoggedInConstructor = require('./components/login/isLoggedIn');
+
+let registerComponentConstructor = require('./components/register/registerComponent');
+let registerHandlerConstructor = require('./components/register/registerHandler');
+
 // let usersComponentConstructor = require('./components/get_user_profile/usersComponent');
 //
 // let createProjectComponentConstructor = require('./components/get_create_project/createProjectComponent');
@@ -27,19 +27,19 @@ let html = require('./components/html');
 
 // let getPostComponentConstructor = require('./components/get_post/getPostComponent');
 
-let createPlotComponentConstructor =require('./components/get_create_plot/createPlotComponent');
+// let createPlotComponentConstructor =require('./components/get_create_plot/createPlotComponent');
 
-let getDatasetComponentConstructor = require('./components/get_dataset/getDatasetComponent');
+// let getDatasetComponentConstructor = require('./components/get_dataset/getDatasetComponent');
 
 let errorHandler =console.log;
 
 
-// let isLoggedIn = isLoggedInConstructor(errorHandler);
-// let loginComponent = loginComponentConstructor({app, post,loginHandlerConstructor,errorHandler,isLoggedIn});
-// loginComponent.init();
-//
-// let registerComponent = registerComponentConstructor({app,post,registerHandlerConstructor});
-// registerComponent.init();
+let isLoggedIn = isLoggedInConstructor(errorHandler);
+let loginComponent = loginComponentConstructor({app, post,loginHandlerConstructor,errorHandler,isLoggedIn});
+loginComponent.init();
+
+let registerComponent = registerComponentConstructor({app,post,registerHandlerConstructor});
+registerComponent.init();
 
 //USED ID EXAMPLE
 // let usersComponent = usersComponentConstructor({app,get,id:'5931b0a86b3bc32dee7dbc8c',errorHandler});
@@ -65,8 +65,45 @@ let errorHandler =console.log;
 // let getPostComponent = getPostComponentConstructor({app,get,post,id:'59356d2684ca9e2539b49b97'});
 // getPostComponent.update(getPostComponent.init());
 
-let createPlotComponent = createPlotComponentConstructor({app,get,post,id:'59356d2684ca9e2539b49b95',post_id:'59356d2684ca9e2539b49b97'});
-createPlotComponent.update(createPlotComponent.init());
+// let createPlotComponent = createPlotComponentConstructor({app,get,post,id:'59356d2684ca9e2539b49b95',post_id:'59356d2684ca9e2539b49b97'});
+// createPlotComponent.update(createPlotComponent.init());
 
-let getDatasetComponent = getDatasetComponentConstructor({app,get,id:'59356d2684ca9e2539b49b95',path:'d3dset'});
-getDatasetComponent.update(getDatasetComponent.init());
+// let getDatasetComponent = getDatasetComponentConstructor({app,get,id:'59356d2684ca9e2539b49b95',path:'d3dset'});
+// getDatasetComponent.init();
+
+// let testComponentConstructor =  require('./components/testComponent');
+// let testComponent = testComponentConstructor({app,get,id:'59356d2684ca9e2539b49b95',path:'d3dset'});
+//
+// testComponent.buttonInit();
+// testComponent.buttonUp();
+// testComponent.buttonDown();
+// testComponent.buttonLeft();
+// testComponent.buttonRight();
+
+// setTimeout(function(){ testComponent.change_something('15'); }, 3000);
+
+
+let store = localStorage;
+
+window.store = store;
+
+store.setItem('username',undefined);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

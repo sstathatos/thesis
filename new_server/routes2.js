@@ -42,7 +42,7 @@ router.post('/login', (req, res, next) => {
                     return next(err);
                 }
                 else {
-                    res.status(200).send('all done');
+                    res.status(200).send({perm:'allowed',data:user});
                 }
             });
         }
