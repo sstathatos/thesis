@@ -1,8 +1,6 @@
-let html = require('../../html');
-
 let getProjectInfoComponentConstructor = (obj) => {
 
-    let {app} = obj;
+    let {app,html} = obj;
     let init = () => {
         let getproject_info_div_el = html.create('div');
 

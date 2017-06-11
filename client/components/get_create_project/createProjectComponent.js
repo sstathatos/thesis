@@ -1,7 +1,5 @@
-let html = require('../html');
-
 let createProjectComponentConstructor = (obj) => {
-    let {app,post,submitButtonProjectHandlerConstructor} =obj;
+    let {app,post,submitButtonProjectHandlerConstructor,html} =obj;
 
     let init = () => {
         let new_proj_div_el = html.create('div');
@@ -19,7 +17,7 @@ let createProjectComponentConstructor = (obj) => {
         let submitProjectButtonHandler = submitButtonProjectHandlerConstructor({
             name: () => name_input_el.value,
             description: () => description_input_el.value,
-            post,
+            dependencies:obj,
         });
         addListenerToSubmitButton('click',submitProjectButtonHandler);
 

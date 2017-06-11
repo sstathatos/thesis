@@ -1,12 +1,18 @@
-let html =require('../../../html');
 let getProjectPostComponentConstructor = (obj) => {
-    let {app,get,post,postStructurer,fullPostButtonHandlerConstructor} = obj;
+    let {app,get,post,postStructurer,fullPostButtonHandlerConstructor,html,getProjectCreatePostHandlerConstructor} = obj;
 
     let init = () => {
         let getproject_post_div_el = html.create('div');
         let getproject_post_title_name_el = html.create('p',{textContent:'Posts:'});
         let getproject_post_createpost_name_el = html.create('p',{textContent:'Create post:'});
         let getproject_post_createpost_button_el = html.create('button',{textContent:'Create'});
+
+        let addListenerToCreatePost = html.addListenerTo(getproject_post_createpost_button_el);
+
+        console.log(getProjectCreatePostHandlerConstructor);
+        let getProjectCreatePostHandler = getProjectCreatePostHandlerConstructor(obj);
+        addListenerToCreatePost('click',getProjectCreatePostHandler);
+
         let post_div_el =html.create('div');
 
         let mountToDiv = html.mountTo(getproject_post_div_el);

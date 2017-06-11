@@ -1,5 +1,3 @@
-let html = require('../../html');
-
 let usersGetDataConstructor = (id,get) => {
 
     let getData = (cb) => {

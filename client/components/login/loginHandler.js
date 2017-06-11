@@ -8,7 +8,7 @@ let loginHandlerConstructor  = (obj) => {
             let user = JSON.parse(body).data;
             store.setItem('username',user.username);
             store.setItem('user_id',user._id);
-            return isLoggedIn(null);
+            return isLoggedIn(null,user._id);
         })
     };
 

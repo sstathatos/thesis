@@ -1,7 +1,4 @@
-let html =require('../../../html');
-
 let getDatasetContentsHandlerConstructor = (obj) => {
-
     let {id,get,gotContents,getproject_dataset_tr_el} =obj;
 
     let getDatasetContentsHandler = () => {

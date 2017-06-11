@@ -1,7 +1,5 @@
-let html = require('../../html');
-
 let usersBttnCreateConstructor = (obj) => {
-    let {app,usersBttnCreateHandlerConstructor} = obj;
+    let {app,usersBttnCreateHandlerConstructor,html} = obj;
 
     let init = () => {
         let buttonDivEl = html.create('div');
@@ -10,7 +8,7 @@ let usersBttnCreateConstructor = (obj) => {
         let buttonEl = html.create('button', {textContent:'Create'});
 
         let addListenerToButton = html.addListenerTo(buttonEl);
-        let usersBttnCreateHandler = usersBttnCreateHandlerConstructor();
+        let usersBttnCreateHandler = usersBttnCreateHandlerConstructor(obj);
         addListenerToButton('click',usersBttnCreateHandler);
 
         let mountToDiv = html.mountTo(buttonDivEl);

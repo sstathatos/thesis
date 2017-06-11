@@ -5,7 +5,7 @@ let fs = require('fs');
 let APIConstructor=require('../API/index');
 let helperConstructor=require('./helpers');
 
-let {readObjs,updateObj,createObj}=APIConstructor;
+let {readObjs,updateObj,createObj,addUserRole}=APIConstructor;
 let {getUserProjects,getHDFPlot,getHDFArray,getHDFContentsForView,
     confProject,searchRelatedPosts,save_data,getDataFromPlotID,confDsets}= helperConstructor;
 
@@ -82,13 +82,16 @@ router.post('/projects', (req,res) => {
     let {query} = req; //MUST BE CHANGED remember project members etc
     createObj('projects',query)((err,proj) => {
         if (err) throw err;
-        res.status(200).send({perm:'allowed',data:proj});
+        addUserRole(req.user._id, proj._id, 'owner', 'projects')((err)=> {
+            if (err) throw err;
+            res.status(200).send({perm:'allowed',data:proj});
+        });
     })
 });
 
+
 router.post('/datasets', (req,res) => {
     let {query} = req;
-    query['creator'] = '5931b0a96b3bc32dee7dbc8f';//req.user._id MUST BE CHANGED
     save_data(req,(err,data_path) => {
         query['path_saved']=data_path;
         createObj('datasets',query)((err,dset) => {
@@ -172,7 +175,7 @@ router.get('/posts',(req,res) => {
 
 //get contents of ONE project
 router.get('/projects' ,(req,res) => {
-    readObjs('projects',req.query._id)((err,proj) => {
+    readObjs('projects',req.query)((err,proj) => {
         if (err) throw err;
         confProject(proj[0],(err,proj) => {
             if(err) throw err;
@@ -180,7 +183,6 @@ router.get('/projects' ,(req,res) => {
         })
     })
 });
-
 
 
 

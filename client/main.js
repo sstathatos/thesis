@@ -1,52 +1,69 @@
-let app = document.getElementById('app');
 let {get,post,put,del} = require('xhr');
-let html = require('./components/html');
 
-// let postStructurer  =require('./components/structure_helpers/postStructurer');
-let loginComponentConstructor = require('./components/login/loginComponent');
-let loginHandlerConstructor =require('./components/login/loginHandler');
-let isLoggedInConstructor = require('./components/login/isLoggedIn');
+const dependencies = Object.freeze({
+    app: document.getElementById('app'),
+    get: get,
+    post: post,
+    put: put,
+    del: del,
+    html: require('./components/html'),
 
-let registerComponentConstructor = require('./components/register/registerComponent');
-let registerHandlerConstructor = require('./components/register/registerHandler');
+    postStructurer: require('./components/structure_helpers/postStructurer'),
 
-// let usersComponentConstructor = require('./components/get_user_profile/usersComponent');
-//
-// let createProjectComponentConstructor = require('./components/get_create_project/createProjectComponent');
-// let submitButtonProjectHandlerConstructor = require('./components/get_create_project/submitProjectButtonHandler');
-//
-// let createDatasetComponentConstructor =  require('./components/get_create_dataset/createDatasetComponent');
-//
-// let submitButtonDatasetHandlerConstructor = require('./components/get_create_dataset/submitDatasetButtonHandler');
+    loginComponentConstructor: require('./components/login/loginComponent'),
+    loginHandlerConstructor: require('./components/login/loginHandler'),
+    isLoggedInConstructor: require('./components/login/isLoggedIn'),
 
-// let createPostComponentConstructor = require('./components/get_create_post/createPostComponent');
+    registerComponentConstructor: require('./components/login/register/registerComponent'),
+    registerHandlerConstructor: require('./components/login/register/registerHandler'),
 
-//let getPlotComponentConstructor = require('./components/get_plot/getPlotComponent');
+    usersComponentConstructor: require('./components/get_user_profile/usersComponent'),
+    usersInfoComponentConstructor : require('./components/get_user_profile/usersSubComponents/usersInfoComponent'),
+    usersMatrixComponentConstructor : require('./components/get_user_profile/usersSubComponents/usersMatrixComponent'),
+    usersBttnCreateComponentConstructor : require('./components/get_user_profile/usersSubComponents/usersBttnCreateComponent'),
+    usersGetDataComponentConstructor : require('./components/get_user_profile/usersSubComponents/usersGetDataComponent'),
+    usersBttnCreateHandlerConstructor : require('./components/get_user_profile/usersSubComponents/usersBttnCreateHandler'),
+    usersDatasetRowHandlerConstructor: require('./components/get_user_profile/usersSubComponents/usersDatasetRowHandler'),
 
-// let getProjectComponentConstructor = require('./components/get_project/getProjectComponent');
+    createProjectComponentConstructor: require('./components/get_create_project/createProjectComponent'),
+    submitButtonProjectHandlerConstructor: require('./components/get_create_project/submitProjectButtonHandler'),
 
-// let getPostComponentConstructor = require('./components/get_post/getPostComponent');
+    createDatasetComponentConstructor: require('./components/get_create_dataset/createDatasetComponent'),
+    submitButtonDatasetHandlerConstructor : require('./components/get_create_dataset/submitDatasetButtonHandler'),
 
-// let createPlotComponentConstructor =require('./components/get_create_plot/createPlotComponent');
+    createPostComponentConstructor: require('./components/get_create_post/createPostComponent'),
 
-// let getDatasetComponentConstructor = require('./components/get_dataset/getDatasetComponent');
+    getPlotComponentConstructor: require('./components/get_plot/getPlotComponent'),
 
-let errorHandler =console.log;
+    getProjectComponentConstructor: require('./components/get_project/getProjectComponent'),
+    getProjectCreateDatasetHandlerConstructor: require('./components/get_project/subComponents/datasetComponents/getProjectCreateDatasetHandler'),
+    getProjectInfoComponentConstructor : require('./components/get_project/subComponents/getProjectInfoComponent'),
+    getProjectDataComponentConstructor : require('./components/get_project/getProjectDataComponent'),
+    getProjectDatasetComponentConstructor :require('./components/get_project/subComponents/datasetComponents/getProjectDatasetComponent'),
+    getDatasetContentsHandlerConstructor :  require('./components/get_project/subComponents/datasetComponents/getDatasetContentsHandler'),
+    gotContentsConstructor : require('./components/get_project/subComponents/datasetComponents/gotContents'),
+    getProjectPostComponentConstructor : require('./components/get_project/subComponents/postComponents/getProjectPostComponent'),
+    getProjectCreatePostHandlerConstructor : require('./components/get_project/subComponents/postComponents/getProjectCreatePostHandler'),
+    fullPostButtonHandlerConstructor : require('./components/get_project/subComponents/postComponents/fullPostButtonHandler'),
+
+    getPostComponentConstructor: require('./components/get_post/getPostComponent'),
+
+    createPlotComponentConstructor :require('./components/get_create_plot/createPlotComponent'),
+
+    getDatasetComponentConstructor : require('./components/get_dataset/getDatasetComponent'),
+    errorHandler :console.log,
+    store : localStorage
+});
 
 
-let isLoggedIn = isLoggedInConstructor(errorHandler);
-let loginComponent = loginComponentConstructor({app, post,loginHandlerConstructor,errorHandler,isLoggedIn});
+window.store = dependencies.store;
+store.setItem('username',undefined);
+
+let loginComponent = dependencies.loginComponentConstructor(dependencies);
 loginComponent.init();
 
-let registerComponent = registerComponentConstructor({app,post,registerHandlerConstructor});
-registerComponent.init();
-
 //USED ID EXAMPLE
-// let usersComponent = usersComponentConstructor({app,get,id:'5931b0a86b3bc32dee7dbc8c',errorHandler});
-// usersComponent.update(usersComponent.init());
-//
-// let createProjectComponent = createProjectComponentConstructor({app,post,submitButtonProjectHandlerConstructor});
-// createProjectComponent.init();
+
 //
 // let createDatasetComponent =createDatasetComponentConstructor({app,post,submitButtonDatasetHandlerConstructor});
 // createDatasetComponent.init();
@@ -83,11 +100,7 @@ registerComponent.init();
 // setTimeout(function(){ testComponent.change_something('15'); }, 3000);
 
 
-let store = localStorage;
 
-window.store = store;
-
-store.setItem('username',undefined);
 
 
 

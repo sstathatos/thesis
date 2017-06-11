@@ -1,9 +1,5 @@
-let html = require('../../html');
-
-
-// need to change, probably html.js...
 let userInfoConstructor = (obj) => {
-    let {app,get,id} = obj;
+    let {app,get,id,html} = obj;
 
     let init = () => {
         let userDataEl=html.create('div');

@@ -1,26 +1,17 @@
-let getProjectInfoComponentConstructor = require('./subComponents/getProjectInfoComponent');
-let getProjectDataComponentConstructor = require('./getProjectDataComponent');
-let getProjectDatasetComponentConstructor = require('./subComponents/datasetComponents/getProjectDatasetComponent');
-let getDatasetContentsHandlerConstructor =  require('./subComponents/datasetComponents/getDatasetContentsHandler');
-let gotContentsConstructor = require('./subComponents/datasetComponents/gotContents');
-let getProjectPostComponentConstructor = require('./subComponents/postComponents/getProjectPostComponent');
-let fullPostButtonHandlerConstructor = require('./subComponents/postComponents/fullPostButtonHandler');
-
 let getProjectComponentConstructor = (obj) => {
-    let {app,get,post,id,postStructurer,errorHandler} = obj;
+    let {id,dependencies} = obj;
+    store.setItem('project_id',id);
+    let {get,getProjectInfoComponentConstructor,
+        getProjectDataComponentConstructor,
+        getProjectDatasetComponentConstructor,
+        getProjectPostComponentConstructor} = dependencies;
 
-    let getProjectInfoComponent = getProjectInfoComponentConstructor({app});
-    let getProjectDataComponent = getProjectDataComponentConstructor(id,get);
+    let getProjectInfoComponent = getProjectInfoComponentConstructor(dependencies);
+    let getProjectDataComponent = getProjectDataComponentConstructor(get);
 
-    let gotContents = gotContentsConstructor({
-        errorHandler,
-        caller:{}
+    let getProjectDatasetComponent = getProjectDatasetComponentConstructor(dependencies);
 
-    });
-    let getProjectDatasetComponent = getProjectDatasetComponentConstructor({app,get,
-        post,getDatasetContentsHandlerConstructor,gotContents});
-
-    let getProjectPostComponent = getProjectPostComponentConstructor({app,get,post,postStructurer,fullPostButtonHandlerConstructor});
+    let getProjectPostComponent = getProjectPostComponentConstructor(dependencies);
 
 
     let init = () => {

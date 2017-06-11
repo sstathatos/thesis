@@ -17,7 +17,9 @@ let helperConstructor = () => {
         readObjs('projects',{[qpath]:id})((err,projs) => {
             if (err) cb(new Error(err));
             projects.push(projs.map((obj)=>{return {"name":obj.name,
-                "description":obj.description,"date":obj.date.toISOString().slice(0, 10)}}));
+                "description":obj.description,
+                "id": obj._id,
+                "date":obj.date.toISOString().slice(0, 10)}}));
             cb(null,projects);
         });
     };
@@ -155,7 +157,7 @@ let helperConstructor = () => {
             obj['dsets']=dsets;
             readObjs('posts',{$and:[{inproject:proj._id},{inpost:{$exists:false}}]})((err,posts)=> {
                 if(err) return cb(new Error(err));
-                if(posts.length===0) return cb(null,{});
+                if(posts.length===0) return cb(null,obj);
                 else {
                     for(let j in posts) {
                         confPost(posts[j],(err,post) => {

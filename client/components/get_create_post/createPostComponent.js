@@ -8,8 +8,9 @@ let createPostGetDatasetListConstructor = require('./subComponents/createPostGet
 let createPostSaveButtonHandlerConstructor = require('./subComponents/createPostSaveButtonHandler');
 
 let createPostComponentConstructor = (obj) => {
-    let {app,get,id,post,errorHandler} = obj;
+    let {app,get,post,errorHandler} = obj;
 
+    let id = store.getItem('project_id');
     let createPostFormComponent = createPostFormComponentConstructor({app});
     let createPostListComponent = createPostListComponentConstructor({app,get});
     let createPostAddPlotComponent = createPostAddPlotComponentConstructor({app,createPostAddPlotButtonHandlerConstructor});

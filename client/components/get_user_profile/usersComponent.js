@@ -1,18 +1,16 @@
-let html = require('../html');
-let usersInfoComponentConstructor = require('./usersSubComponents/usersInfoComponent');
-let usersMatrixComponentConstructor = require('./usersSubComponents/usersMatrixComponent');
-let usersBttnCreateComponentConstructor = require('./usersSubComponents/usersBttnCreateComponent');
-let usersGetDataComponentConstructor = require('./usersSubComponents/usersGetDataComponent');
-let usersBttnCreateHandlerConstructor = require('./usersSubComponents/usersBttnCreateHandler');
-
 
 let usersConstructor = (obj) => {
-    let {app,get,id,errorHandler} = obj;
+    let {app,get,errorHandler,store,html,
+        usersInfoComponentConstructor,
+        usersMatrixComponentConstructor,
+        usersBttnCreateComponentConstructor,usersGetDataComponentConstructor} = obj;
 
-    let usersInfoComponent = usersInfoComponentConstructor({app,get});
-    let usersMatrixComponent = usersMatrixComponentConstructor({app});
-    let usersBttnCreateComponent = usersBttnCreateComponentConstructor({app,usersBttnCreateHandlerConstructor});
-    let usersGetDataComponent=usersGetDataComponentConstructor(id,get);
+    let id= store.getItem('user_id');
+
+    let usersInfoComponent = usersInfoComponentConstructor(obj);
+    let usersMatrixComponent = usersMatrixComponentConstructor(obj);
+    let usersBttnCreateComponent = usersBttnCreateComponentConstructor(obj);
+    let usersGetDataComponent=usersGetDataComponentConstructor(id,get,html);
 
     let init = () => {
         return {

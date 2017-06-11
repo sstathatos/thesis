@@ -1,7 +1,6 @@
-let html = require('../../html');
 
 let usersMatrixConstructor = (obj) => {
-    let {app} = obj;
+    let {app,html,usersDatasetRowHandlerConstructor} = obj;
     let init = () => {
         let matrixDiv = html.create('div');
 
@@ -31,17 +30,28 @@ let usersMatrixConstructor = (obj) => {
         return {dynamic:[matrixEl],static:[]};
     };
 
-    let update = (obj) => {
-        let {projects,dynamic} =obj;
+    let update = (init_contents) => {
+        let {projects,dynamic} =init_contents;
         let data=projects[0];
+
+        console.log(data);
 
         for(let row in data)
         {
             let row_data = data[row];
             let new_tr = html.create('tr');
+            let addListenerToTr = html.addListenerTo(new_tr);
+
+            let usersDatasetRowHandler = usersDatasetRowHandlerConstructor({
+                dependencies:obj,
+                data:row_data
+            });
+            addListenerToTr('click',usersDatasetRowHandler);
+
             let mountToTr =html.mountTo(new_tr);
 
             for(let key in row_data) {
+                if(key === 'id') continue;
                 let new_td = html.create('td',{textContent:row_data[key]});
                 mountToTr(new_td);
             }

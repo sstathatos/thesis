@@ -1,9 +1,13 @@
-let html = require('../html');
-
 let loginComponentConstructor = (obj) => {
-    let {app,post,loginHandlerConstructor,errorHandler,isLoggedIn} = obj;
+    let {app,post,html,loginHandlerConstructor,errorHandler,isLoggedInConstructor,registerComponentConstructor} = obj;
+
+    let registerComponent = registerComponentConstructor(obj);
+
+    let isLoggedIn = isLoggedInConstructor(obj);
 
     let init = () => {
+        registerComponent.init();
+
         let login = html.create('div');
 
         let usernameInput = html.create('input',{placeholder : 'Username'});

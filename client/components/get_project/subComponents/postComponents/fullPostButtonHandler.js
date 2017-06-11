@@ -1,5 +1,3 @@
-let html =require('../../../html');
-
 let fullPostButtonHandlerConstructor = (obj) => {
 
     let {get,post_id} =obj;

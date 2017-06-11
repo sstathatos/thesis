@@ -1,12 +1,12 @@
 
 let submitDatasetButtonHandlerConstructor = (obj) => {
 
-    let {name,data,post,submitDataset} =obj;
+    let {name,data,post} =obj;
 
     let submitDatasetButtonHandler = (e) => {
         let formData = new FormData();
         formData.append('data',data());
-        post({uri:`/datasets/?name=${name()}&inproject=5932a79e92e05018ccfc246e`,body:formData},(err,response,body) => {
+        post({uri:`/datasets/?name=${name()}&inproject=${store.getItem('project_id')}&creator=${store.getItem('user_id')}`,body:formData},(err,response,body) => {
             console.log(body);
         })
     };

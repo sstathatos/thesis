@@ -1,7 +1,6 @@
-let html =require('../../../html');
 
 let gotContentsConstructor = (obj) => {
-    let {errorHandler} =obj;
+    let {errorHandler,html} =obj;
     let gotContents = (err,contents) => {
         console.log(contents);
         let {data,caller} = contents;

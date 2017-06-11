@@ -17,7 +17,7 @@ let createDatasetComponentConstructor = (obj) => {
         let submitDatasetButtonHandler = submitButtonDatasetHandlerConstructor({
             name: () => name_input_el.value,
             data: () => upload_input_el.files[0],
-            post,
+            post
         });
 
         let submit_button_el =html.create('button',{textContent:'Submit'});

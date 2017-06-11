@@ -1,8 +1,6 @@
-let html = require('../html');
-
 let registerComponentConstructor  = (obj) => {
 
-    let {app,post,registerHandlerConstructor} = obj;
+    let {app,post,registerHandlerConstructor,html} = obj;
 
     let init = () => {
         let register = html.create('div');

@@ -1,6 +1,11 @@
-let html =require('../../../html');
 let getProjectDatasetComponentConstructor = (obj) => {
-    let {app,get,post,getDatasetContentsHandlerConstructor,gotContents} = obj;
+    let {app,get,getDatasetContentsHandlerConstructor,
+        gotContentsConstructor,html,errorHandler,getProjectCreateDatasetHandlerConstructor} = obj;
+
+    let gotContents = gotContentsConstructor({
+        errorHandler,
+        html
+    });
 
     let init = () => {
         let getproject_dataset_div_el = html.create('div');
@@ -22,6 +27,11 @@ let getProjectDatasetComponentConstructor = (obj) => {
 
         let getproject_dataset_create_name_el = html.create('p',{textContent:'Create dataset:'});
         let getproject_dataset_create_button_el = html.create('button',{textContent:'Create'});
+        let addListenerToCreateDsetButton = html.addListenerTo(getproject_dataset_create_button_el);
+        let getProjectCreateDatasetHandler = getProjectCreateDatasetHandlerConstructor(
+            obj
+        );
+        addListenerToCreateDsetButton('click',getProjectCreateDatasetHandler);
 
 
         let mountToDiv =html.mountTo(getproject_dataset_div_el);

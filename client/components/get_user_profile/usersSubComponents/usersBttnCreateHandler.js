@@ -1,7 +1,9 @@
-let usersBttnCreateHandlerConstructor = () =>{
-    //BROKEN AS FUCK
+let usersBttnCreateHandlerConstructor = (obj) =>{
+    let {createProjectComponentConstructor} = obj;
     let usersBttnCreateHandler = () => {
-        console.log('new project form NOOOOOOW');
+
+        let createProjectComponent = createProjectComponentConstructor(obj);
+        createProjectComponent.init();
     };
     return usersBttnCreateHandler;
 };
