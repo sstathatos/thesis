@@ -1,4 +1,4 @@
-let html =require('../html');
+let html =require('../../html');
 
 let getPlotButtonHandlerConstructor = require('./getPlotButtonHandler');
 let getDatasetButtonHandlerConstructor = require('./getDatasetButtonHandler');

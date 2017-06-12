@@ -8,7 +8,8 @@ const dependencies = Object.freeze({
     del: del,
     html: require('./components/html'),
 
-    postStructurer: require('./components/structure_helpers/postStructurer'),
+    postStructurer: require('./components/structure_helpers/post_structure/postStructurer'),
+    uniqueCheckboxHandlerConstructor: require('./components/get_create_post/subComponents/uniqueCheckboxHandler'),
 
     loginComponentConstructor: require('./components/login/loginComponent'),
     loginHandlerConstructor: require('./components/login/loginHandler'),
@@ -32,6 +33,13 @@ const dependencies = Object.freeze({
     submitButtonDatasetHandlerConstructor : require('./components/get_create_dataset/submitDatasetButtonHandler'),
 
     createPostComponentConstructor: require('./components/get_create_post/createPostComponent'),
+    createPostFormComponentConstructor : require('./components/get_create_post/subComponents/createPostFormComponent'),
+    createPostListComponentConstructor : require('./components/get_create_post/subComponents/createPostListComponent'),
+    createPostSaveButtonComponentConstructor : require('./components/get_create_post/subComponents/createPostSaveButtonComponent'),
+    createPostAddPlotComponentConstructor : require('./components/get_create_post/subComponents/createPostAddPlotComponent'),
+    createPostAddPlotButtonHandlerConstructor : require('./components/get_create_post/subComponents/createPostAddPlotButtonHandler'),
+    createPostGetDatasetListConstructor : require('./components/get_create_post/subComponents/createPostGetDatasetListComponent'),
+    createPostSaveButtonHandlerConstructor : require('./components/get_create_post/subComponents/createPostSaveButtonHandler'),
 
     getPlotComponentConstructor: require('./components/get_plot/getPlotComponent'),
 
@@ -49,6 +57,9 @@ const dependencies = Object.freeze({
     getPostComponentConstructor: require('./components/get_post/getPostComponent'),
 
     createPlotComponentConstructor :require('./components/get_create_plot/createPlotComponent'),
+    createPlotInfoComponentConstructor :require('./components/get_create_plot/subComponents/createPlotInfoComponent'),
+    createPlotDatasetComponentConstructor : require('./components/get_create_plot/subComponents/createPlotDatasetComponent'),
+    getDatasetContentsComponentConstructor : require('./components/get_create_plot/getDatasetContentsComponent'),
 
     getDatasetComponentConstructor : require('./components/get_dataset/getDatasetComponent'),
     errorHandler :console.log,

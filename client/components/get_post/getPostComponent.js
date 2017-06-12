@@ -1,7 +1,7 @@
 let html = require('../html');
 
 let getPostDataComponentConstructor = require('./getPostDataComponent');
-let postStructurer = require('../structure_helpers/postStructurer');
+let postStructurer = require('../structure_helpers/post_structure/postStructurer');
 
 let getPostComponentConstructor = (obj) => {
     let {app,get,post,id,errorHandler} = obj;

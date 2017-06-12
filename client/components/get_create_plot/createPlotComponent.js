@@ -1,15 +1,11 @@
-let html = require('../html');
-let createPlotInfoComponentConstructor = require('./subComponents/createPlotInfoComponent');
-let createPlotDatasetComponentConstructor = require('./subComponents/createPlotDatasetComponent');
-let getDatasetContentsComponentConstructor = require('./getDatasetContentsComponent');
-let saveButtonHandlerConstructor = require('./subComponents/saveButtonHandler');
-
 let createPlotComponentConstructor = (obj) => {
-    let {app,get,post,id,post_id} = obj;
+    let {dependencies,dataset_id,plot_cb} =obj;
+    let {app,get,post,createPlotInfoComponentConstructor,
+        createPlotDatasetComponentConstructor,getDatasetContentsComponentConstructor} = dependencies;
 
-    let createPlotInfoComponent = createPlotInfoComponentConstructor({app});
-    let createPlotDatasetComponent = createPlotDatasetComponentConstructor({app,get,post,saveButtonHandlerConstructor,post_id});
-    let getDatasetContentsComponent = getDatasetContentsComponentConstructor(id,get);
+    let createPlotInfoComponent = createPlotInfoComponentConstructor(dependencies);
+    let createPlotDatasetComponent = createPlotDatasetComponentConstructor({dependencies,plot_cb});
+    let getDatasetContentsComponent = getDatasetContentsComponentConstructor(dataset_id,get);
 
     let init = () => {
         return {

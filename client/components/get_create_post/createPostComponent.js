@@ -1,37 +1,24 @@
-let html = require('../html');
-let createPostFormComponentConstructor = require('./subComponents/createPostFormComponent');
-let createPostListComponentConstructor = require('./subComponents/createPostListComponent');
-let createPostSaveButtonComponentConstructor = require('./subComponents/createPostSaveButtonComponent');
-let createPostAddPlotComponentConstructor = require('./subComponents/createPostAddPlotComponent');
-let createPostAddPlotButtonHandlerConstructor = require('./subComponents/createPostAddPlotButtonHandler');
-let createPostGetDatasetListConstructor = require('./subComponents/createPostGetDatasetListComponent');
-let createPostSaveButtonHandlerConstructor = require('./subComponents/createPostSaveButtonHandler');
-
 let createPostComponentConstructor = (obj) => {
-    let {app,get,post,errorHandler} = obj;
+    let {get,errorHandler,createPostFormComponentConstructor,createPostListComponentConstructor,
+        createPostGetDatasetListConstructor} = obj;
 
     let id = store.getItem('project_id');
-    let createPostFormComponent = createPostFormComponentConstructor({app});
-    let createPostListComponent = createPostListComponentConstructor({app,get});
-    let createPostAddPlotComponent = createPostAddPlotComponentConstructor({app,createPostAddPlotButtonHandlerConstructor});
-    let createPostSaveButtonComponent = createPostSaveButtonComponentConstructor({app,createPostSaveButtonHandlerConstructor});
+    let createPostFormComponent = createPostFormComponentConstructor(obj);
+    let createPostListComponent = createPostListComponentConstructor(obj);
     let createPostGetDatasetListComponent = createPostGetDatasetListConstructor(id,get);
 
     let init = () => {
         return {
             formEls:createPostFormComponent.init(),
-            listEls:createPostListComponent.init(),
-            addPlotEls:createPostAddPlotComponent.init(),
-            saveButtonEls:createPostSaveButtonComponent.init()
+            listEls:createPostListComponent.init()
         }
     };
 
     let update = (obj) => {
-        let {listEls} =obj;
+        let {listEls,formEls} =obj;
         createPostGetDatasetListComponent.getData((err,data) => {
-            console.log(data);
             if (err) return errorHandler(err);
-            createPostListComponent.update({data,listEls});
+            createPostListComponent.update({data,listEls,formEls});
         });
     };
 

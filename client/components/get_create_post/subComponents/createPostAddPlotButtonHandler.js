@@ -1,10 +1,11 @@
-let html = require('../../html');
-
 let createPostAddPlotButtonHandlerConstructor = (obj) =>{
-    let {post_addplot_list_el} =obj;
+    let {post_addplot_list_el,dependencies,plot_cb} =obj;
+    let {createPlotComponentConstructor} = dependencies;
     let createPostAddPlotButtonHandler = () => {
-        let mountToList = html.mountTo(post_addplot_list_el);
-        mountToList(html.create('li',{textContent:'New Plot'}))
+        let createPlotComponent = createPlotComponentConstructor({dependencies,
+            dataset_id:store.getItem('create_post_dataset_id'),plot_cb});
+        createPlotComponent.update(createPlotComponent.init());
+
     };
     return createPostAddPlotButtonHandler;
 };
