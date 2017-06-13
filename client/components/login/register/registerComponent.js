@@ -1,6 +1,6 @@
 let registerComponentConstructor  = (obj) => {
 
-    let {app,post,registerHandlerConstructor,html} = obj;
+    let {top,registerHandlerConstructor,html} = obj;
 
     let init = () => {
         let register = html.create('div');
@@ -9,14 +9,13 @@ let registerComponentConstructor  = (obj) => {
         let nameInput = html.create('input',{placeholder : 'Name'});
         let emailInput = html.create('input',{placeholder : 'Email'});
         let passwordInput = html.create('input',{placeholder : 'Password',type : 'password'});
-        let confirmInput = html.create('input',{placeholder : 'Confirm Password',type : 'password'});
 
         let registerHandler = registerHandlerConstructor({
             username: () => usernameInput.value,
             password: () => passwordInput.value,
             email: () => emailInput.value,
             name: () => nameInput.value,
-            post
+            dependencies:obj
         });
 
         let registerButton = html.create('button',{textContent : 'Register'});
@@ -29,7 +28,7 @@ let registerComponentConstructor  = (obj) => {
             mountToRegister(el);
         });
 
-        html.mountTo(app)(register);
+        html.mountTo(top)(register);
 
         return {static:[register,registerButton,usernameInput,
             passwordInput,emailInput,nameInput],dynamic:[]};

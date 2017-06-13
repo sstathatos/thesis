@@ -1,10 +1,21 @@
 const dependencies = require('./dependencies');
 
-let run_test =  require('./client_test');
+window.store = dependencies.store;
 
-window.test = true;
+let addListenerToWindow = dependencies.html.addListenerTo(window);
+addListenerToWindow('popstate',(e)=>console.log(e));
 
-if (window.test) run_test(dependencies);
+let loginComponent = dependencies.loginComponentConstructor(dependencies);
+loginComponent.init();
+
+// let navigationComponent = dependencies.navigationComponentConstructor(dependencies);
+// navigationComponent.init();
+
+// let run_test =  require('./client_test');
+//
+// window.test = true;
+//
+// if (window.test) run_test(dependencies);
 
 
 

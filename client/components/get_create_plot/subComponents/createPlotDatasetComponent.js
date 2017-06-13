@@ -146,8 +146,8 @@ let getPlotDatasetComponentConstructor = (obj) => {
         let unique_handler = (enable_extra,row_array) => {
             return (e) => {
                 checkboxes.map((box) => box.checked = false);
-                e.srcElement.checked = true;
-                enable_extra(e.srcElement,row_array);
+                e.target.checked = true;
+                enable_extra(e.target,row_array);
             };
         };
 

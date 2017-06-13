@@ -34,8 +34,6 @@ let usersMatrixConstructor = (obj) => {
         let {projects,dynamic} =init_contents;
         let data=projects[0];
 
-        console.log(data);
-
         for(let row in data)
         {
             let row_data = data[row];

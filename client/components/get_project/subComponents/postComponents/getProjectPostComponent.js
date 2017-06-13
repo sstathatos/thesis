@@ -9,7 +9,6 @@ let getProjectPostComponentConstructor = (obj) => {
 
         let addListenerToCreatePost = html.addListenerTo(getproject_post_createpost_button_el);
 
-        console.log(getProjectCreatePostHandlerConstructor);
         let getProjectCreatePostHandler = getProjectCreatePostHandlerConstructor(obj);
         addListenerToCreatePost('click',getProjectCreatePostHandler);
 
@@ -28,7 +27,6 @@ let getProjectPostComponentConstructor = (obj) => {
 
     let update = (obj) => {
         let {post_parents,postEls} = obj;
-        console.log(postEls);
         let post_div =postEls['static'][2];
         for(let row in post_parents) {
             postStructurer({app,get,post_data:post_parents[row],post_div_el:post_div});

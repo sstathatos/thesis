@@ -1,11 +1,12 @@
 let loginComponentConstructor = (obj) => {
-    let {app,post,html,loginHandlerConstructor,errorHandler,isLoggedInConstructor,registerComponentConstructor} = obj;
+    let {top,post,html,loginHandlerConstructor,isLoggedInConstructor,registerComponentConstructor} = obj;
 
     let registerComponent = registerComponentConstructor(obj);
 
     let isLoggedIn = isLoggedInConstructor(obj);
 
     let init = () => {
+        store.setItem('current','login');
         let registerEls = registerComponent.init();
 
         let login = html.create('div');
@@ -28,7 +29,7 @@ let loginComponentConstructor = (obj) => {
 
         [usernameInput, passwordInput, loginButton].map((element) => mountToLogin(element));
 
-        html.mountTo(app)(login);
+        html.mountTo(top)(login);
 
         return {static:[login,loginButton,usernameInput,passwordInput,registerEls],dynamic:[]};
     };

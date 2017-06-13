@@ -25,7 +25,6 @@ let getProjectComponentConstructor = (obj) => {
     let update = (obj) => {
         let {infoEls,datasetEls,postEls} =obj;
         getProjectDataComponent.getData((err,body) => {
-            console.log(body);
             let {name,description,date,dsets,post_parents} = body;
             getProjectInfoComponent.update({name,description,date,infoEls});
             getProjectDatasetComponent.update({dsets,datasetEls});

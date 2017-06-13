@@ -18,7 +18,9 @@ let login_test = (dependencies) => {
 
     username.value = config.username;
     password.value = config.password;
+    console.log(loginComponent);
     button.click();
+
 
 };
 
@@ -44,8 +46,7 @@ let run_test = (dependencies) => {
     window.store = dependencies.store;
 
     [
-        login_test,
-        user_profile_test
+        login_test
     ].map((test) => test(dependencies));
 
 };

@@ -4,6 +4,8 @@ let getProjectCreatePostHandlerConstructor = (obj) => {
 
     let getProjectCreatePostHandler = () => {
 
+        document.getElementById('app').innerHTML = "";
+
         let createPostComponent = createPostComponentConstructor(obj);
         createPostComponent.update(createPostComponent.init());
     };

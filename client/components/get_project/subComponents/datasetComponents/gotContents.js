@@ -2,7 +2,6 @@
 let gotContentsConstructor = (obj) => {
     let {errorHandler,html} =obj;
     let gotContents = (err,contents) => {
-        console.log(contents);
         let {data,caller} = contents;
         if (err) return errorHandler(new Error(err));
 

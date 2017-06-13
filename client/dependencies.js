@@ -3,6 +3,7 @@ let {get,post,put,del} = require('xhr');
 
 const dependencies = Object.freeze({
     app: document.getElementById('app'),
+    top: document.getElementById('top'),
     get: get,
     post: post,
     put: put,
@@ -18,6 +19,10 @@ const dependencies = Object.freeze({
 
     registerComponentConstructor: require('./components/login/register/registerComponent'),
     registerHandlerConstructor: require('./components/login/register/registerHandler'),
+
+    navigationComponentConstructor : require('./components/navigation/navigationComponent'),
+    homeHandlerConstructor : require('./components/navigation/homeHandler'),
+    logoutHandlerConstructor : require('./components/navigation/logoutHandler'),
 
     usersComponentConstructor: require('./components/get_user_profile/usersComponent'),
     usersInfoComponentConstructor : require('./components/get_user_profile/usersSubComponents/usersInfoComponent'),

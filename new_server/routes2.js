@@ -21,6 +21,7 @@ router.get('/', (req, res) => {
             <link rel="stylesheet" type="text/css" href="${c3css}">
         </head>
         <body>
+            <div id="top"></div>
             <div id="app"></div>
             
             <script src="${code}"></script>

@@ -15,12 +15,12 @@ let uniqueCheckboxHandlerConstructor = (obj,createPostAddPlotComponent,add_plot_
         let unique_handler = (enable_extra,row_array,checkbox_index) => {
             return (e) => {
                 checkboxes.map((box) => box.checked = false);
-                e.srcElement.checked = true;
+                e.target.checked = true;
                 store.setItem('create_post_checkbox_index',checkbox_index);
                 console.log(row_array);
                 store.setItem('create_post_dataset_id',row_array._id);
 
-                enable_extra(e.srcElement,row_array);
+                enable_extra(e.target,row_array);
             };
         };
 

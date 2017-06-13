@@ -4,6 +4,8 @@ let getProjectCreateDatasetHandlerConstructor = (obj) => {
 
     let getProjectCreateDatasetHandler = () => {
 
+        document.getElementById('app').innerHTML = "";
+
         let createDatasetComponent =createDatasetComponentConstructor(obj);
         createDatasetComponent.init();
     };
