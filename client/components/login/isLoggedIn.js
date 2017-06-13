@@ -4,6 +4,7 @@ let isLoggedInConstructor = (obj) => {
         if (err) return errorHandler(new Error(err));
         let usersComponent = usersComponentConstructor(obj);
         usersComponent.update(usersComponent.init());
+
     };
     return isLoggedIn;
 };

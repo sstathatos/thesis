@@ -90,6 +90,21 @@ router.post('/projects', (req,res) => {
 });
 
 
+router.post('/posts',(req,res) => {
+    let {query} = req;
+
+    createObj('posts',query)((err,post) => {
+        if (err) throw err;
+
+        addUserRole(req.user._id, post._id, 'owner', 'posts')((err)=> {
+            if (err) throw err;
+            res.status(200).send({perm:'allowed',data:post});
+        });
+    })
+
+});
+
+
 router.post('/datasets', (req,res) => {
     let {query} = req;
     save_data(req,(err,data_path) => {
@@ -103,8 +118,11 @@ router.post('/datasets', (req,res) => {
 
 router.post('/plots' ,(req,res) => {
     let {query} = req;
+    console.log(query);
     let {inpost,dim1,dim2,dim3Value,dim2Value,plot_type,title,description,array_path_saved} = query;
-    let plot_metadata ={dim1,dim2,dim3Value,dim2Value,plot_type};
+
+    let plot_metadata ={dim1,dim2,dim2Value,plot_type};
+    if(dim3Value) plot_metadata['dim3Value'] = dim3Value;
 
     let new_obj = {
         inpost,
@@ -172,6 +190,7 @@ router.get('/posts',(req,res) => {
         return res.status(200).send({perm:'allowed',data:posts});
     });
 });
+
 
 //get contents of ONE project
 router.get('/projects' ,(req,res) => {

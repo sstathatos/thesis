@@ -6,7 +6,7 @@ let loginComponentConstructor = (obj) => {
     let isLoggedIn = isLoggedInConstructor(obj);
 
     let init = () => {
-        registerComponent.init();
+        let registerEls = registerComponent.init();
 
         let login = html.create('div');
 
@@ -30,7 +30,7 @@ let loginComponentConstructor = (obj) => {
 
         html.mountTo(app)(login);
 
-        return {static:[login,loginButton,usernameInput,passwordInput],dynamic:[]};
+        return {static:[login,loginButton,usernameInput,passwordInput,registerEls],dynamic:[]};
     };
 
     return {
