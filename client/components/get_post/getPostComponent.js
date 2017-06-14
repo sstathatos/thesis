@@ -1,10 +1,8 @@
-let html = require('../html');
-
 let getPostDataComponentConstructor = require('./getPostDataComponent');
-let postStructurer = require('../structure_helpers/post_structure/postStructurer');
 
 let getPostComponentConstructor = (obj) => {
-    let {app,get,post,id,errorHandler} = obj;
+    let {dependencies,id} = obj;
+    let {app,get,createResponseButtonHandlerConstructor,postStructurer,html} = dependencies;
 
     let getPostDataComponent = getPostDataComponentConstructor(id,get);
 
@@ -17,6 +15,13 @@ let getPostComponentConstructor = (obj) => {
 
         let wholepost_createresponse_name_el = html.create('p',{textContent:'Create Response:'});
         let wholepost_createresponse_button_el = html.create('button',{textContent:'Create'});
+        let addListenerToCreateButton = html.addListenerTo(wholepost_createresponse_button_el);
+
+        let createResponseButtonHandler = createResponseButtonHandlerConstructor({
+            dependencies,
+            parent_post_id:id
+        });
+        addListenerToCreateButton('click',createResponseButtonHandler);
 
         let wholepost_responses_name_el = html.create('p',{textContent:'Responses:'});
 
@@ -41,13 +46,11 @@ let getPostComponentConstructor = (obj) => {
         let {dynamic} =obj;
 
         getPostDataComponent.getData((err,posts) => {
-            console.log(posts);
-            console.log(dynamic);
-            postStructurer({app,get,post_data:posts.parent,post_div_el:dynamic[0]});
+            postStructurer({dependencies,post_data:posts.parent,post_div_el:dynamic[0]});
 
             let {kids} =posts;
             for(let row in kids) {
-                postStructurer({app,get,post_data:kids[row],post_div_el:dynamic[2]});
+                postStructurer({dependencies,post_data:kids[row],post_div_el:dynamic[2]});
             }
         });
     };

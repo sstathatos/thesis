@@ -1,9 +1,9 @@
 let html = require('../../html');
 
 let userInfoConstructor = (obj) => {
-    let {app,get,id} = obj;
+    let {get,id} = obj;
 
-    let init = () => {
+    let init = (plot_div) => {
         let plot_div_el = html.create('div');
 
         let plot_newplot_name_el = html.create('p',{textContent:`New Plot:`});
@@ -20,7 +20,7 @@ let userInfoConstructor = (obj) => {
             mountToDiv(el);
         });
 
-        html.mountTo(app)(plot_div_el);
+        html.mountTo(plot_div)(plot_div_el);
         return {dynamic :[plot_title_el,plot_descr_el],static:[plot_div_el]}
     };
 

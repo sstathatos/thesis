@@ -3,10 +3,10 @@ let getDatasetOptionsComponentConstructor = require('./subComponents/getDatasetO
 let retrieveDataConstructor = require('./subComponents/retrieveDataConstructor');
 
 let getDatasetComponentConstructor = (obj) => {
-    let {app,get,id,path} = obj;
-
-    let {retrieveData} = retrieveDataConstructor({id,path,get});
-    let getDatasetOptionsComponent = getDatasetOptionsComponentConstructor({app,retrieveData});
+    let {dependencies,id,data} = obj;
+    let {get,app} = dependencies;
+    let {retrieveData} = retrieveDataConstructor({id,path:data['path'],get});
+    let getDatasetOptionsComponent = getDatasetOptionsComponentConstructor({dependencies,retrieveData,data});
 
     let init = () => {
         return {

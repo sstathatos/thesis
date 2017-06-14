@@ -1,11 +1,11 @@
 let getProjectPostComponentConstructor = (obj) => {
     let {app,get,post,postStructurer,fullPostButtonHandlerConstructor,html,getProjectCreatePostHandlerConstructor} = obj;
-
+    let dependencies = obj;
     let init = () => {
         let getproject_post_div_el = html.create('div');
         let getproject_post_title_name_el = html.create('p',{textContent:'Posts:'});
         let getproject_post_createpost_name_el = html.create('p',{textContent:'Create post:'});
-        let getproject_post_createpost_button_el = html.create('button',{textContent:'Create'});
+        let getproject_post_createpost_button_el = html.create('button',{textContent:'Create',disabled:'true'});
 
         let addListenerToCreatePost = html.addListenerTo(getproject_post_createpost_button_el);
 
@@ -26,15 +26,21 @@ let getProjectPostComponentConstructor = (obj) => {
     };
 
     let update = (obj) => {
-        let {post_parents,postEls} = obj;
+        let {post_parents,postEls,dsets} = obj;
         let post_div =postEls['static'][2];
+
+        if(dsets.length > 0) {
+            postEls['static'][1].disabled=false;
+        }
         for(let row in post_parents) {
-            postStructurer({app,get,post_data:post_parents[row],post_div_el:post_div});
+            postStructurer({dependencies,post_data:post_parents[row],post_div_el:post_div});
             let getproject_post_full_name_el = html.create('p',{textContent:'See full post:'});
             let getproject_post_full_el = html.create('button',{textContent:'See post'});
             let addListenerToFullPostButton = html.addListenerTo(getproject_post_full_el);
 
-            let fullPostButtonHandler = fullPostButtonHandlerConstructor({get,post_id:post_parents[row]._id});
+            let fullPostButtonHandler = fullPostButtonHandlerConstructor({
+                dependencies,post_id:post_parents[row]._id
+            });
             addListenerToFullPostButton('click',fullPostButtonHandler);
 
             let mountToDiv = html.mountTo(post_div);

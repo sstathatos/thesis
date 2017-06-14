@@ -1,12 +1,11 @@
-let html = require('../../html');
-
 let getDatasetGridComponentConstructor = (obj) => {
 
-    let {app} = obj;
-    let init = () => {
+    let {html} =  obj;
+
+    let init = (grid_div_el) => {
         let grid_table_el = html.create('table');
 
-        html.mountTo(app)(grid_table_el);
+        html.mountTo(grid_div_el)(grid_table_el);
 
         return {static:[],dynamic:[grid_table_el]};
     };

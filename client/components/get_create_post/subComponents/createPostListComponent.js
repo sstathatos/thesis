@@ -1,9 +1,9 @@
 let createPostListComponentConstructor = (dependencies) => {
-    let {app,uniqueCheckboxHandlerConstructor,
+    let {uniqueCheckboxHandlerConstructor,
         html,createPostSaveButtonComponentConstructor,
         createPostAddPlotComponentConstructor} = dependencies;
 
-    let init = () => {
+    let init = (post_div) => {
         let post_list_div_el = html.create('div');
         let post_list_title_el = html.create('p',{textContent:'Select Dataset:'});
         let post_list_table_el = html.create('table');
@@ -28,7 +28,7 @@ let createPostListComponentConstructor = (dependencies) => {
             mountToDiv(el);
         });
 
-        html.mountTo(app)(post_list_div_el);
+        html.mountTo(post_div)(post_list_div_el);
 
         return {dynamic:[post_list_table_el,
             post_list_addplot_div_el,
@@ -36,7 +36,7 @@ let createPostListComponentConstructor = (dependencies) => {
     };
 
     let update = (obj) => {
-        let {data,listEls,formEls} =obj;
+        let {data,listEls,formEls,post_div,parent_post_id} =obj;
         let checkboxes = [];
         for(let row in data){
             let post_list_tr_el = html.create('tr');
@@ -60,13 +60,13 @@ let createPostListComponentConstructor = (dependencies) => {
             });
         }
         let createPostAddPlotComponent = createPostAddPlotComponentConstructor(dependencies);
-        let createPostSaveButtonComponent = createPostSaveButtonComponentConstructor(dependencies);
+        let createPostSaveButtonComponent = createPostSaveButtonComponentConstructor({dependencies,parent_post_id});
 
 
         let uniqueCheckboxHandler = uniqueCheckboxHandlerConstructor(dependencies,
             createPostAddPlotComponent,listEls.dynamic[1],createPostSaveButtonComponent,listEls.dynamic[2]);
 
-        uniqueCheckboxHandler({checkboxes,data,formEls});
+        uniqueCheckboxHandler({checkboxes,data,formEls,post_div});
 
     };
 

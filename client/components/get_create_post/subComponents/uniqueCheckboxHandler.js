@@ -3,12 +3,12 @@ let uniqueCheckboxHandlerConstructor = (obj,createPostAddPlotComponent,add_plot_
 
     let {html} = obj;
     let uniqueCheckboxHandler = (spec) => {
-        let {checkboxes,data,formEls} = spec;
+        let {checkboxes,data,formEls,post_div} = spec;
 
         let enable_extra = (el,row_array) => {
             add_plot_div.innerHTML = "";
             savepost_div.innerHTML = '';
-            createPostAddPlotComponent.init(add_plot_div);
+            createPostAddPlotComponent.init(add_plot_div,post_div);
             createPostSaveButtonComponent.init(savepost_div,formEls,row_array,createPostAddPlotComponent);
         };
 
@@ -17,7 +17,6 @@ let uniqueCheckboxHandlerConstructor = (obj,createPostAddPlotComponent,add_plot_
                 checkboxes.map((box) => box.checked = false);
                 e.target.checked = true;
                 store.setItem('create_post_checkbox_index',checkbox_index);
-                console.log(row_array);
                 store.setItem('create_post_dataset_id',row_array._id);
 
                 enable_extra(e.target,row_array);

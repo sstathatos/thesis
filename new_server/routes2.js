@@ -93,7 +93,7 @@ router.post('/projects', (req,res) => {
 
 router.post('/posts',(req,res) => {
     let {query} = req;
-
+    console.log(query);
     createObj('posts',query)((err,post) => {
         if (err) throw err;
 

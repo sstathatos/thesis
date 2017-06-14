@@ -7,7 +7,7 @@ let submitProjectButtonHandlerConstructor = (obj) => {
         post({uri:`/projects/?name=${name()}&description=${description()}`},(err,response,body) => {
             if (err) return errorHandler(new Error(err));
             let {data} =  JSON.parse(body);
-            console.log(data);
+            document.getElementById('app').innerHTML = '';
             let getProjectComponent = getProjectComponentConstructor({id:data._id,dependencies});
             getProjectComponent.update(getProjectComponent.init());
 

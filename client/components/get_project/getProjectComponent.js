@@ -29,7 +29,7 @@ let getProjectComponentConstructor = (obj) => {
             getProjectInfoComponent.update({name,description,date,infoEls});
             getProjectDatasetComponent.update({dsets,datasetEls});
 
-            getProjectPostComponent.update({post_parents,postEls});
+            getProjectPostComponent.update({post_parents,postEls,dsets});
 
         });
     };

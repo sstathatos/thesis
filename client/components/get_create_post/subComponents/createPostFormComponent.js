@@ -2,7 +2,7 @@ let html = require('../../html');
 
 let createPostFormComponentConstructor = (obj) => {
     let {app} = obj;
-    let init = () => {
+    let init = (post_div) => {
         let post_form_div_el =html.create('div');
         let post_title_el = html.create('p',{textContent:'New Post:'});
 
@@ -17,7 +17,7 @@ let createPostFormComponentConstructor = (obj) => {
             mountToDiv(el);
         });
 
-        html.mountTo(app)(post_form_div_el);
+        html.mountTo(post_div)(post_form_div_el);
 
         return {dynamic:[],static:[post_form_div_el,post_input_title_el,post_input_desc_el]};
     };

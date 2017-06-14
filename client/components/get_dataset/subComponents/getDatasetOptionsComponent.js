@@ -1,17 +1,14 @@
-let getDatasetGridComponentConstructor = require('./getDatasetGridComponent');
-
-let html = require('../../html');
-
 let getDatasetOptionsComponentConstructor = (obj) => {
 
-    let {app,retrieveData} = obj;
+    let {dependencies,retrieveData,data} = obj;
+    let {html,app,getDatasetGridComponentConstructor} = dependencies;
 
     let curr_state = [];
 
     let data_obj = {
     };
 
-    let getDataGridComponent = getDatasetGridComponentConstructor({app});
+    let getDataGridComponent = getDatasetGridComponentConstructor(dependencies);
 
     let init = () => {
 
@@ -23,28 +20,44 @@ let getDatasetOptionsComponentConstructor = (obj) => {
         let dim2_name_el = html.create('p',{textContent:'Dimension 2:'});
         let dim2_input_el = html.create('input',{type:'number',value:2});
 
-        let dim3value_name_el = html.create('p',{textContent:'Dimension 3 Value:'});
-        let dim3value_input_el = html.create('input',{type:'number',value:0});
-
         let mountToDiv = html.mountTo(options_div_el);
-        [dim1_name_el,dim1_input_el,dim2_name_el,dim2_input_el,
-            dim3value_name_el,dim3value_input_el].map((el) => {
+        [dim1_name_el,dim1_input_el,dim2_name_el,dim2_input_el].map((el) => {
             mountToDiv(el);
         });
 
+        let dim3value_name_el;
+        let dim3value_input_el;
+
+        if(data['dimnumber'] === 3) {
+            dim3value_name_el = html.create('p',{textContent:'Dimension 3 Value:'});
+            dim3value_input_el = html.create('input',{type:'number',value:0});
+
+            [ dim3value_name_el,dim3value_input_el].map((el)=> {
+               mountToDiv(el);
+           })
+        }
+
+        let grid_div_el =  html.create('div');
+        mountToDiv(grid_div_el);
+
+
         let button_names = ['init','up','down','left','right'];
 
-        let grid_div = getDataGridComponent.init();
+        let grid_div = getDataGridComponent.init(grid_div_el);
 
         let buttons =  button_names.map((but) =>{
             let button = html.create('button',{textContent:but});
             html.mountTo(options_div_el)(button);
             let listenerToButton = html.addListenerTo(button);
             let button_obj = {
-                input1:dim1_input_el,input2:dim2_input_el,input3:dim3value_input_el,
+                input1:dim1_input_el,input2:dim2_input_el,
                 direction:but,
                 dataGridEls:grid_div
             };
+
+            if(data['dimnumber'] === 3) {
+                button_obj['input3'] = dim3value_input_el;
+            }
             listenerToButton('click',() => getData(button_obj));
             return button;
         }) ;

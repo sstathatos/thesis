@@ -12,6 +12,9 @@ const dependencies = Object.freeze({
 
     postStructurer: require('./components/structure_helpers/post_structure/postStructurer'),
     uniqueCheckboxHandlerConstructor: require('./components/get_create_post/subComponents/uniqueCheckboxHandler'),
+    getPlotButtonHandlerConstructor : require('./components/structure_helpers/post_structure/getPlotButtonHandler'),
+    getDatasetButtonHandlerConstructor : require('./components/structure_helpers/post_structure/getDatasetButtonHandler'),
+    trArrayHandlerConstructor: require('./components/structure_helpers/post_structure/trArrayHandler'),
 
     loginComponentConstructor: require('./components/login/loginComponent'),
     loginHandlerConstructor: require('./components/login/loginHandler'),
@@ -55,12 +58,14 @@ const dependencies = Object.freeze({
     getProjectDataComponentConstructor : require('./components/get_project/getProjectDataComponent'),
     getProjectDatasetComponentConstructor :require('./components/get_project/subComponents/datasetComponents/getProjectDatasetComponent'),
     getDatasetContentsHandlerConstructor :  require('./components/get_project/subComponents/datasetComponents/getDatasetContentsHandler'),
-    gotContentsConstructor : require('./components/get_project/subComponents/datasetComponents/gotContents'),
+    gotContentsConstructor : require('./components/structure_helpers/post_structure/gotContents'),
     getProjectPostComponentConstructor : require('./components/get_project/subComponents/postComponents/getProjectPostComponent'),
     getProjectCreatePostHandlerConstructor : require('./components/get_project/subComponents/postComponents/getProjectCreatePostHandler'),
     fullPostButtonHandlerConstructor : require('./components/get_project/subComponents/postComponents/fullPostButtonHandler'),
 
     getPostComponentConstructor: require('./components/get_post/getPostComponent'),
+    createResponseButtonHandlerConstructor: require('./components/get_post/createResponseButtonHandler'),
+
 
     createPlotComponentConstructor :require('./components/get_create_plot/createPlotComponent'),
     createPlotInfoComponentConstructor :require('./components/get_create_plot/subComponents/createPlotInfoComponent'),
@@ -68,7 +73,9 @@ const dependencies = Object.freeze({
     getDatasetContentsComponentConstructor : require('./components/get_create_plot/getDatasetContentsComponent'),
 
     getDatasetComponentConstructor : require('./components/get_dataset/getDatasetComponent'),
-    errorHandler :console.log,
+    getDatasetGridComponentConstructor : require('./components/get_dataset/subComponents/getDatasetGridComponent'),
+
+errorHandler :console.log,
     store : localStorage
 });
 

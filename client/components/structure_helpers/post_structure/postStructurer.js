@@ -1,11 +1,7 @@
-let html =require('../../html');
-
-let getPlotButtonHandlerConstructor = require('./getPlotButtonHandler');
-let getDatasetButtonHandlerConstructor = require('./getDatasetButtonHandler');
 
 let postStructurer = (obj) => {
-
-    let {app,get,post_data,post_div_el} = obj;
+    let {post_data,post_div_el,dependencies} =  obj;
+    let {get,getPlotButtonHandlerConstructor,getDatasetButtonHandlerConstructor,html} = dependencies;
     let {title,description,date,dset,plots_ids} =post_data;
     let {creator_username,name,_id} =dset;
 
@@ -41,12 +37,14 @@ let postStructurer = (obj) => {
     let post_dataset_linked_name_el =html.create('p',{textContent:'Dataset linked:'});
     let post_dataset_linked_el =html.create('p',{textContent:`Name: ${name}
          Creator: ${creator_username} Date created:${dset.date}`});
+    let post_table_div =  html.create('div');
 
     let addListenerToDataset = html.addListenerTo(post_dataset_linked_el);
 
     let getDatasetButtonHandler = getDatasetButtonHandlerConstructor({
-        get,
-        dset_id:_id
+        dependencies,
+        dset_id:_id,
+        post_table_div
     });
     addListenerToDataset('click',getDatasetButtonHandler);
 
@@ -57,7 +55,7 @@ let postStructurer = (obj) => {
     let mountToDiv = html.mountTo(post_div_el);
     [post_title_name_el,post_title_el,post_date_name_el,
         post_date_el,post_descr_name_el,post_descr_el,
-        post_dataset_linked_name_el,post_dataset_linked_el,post_plots_name_el,
+        post_dataset_linked_name_el,post_dataset_linked_el,post_table_div,post_plots_name_el,
         post_plots_ul_el].map((el) => {
 
         mountToDiv(el);

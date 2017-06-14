@@ -7,7 +7,7 @@ let createPostAddPlotComponentConstructor = (obj) => {
         return plot_objects;
     };
 
-    let init = (add_plot_div) => {
+    let init = (add_plot_div,post_div) => {
         let post_addplot_div_el =html.create('div');
         let post_addplot_list_el = html.create('ul');
         let post_addplot_name_el = html.create('p',{textContent:'Add Plot:'});
@@ -23,9 +23,9 @@ let createPostAddPlotComponentConstructor = (obj) => {
         };
 
         let createPostAddPlotButtonHandler = createPostAddPlotButtonHandlerConstructor({
-            post_addplot_list_el,
             dependencies:obj,
-            plot_cb
+            plot_cb,
+            post_div
         });
         addListenerToAddPlotButton('click',createPostAddPlotButtonHandler);
 

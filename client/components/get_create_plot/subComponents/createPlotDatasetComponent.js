@@ -1,7 +1,7 @@
 let getPlotDatasetComponentConstructor = (obj) => {
     let {dependencies,plot_cb} = obj;
-    let {app,html} = dependencies;
-    let init = () => {
+    let {html} = dependencies;
+    let init = (plot_div) => {
         let plot_dataset_div_el = html.create('div');
 
         let plot_dataset_select_name_el = html.create('p',{textContent:`Select Array:`});
@@ -30,7 +30,7 @@ let getPlotDatasetComponentConstructor = (obj) => {
             mountToDiv(el);
         });
 
-        html.mountTo(app)(plot_dataset_div_el);
+        html.mountTo(plot_div)(plot_dataset_div_el);
 
         return {
             static:[plot_dataset_div_el],dynamic:[plot_dataset_select_name_el,
@@ -40,7 +40,7 @@ let getPlotDatasetComponentConstructor = (obj) => {
     };
 
     let update = (obj) => {
-        let {table_div,data,dset_div,options_div,title_el,descr_el} = obj;
+        let {table_div,data,dset_div,options_div,title_el,descr_el,post_div,plot_div} = obj;
 
         let checkboxes = [];
 
@@ -139,6 +139,8 @@ let getPlotDatasetComponentConstructor = (obj) => {
 
                 if(handler_object['dim3Value']) new_obj['dim3Value']=handler_object['dim3Value']();
 
+                post_div.style.display='initial';
+                plot_div.innerHTML = '';
                 plot_cb(null,new_obj);
             });
         };
