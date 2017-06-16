@@ -74,8 +74,11 @@ const dependencies = Object.freeze({
 
     getDatasetComponentConstructor : require('./components/get_dataset/getDatasetComponent'),
     getDatasetGridComponentConstructor : require('./components/get_dataset/subComponents/getDatasetGridComponent'),
+    getDataConstructor : require('./components/get_dataset/subComponents/getDataConstructor'),
+    getDatasetOptionsComponentConstructor : require('./components/get_dataset/subComponents/getDatasetOptionsComponent'),
+    retrieveDataConstructor : require('./components/get_dataset/subComponents/retrieveDataConstructor'),
 
-errorHandler :console.log,
+    errorHandler :console.log,
     store : localStorage
 });
 

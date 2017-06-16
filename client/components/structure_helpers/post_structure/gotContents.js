@@ -19,8 +19,9 @@ let gotContentsConstructor = (obj) => {
         mountToTable(new_tr);
 
         for(let tr in data) {
-            let new_tr = html.create('tr');
             let tr_data = data[tr];
+            if(tr_data['dimnumber'] === 1) continue; //change later?
+            let new_tr = html.create('tr');
             let mountToTr = html.mountTo(new_tr);
             let path_td = html.create('td',{textContent:tr_data['path']});
             let dims_td = html.create('td',{textContent:tr_data['dimnumber']});
