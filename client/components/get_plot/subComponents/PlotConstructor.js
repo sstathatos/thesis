@@ -4,50 +4,48 @@ let PlotConstructor = () => {
     let pivot = undefined;
 
     let generateChart = (mount_point) => {
-            return c3.generate({
-                bindto: mount_point,
-                data: {
-                    x: 'x',
-                    columns: [],
-                    type: 'line',
-                    empty: {
-                        label: {
-                            text: "No Data"
-                        }
+        return c3.generate({
+            bindto: mount_point,
+            data: {
+                x: 'x',
+                columns: [],
+                empty: {
+                    label: {
+                        text: "No Data"
                     }
-                },
-                axis: {
-                    x: {
-                        tick: {
-                            culling: {
-                                max: 26
-                            }
-                        }
-                    }
-                },
-                zoom: {
-                    enabled: true
                 }
-            });
+            },
+            axis: {
+                x: {
+                    tick: {
+                        culling: {
+                            max: 26
+                        }
+                    }
+                }
+            },
+            zoom: {
+                enabled: true
+            }
+        });
     };
 
-    let updateChart = (chart,arr) => {
-        console.log(arr);
+    let updateChart = (chart,arr,metadata,cb) => {
         chart.load({
             columns: arr,
-            unload: true
+            type: metadata['plot_type'],
+            unload: true,
+            done: cb
         })
     };
 
     let zoomListener = (element=document,cb) => {
         let points = element.getElementsByClassName("c3-event-rect");
-
         for(let point=0; point<points.length; point++) {
-
             points[point].addEventListener("mouseup",() => {
                 if (pivot !== point) {
                     if (point < pivot) {
-                        cb(null, point, pivot);
+                        cb(null, point-2, pivot-2);
                     } else {
                         cb(null, pivot, point);
                     }
@@ -60,12 +58,10 @@ let PlotConstructor = () => {
         }
     };
 
-    let zoomOutListener = (cb) => {
+    let zoomOutListener = (el,cb) => {
         let element=document.getElementsByClassName('c3-event-rects c3-event-rects-single');
         console.log(element);
-        app.addEventListener("dblclick",() => {
-            cb();
-        })
+        el.addEventListener("dblclick",cb,true);
     };
 
 

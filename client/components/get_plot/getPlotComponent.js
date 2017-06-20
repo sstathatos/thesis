@@ -1,13 +1,11 @@
-let getPlotInfoComponentConstructor = require('./subComponents/getPlotInfoComponent');
-let getPlotDataComponentConstructor = require('./subComponents/getPlotDataComponent');
-let getPlotDiagramComponentConstructor = require('./subComponents/getPlotDiagramComponent');
-
 let getPlotComponentConstructor = (obj) => {
-    let {app,get,id} = obj;
+    let {dependencies,id} = obj;
+    let {getPlotInfoComponentConstructor,
+        getPlotDataComponentConstructor,getPlotDiagramComponentConstructor} = dependencies;
 
-    let getPlotInfoComponent = getPlotInfoComponentConstructor({app});
-    let getPlotDataComponent = getPlotDataComponentConstructor(id,get);
-    let getPlotDiagramComponent = getPlotDiagramComponentConstructor({app});
+    let getPlotInfoComponent = getPlotInfoComponentConstructor(dependencies);
+    let getPlotDataComponent = getPlotDataComponentConstructor({id,dependencies});
+    let getPlotDiagramComponent = getPlotDiagramComponentConstructor({id,dependencies});
 
     let init = () => {
         return {
@@ -18,9 +16,12 @@ let getPlotComponentConstructor = (obj) => {
 
     let update = (obj) => {
         let {infoEls,diagramEls} =obj;
-        getPlotDataComponent.getData((err,body) => {
+        let init_obj = {direction:'init',currystart:0,curryend:0,zoomstart:0,zoomend:0};
+        getPlotDataComponent.getData(init_obj)((err,body) => {
             let {title,description,data,plot_metadata} = body;
+
             getPlotInfoComponent.update({title,description,infoEls});
+
             getPlotDiagramComponent.update({data,plot_metadata,diagramEls});
         });
     };

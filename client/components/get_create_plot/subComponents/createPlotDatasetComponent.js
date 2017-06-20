@@ -68,14 +68,51 @@ let getPlotDatasetComponentConstructor = (obj) => {
         }
 
         let enable_extra = (el,row_array) => {
+            console.log(row_array);
             options_div.innerHTML = "";
+
+            //FIRST INPUT
             let dims = Number(el.parentElement.parentElement.children[2].textContent);
+            let first_dim_name_el = html.create('p',{textContent:'Horizontal dimention:'});
+            let dim1_select_el =  html.create('select');
+            let dim1_option1_el = html.create('option',{value:1,textContent:1});
+            let dim1_option2_el = html.create('option',{value:2,textContent:2});
 
-            let first_dim_name_el = html.create('p',{textContent:'First dimention:'});
-            let first_dim_input_el = html.create('input',{type:'number',value:0,max:5});
+            let mountToSel1 = html.mountTo(dim1_select_el);
+            mountToSel1(dim1_option1_el);
+            mountToSel1(dim1_option2_el);
+            if(row_array['dimnumber'] > 2) {
+                let dim1_option3_el = html.create('option',{value:3,textContent:3});
+                mountToSel1(dim1_option3_el);
+            }
 
-            let second_dim_name_el = html.create('p',{textContent:'Second dimention:'});
-            let second_dim_input_el = html.create('input',{type:'number',value:0});
+            //SECOND INPUT
+            let second_dim_name_el = html.create('p',{textContent:'Vertical dimention:'});
+            let dim2_select_el =  html.create('select');
+            let dim2_option1_el = html.create('option',{value:1,textContent:1});
+            let dim2_option2_el = html.create('option',{value:2,textContent:2});
+
+            let mountToSel2 = html.mountTo(dim2_select_el);
+            mountToSel2(dim2_option1_el);
+            mountToSel2(dim2_option2_el);
+
+            let dim2_option3_el;
+            if(row_array['dimnumber'] > 2) {
+                dim2_option3_el = html.create('option',{value:3,textContent:3});
+                mountToSel2(dim2_option3_el);
+            }
+
+            let addListenerToSel1 = html.addListenerTo(dim1_select_el);
+
+            let parameters_obj = {
+                dim2_option1_el,dim2_option2_el,
+                dim1_select_el,dim2_select_el,row_array,
+                dim2_option3_el
+            };
+
+            addListenerToSel1('change',()=>changeOptions(parameters_obj));
+            changeOptions(parameters_obj);
+
 
             let dropdown_name_el = html.create('p',{textContent:'Select plot type:'});
             let dropdown_el = html.create('select');
@@ -89,37 +126,74 @@ let getPlotDatasetComponentConstructor = (obj) => {
                 mountToDropdown(el);
             });
 
-            let second_dim_value_name_el = html.create('p',{textContent:'Second dimention value:'});
-            let second_dim_value_input_el = html.create('input',{type:'number',value:0});
+            let second_dim_value_name_el = html.create('p',{textContent:'Vertical dimention value (represents X axis):'});
 
-            //let temp = html.create('div');
+            let dim2value_input_el = html.create('input',{type:'range'});
+            let dim2value_show_el = html.create('input',{readOnly:'true'});
 
             let mountToDiv = html.mountTo(options_div);
-            [first_dim_name_el,first_dim_input_el,
-                second_dim_name_el,second_dim_input_el,dropdown_name_el,dropdown_el,
-                second_dim_value_name_el,second_dim_value_input_el].map((el) => {
+            [first_dim_name_el,dim1_select_el,
+                second_dim_name_el,dim2_select_el,dropdown_name_el,dropdown_el,
+                second_dim_value_name_el,second_dim_value_name_el,dim2value_input_el,dim2value_show_el].map((el) => {
                 mountToDiv(el);
             });
 
+            let dim2_obj = {dim2value_input_el,row_array,dim2_select_el,dim2value_show_el};
+
+            let addListenerToDim2 =  html.addListenerTo(dim2_select_el);
+            addListenerToDim2('change',() =>changeDim2Range(dim2_obj));
+
+            let addListenerToDim1 =  html.addListenerTo(dim1_select_el);
+            addListenerToDim1('change',() =>changeDim2Range(dim2_obj));
+
+
+            let addListenerToRange2 = html.addListenerTo(dim2value_input_el);
+            addListenerToRange2('change',()=>showValue(dim2value_show_el,dim2value_input_el));
+
+            changeDim2Range(dim2_obj);
+
+
             let handler_object = {
                 array:row_array,
-                dim1:()=>first_dim_input_el.value,
-                dim2:()=>second_dim_input_el.value,
-                dim2Value:()=> second_dim_value_input_el.value,
+                dim1:()=>dim1_select_el.value,
+                dim2:()=>dim2_select_el.value,
+                dim2Value:()=> dim2value_input_el.value,
                 plot_type: ()=>dropdown_el.value,
                 title: ()=>title_el.value,
                 description:()=> descr_el.value
             };
 
-            if (dims === 3) {
-                let third_dim_value_name_el = html.create('p',{textContent:'Third dimention value:'});
-                let third_dim_value_input_el = html.create('input',{type:'number',value:0});
 
-                [third_dim_value_name_el,third_dim_value_input_el].map((el) => {
+
+
+            let third_dim_value_name_el;
+            let dim3value_input_el;
+            let dim3value_show_el;
+
+            if (dims === 3) {
+                third_dim_value_name_el = html.create('p',{textContent:'Third dimention value:'});
+
+                dim3value_input_el = html.create('input',{type:'range'});
+                dim3value_show_el = html.create('input',{readOnly:'true'});
+
+                [ third_dim_value_name_el,dim3value_input_el,dim3value_show_el].map((el)=> {
                     mountToDiv(el);
                 });
 
-                handler_object['dim3Value'] =()=>third_dim_value_input_el.value;
+
+                let addListenerToRange = html.addListenerTo(dim3value_input_el);
+                addListenerToRange('change',() => showValue(dim3value_show_el,dim3value_input_el));
+
+                let my_data = {row_array,dim2_select_el,dim1_select_el,dim3value_input_el,dim3value_show_el};
+
+                let addListenerToSel2 = html.addListenerTo(dim2_select_el);
+                addListenerToSel2('change',()=>changeRange(my_data));
+                let addListenerToSel1 = html.addListenerTo(dim1_select_el);
+                addListenerToSel1('change',()=>changeRange(my_data));
+                changeRange(my_data);
+
+
+                handler_object['dim3Value'] =()=>dim3value_input_el.value;
             }
 
             let plot_save_button_el = html.create('button',{textContent:'Save Plot'});
@@ -159,6 +233,79 @@ let getPlotDatasetComponentConstructor = (obj) => {
             cnt++;
         }
      };
+
+
+
+    let changeOptions = (obj) => {
+        let {
+            dim2_option1_el,dim2_option2_el,
+            dim1_select_el,dim2_select_el,row_array,
+            dim2_option3_el
+        } = obj;
+        [dim2_option1_el,dim2_option2_el].map((el) => {
+            if(el.value === dim1_select_el.value) {
+                el.disabled = true;
+                if(dim2_select_el.value === el.value) {
+                    getNext(dim2_select_el,row_array);
+                }
+            }
+            else el.disabled = false;
+        });
+        if(row_array['dimnumber'] > 2) {
+            let el = dim2_option3_el;
+            if(el.value === dim1_select_el.value) {
+                el.disabled = true;
+                if(dim2_select_el.value === el.value) {
+                    getNext(dim2_select_el,row_array);
+                }
+            }
+            else el.disabled = false;
+        }
+    };
+
+    let getNext = (el,row_array) => {
+
+        if(row_array['dimnumber'] > 2) {
+            if(el.value === '1' | el.value === '2') {
+                el.value = Number(el.value) +1;
+            }
+            else el.value = 1;
+        }
+        else {
+            if(el.value === '1') {
+                el.value = Number(el.value) +1;
+            }
+            else el.value = 1;
+        }
+    };
+
+    let showValue = (show_el,input_el) => {
+        show_el.value =  input_el.value;
+    };
+
+    let changeDim2Range = (obj) => {
+        let {dim2value_input_el,row_array,dim2_select_el,dim2value_show_el} = obj;
+        dim2value_input_el.max = row_array['shape'][Number(dim2_select_el.value)-1]-1;
+        dim2value_input_el.value = row_array['shape'][Number(dim2_select_el.value)-1]-1;
+        showValue(dim2value_show_el,dim2value_input_el);
+    };
+
+    let get3rd = (obj) => {
+        let {row_array,dim2_select_el,dim1_select_el} = obj;
+        return row_array['shape'].filter((dim,index) => {
+            if (index!==Number(dim2_select_el.value) -1 && index!==Number(dim1_select_el.value) -1) {
+                return dim;
+            }
+        })[0];
+    };
+
+    let changeRange = (objs) => {
+        let {row_array,dim2_select_el,dim1_select_el,dim3value_input_el,dim3value_show_el} = objs;
+        let obj ={row_array,dim2_select_el,dim1_select_el};
+        dim3value_input_el.max = get3rd(obj)-1;
+        dim3value_input_el.value = get3rd(obj)-1;
+        showValue(dim3value_show_el,dim3value_input_el);
+    };
 
     return {init,update};
 

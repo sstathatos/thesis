@@ -51,6 +51,9 @@ const dependencies = Object.freeze({
     createPostSaveButtonHandlerConstructor : require('./components/get_create_post/subComponents/createPostSaveButtonHandler'),
 
     getPlotComponentConstructor: require('./components/get_plot/getPlotComponent'),
+    getPlotInfoComponentConstructor : require('./components/get_plot/subComponents/getPlotInfoComponent'),
+    getPlotDataComponentConstructor : require('./components/get_plot/subComponents/getPlotDataComponent'),
+    getPlotDiagramComponentConstructor : require('./components/get_plot/subComponents/getPlotDiagramComponent'),
 
     getProjectComponentConstructor: require('./components/get_project/getProjectComponent'),
     getProjectCreateDatasetHandlerConstructor: require('./components/get_project/subComponents/datasetComponents/getProjectCreateDatasetHandler'),

@@ -15,7 +15,7 @@ let postStructurer = (obj) => {
             let addListenerToLi = html.addListenerTo(li_el);
 
             let getPlotButtonHandler = getPlotButtonHandlerConstructor({
-                get,
+                dependencies,
                 plot_id:plots[row]._id
             });
             addListenerToLi('click',getPlotButtonHandler);

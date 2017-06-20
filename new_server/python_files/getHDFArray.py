@@ -18,11 +18,11 @@ def save_to_json1D(a,b,c) :
     json_arr["current_array"]=c.tolist()
 
 def format_3Ddset(dset,dim1,dim2,dim3Value):
-    if dim1 == 1 and dim2 ==2:
+    if (dim1 == 1 and dim2 ==2) or (dim1 == 2 and dim2 == 1):
         return dset[:,:,dim3Value]
-    if dim1 == 2 and dim2 ==3:
+    if dim1 == 2 and dim2 ==3 or (dim1 == 3 and dim2 == 2):
         return dset[dim3Value,:,:]
-    if dim1 == 1 and dim2 ==3:
+    if dim1 == 1 and dim2 ==3 or (dim1 == 3 and dim2 ==1):
         return dset[:,dim3Value,:]
 
 path=sys.argv[1]
@@ -42,7 +42,7 @@ elif len(sys.argv) == 11:
     dim2 = int(sys.argv[9])
     dim3Value = int(sys.argv[10])
 
-MAX = 5
+MAX = 50
 file = h5py.File(path,'r')
 dset = file[array_path]
 

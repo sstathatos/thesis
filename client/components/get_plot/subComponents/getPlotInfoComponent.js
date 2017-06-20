@@ -1,8 +1,6 @@
-let html = require('../../html');
-
 let getPlotInfoComponentConstructor = (obj) => {
 
-    let {app} = obj;
+    let {app,html} = obj;
     let init = () => {
         let getplot_info_div_el = html.create('div');
         let getplot_title_name_el = html.create('p',{textContent:'Title: '});

@@ -175,6 +175,7 @@ router.get('/datasets/grid',(req,res) => {
 });
 
 router.get('/plots',(req,res) => {
+    console.log(req.query);
     getDataFromPlotID(req,(err,data) => {
         if (err) throw err;
 
