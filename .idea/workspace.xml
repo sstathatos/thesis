@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/new_server/python_files/getHDFPlot.py" line="89" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/new_server/python_files/getHDFPlot.py" line="114" mnemonic="1" />
     <bookmark url="file://$PROJECT_DIR$/client/components/get_plot/getPlotComponent.js" line="12" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="116c7290-88d7-4e01-a603-fa157eff4828" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_create_plot/subComponents/createPlotDatasetComponent.js" afterPath="$PROJECT_DIR$/client/components/get_create_plot/subComponents/createPlotDatasetComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_dataset/subComponents/getDatasetOptionsComponent.js" afterPath="$PROJECT_DIR$/client/components/get_dataset/subComponents/getDatasetOptionsComponent.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_plot/getPlotComponent.js" afterPath="$PROJECT_DIR$/client/components/get_plot/getPlotComponent.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_plot/subComponents/DataTransformConstructor.js" afterPath="$PROJECT_DIR$/client/components/get_plot/subComponents/DataTransformConstructor.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_plot/subComponents/PlotConstructor.js" afterPath="$PROJECT_DIR$/client/components/get_plot/subComponents/PlotConstructor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotDataComponent.js" afterPath="$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotDataComponent.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotDiagramComponent.js" afterPath="$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotDiagramComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotInfoComponent.js" afterPath="$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotInfoComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/structure_helpers/post_structure/getPlotButtonHandler.js" afterPath="$PROJECT_DIR$/client/components/structure_helpers/post_structure/getPlotButtonHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/structure_helpers/post_structure/postStructurer.js" afterPath="$PROJECT_DIR$/client/components/structure_helpers/post_structure/postStructurer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/dependencies.js" afterPath="$PROJECT_DIR$/client/dependencies.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_server/python_files/getHDFArray.py" afterPath="$PROJECT_DIR$/new_server/python_files/getHDFArray.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_server/routes2.js" afterPath="$PROJECT_DIR$/new_server/routes2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_server/helpers.js" afterPath="$PROJECT_DIR$/new_server/helpers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_server/python_files/getHDFPlot.py" afterPath="$PROJECT_DIR$/new_server/python_files/getHDFPlot.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_server/python_files/python_generator.py" afterPath="$PROJECT_DIR$/new_server/python_files/python_generator.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -42,48 +38,38 @@
       <file leaf-file-name="getPlotComponent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/components/get_plot/getPlotComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="25" column="11" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="25" selection-end-column="11" />
+            <state relative-caret-position="300">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getPlotDiagramComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotDiagramComponent.js">
+      <file leaf-file-name="getHDFPlot.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/new_server/python_files/getHDFPlot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="46" column="16" lean-forward="true" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+            <state relative-caret-position="2131">
+              <caret line="129" column="20" lean-forward="false" selection-start-line="129" selection-start-column="20" selection-end-line="129" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlotConstructor.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/components/get_plot/subComponents/PlotConstructor.js">
+      <file leaf-file-name="python_generator.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/new_server/python_files/python_generator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="52" column="15" lean-forward="true" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
+            <state relative-caret-position="331">
+              <caret line="32" column="16" lean-forward="true" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="html.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/components/html.js">
+      <file leaf-file-name="dependencies.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/dependencies.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="41" column="10" lean-forward="true" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataTransformConstructor.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/components/get_plot/subComponents/DataTransformConstructor.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+            <state relative-caret-position="237">
+              <caret line="56" column="21" lean-forward="false" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -100,8 +86,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>in_obj_id</find>
-      <find>assert</find>
       <find>delete</find>
       <find>res.text</find>
       <find>res.text.perm</find>
@@ -122,7 +106,6 @@
       <find>GetDat</find>
       <find>inner</find>
       <find>post</find>
-      <find>consol</find>
       <find>CONS</find>
       <find>con</find>
       <find>conso</find>
@@ -130,6 +113,9 @@
       <find>gotC</find>
       <find>cons</find>
       <find>console</find>
+      <find>consol</find>
+      <find>full_print</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>Entity</replace>
@@ -158,10 +144,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersMatrixComponent.js" />
-        <option value="$PROJECT_DIR$/client/components/login/loginHandler.js" />
-        <option value="$PROJECT_DIR$/client/components/login/register/registerHandler.js" />
-        <option value="$PROJECT_DIR$/client/components/login/register/registerComponent.js" />
         <option value="$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersDatasetRowHandler.js" />
         <option value="$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersBttnCreateHandler.js" />
         <option value="$PROJECT_DIR$/client/components/get_project/subComponents/datasetComponents/getProjectCreateDatasetHandler.js" />
@@ -201,14 +183,18 @@
         <option value="$PROJECT_DIR$/client/components/get_dataset/subComponents/getDatasetOptionsComponent.js" />
         <option value="$PROJECT_DIR$/client/components/get_create_plot/subComponents/createPlotDatasetComponent.js" />
         <option value="$PROJECT_DIR$/client/components/structure_helpers/post_structure/postStructurer.js" />
-        <option value="$PROJECT_DIR$/client/dependencies.js" />
         <option value="$PROJECT_DIR$/client/components/structure_helpers/post_structure/getPlotButtonHandler.js" />
         <option value="$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotInfoComponent.js" />
-        <option value="$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotDataComponent.js" />
-        <option value="$PROJECT_DIR$/client/components/get_plot/getPlotComponent.js" />
         <option value="$PROJECT_DIR$/new_server/routes2.js" />
-        <option value="$PROJECT_DIR$/client/components/get_plot/subComponents/PlotConstructor.js" />
+        <option value="$PROJECT_DIR$/client/dependencies.js" />
+        <option value="$PROJECT_DIR$/client/components/get_plot/subComponents/DataTransformConstructor.js" />
+        <option value="$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotDataComponent.js" />
+        <option value="$PROJECT_DIR$/new_server/helpers.js" />
         <option value="$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotDiagramComponent.js" />
+        <option value="$PROJECT_DIR$/client/components/get_plot/subComponents/PlotConstructor.js" />
+        <option value="$PROJECT_DIR$/client/components/get_plot/getPlotComponent.js" />
+        <option value="$PROJECT_DIR$/new_server/python_files/getHDFPlot.py" />
+        <option value="$PROJECT_DIR$/new_server/python_files/python_generator.py" />
       </list>
     </option>
   </component>
@@ -270,8 +256,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -849,7 +835,8 @@
       <workItem from="1497605955700" duration="21261000" />
       <workItem from="1497805828342" duration="604000" />
       <workItem from="1497862547595" duration="10116000" />
-      <workItem from="1497952045262" duration="33302000" />
+      <workItem from="1497952045262" duration="33420000" />
+      <workItem from="1498038785911" duration="26591000" />
     </task>
     <task id="LOCAL-00001" summary="Added simplifications for view and project creations. Added roles">
       <created>1488903036550</created>
@@ -1180,7 +1167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497644423302</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Added front end grid last bug fixes, started get_plot">
+      <created>1497990083018</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1497990083018</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1216,7 +1210,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2278946000" />
+    <option name="totallyTimeSpent" value="2305655000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1234,13 +1228,13 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.244709" sideWeight="0.49485862" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7847896" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7930591" sideWeight="0.5132275" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52827764" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7930591" sideWeight="0.48677248" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52820516" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.90231365" sideWeight="0.4973545" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14153439" sideWeight="0.5051414" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39974293" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14153439" sideWeight="0.5051414" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1288,7 +1282,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added python create .h5 and getcontents, not tested yet" />
     <MESSAGE value="Added getHDFContents and getHDFArray" />
     <MESSAGE value="Added get3DArray and client init" />
     <MESSAGE value="Added retrieve array in front end" />
@@ -1313,7 +1306,8 @@
     <MESSAGE value="Added front end bug fixes" />
     <MESSAGE value="Added front end more bug fixes in several components" />
     <MESSAGE value="Added front end get dataset control buttons fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added front end get dataset control buttons fixes" />
+    <MESSAGE value="Added front end grid last bug fixes, started get_plot" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added front end grid last bug fixes, started get_plot" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1323,13 +1317,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/components/get_project/getProjectDataComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/components/get_project/subComponents/getProjectInfoComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1495,7 +1482,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1503,7 +1489,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="34" column="52" lean-forward="false" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1511,7 +1496,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1519,7 +1503,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="8" column="59" lean-forward="false" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1527,7 +1510,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="13" column="57" lean-forward="false" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1535,7 +1517,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="411">
           <caret line="89" column="8" lean-forward="true" selection-start-line="89" selection-start-column="8" selection-end-line="91" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1543,7 +1524,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1551,7 +1531,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="14" column="35" lean-forward="true" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1559,7 +1538,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="411">
           <caret line="36" column="42" lean-forward="false" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1567,7 +1545,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1575,15 +1552,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_server/helpers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="227" column="65" lean-forward="false" selection-start-line="227" selection-start-column="65" selection-end-line="227" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1591,15 +1559,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1140">
           <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="58" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/dependencies.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1607,7 +1566,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1615,7 +1573,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="40" lean-forward="true" selection-start-line="0" selection-start-column="40" selection-end-line="0" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1623,7 +1580,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1631,23 +1587,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2643">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotDataComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="16" lean-forward="true" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_server/routes2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="177" column="27" lean-forward="false" selection-start-line="177" selection-start-column="27" selection-end-line="177" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1655,14 +1594,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-729">
           <caret line="44" column="8" lean-forward="false" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/html.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="820">
+          <caret line="41" column="10" lean-forward="false" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_server/python_files/getHDFPlot.py">
+    <entry file="file://$PROJECT_DIR$/client/dependencies.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-229">
-          <caret line="111" column="14" lean-forward="false" selection-start-line="111" selection-start-column="14" selection-end-line="111" selection-end-column="14" />
+        <state relative-caret-position="237">
+          <caret line="56" column="21" lean-forward="false" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_server/routes2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="179" column="24" lean-forward="true" selection-start-line="179" selection-start-column="24" selection-end-line="179" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_server/helpers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4271">
+          <caret line="235" column="24" lean-forward="true" selection-start-line="235" selection-start-column="24" selection-end-line="235" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotDataComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1670,39 +1640,47 @@
     <entry file="file://$PROJECT_DIR$/client/components/get_plot/subComponents/DataTransformConstructor.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
-          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/get_plot/getPlotComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="25" column="11" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="25" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/html.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="41" column="10" lean-forward="true" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
+          <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotDiagramComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="46" column="16" lean-forward="true" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+        <state relative-caret-position="1360">
+          <caret line="92" column="14" lean-forward="true" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/components/get_plot/subComponents/PlotConstructor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="52" column="15" lean-forward="true" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
+        <state relative-caret-position="660">
+          <caret line="33" column="25" lean-forward="false" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/get_plot/getPlotComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_server/python_files/python_generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="32" column="16" lean-forward="true" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_server/python_files/getHDFPlot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2131">
+          <caret line="129" column="20" lean-forward="false" selection-start-line="129" selection-start-column="20" selection-end-line="129" selection-end-column="20" />
           <folding />
         </state>
       </provider>

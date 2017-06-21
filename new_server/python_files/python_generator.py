@@ -3,13 +3,13 @@ import numpy as np
 import random
 
 
-x=2600
-y=14
-z=3
+x=4000
+y=500
+z=30
 
-numpy3d=np.random.randint(100,size=(x,y,z))
-numpy2d=np.random.randint(100,size=(x,y))
-numpy1d=np.random.randint(100,size=(x))
+numpy3d=np.random.randint(20,size=(x,y,z))
+numpy2d=np.random.randint(20,size=(x,y))
+numpy1d=np.random.randint(20,size=(x))
 
 file = h5py.File('h5examples/asdf.h5','w')
 # d3dset = file.create_dataset("d3dset",(x,y,z), h5py.h5t.STD_I32BE)

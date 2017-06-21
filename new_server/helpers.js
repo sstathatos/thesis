@@ -31,7 +31,7 @@ let helperConstructor = () => {
             dim1,dim2,dim3Value,dim2Value,currystart,curryend,zoomstart,zoomend,direction]);
 
         sp_child.stderr.on('data', function (data) {
-            console.log('stderr: ' + data);
+            return cb(new Error(data));
         });
         sp_child.stdout.on('data', function (data) {
             let exp=/'/g ;
@@ -53,7 +53,7 @@ let helperConstructor = () => {
         }
 
         sp_child.stderr.on('data', function (data) {
-            console.log('stderr: ' + data);
+            return cb(new Error(data));
         });
         sp_child.stdout.on('data', function (data) {
             let exp=/'/g ;
@@ -67,7 +67,7 @@ let helperConstructor = () => {
         let sp_child= spawn('python3',[__dirname+"/python_files/getHDFContent.py",path]);
 
         sp_child.stderr.on('data', function (data) {
-            console.log('stderr: ' + data);
+            return cb(new Error(data));
         });
         sp_child.stdout.on('data', function (data) {
             let exp=/'/g ;
@@ -232,7 +232,7 @@ let helperConstructor = () => {
                     let obj={direction:direction,currystart:currystart,curryend:curryend,zoomstart:zoomstart,
                         zoomend:zoomend,dim1:dim1,dim2:dim2,dim3Value:dim3Value,
                         dim2Value:dim2Value,path:plot[0].array_path_saved};
-
+                    console.log(dset[0].path_saved,obj);
                     getHDFPlot(dset[0].path_saved,obj,(err,data) => {
                         if (err) cb(new Error(err));
                         new_plot=plot.map((obj)=>{return {"title":obj.title,"description":obj.description,

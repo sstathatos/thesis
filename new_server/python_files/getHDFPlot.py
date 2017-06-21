@@ -52,7 +52,32 @@ def format_3Ddset(dset,dim1,dim2,dim3Value):
     if dim1 == 3 and dim2 ==1:
         return np.transpose(dset[:,dim3Value,:])
 
-MAX_horizontal = 50
+
+
+def remove_duplicates(sampled_sor,dim2Value):
+    my_x = sampled_sor[:,dim2Value]
+    copy_arr = sampled_sor
+    previous = None
+    todelete = []
+
+    for x in range(0, len(my_x)):
+        if my_x[x] == previous:
+#             print(sampled_sor[x-1,:])
+#             print(sampled_sor[x,:])
+            mean = (sampled_sor[x-1,:]+sampled_sor[x,:])/2
+    #         int_mean =[int(i) for i in mean]
+            copy_arr[x-1,:] = mean
+            todelete.append(x)
+
+        previous = my_x[x]
+
+#     print(todelete)
+    copy_arr = np.delete(copy_arr,np.s_[todelete], axis=0)
+#     print(np.transpose(copy_arr))
+    return copy_arr
+
+
+MAX_horizontal = 200
 MAX_vertical = 8
 
 
@@ -69,16 +94,17 @@ dset = file[array_path]
 
 if len(dset.shape) == 3:
     arr = format_3Ddset(dset,dim1,dim2,dim3Value)
+    final_arr['2d_arr_dims'] = list(arr.shape)
 elif len(dset.shape) ==2:
     final_arr['dim_names']=[dset.dims[dim1].label,dset.dims[dim2].label]
     arr=dset[:,:]
+    final_arr['2d_arr_dims'] = list(arr.shape)
 
 # print('2D slice of dataset: ')
 # print(np.transpose(arr))
 # print('2D slice dimentions: ',list(arr.shape))
 
 sorted_arr= arr[np.argsort(arr[:,dim2Value])]
-
 # print('Sorted 2D: ')
 # print(np.transpose(sorted_arr))
 # print('Sorted 2D dimentions: ',list(sorted_arr.shape))
@@ -86,30 +112,36 @@ sorted_arr= arr[np.argsort(arr[:,dim2Value])]
 # final_arr['whole_2D']=np.transpose(sorted_arr).tolist()
 # final_arr['whole_2D_dims']=list(sorted_arr.shape)
 
-
 if zoomstart!=0 or zoomend!=0:
     #zoom
     sorted_arr= formatZoom(sorted_arr,dim2Value,zoomstart,zoomend)
-
-sorted_xaxis = np.copy(sorted_arr[:,dim2Value])
-
-sorted_arr = np.delete(sorted_arr,(dim2Value), axis=1)
-
 
 step= math.ceil(len(sorted_arr)/MAX_horizontal)
 # print(step)
 
 sampled_sor= sorted_arr[::step,:]
 # print('Sampled 2D: ')
-# print(np.transpose(sampled_sor))
+# print(len(sampled_sor[:,0]))
 # print('Sampled 2D dimentions: ',list(sampled_sor.shape))
 
-sampled_sor= sorted_arr[::step,:]
-sampled_xaxis= sorted_xaxis[::step]
+sampled_sor = remove_duplicates(sampled_sor,dim2Value)
+print(len(sampled_sor[:,0]))
+
+sorted_xaxis = np.copy(sampled_sor[:,dim2Value])
+# print(sorted_xaxis)
+
+sorted_arr = np.delete(sampled_sor,(dim2Value), axis=1)
+
 
 # print('final xaxis: ')
 # print(sampled_xaxis[()])
-final_arr['xaxis']=sampled_xaxis.tolist()
+
+# dset.dims[dim1-1].label
+sampled_xaxis = list(sorted_xaxis)
+# dset.dims[dim1-1].label
+sampled_xaxis = ['x'] + sampled_xaxis
+# print(sampled_xaxis)
+final_arr['xaxis']=sampled_xaxis
 
 if direction == 'init' and zoomstart == 0 and zoomend == 0:
     #init

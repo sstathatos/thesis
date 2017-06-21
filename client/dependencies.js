@@ -54,6 +54,8 @@ const dependencies = Object.freeze({
     getPlotInfoComponentConstructor : require('./components/get_plot/subComponents/getPlotInfoComponent'),
     getPlotDataComponentConstructor : require('./components/get_plot/subComponents/getPlotDataComponent'),
     getPlotDiagramComponentConstructor : require('./components/get_plot/subComponents/getPlotDiagramComponent'),
+    DataTransformConstructor : require('./components/get_plot/subComponents/DataTransformConstructor'),
+    PlotConstructor : require('./components/get_plot/subComponents/PlotConstructor'),
 
     getProjectComponentConstructor: require('./components/get_project/getProjectComponent'),
     getProjectCreateDatasetHandlerConstructor: require('./components/get_project/subComponents/datasetComponents/getProjectCreateDatasetHandler'),

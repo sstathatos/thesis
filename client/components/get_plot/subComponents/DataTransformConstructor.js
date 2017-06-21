@@ -37,4 +37,4 @@ let DataTransformConstructor = () => {
     }
 };
 
-module.exports=DataTransformConstructor();
+module.exports=DataTransformConstructor;

@@ -23,14 +23,15 @@ let PlotConstructor = () => {
                         }
                     }
                 }
-            },
-            zoom: {
-                enabled: true
             }
+            // zoom: {
+            //     enabled: true
+            // }
         });
     };
 
     let updateChart = (chart,arr,metadata,cb) => {
+        console.log(arr);
         chart.load({
             columns: arr,
             type: metadata['plot_type'],
@@ -83,4 +84,4 @@ let PlotConstructor = () => {
     }
 };
 
-module.exports=PlotConstructor();
+module.exports=PlotConstructor;
