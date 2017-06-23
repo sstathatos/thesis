@@ -2,6 +2,7 @@ let createPostComponentConstructor = (dependencies,parent_post_id) => {
 
     let {get,errorHandler,createPostFormComponentConstructor,createPostListComponentConstructor,
         createPostGetDatasetListConstructor,html, app} = dependencies;
+    document.getElementById('BackToProjectButton').style.display='initial';
 
     let id = store.getItem('project_id');
     let createPostFormComponent = createPostFormComponentConstructor(dependencies);

@@ -4,6 +4,7 @@ import h5py
 import numpy as np
 import math
 np.set_printoptions(threshold=np.inf)
+np.set_printoptions(suppress=True)
 
 final_arr={}
 
@@ -19,13 +20,20 @@ zoomstart = int(sys.argv[9])
 zoomend = int(sys.argv[10])
 direction = str(sys.argv[11])
 
+def convertFloat2DArray(my_arr):
+    return list(map(lambda subset: list(map(lambda value:'%.2f' % value,subset)),my_arr))
+
+def convertFloat1DArray(my_arr):
+    return list(map(lambda value:'%.2f' % value,my_arr))
 
 def full_print(arr,x,y):
 #     print('final arr: ')
 #     print(np.transpose(arr))
 #     print('final arr dimentions: ',list(arr.shape))
 #     print('final arr y axis limits: ',[x,y])
-    final_arr['arr']=np.transpose(arr).tolist()
+
+    my_arr = np.transpose(arr).tolist()
+    final_arr['arr']= convertFloat2DArray(my_arr)
     final_arr['arr_dims']=list(arr.shape)
     final_arr['arr_y_limits']=[x,y]
 
@@ -36,6 +44,8 @@ def formatZoom(sorted_arr,dim2Value,zoomstart,zoomend):
 #     print(np.transpose(zoomed_arr))
 #     print('zoomed 2D dimensions: ',list(zoomed_arr.shape))
     return zoomed_arr
+
+
 
 def format_3Ddset(dset,dim1,dim2,dim3Value):
     final_arr['dim_names']=[dset.dims[dim1-1].label,dset.dims[dim2-1].label]
@@ -65,19 +75,16 @@ def remove_duplicates(sampled_sor,dim2Value):
 #             print(sampled_sor[x-1,:])
 #             print(sampled_sor[x,:])
             mean = (sampled_sor[x-1,:]+sampled_sor[x,:])/2
-    #         int_mean =[int(i) for i in mean]
             copy_arr[x-1,:] = mean
             todelete.append(x)
 
         previous = my_x[x]
 
-#     print(todelete)
     copy_arr = np.delete(copy_arr,np.s_[todelete], axis=0)
-#     print(np.transpose(copy_arr))
     return copy_arr
 
 
-MAX_horizontal = 200
+MAX_horizontal = 80
 MAX_vertical = 8
 
 
@@ -88,8 +95,6 @@ dset = file[array_path]
 # print(np.transpose(dset[()]))
 # print('Whole dataset dimensions: ',list(dset.shape))
 
-
-# np.flipud(np.transpose(arr[xstart:xend,ystart:yend])).tolist()
 #OI UPOLOGISMOI OLOI PREPEI NA GINONTAI XWRIS TO TRANSPOSE, STO TELOS TUPWNOUME ME TRANSPOSE
 
 if len(dset.shape) == 3:
@@ -125,27 +130,21 @@ sampled_sor= sorted_arr[::step,:]
 # print('Sampled 2D dimentions: ',list(sampled_sor.shape))
 
 sampled_sor = remove_duplicates(sampled_sor,dim2Value)
-print(len(sampled_sor[:,0]))
+# print(len(sampled_sor[:,0]))
 
 sorted_xaxis = np.copy(sampled_sor[:,dim2Value])
-# print(sorted_xaxis)
 
-sorted_arr = np.delete(sampled_sor,(dim2Value), axis=1)
-
-
-# print('final xaxis: ')
-# print(sampled_xaxis[()])
+sampled_sor = np.delete(sampled_sor,(dim2Value), axis=1)
 
 # dset.dims[dim1-1].label
 sampled_xaxis = list(sorted_xaxis)
 # dset.dims[dim1-1].label
-sampled_xaxis = ['x'] + sampled_xaxis
+sampled_xaxis =convertFloat1DArray(sampled_xaxis)
 # print(sampled_xaxis)
 final_arr['xaxis']=sampled_xaxis
 
 if direction == 'init' and zoomstart == 0 and zoomend == 0:
     #init
-
     if len(sampled_sor[0,:]) > MAX_vertical :
         sort_sampled_maxed=sampled_sor[:,0:MAX_vertical]
         full_print(sort_sampled_maxed,0,MAX_vertical)

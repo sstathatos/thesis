@@ -7,6 +7,9 @@ let getPostComponentConstructor = (obj) => {
     let getPostDataComponent = getPostDataComponentConstructor(id,get);
 
     let init = () => {
+
+        document.getElementById('BackToProjectButton').style.display='initial';
+
         let wholepost_div_el = html.create('div');
 
         let wholepost_name_el = html.create('p',{textContent:'Whole Post:'});

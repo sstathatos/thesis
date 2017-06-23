@@ -86,23 +86,27 @@ let getPlotDiagramComponentConstructor = (obj) => {
         if(Number(state[1]) >= data['2d_arr_dims'][1]-1) diagramEls['dynamic'][2].disabled =  true;
         else diagramEls['dynamic'][2].disabled =  false;
 
-        //console.log(state);
-        // let arr=transformData(data);
-        let arr = data['arr'];
-
+        let arr=transformData(data);
+        // let arr = data['arr'];
+        // let xaxis =  data['xaxis'];
         updateChart(diagramEls['dynamic'][1],arr,plot_metadata,()=>{
 
             zoomListener(document,(err,point,pivot) => {
-                state[2] = arr[0][point+1];
-                state[3] = arr[0][pivot+1];
-                let my_obj = {direction:'static',currystart:state[0],
-                    curryend:state[1],zoomstart:state[2],zoomend:state[3]};
+                if(arr[0][pivot+1] - arr[0][point+1] > 1 | arr[0][pivot+1] - arr[0][point+1] < -1) {
+                    console.log(arr[0][point+1],arr[0][pivot+1]);
 
-                getPlotDataComponent.getData(my_obj)((err,body) => {
-                    let {data,plot_metadata} = body;
+                    state[2] = parseInt(arr[0][point+1]);
+                    state[3] = parseInt(arr[0][pivot+1]);
+                    let my_obj = {direction:'static',currystart:state[0],
+                        curryend:state[1],zoomstart:state[2],zoomend:state[3]};
 
-                    update({data,plot_metadata,diagramEls});
-                });
+                    getPlotDataComponent.getData(my_obj)((err,body) => {
+                        let {data,plot_metadata} = body;
+
+                        update({data,plot_metadata,diagramEls});
+                    });
+                }
+                else console.log('heree');
             });
 
         });

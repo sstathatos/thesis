@@ -1,11 +1,13 @@
 
 let usersConstructor = (obj) => {
-    let {app,get,errorHandler,store,html,
+    let {app,get,errorHandler,html,
         usersInfoComponentConstructor,
         usersMatrixComponentConstructor,
         usersBttnCreateComponentConstructor,usersGetDataComponentConstructor} = obj;
 
     let id= store.getItem('user_id');
+    document.getElementById('BackToProjectButton').style.display='none';
+
 
     let usersInfoComponent = usersInfoComponentConstructor(obj);
     let usersMatrixComponent = usersMatrixComponentConstructor(obj);

@@ -26,6 +26,8 @@ const dependencies = Object.freeze({
     navigationComponentConstructor : require('./components/navigation/navigationComponent'),
     homeHandlerConstructor : require('./components/navigation/homeHandler'),
     logoutHandlerConstructor : require('./components/navigation/logoutHandler'),
+    backProjectHandlerConstructor : require('./components/navigation/backProjectHandler'),
+    searchHandlerConstructor: require('./components/navigation/searchHandler'),
 
     usersComponentConstructor: require('./components/get_user_profile/usersComponent'),
     usersInfoComponentConstructor : require('./components/get_user_profile/usersSubComponents/usersInfoComponent'),
@@ -34,6 +36,11 @@ const dependencies = Object.freeze({
     usersGetDataComponentConstructor : require('./components/get_user_profile/usersSubComponents/usersGetDataComponent'),
     usersBttnCreateHandlerConstructor : require('./components/get_user_profile/usersSubComponents/usersBttnCreateHandler'),
     usersDatasetRowHandlerConstructor: require('./components/get_user_profile/usersSubComponents/usersDatasetRowHandler'),
+
+    searchComponentConstructor : require('./components/get_search_profile/searchComponent'),
+    searchGetDataConstructor : require('./components/get_search_profile/searchGetData'),
+    searchResultsComponentConstructor: require('./components/get_search_profile/searchResultsComponent'),
+    addHandlerConstructor: require('./components/get_search_profile/addHandler'),
 
     createProjectComponentConstructor: require('./components/get_create_project/createProjectComponent'),
     submitButtonProjectHandlerConstructor: require('./components/get_create_project/submitProjectButtonHandler'),

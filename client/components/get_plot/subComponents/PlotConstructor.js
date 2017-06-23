@@ -7,7 +7,7 @@ let PlotConstructor = () => {
         return c3.generate({
             bindto: mount_point,
             data: {
-                x: 'x',
+                x: "x",
                 columns: [],
                 empty: {
                     label: {
@@ -20,6 +20,9 @@ let PlotConstructor = () => {
                     tick: {
                         culling: {
                             max: 26
+                        },
+                        format:  (d) => {
+                            return d;
                         }
                     }
                 }
@@ -31,7 +34,10 @@ let PlotConstructor = () => {
     };
 
     let updateChart = (chart,arr,metadata,cb) => {
-        console.log(arr);
+        // let xaxis = arr[0];
+
+
+        // let xaxis =  data['xaxis'];
         chart.load({
             columns: arr,
             type: metadata['plot_type'],

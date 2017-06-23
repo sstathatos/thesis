@@ -5,11 +5,11 @@ let createProjectComponentConstructor = (obj) => {
         let new_proj_div_el = html.create('div');
         let title_el= html.create('p',{textContent:"New Project:"});
 
-        let name_input_el =html.create('input');
-        let name_text_el = html.create('p',{textContent:`Name: `});
+        let name_input_el =html.create('input',{value:'new project name'});
+        let name_text_el = html.create('p',{textContent:`Name:`});
 
-        let description_input_el =html.create('textarea');
-        let description_text_el = html.create('p',{textContent:`Description: `});
+        let description_input_el =html.create('textarea',{value:'new project description'});
+        let description_text_el = html.create('p',{textContent:`Description:`});
 
         let submit_button_el = html.create('button',{textContent:'Submit'});
         let addListenerToSubmitButton = html.addListenerTo(submit_button_el);

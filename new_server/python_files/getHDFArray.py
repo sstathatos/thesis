@@ -4,18 +4,27 @@ import h5py
 import numpy as np
 np.set_printoptions(threshold=np.inf)
 
+def convertFloat2DArray(my_arr):
+    return list(map(lambda subset: list(map(lambda value:'%.2f' % value,subset)),my_arr))
+
+def convertFloat1DArray(my_arr):
+    return list(map(lambda value:'%.2f' % value,my_arr))
+
+
 json_arr={}
+
+
 
 def save_to_json(arr,xstart,xend,ystart,yend):
     if xstart < 0 or xend <0 or ystart <0 or yend <0:
         json_arr["current_array"]=[].tolist()
     else:
         json_arr["current_array_edge_points"]=[xstart,xend,ystart,yend]
-        json_arr["current_array"]=np.flipud(np.transpose(arr[xstart:xend,ystart:yend])).tolist()
+        json_arr["current_array"]=convertFloat2DArray(np.flipud(np.transpose(arr[xstart:xend,ystart:yend])).tolist())
 
 def save_to_json1D(a,b,c) :
     json_arr["current_array_shape"]=[a,b]
-    json_arr["current_array"]=c.tolist()
+    json_arr["current_array"]=convertFloat1DArray(c.tolist())
 
 def format_3Ddset(dset,dim1,dim2,dim3Value):
     if (dim1 == 1 and dim2 ==2) or (dim1 == 2 and dim2 == 1):
@@ -42,14 +51,14 @@ elif len(sys.argv) == 11:
     dim2 = int(sys.argv[9])
     dim3Value = int(sys.argv[10])
 
-MAX = 50
+MAX = 20
 file = h5py.File(path,'r')
 dset = file[array_path]
 
 if len(dset.dims) == 1:
     json_arr["number_of_dimentions"]=len(dset.dims)
     json_arr["shape_of_array"]=list(dset.shape)
-    json_arr["whole_array"]=dset[()].tolist()
+#     json_arr["whole_array"]=dset[()].tolist()
 
     if direction == 'init':
             if len(dset[0:]) > MAX:

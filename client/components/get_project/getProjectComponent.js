@@ -1,6 +1,8 @@
 let getProjectComponentConstructor = (obj) => {
     let {id,dependencies} = obj;
     store.setItem('project_id',id);
+    document.getElementById('BackToProjectButton').style.display='none';
+
     let {get,getProjectInfoComponentConstructor,
         getProjectDataComponentConstructor,
         getProjectDatasetComponentConstructor,

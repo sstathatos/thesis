@@ -119,7 +119,7 @@ let getPlotDatasetComponentConstructor = (obj) => {
 
             let option_line_el = html.create('option',{textContent:'line'});
             let option_step_el = html.create('option',{textContent:'step'});
-            let option_scatter_el = html.create('option',{textContent:'scatter'});
+            let option_scatter_el = html.create('option',{textContent:'area'});
 
             let mountToDropdown = html.mountTo(dropdown_el);
             [option_line_el,option_step_el,option_scatter_el].map((el) =>{

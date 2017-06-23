@@ -5,7 +5,7 @@ let fs = require('fs');
 let APIConstructor=require('../API/index');
 let helperConstructor=require('./helpers');
 
-let {readObjs,updateObj,createObj,addUserRole}=APIConstructor;
+let {readObjs,updateObj,createObj,addUserRole,isAllowed}=APIConstructor;
 let {getUserProjects,getHDFPlot,getHDFArray,getHDFContentsForView,
     confProject,searchRelatedPosts,save_data,getDataFromPlotID,confDsets}= helperConstructor;
 
@@ -66,8 +66,46 @@ router.get('/logout', (req, res) => {
 });
 
 
+router.get('/search', (req, res) => {
+    let {query} = req;
+
+    readObjs('users',{username:query['term']})((err,users) => {
+        if (err) throw err;
+        if(users.length === 0) {
+            res.status(200).send({perm:'allowed',data:'empty'});
+        }
+        else if (users.length === 1) {
+            let new_user=users.map((obj)=>{return {"name":obj.name,"username":obj.username,"email" : obj.email}})[0];
+            getUserProjects(users[0]._id, (err,projs) => {
+                let cnt = 0;
+                projs[0].map((proj,index)=> {
+                    isAllowed(req.user._id, proj.id, 'read','projects')((err,result)=> {
+                        if (err) throw err;
+                        projs[0][index].permission = result;
+                        if(cnt === projs[0].length-1) {
+                            new_user['projects']=projs[0];
+                            res.status(200).send({perm:'allowed',data:new_user});
+                        }
+                        cnt++;
+                    })
+                });
+            });
+        }
+        else {
+            res.status(200).send({perm:'allowed',data:'too many results'});
+        }
+    });
+});
+
+router.get('/join',(req,res)=> {
+    addUserRole(req.user._id, req.query._id, 'member','projects')((err,result) => {
+        if (err) throw err;
+        res.status(200).send({perm:'allowed',data:'done'});
+    })
+});
+
 //get a user's profile contents
-router.get('/users', (req, res) => {
+router.get('/users',(req,res) => {
     let {query} = req;
     readObjs('users',{_id:query._id})((err,users) => {
         if (err) throw err;

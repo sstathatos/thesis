@@ -5,6 +5,8 @@ let getDatasetComponentConstructor = (obj) => {
     let getDatasetOptionsComponent = getDatasetOptionsComponentConstructor({dependencies,retrieveData,data});
 
     let init = () => {
+        document.getElementById('BackToProjectButton').style.display='initial';
+
         return {
             optionsEls:getDatasetOptionsComponent.init(data)
         }

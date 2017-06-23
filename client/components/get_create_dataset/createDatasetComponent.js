@@ -4,6 +4,8 @@ let createDatasetComponentConstructor = (obj) => {
     let {app,post,submitButtonDatasetHandlerConstructor} = obj;
 
     let init = () => {
+        document.getElementById('BackToProjectButton').style.display='initial';
+
         let dataset_div_el =html.create('div');
 
         let title_dataset_el = html.create('p',{textContent:'New Dataset:'});
