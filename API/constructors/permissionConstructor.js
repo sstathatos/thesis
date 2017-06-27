@@ -177,7 +177,6 @@ let permissionConstructor = (obj) => {
                     else if(model_to_create === 'posts' || model_to_create === 'datasets') {
                         readObjs('projects', {_id: in_obj_id})((err, proj) => {
                             if (err) return cb(new Error(err));
-
                             if (proj.length === 1) {
                                 if(checkObj(proj[0].acl['create'].allow,user_id)) return cb(null,'allowed');
                                 else return cb(null,'denied');

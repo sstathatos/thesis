@@ -1,12 +1,20 @@
 const dependencies = require('./dependencies');
+let {html,init} = dependencies;
 
 window.store = dependencies.store;
 
-let addListenerToWindow = dependencies.html.addListenerTo(window);
+let addListenerToWindow = html.addListenerTo(window);
 addListenerToWindow('popstate',(e)=>console.log(e));
 
-let loginComponent = dependencies.loginComponentConstructor(dependencies);
-loginComponent.init();
+
+// dependencies.get({uri:'/error'},(err,response,body) =>{
+//     dependencies.errorHandler({err,response});
+// });
+
+init(dependencies);
+
+
+
 
 // let navigationComponent = dependencies.navigationComponentConstructor(dependencies);
 // navigationComponent.init();

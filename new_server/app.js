@@ -31,7 +31,7 @@ app.use(session({
 //Passport init
 app.use(passport.initialize());
 app.use(passport.session());
-app.use('/', require('./routes2'));
+app.use('/', require('./routes'));
 
 app.set('port',(process.env.PORT || 3000));
 

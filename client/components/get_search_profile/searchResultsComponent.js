@@ -1,5 +1,5 @@
 let searchResultsComponent = (obj) => {
-    let {app,get,id,html,addHandlerConstructor} = obj;
+    let {app,html,addHandlerConstructor} = obj;
 
     let dependencies = obj;
     let init = () => {

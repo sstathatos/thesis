@@ -1,14 +1,11 @@
-let usersGetDataConstructor = (id,get) => {
-
+let usersGetDataConstructor = (id,dependencies) => {
+    let {get,errorHandler} =  dependencies;
     let getData = (cb) => {
         get({uri:`/users/?_id=${id}`}, (err,response,body) => {
-            if (err) return cb(new Error(err));
-            try {
-                return cb(null,JSON.parse(body).data);
+            if(errorHandler({err,response})) {
+                return;
             }
-            catch(e) {
-                return cb(new Error(e));
-            }
+            return cb(null,JSON.parse(body).data);
         })
     };
 

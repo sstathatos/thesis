@@ -27,17 +27,10 @@ let PlotConstructor = () => {
                     }
                 }
             }
-            // zoom: {
-            //     enabled: true
-            // }
         });
     };
 
     let updateChart = (chart,arr,metadata,cb) => {
-        // let xaxis = arr[0];
-
-
-        // let xaxis =  data['xaxis'];
         chart.load({
             columns: arr,
             type: metadata['plot_type'],
@@ -52,7 +45,7 @@ let PlotConstructor = () => {
             points[point].addEventListener("mouseup",() => {
                 if (pivot !== point) {
                     if (point < pivot) {
-                        cb(null, point-2, pivot-2);
+                        cb(null, point, pivot);
                     } else {
                         cb(null, pivot, point);
                     }
@@ -65,28 +58,8 @@ let PlotConstructor = () => {
         }
     };
 
-    let zoomOutListener = (el,cb) => {
-        let element=document.getElementsByClassName('c3-event-rects c3-event-rects-single');
-        console.log(element);
-        el.addEventListener("dblclick",cb,true);
-    };
-
-
-    let init =  (onzoom) => {
-
-        return (initial_arr) => {
-
-            generateChart(initial_arr);
-            zoomListener(document,onzoom);
-        };
-    };
-
-    let update = (onzoom,onzoomout) =>{
-
-    };
-
     return {
-        generateChart,zoomListener,updateChart,zoomOutListener
+        generateChart,zoomListener,updateChart
     }
 };
 

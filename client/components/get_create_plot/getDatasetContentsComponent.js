@@ -1,9 +1,14 @@
-let getDatasetContentsComponentConstructor = (id,get) => {
+let getDatasetContentsComponentConstructor = (obj) => {
 
+    let {dataset_id,dependencies} = obj;
+    let {get,errorHandler} =  dependencies;
     let getData = (cb) => {
-        get({uri:`/datasets/?_id=${id}`}, (err,response,body) => {
+        get({uri:`/datasets/?_id=${dataset_id}`}, (err,response,body) => {
+            if(errorHandler({err,response})) {
+                return;
+            }
+
             let {data} =JSON.parse(body);
-            if (err) return cb(new Error(err));
             return cb(null, data);
         });
     };

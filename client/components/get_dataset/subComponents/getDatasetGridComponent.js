@@ -31,7 +31,6 @@ let getDatasetGridComponentConstructor = (obj) => {
     let update = (obj) => {
         let {datasetGridEls,data} = obj;
         let array = data['current_array'];
-        console.log(datasetGridEls);
         datasetGridEls['dynamic'][0].innerHTML = "";
 
         console.log(data);

@@ -9,7 +9,7 @@ let getProjectComponentConstructor = (obj) => {
         getProjectPostComponentConstructor} = dependencies;
 
     let getProjectInfoComponent = getProjectInfoComponentConstructor(dependencies);
-    let getProjectDataComponent = getProjectDataComponentConstructor(get);
+    let getProjectDataComponent = getProjectDataComponentConstructor(dependencies);
 
     let getProjectDatasetComponent = getProjectDatasetComponentConstructor(dependencies);
 
@@ -27,6 +27,7 @@ let getProjectComponentConstructor = (obj) => {
     let update = (obj) => {
         let {infoEls,datasetEls,postEls} =obj;
         getProjectDataComponent.getData((err,body) => {
+
             let {name,description,date,dsets,post_parents} = body;
             getProjectInfoComponent.update({name,description,date,infoEls});
             getProjectDatasetComponent.update({dsets,datasetEls});

@@ -1,8 +1,10 @@
-let searchGetDataConstructor = (search,get) => {
-
+let searchGetDataConstructor = (search,dependencies) => {
+    let {get,errorHandler} =  dependencies;
     let getData = (cb) => {
         get({uri:`/search/?term=${search}`},(err,response,body) => {
-            if (err) return cb(new Error(err));
+            if(errorHandler({err,response})) {
+                return;
+            }
             return cb(null,JSON.parse(body).data);
         });
     };

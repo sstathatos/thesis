@@ -1,11 +1,11 @@
 let searchComponent = (obj) => {
     let {dependencies,search} = obj;
-    let {app,get,errorHandler,searchGetDataConstructor,
+    let {app,searchGetDataConstructor,
         usersComponentConstructor,searchResultsComponentConstructor} = dependencies;
 
     document.getElementById('BackToProjectButton').style.display='none';
 
-    let searchGetData = searchGetDataConstructor(search,get);
+    let searchGetData = searchGetDataConstructor(search,dependencies);
     let searchResultsComponent =  searchResultsComponentConstructor(dependencies);
 
     let init = () => {
@@ -19,7 +19,6 @@ let searchComponent = (obj) => {
         let {searchResultsEl} = obj;
 
         searchGetData.getData((err, data) => {
-            if (err) return errorHandler(err);
 
             if (data === 'empty') {
                 console.log('EMPTY');
@@ -30,7 +29,7 @@ let searchComponent = (obj) => {
             }
 
             else if (data === 'too many results') {
-                console.log('too many results')
+                console.log('too many results');
                 document.getElementById('app').innerHTML = "";
 
                 let usersComponent = usersComponentConstructor(dependencies);

@@ -1,8 +1,10 @@
-let getPostDataComponentConstructor = (id,get) => {
-
+let getPostDataComponentConstructor = (id,dependencies) => {
+    let {get,errorHandler} =  dependencies;
     let getData = (cb) => {
         get({uri:`/posts/?_id=${id}`}, (err,response,body) => {
-            if (err) return cb(new Error(err));
+            if(errorHandler({err,response})) {
+                return;
+            }
             return cb(null, JSON.parse(body).data);
         });
     };

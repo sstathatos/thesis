@@ -1,6 +1,6 @@
 
 let usersConstructor = (obj) => {
-    let {app,get,errorHandler,html,
+    let {errorHandler,
         usersInfoComponentConstructor,
         usersMatrixComponentConstructor,
         usersBttnCreateComponentConstructor,usersGetDataComponentConstructor} = obj;
@@ -12,7 +12,7 @@ let usersConstructor = (obj) => {
     let usersInfoComponent = usersInfoComponentConstructor(obj);
     let usersMatrixComponent = usersMatrixComponentConstructor(obj);
     let usersBttnCreateComponent = usersBttnCreateComponentConstructor(obj);
-    let usersGetDataComponent=usersGetDataComponentConstructor(id,get,html);
+    let usersGetDataComponent=usersGetDataComponentConstructor(id,obj);
 
     let init = () => {
         return {
@@ -25,8 +25,6 @@ let usersConstructor = (obj) => {
     let update = (obj) => {
         let {usersInfoEl,usersMatrixEl} = obj;
         usersGetDataComponent.getData((err,data) => {
-            if (err) return errorHandler(err);
-
             let {username,email,name,projects} = data;
 
             let infoEl = usersInfoEl.dynamic;

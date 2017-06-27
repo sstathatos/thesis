@@ -1,6 +1,7 @@
 let getPlotDiagramComponentConstructor = (obj) => {
     let {dependencies,id} = obj;
-    let {app,html,getPlotDataComponentConstructor,DataTransformConstructor,PlotConstructor} = dependencies;
+    let {app,html,getPlotDataComponentConstructor,errorHandler,
+        DataTransformConstructor,PlotConstructor} = dependencies;
     let getPlotDataComponent = getPlotDataComponentConstructor({id,dependencies});
 
     let {transformData} = DataTransformConstructor();
@@ -40,6 +41,7 @@ let getPlotDiagramComponentConstructor = (obj) => {
                 curryend:state[1],zoomstart:state[2],zoomend:state[3]};
 
             getPlotDataComponent.getData(my_obj)((err,body) => {
+
                 let {data,plot_metadata} = body;
 
                 update({data,plot_metadata,diagramEls:{static:[],
@@ -52,6 +54,7 @@ let getPlotDiagramComponentConstructor = (obj) => {
                 curryend:state[1],zoomstart:state[2],zoomend:state[3]};
 
             getPlotDataComponent.getData(my_obj)((err,body) => {
+
                 let {data,plot_metadata} = body;
 
                 update({data,plot_metadata,diagramEls:{static:[],
@@ -92,11 +95,10 @@ let getPlotDiagramComponentConstructor = (obj) => {
         updateChart(diagramEls['dynamic'][1],arr,plot_metadata,()=>{
 
             zoomListener(document,(err,point,pivot) => {
-                if(arr[0][pivot+1] - arr[0][point+1] > 1 | arr[0][pivot+1] - arr[0][point+1] < -1) {
                     console.log(arr[0][point+1],arr[0][pivot+1]);
 
-                    state[2] = parseInt(arr[0][point+1]);
-                    state[3] = parseInt(arr[0][pivot+1]);
+                    state[2] = parseFloat(arr[0][point+1]);
+                    state[3] = parseFloat(arr[0][pivot+1]);
                     let my_obj = {direction:'static',currystart:state[0],
                         curryend:state[1],zoomstart:state[2],zoomend:state[3]};
 
@@ -105,8 +107,6 @@ let getPlotDiagramComponentConstructor = (obj) => {
 
                         update({data,plot_metadata,diagramEls});
                     });
-                }
-                else console.log('heree');
             });
 
         });

@@ -1,5 +1,5 @@
 let userInfoConstructor = (obj) => {
-    let {app,get,id,html} = obj;
+    let {app,html} = obj;
 
     let init = () => {
         let userDataEl=html.create('div');

@@ -2,29 +2,35 @@ let schemaConstructor = (mongoose) => {
     let UserSchema = {
         username: {
             type: String,
-            index: true
+            index: true,
+            required: true
         },
         email: {
-            type: String
+            type: String,
+            required: true
         },
         password: {
-            type: String
+            type: String,
+            required: true
         },
         name: {
-            type: String
+            type: String,
+            required: true
         }
     };
 
     let ProjectSchema = {
         name: {
             type: String,
-            index: true
+            index: true,
+            required: true
         },
         date: {
             type: Date
         },
         description: {
-            type: String
+            type: String,
+            required: true
         },
         acl: {
             read: {
@@ -52,19 +58,23 @@ let schemaConstructor = (mongoose) => {
 
     let DatasetSchema = {
         name: {
-            type: String
+            type: String,
+            required: true
         },
         date: {
             type: Date
         },
         creator: {
-            type: mongoose.Schema.Types.ObjectId, ref: UserSchema
+            type: mongoose.Schema.Types.ObjectId, ref: UserSchema,
+            required: true
         },
         path_saved: {
-            type: String
+            type: String,
+            required: true
         },
         inproject: {
-            type: mongoose.Schema.Types.ObjectId, ref: ProjectSchema
+            type: mongoose.Schema.Types.ObjectId, ref: ProjectSchema,
+            required: true
         },
         acl: {
             read: {
@@ -93,13 +103,15 @@ let schemaConstructor = (mongoose) => {
     let PostSchema = {
         title: {
             type: String,
-            index: true
+            index: true,
+            required: true
         },
         date: {
             type: Date
         },
         description: {
-            type: String
+            type: String,
+            required: true
         },
         acl: {
             read: {
@@ -125,19 +137,23 @@ let schemaConstructor = (mongoose) => {
         },
         inpost: {type: mongoose.Schema.Types.ObjectId, ref: 'posts'},
         inproject: {
-            type: mongoose.Schema.Types.ObjectId, ref: ProjectSchema
+            type: mongoose.Schema.Types.ObjectId, ref: ProjectSchema,
+            required: true
         },
         dset_link: {
-            type:mongoose.Schema.Types.ObjectId,ref :DatasetSchema
+            type:mongoose.Schema.Types.ObjectId,ref :DatasetSchema,
+            required: true
         }
     };
 
     let PlotSchema = {
         title: {
-            type: String
+            type: String,
+            required: true
         },
         description: {
-            type: String
+            type: String,
+            required: true
         },
         array_path_saved: {
             type: String

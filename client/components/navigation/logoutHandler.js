@@ -5,7 +5,9 @@ let logoutHandlerConstructor = (obj) => {
         document.getElementById('BackToProjectButton').style.display='none';
 
         get({uri:'/logout'},(err,response,body) => {
-            if (err)  return errorHandler(err);
+            if(errorHandler({err,response})) {
+                return;
+            }
 
             document.getElementById('top').innerHTML = "";
             document.getElementById('app').innerHTML = "";

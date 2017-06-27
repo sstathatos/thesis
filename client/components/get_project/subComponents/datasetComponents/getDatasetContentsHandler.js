@@ -3,7 +3,7 @@ let getDatasetContentsHandlerConstructor = (obj) => {
 
     let getDatasetContentsHandler = () => {
         get({uri:`/datasets/?_id=${id()}`},(err,response,body) => {
-            if (err) return gotContents(new Error(err));
+            if (err) return gotContents({err:new Error(err),response});
 
             return gotContents(null,{data:JSON.parse(body).data,caller:contents_div,dset_id:id()});
         })

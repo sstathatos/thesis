@@ -1,6 +1,6 @@
 let getPlotComponentConstructor = (obj) => {
     let {dependencies,id} = obj;
-    let {getPlotInfoComponentConstructor,
+    let {getPlotInfoComponentConstructor,errorHandler,
         getPlotDataComponentConstructor,getPlotDiagramComponentConstructor} = dependencies;
 
     let getPlotInfoComponent = getPlotInfoComponentConstructor(dependencies);

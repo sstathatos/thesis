@@ -1,9 +1,14 @@
 let searchHandlerConstructor = (obj) => {
 
     let {search,dependencies} = obj;
-    let {searchComponentConstructor} = dependencies;
+    let {searchComponentConstructor,errorHandler,validator} = dependencies;
 
     let searchHandler = () => {
+
+        if(validator.isEmpty(search())) {
+            errorHandler({err:'empty field'});
+            return;
+        }
 
         document.getElementById('app').innerHTML = "";
 

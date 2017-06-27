@@ -12,13 +12,13 @@ path=str(sys.argv[1])
 array_path= str(sys.argv[2])
 dim1=int(sys.argv[3])
 dim2=int(sys.argv[4])
-dim3Value = int(sys.argv[5])
-dim2Value = int(sys.argv[6]) #i timi tou kathorizei ti thewroume orizontio aksona
-currystart = int(sys.argv[7])
-curryend = int(sys.argv[8])
-zoomstart = int(sys.argv[9])
-zoomend = int(sys.argv[10])
-direction = str(sys.argv[11])
+dim2Value = int(sys.argv[5]) #i timi tou kathorizei ti thewroume orizontio aksona
+currystart = int(sys.argv[6])
+curryend = int(sys.argv[7])
+zoomstart = float(sys.argv[8])
+zoomend = float(sys.argv[9])
+direction = str(sys.argv[10])
+
 
 def convertFloat2DArray(my_arr):
     return list(map(lambda subset: list(map(lambda value:'%.2f' % value,subset)),my_arr))
@@ -98,10 +98,11 @@ dset = file[array_path]
 #OI UPOLOGISMOI OLOI PREPEI NA GINONTAI XWRIS TO TRANSPOSE, STO TELOS TUPWNOUME ME TRANSPOSE
 
 if len(dset.shape) == 3:
+    dim3Value = int(sys.argv[11])
     arr = format_3Ddset(dset,dim1,dim2,dim3Value)
     final_arr['2d_arr_dims'] = list(arr.shape)
 elif len(dset.shape) ==2:
-    final_arr['dim_names']=[dset.dims[dim1].label,dset.dims[dim2].label]
+    final_arr['dim_names']=[dset.dims[dim1-1].label,dset.dims[dim2-1].label]
     arr=dset[:,:]
     final_arr['2d_arr_dims'] = list(arr.shape)
 

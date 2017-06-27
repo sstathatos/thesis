@@ -2,10 +2,16 @@ let APIConstructor=require('../API/index');
 let {isAllowed,isAllowedCreate}=APIConstructor;
 
 let rules = [
-    {route:"/",method:"GET"},
-    {route:"/login",method:"POST"},
-    {route:"/register",method:"POST"}
+    {route:"",method:"GET"},
+    {route:"login",method:"POST"},
+    {route:"register",method:"POST"},
+    {route:'isauthenticated',method:'GET'}
 ];
+
+let map_to_model = {
+    'datasetlist' : 'projects',
+    'datasetgrid' : 'datasets'
+};
 
 let entities=['users','projects','posts','datasets','plots'];
 
@@ -14,10 +20,9 @@ let methodMap = {
 };
 
 let defender = (req,res,next) => {
-    let {url,method}=req;
-
-    let current = {route:url,method};
-    //console.log(method, url);
+    let {url,method,path}=req;
+    let current = {route:path.split('/')[1],method};
+    console.log(method, url);
 
     for (let i in rules) {
         if (JSON.stringify(current)===JSON.stringify(rules[i])) {
@@ -26,8 +31,7 @@ let defender = (req,res,next) => {
     }
 
     if (!req.isAuthenticated()) {
-        console.log('NOT AUTHENTICATED!');
-        return res.status(418).send({perm:"denied"});
+        return res.status(401).send('You are not authenticated.');
     }
 
     else return checkExceptions(req,res,next);
@@ -38,69 +42,76 @@ let checkExceptions = (req,res,next) => {
     let {url} = req;
     // let regExp1 =/(\?_id=)(\/)/;
 
-    let regExp= /[-!$%^*()+|~`{}\[\]:";'<>,.]/;
-
-    if(regExp.test(url)) {
-        console.log('weird symbols');
-        return res.status(418).send({perm:"denied"});
-    }
-    else if (url.split("/").length -1 >2) {
-        console.log('too many slashes');
-        return res.status(418).send({perm:"denied"});
-    }
+    // let regExp= /[-!$^*()+|~`{}\[\]:";'<>,.]/;
+    //
+    // if(regExp.test(url)) {
+    //     console.log('weird symbols');
+    //     return res.status(418).send({perm:"denied"});
+    // }
+    // else if (url.split("/").length -1 >2) {
+    //     console.log('too many slashes');
+    //     return res.status(418).send({perm:"denied"});
+    // }
 
     checkPermission(req,res,next);
 };
 
 let checkPermission = (req,res,next) => {
-    let {query,method,path,url} = req;
+    let {query,method,path} = req;
     let model=path.split('/');
-    console.log(model[1],query,method);
 
-    if(model[1]==='upload' || model[1]==='logout') {
+    if(model[1]==='logout' | model[1]==='search' | model[1]==='join') {
         return next();
     }
 
+    else if(map_to_model[model[1]]) {
+        model[1] = map_to_model[model[1]];
+    }
+
     if(!entities.includes(model[1])) {
-        console.log(`this model does't exist`);
-        return res.status(418).send({perm:"denied"});
+        return res.status(400).send('Bad request.');
     }
 
     else if (method ==='POST') {
-        isAllowedCreate(req.user._id,methodMap[method],model[1],query._id)((err,perm) => {
+        let check;
+
+        if(query.inproject) check = query.inproject;
+        else if(query.inpost) check = query.inpost;
+        else check = query._id;
+
+        isAllowedCreate(req.user._id,methodMap[method],model[1],check)((err,perm) => {
             if(err) {
-                if (err) throw err;
                 console.log(err.message);
-                return res.status(418).send({perm:"denied"});
+                return res.status(500).send('Internal Server Error.');
             }
             if(perm==='allowed') {
-                // res.status(200).send('allowed');
                 return next();
             }
             else {
-                return res.status(418).send({perm:"denied"});
+                return res.status(403).send('Permission denied.');
             }
         });
     }
 
     else if ((method === 'GET') || (method === 'PUT') || (method === 'DELETE')) {
-        // /get_user_profile && method 'get'
         isAllowed(req.user._id,query._id,methodMap[method],model[1])((err,perm) => {
             if(err) {
                 console.log(err.message);
-                return res.status(418).send({perm:"denied"});  //404 normally
+                return res.status(500).send('Internal Server Error.');
             }
             if(perm==='allowed') {
                 return next();
             }
             else {
-                return res.status(418).send({perm:"denied"});
+                return res.status(403).send('Permission denied.');
             }
         })
     }
 
     else {
-        return res.status(418).send({perm:"denied"});
+
+        return res.status(400).send('Bad request.');
+
     }
 };
 

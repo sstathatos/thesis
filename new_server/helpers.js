@@ -16,11 +16,12 @@ let helperConstructor = () => {
         let qpath="acl.read.allow";
         readObjs('projects',{[qpath]:id})((err,projs) => {
             if (err) cb(new Error(err));
+            if(projs.length === 0) return cb(null,[]);
             projects.push(projs.map((obj)=>{return {"name":obj.name,
                 "description":obj.description,
                 "id": obj._id,
                 "date":obj.date.toISOString().slice(0, 10)}}));
-            cb(null,projects);
+            return cb(null,projects);
         });
     };
 
@@ -28,7 +29,7 @@ let helperConstructor = () => {
         let {path,direction,dim2Value,currystart,curryend,zoomstart,dim1,dim2,dim3Value,zoomend}=obj;
         let sp_child;
         sp_child= spawn('python3',[__dirname+"/python_files/getHDFPlot.py",path_saved,path,
-            dim1,dim2,dim3Value,dim2Value,currystart,curryend,zoomstart,zoomend,direction]);
+            dim1,dim2,dim2Value,currystart,curryend,zoomstart,zoomend,direction,dim3Value]);
 
         sp_child.stderr.on('data', function (data) {
             return cb(new Error(data));
@@ -36,7 +37,6 @@ let helperConstructor = () => {
         sp_child.stdout.on('data', function (data) {
             let exp=/'/g ;
             let arr = JSON.parse(data.toString().replace(exp,"\""));
-            console.log(arr);
             cb(null,arr)
         });
     };
@@ -58,7 +58,6 @@ let helperConstructor = () => {
         });
         sp_child.stdout.on('data', function (data) {
             let exp=/'/g ;
-            console.log(data.toString());
             let arr = JSON.parse(data.toString().replace(exp,"\""));
             cb(null,arr)
         });
@@ -94,9 +93,9 @@ let helperConstructor = () => {
                     let data = Buffer.concat(file.fileRead, size);//concat all chunks
                     let new_name=__dirname+'/hdf_saved_files/'+shortid.generate()+'.h5';
                     fs.writeFile(new_name, data, (err) => {
-                        if (err) throw err;
+                        if (err) return cb(new Error(err));
                         console.log('The file has been saved!');
-                        cb(null,new_name);
+                        return cb(null,new_name);
                     });
                 });
                 file.on('limit', function () {
@@ -108,7 +107,7 @@ let helperConstructor = () => {
             console.log('Done parsing form!');
         });
         busboy.on('error', function (err) {
-            cb(new Error(err));
+            return cb(new Error(err));
         });
         req.pipe(busboy);
     };
@@ -227,12 +226,12 @@ let helperConstructor = () => {
             readObjs('posts',{_id:plot[0].inpost})((err,post) => {
                 if (err) cb(new Error(err));
                 let {dim1,dim2,dim3Value,dim2Value}=plot[0].plot_metadata;
-
                 readObjs('datasets',{_id:post[0].dset_link})((err,dset) => {
                     if (err) cb(new Error(err));
                     let obj={direction:direction,currystart:currystart,curryend:curryend,zoomstart:zoomstart,
-                        zoomend:zoomend,dim1:dim1,dim2:dim2,dim3Value:dim3Value,
+                        zoomend:zoomend,dim1:dim1,dim2:dim2,
                         dim2Value:dim2Value,path:plot[0].array_path_saved};
+                    if(dim3Value) obj['dim3Value']= dim3Value;
                     console.log(dset[0].path_saved,obj);
                     getHDFPlot(dset[0].path_saved,obj,(err,data) => {
                         if (err) cb(new Error(err));

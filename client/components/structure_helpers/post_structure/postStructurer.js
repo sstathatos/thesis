@@ -1,8 +1,8 @@
 
 let postStructurer = (obj) => {
     let {post_data,post_div_el,dependencies} =  obj;
-    let {get,getPlotButtonHandlerConstructor,getDatasetButtonHandlerConstructor,html} = dependencies;
-    let {title,description,date,dset,plots_ids} =post_data;
+    let {getPlotButtonHandlerConstructor,getDatasetButtonHandlerConstructor,html} = dependencies;
+    let {title,description,date,dset,plots_ids} = post_data;
     let {creator_username,name,_id} =dset;
 
     let plots_struct = (plots,post_plots_ul_el) => {

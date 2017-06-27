@@ -1,7 +1,7 @@
 let getDatasetComponentConstructor = (obj) => {
     let {dependencies,id,data} = obj;
-    let {get,app,retrieveDataConstructor,getDatasetOptionsComponentConstructor} = dependencies;
-    let {retrieveData} = retrieveDataConstructor({id,path:data['path'],get});
+    let {retrieveDataConstructor,getDatasetOptionsComponentConstructor} = dependencies;
+    let {retrieveData} = retrieveDataConstructor({id,path:data['path'],dependencies});
     let getDatasetOptionsComponent = getDatasetOptionsComponentConstructor({dependencies,retrieveData,data});
 
     let init = () => {

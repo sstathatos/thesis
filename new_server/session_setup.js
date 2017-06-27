@@ -5,9 +5,9 @@ let {readObjs}=APIConstructor;
 
 //authentication strategy-passport
 passport.use(new LocalStrategy (
-    function(username, password, done) {
+    (username, password, done) => {
         readObjs('users',{username: username})((err, users) =>{
-            if(err) throw err;
+            if(err) return done(null, false, 'Unexpected Error')
             if(!users[0]) {
                 return done(null , false,'Unknown User');
             }

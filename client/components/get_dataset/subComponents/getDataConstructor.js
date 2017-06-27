@@ -38,7 +38,6 @@ let getDataConstructor = (obj) => {
             }
 
             retrieveData(data_obj)((err,data)=> {
-
                 curr_state=data['current_array_edge_points'];
 
                 getDataGridComponent.update({datasetGridEls,data});

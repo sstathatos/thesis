@@ -2,9 +2,9 @@ let getPostDataComponentConstructor = require('./getPostDataComponent');
 
 let getPostComponentConstructor = (obj) => {
     let {dependencies,id} = obj;
-    let {app,get,createResponseButtonHandlerConstructor,postStructurer,html} = dependencies;
+    let {app,createResponseButtonHandlerConstructor,postStructurer,html} = dependencies;
 
-    let getPostDataComponent = getPostDataComponentConstructor(id,get);
+    let getPostDataComponent = getPostDataComponentConstructor(id,dependencies);
 
     let init = () => {
 

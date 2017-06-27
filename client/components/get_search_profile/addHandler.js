@@ -4,9 +4,10 @@ let addHandlerConstructor = (obj) => {
     let {get,errorHandler,usersComponentConstructor} =  dependencies;
     let addHandler = () => {
 
-        get({uri:`/join/?_id=${id}`},(err) => {
-            if (err) return errorHandler(err);
-
+        get({uri:`/join/?_id=${id}`},(err,response,body) => {
+            if(errorHandler({err,response})) {
+                return;
+            }
             document.getElementById('app').innerHTML = "";
 
             let usersComponent = usersComponentConstructor(dependencies);

@@ -1,11 +1,11 @@
 let createPlotComponentConstructor = (obj) => {
     let {dependencies,dataset_id,plot_cb,post_div} =obj;
     let {app,get,html,post,createPlotInfoComponentConstructor,
-        createPlotDatasetComponentConstructor,getDatasetContentsComponentConstructor} = dependencies;
+        createPlotDatasetComponentConstructor,errorHandler,getDatasetContentsComponentConstructor} = dependencies;
 
     let createPlotInfoComponent = createPlotInfoComponentConstructor(dependencies);
     let createPlotDatasetComponent = createPlotDatasetComponentConstructor({dependencies,plot_cb});
-    let getDatasetContentsComponent = getDatasetContentsComponentConstructor(dataset_id,get);
+    let getDatasetContentsComponent = getDatasetContentsComponentConstructor({dataset_id,dependencies});
 
     let init = () => {
         let plot_div = html.create('div');

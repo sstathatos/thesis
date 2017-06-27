@@ -1,6 +1,6 @@
 let getPlotDatasetComponentConstructor = (obj) => {
     let {dependencies,plot_cb} = obj;
-    let {html} = dependencies;
+    let {html,errorHandler,validator} = dependencies;
     let init = (plot_div) => {
         let plot_dataset_div_el = html.create('div');
 
@@ -200,6 +200,11 @@ let getPlotDatasetComponentConstructor = (obj) => {
             let addListenerToSaveButton = html.addListenerTo(plot_save_button_el);
             html.mountTo(options_div)(plot_save_button_el);
             addListenerToSaveButton('click',()=>{
+
+                if(validator.isEmpty(handler_object['title']()) || validator.isEmpty(handler_object['description']())) {
+                    errorHandler({err:'empty fields'});
+                    return;
+                }
 
                 let new_obj = {
                     array:handler_object['array'],

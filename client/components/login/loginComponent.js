@@ -17,7 +17,7 @@ let loginComponentConstructor = (obj) => {
         let loginHandler = loginHandlerConstructor({
             username: () => usernameInput.value,
             password: () => passwordInput.value,
-            post,
+            dependencies:obj,
             isLoggedIn
         });
 

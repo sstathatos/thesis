@@ -1,7 +1,13 @@
 let createPostSaveButtonHandlerConstructor = (obj) =>{
     let {formEls,dependencies,row_array,plots,parent_post_id} = obj;
-    let {post,errorHandler,getProjectComponentConstructor,app,getPostComponentConstructor} = dependencies;
+    let {post,errorHandler,getProjectComponentConstructor,validator,
+        app,getPostComponentConstructor} = dependencies;
     let createPostSaveButtonHandler = () => {
+
+        if(validator.isEmpty(formEls['static'][1].value) || validator.isEmpty(formEls['static'][2].value)) {
+            errorHandler({err:'empty fields'});
+            return;
+        }
 
         let post_str = `/posts/?title=${formEls['static'][1].value}&`+
             `description=${formEls['static'][2].value}&`+
@@ -11,7 +17,9 @@ let createPostSaveButtonHandlerConstructor = (obj) =>{
             post_str = `${post_str}&inpost=${parent_post_id}`;
         }
         post({uri:post_str}, (err, response, body) => {
-            if (err) return errorHandler(err);
+            if(errorHandler({err,response})) {
+                return;
+            }
             let new_post = JSON.parse(body).data;
             let req_cnt =0;
             if(plots.length === 0) {
@@ -40,7 +48,7 @@ let createPostSaveButtonHandlerConstructor = (obj) =>{
                 if (plot.dim3Value) my_url = `${my_url}&dim3Value=${plot.dim3Value}`;
 
                 post({uri:my_url}, (err, response, body) => {
-                    if (err) return errorHandler(err);
+                    if (err) return errorHandler({err:new Error(err),response});
                     if(req_cnt === plots.length-1) {
                         app.innerHTML = '';
 

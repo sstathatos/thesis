@@ -1,7 +1,6 @@
 let isLoggedInConstructor = (obj) => {
-    let {errorHandler,usersComponentConstructor,app,get,navigationComponentConstructor} =obj;
-    let isLoggedIn = (err,id) => {
-        if (err) return errorHandler(new Error(err));
+    let {usersComponentConstructor,navigationComponentConstructor} =obj;
+    let isLoggedIn = () => {
 
         document.getElementById('top').innerHTML = "";
 

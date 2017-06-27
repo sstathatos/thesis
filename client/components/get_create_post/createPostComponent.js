@@ -1,13 +1,13 @@
 let createPostComponentConstructor = (dependencies,parent_post_id) => {
 
-    let {get,errorHandler,createPostFormComponentConstructor,createPostListComponentConstructor,
+    let {createPostFormComponentConstructor,createPostListComponentConstructor,
         createPostGetDatasetListConstructor,html, app} = dependencies;
     document.getElementById('BackToProjectButton').style.display='initial';
 
     let id = store.getItem('project_id');
     let createPostFormComponent = createPostFormComponentConstructor(dependencies);
     let createPostListComponent = createPostListComponentConstructor(dependencies);
-    let createPostGetDatasetListComponent = createPostGetDatasetListConstructor(id,get);
+    let createPostGetDatasetListComponent = createPostGetDatasetListConstructor(id,dependencies);
 
     let init = () => {
 
@@ -26,7 +26,6 @@ let createPostComponentConstructor = (dependencies,parent_post_id) => {
     let update = (obj) => {
         let {listEls,formEls,post_div} =obj;
         createPostGetDatasetListComponent.getData((err,data) => {
-            if (err) return errorHandler(err);
             createPostListComponent.update({data,listEls,formEls,post_div,parent_post_id});
         });
     };

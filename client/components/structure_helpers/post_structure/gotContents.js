@@ -1,9 +1,8 @@
 
 let gotContentsConstructor = (obj) => {
-    let {errorHandler,html,trArrayHandlerConstructor} =obj;
+    let {html,trArrayHandlerConstructor} =obj;
     let gotContents = (err,contents) => {
         let {data,caller,dset_id} = contents;
-        if (err) return errorHandler(new Error(err));
         caller.innerHTML = '';
         let contents_table = html.create('table');
         let mountToTable = html.mountTo(contents_table);
