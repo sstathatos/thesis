@@ -44,5 +44,15 @@ let errorHandler =  (obj) => {
         console.log(response.body);
         return true;
     }
+
+    else if(response.statusCode === 500) {
+        console.log(response.body);
+        return true;
+    }
+
+    else {
+        console.log('Unhandled Case');
+        return true;
+    }
 };
 module.exports =  errorHandler;

@@ -52,7 +52,7 @@ describe('read all objs and save them', function () {
             for (let i = 0; i < 2; i++) {
                 agent
                     .post(`/upload/?_id=${datasetsArr[i]._id}`)
-                    .attach('hdf', './new_server/python_files/h5examples/asdf.h5')
+                    .attach('hdf', './server/python_files/h5examples/asdf.h5')
                     .expect(function (res) {
                         console.log(res.text);
                     })

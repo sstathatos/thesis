@@ -15,7 +15,7 @@ let helperConstructor = () => {
         let projects=[];
         let qpath="acl.read.allow";
         readObjs('projects',{[qpath]:id})((err,projs) => {
-            if (err) cb(new Error(err));
+            if (err) return cb(new Error(err));
             if(projs.length === 0) return cb(null,[]);
             projects.push(projs.map((obj)=>{return {"name":obj.name,
                 "description":obj.description,
@@ -80,7 +80,7 @@ let helperConstructor = () => {
     let save_data = (req, cb) =>{
         let busboy = new Busboy({headers: req.headers});
         busboy.on('file', function (fieldname, file, filename, encoding, mimetype) {
-            if (!filename.includes('.h5')) cb('This file extension is not supported.', null);
+            if (!filename.includes('.h5')) return cb(new Error('This file extension is not supported.'), null);
             else {
                 file.fileRead = []; //collect al8l chunks
                 let size = 0; //count size of chunks
@@ -205,7 +205,7 @@ let helperConstructor = () => {
                 obj['date'] = dsets[i].date.toISOString().slice(0, 10);
 
                 readObjs('users',dsets[i].creator)((err,user) => {
-                    if (err) throw err;
+                    if (err) return cb(new Error(err));
                     obj['creator_username']=user[0].username;
                     new_dsets.push(obj);
                     if(cnt === dsets.length-1) {
@@ -222,19 +222,20 @@ let helperConstructor = () => {
         let new_plot = [];
         let {_id,direction,currystart,curryend,zoomstart,zoomend}=req.query;
         readObjs('plots',{_id:_id})((err,plot) => {
-            if (err) throw err;
+            if (err) return cb(new Error(err));
+
             readObjs('posts',{_id:plot[0].inpost})((err,post) => {
-                if (err) cb(new Error(err));
+                if (err) return cb(new Error(err));
                 let {dim1,dim2,dim3Value,dim2Value}=plot[0].plot_metadata;
                 readObjs('datasets',{_id:post[0].dset_link})((err,dset) => {
-                    if (err) cb(new Error(err));
+                    if (err) return cb(new Error(err));
                     let obj={direction:direction,currystart:currystart,curryend:curryend,zoomstart:zoomstart,
                         zoomend:zoomend,dim1:dim1,dim2:dim2,
                         dim2Value:dim2Value,path:plot[0].array_path_saved};
                     if(dim3Value) obj['dim3Value']= dim3Value;
                     console.log(dset[0].path_saved,obj);
                     getHDFPlot(dset[0].path_saved,obj,(err,data) => {
-                        if (err) cb(new Error(err));
+                        if (err) return cb(new Error(err));
                         new_plot=plot.map((obj)=>{return {"title":obj.title,"description":obj.description,
                             "plot_metadata":obj.plot_metadata,"data":data}});
                         cb(null,new_plot);

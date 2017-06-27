@@ -1,105 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/new_server/python_files/getHDFPlot.py" line="120" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/server/python_files/getHDFPlot.py" line="120" mnemonic="1" />
     <bookmark url="file://$PROJECT_DIR$/client/components/get_plot/getPlotComponent.js" line="14" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="116c7290-88d7-4e01-a603-fa157eff4828" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/components/init/init.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/errorHandler.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/test/defenderTEST.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/client_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/components/testComponent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/oldmain.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/DAO.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/app.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/class_views/datasets.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/class_views/generic/base.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/class_views/projects.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/class_views/users.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/data_converter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/helpers.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/models/auth_session.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/models/entity.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/old_tests/DAOtest.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/old_tests/createUsersnProjects.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/old_tests/searchProjects.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/old_tests/testGeneralDAO.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/public/css/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/public/css/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/public/frontend.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/public/input.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/public/js/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/public/upload.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/routes/authentication.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/routes/datasets.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/routes/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/routes/posts.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/routes/projects.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/routes/users.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/views/createproject.handlebars" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/views/detail_view.handlebars" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/views/editprofile.handlebars" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/views/editproject.handlebars" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/views/error.handlebars" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/views/home.handlebars" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/views/layouts/main.handlebars" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/views/partials/flash.handlebars" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/views/partials/navbar.handlebars" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/views/project.handlebars" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/views/searchproject.handlebars" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/old_directory/views/welcome.handlebars" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/new_server/myapp.js" afterPath="$PROJECT_DIR$/new_server/app.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/new_server/routes2.js" afterPath="$PROJECT_DIR$/new_server/routes.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/new_server/app.js" afterPath="$PROJECT_DIR$/server/app.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/new_server/defender.js" afterPath="$PROJECT_DIR$/server/defender.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/new_server/helpers.js" afterPath="$PROJECT_DIR$/server/helpers.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/new_server/python_files/getHDFArray.py" afterPath="$PROJECT_DIR$/server/python_files/getHDFArray.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/new_server/python_files/getHDFContent.py" afterPath="$PROJECT_DIR$/server/python_files/getHDFContent.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/new_server/python_files/getHDFPlot.py" afterPath="$PROJECT_DIR$/server/python_files/getHDFPlot.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/new_server/python_files/python_generator.py" afterPath="$PROJECT_DIR$/server/python_files/python_generator.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/new_server/routes.js" afterPath="$PROJECT_DIR$/server/routes.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/new_server/session_setup.js" afterPath="$PROJECT_DIR$/server/session_setup.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/API/constructors/permissionConstructor.js" afterPath="$PROJECT_DIR$/API/constructors/permissionConstructor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/API/constructors/schemaConstructor.js" afterPath="$PROJECT_DIR$/API/constructors/schemaConstructor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_create_dataset/submitDatasetButtonHandler.js" afterPath="$PROJECT_DIR$/client/components/get_create_dataset/submitDatasetButtonHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_create_plot/createPlotComponent.js" afterPath="$PROJECT_DIR$/client/components/get_create_plot/createPlotComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_create_plot/getDatasetContentsComponent.js" afterPath="$PROJECT_DIR$/client/components/get_create_plot/getDatasetContentsComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_create_plot/subComponents/createPlotDatasetComponent.js" afterPath="$PROJECT_DIR$/client/components/get_create_plot/subComponents/createPlotDatasetComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_create_post/createPostComponent.js" afterPath="$PROJECT_DIR$/client/components/get_create_post/createPostComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_create_post/subComponents/createPostGetDatasetListComponent.js" afterPath="$PROJECT_DIR$/client/components/get_create_post/subComponents/createPostGetDatasetListComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_create_post/subComponents/createPostSaveButtonHandler.js" afterPath="$PROJECT_DIR$/client/components/get_create_post/subComponents/createPostSaveButtonHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_create_project/submitProjectButtonHandler.js" afterPath="$PROJECT_DIR$/client/components/get_create_project/submitProjectButtonHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_dataset/getDatasetComponent.js" afterPath="$PROJECT_DIR$/client/components/get_dataset/getDatasetComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_dataset/subComponents/getDataConstructor.js" afterPath="$PROJECT_DIR$/client/components/get_dataset/subComponents/getDataConstructor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_dataset/subComponents/getDatasetGridComponent.js" afterPath="$PROJECT_DIR$/client/components/get_dataset/subComponents/getDatasetGridComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_dataset/subComponents/retrieveDataConstructor.js" afterPath="$PROJECT_DIR$/client/components/get_dataset/subComponents/retrieveDataConstructor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_plot/getPlotComponent.js" afterPath="$PROJECT_DIR$/client/components/get_plot/getPlotComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_plot/subComponents/PlotConstructor.js" afterPath="$PROJECT_DIR$/client/components/get_plot/subComponents/PlotConstructor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotDataComponent.js" afterPath="$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotDataComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotDiagramComponent.js" afterPath="$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotDiagramComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_post/getPostComponent.js" afterPath="$PROJECT_DIR$/client/components/get_post/getPostComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_post/getPostDataComponent.js" afterPath="$PROJECT_DIR$/client/components/get_post/getPostDataComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_project/getProjectComponent.js" afterPath="$PROJECT_DIR$/client/components/get_project/getProjectComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_project/getProjectDataComponent.js" afterPath="$PROJECT_DIR$/client/components/get_project/getProjectDataComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_project/subComponents/datasetComponents/getDatasetContentsHandler.js" afterPath="$PROJECT_DIR$/client/components/get_project/subComponents/datasetComponents/getDatasetContentsHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_search_profile/addHandler.js" afterPath="$PROJECT_DIR$/client/components/get_search_profile/addHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_search_profile/searchComponent.js" afterPath="$PROJECT_DIR$/client/components/get_search_profile/searchComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_search_profile/searchGetData.js" afterPath="$PROJECT_DIR$/client/components/get_search_profile/searchGetData.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_search_profile/searchResultsComponent.js" afterPath="$PROJECT_DIR$/client/components/get_search_profile/searchResultsComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_user_profile/usersComponent.js" afterPath="$PROJECT_DIR$/client/components/get_user_profile/usersComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersGetDataComponent.js" afterPath="$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersGetDataComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersInfoComponent.js" afterPath="$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersInfoComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/login/isLoggedIn.js" afterPath="$PROJECT_DIR$/client/components/login/isLoggedIn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/login/loginComponent.js" afterPath="$PROJECT_DIR$/client/components/login/loginComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/login/loginHandler.js" afterPath="$PROJECT_DIR$/client/components/login/loginHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/login/register/registerHandler.js" afterPath="$PROJECT_DIR$/client/components/login/register/registerHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/navigation/logoutHandler.js" afterPath="$PROJECT_DIR$/client/components/navigation/logoutHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/navigation/searchHandler.js" afterPath="$PROJECT_DIR$/client/components/navigation/searchHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/structure_helpers/post_structure/getDatasetButtonHandler.js" afterPath="$PROJECT_DIR$/client/components/structure_helpers/post_structure/getDatasetButtonHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/structure_helpers/post_structure/gotContents.js" afterPath="$PROJECT_DIR$/client/components/structure_helpers/post_structure/gotContents.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/structure_helpers/post_structure/postStructurer.js" afterPath="$PROJECT_DIR$/client/components/structure_helpers/post_structure/postStructurer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/dependencies.js" afterPath="$PROJECT_DIR$/client/dependencies.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main.js" afterPath="$PROJECT_DIR$/client/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/errorHandler.js" afterPath="$PROJECT_DIR$/client/errorHandler.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/package.json" afterPath="$PROJECT_DIR$/client/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_server/defender.js" afterPath="$PROJECT_DIR$/new_server/defender.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_server/helpers.js" afterPath="$PROJECT_DIR$/new_server/helpers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_server/python_files/getHDFPlot.py" afterPath="$PROJECT_DIR$/new_server/python_files/getHDFPlot.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_server/session_setup.js" afterPath="$PROJECT_DIR$/new_server/session_setup.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test/datasetUploadTEST.js" afterPath="$PROJECT_DIR$/test/test/datasetUploadTEST.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -120,11 +39,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_server/routes.js">
+      <file leaf-file-name="routes.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="545">
+              <caret line="61" column="21" lean-forward="true" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -140,61 +59,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getDatasetButtonHandler.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/components/structure_helpers/post_structure/getDatasetButtonHandler.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="12" column="88" lean-forward="false" selection-start-line="12" selection-start-column="88" selection-end-line="12" selection-end-column="88" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gotContents.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/components/structure_helpers/post_structure/gotContents.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-249">
-              <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="init.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/components/init/init.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="39" lean-forward="false" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getDatasetGridComponent.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/components/get_dataset/subComponents/getDatasetGridComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="errorHandler.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/errorHandler.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="711">
+              <caret line="53" column="33" lean-forward="true" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="defender.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_server/defender.js">
+        <entry file="file://$PROJECT_DIR$/server/defender.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="53" column="8" lean-forward="false" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="8" />
+            <state relative-caret-position="600">
+              <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="helpers.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/helpers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="82" column="57" lean-forward="false" selection-start-line="82" selection-start-column="57" selection-end-line="82" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -269,21 +158,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/components/get_project/subComponents/datasetComponents/getDatasetContentsHandler.js" />
-        <option value="$PROJECT_DIR$/client/components/navigation/navigationComponent.js" />
-        <option value="$PROJECT_DIR$/client/main.js" />
-        <option value="$PROJECT_DIR$/API/constructors/permissionConstructor.js" />
         <option value="$PROJECT_DIR$/API/constructors/schemaConstructor.js" />
         <option value="$PROJECT_DIR$/new_server/helpers.js" />
         <option value="$PROJECT_DIR$/new_server/session_setup.js" />
         <option value="$PROJECT_DIR$/client/components/login/loginComponent.js" />
         <option value="$PROJECT_DIR$/client/components/login/isLoggedIn.js" />
-        <option value="$PROJECT_DIR$/client/package.json" />
         <option value="$PROJECT_DIR$/client/dependencies.js" />
         <option value="$PROJECT_DIR$/client/components/login/loginHandler.js" />
         <option value="$PROJECT_DIR$/client/components/navigation/searchHandler.js" />
         <option value="$PROJECT_DIR$/client/components/get_create_plot/subComponents/createPlotDatasetComponent.js" />
-        <option value="$PROJECT_DIR$/client/errorHandler.js" />
         <option value="$PROJECT_DIR$/new_server/defender.js" />
         <option value="$PROJECT_DIR$/test/test/defenderTEST.js" />
         <option value="$PROJECT_DIR$/new_server/routes2.js" />
@@ -320,6 +203,12 @@
         <option value="$PROJECT_DIR$/client/components/structure_helpers/post_structure/getDatasetButtonHandler.js" />
         <option value="$PROJECT_DIR$/client/components/init/init.js" />
         <option value="$PROJECT_DIR$/client/components/get_dataset/subComponents/getDatasetGridComponent.js" />
+        <option value="$PROJECT_DIR$/server/defender.js" />
+        <option value="$PROJECT_DIR$/client/package.json" />
+        <option value="$PROJECT_DIR$/server/app.js" />
+        <option value="$PROJECT_DIR$/server/helpers.js" />
+        <option value="$PROJECT_DIR$/client/errorHandler.js" />
+        <option value="$PROJECT_DIR$/server/routes.js" />
       </list>
     </option>
   </component>
@@ -404,7 +293,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="new_server" />
+              <option name="myItemId" value="server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -450,63 +339,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="init" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="get_dataset" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="get_dataset" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="subComponents" />
+              <option name="myItemId" value="API" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -685,7 +518,7 @@
       <test-file>$PROJECT_DIR$/test/test.js</test-file>
       <method />
     </configuration>
-    <configuration default="false" name="myapp.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="$PROJECT_DIR$/new_server/app.js" working-dir="$PROJECT_DIR$">
+    <configuration default="false" name="myapp.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="$PROJECT_DIR$/server/app.js" working-dir="$PROJECT_DIR$">
       <EXTENSION ID="com.jetbrains.nodejs.remote.docker.NodeJSDockerRunConfigurationExtension">
         <option name="envVars">
           <list />
@@ -958,14 +791,7 @@
       <workItem from="1498323556278" duration="2094000" />
       <workItem from="1498386877393" duration="27605000" />
       <workItem from="1498468942441" duration="16144000" />
-      <workItem from="1498556591071" duration="26713000" />
-    </task>
-    <task id="LOCAL-00002" summary="Added remove project, add project members functionality">
-      <created>1489001570925</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1489001570925</updated>
+      <workItem from="1498556591071" duration="29587000" />
     </task>
     <task id="LOCAL-00003" summary="Added class-based views.">
       <created>1489536044182</created>
@@ -1303,7 +1129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1498251521905</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Added errorHandler client/server, refactor, defender back online, bug fixing">
+      <created>1498590275349</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1498590275351</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1339,7 +1172,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2429168000" />
+    <option name="totallyTimeSpent" value="2432042000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1352,11 +1185,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1537" height="912" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26322752" sideWeight="0.49485862" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21825397" sideWeight="0.49485862" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7847896" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7930591" sideWeight="0.5132275" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52570695" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7917738" sideWeight="0.48677248" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1371,7 +1204,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3284839" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1411,7 +1243,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added retrieve array in front end" />
     <MESSAGE value="Added getHDFPlot" />
     <MESSAGE value="Added plot attempt" />
     <MESSAGE value="Added plot zoom/unzoom functionality" />
@@ -1436,7 +1267,8 @@
     <MESSAGE value="Added front end grid last bug fixes, started get_plot" />
     <MESSAGE value="Added changes in python files, ended get_plot" />
     <MESSAGE value="Added changes back button, search user, add project member, negative float numbers functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added changes back button, search user, add project member, negative float numbers functionality" />
+    <MESSAGE value="Added errorHandler client/server, refactor, defender back online, bug fixing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added errorHandler client/server, refactor, defender back online, bug fixing" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1446,62 +1278,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/old_directory/testComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_server/defender.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="53" column="8" lean-forward="false" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/get_create_dataset/submitDatasetButtonHandler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="23" column="46" lean-forward="true" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/test/defenderTEST.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="79" column="38" lean-forward="false" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/get_create_plot/subComponents/createPlotDatasetComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3740">
-          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/get_create_plot/createPlotComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="28" column="59" lean-forward="false" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/components/get_create_plot/getDatasetContentsComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1742,14 +1518,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/errorHandler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/components/login/register/registerHandler.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
@@ -1762,14 +1530,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_server/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1814,7 +1574,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/navigation/searchHandler.js">
+    <entry file="file://$PROJECT_DIR$/API/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1822,18 +1582,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/structure_helpers/post_structure/getDatasetButtonHandler.js">
+    <entry file="file://$PROJECT_DIR$/client/components/get_dataset/subComponents/getDatasetGridComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="88" lean-forward="false" selection-start-line="12" selection-start-column="88" selection-end-line="12" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/structure_helpers/post_structure/gotContents.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-249">
-          <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        <state relative-caret-position="220">
+          <caret line="35" column="26" lean-forward="false" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1846,10 +1598,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/get_dataset/subComponents/getDatasetGridComponent.js">
+    <entry file="file://$PROJECT_DIR$/client/components/structure_helpers/post_structure/gotContents.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="-249">
+          <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/structure_helpers/post_structure/getDatasetButtonHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="88" lean-forward="false" selection-start-line="12" selection-start-column="88" selection-end-line="12" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/navigation/searchHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="10" lean-forward="false" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/node_modules/tachyons/css/tachyons.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/node_modules/tachyons/css/tachyons.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/defender.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/helpers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="82" column="57" lean-forward="false" selection-start-line="82" selection-start-column="57" selection-end-line="82" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/errorHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="711">
+          <caret line="53" column="33" lean-forward="true" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="61" column="21" lean-forward="true" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
           <folding />
         </state>
       </provider>

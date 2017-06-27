@@ -13,6 +13,8 @@ let {getUserProjects,getHDFPlot,getHDFArray,getHDFContentsForView,
 router.get('/', (req, res) => {
     let code = "/bundle.js";
     let c3css = "/c3.css";
+    let tachyons =  "/tachyons.min.css";
+
     let home = `
         <!doctype html>
         <html lang=en>
@@ -20,6 +22,7 @@ router.get('/', (req, res) => {
             <meta charset=utf-8>
             <title>PlotNet</title>
             <link rel="stylesheet" type="text/css" href="${c3css}">
+            <link rel="stylesheet" type="text/css" href="${tachyons}">
         </head>
         <body>
             <div id="top"></div>
@@ -35,14 +38,14 @@ router.get('/', (req, res) => {
 router.post('/login', (req, res, next) => {
     session_setup.passport.authenticate('local', {failureFlash: true}, (err, user, info) => {
 
-        if (err) errorHandler(500,err.message,res);
+        if (err) return errorHandler(500,err.message,res);
 
         else if (!user) {
             return res.status(422).send(info);
         }
         else {
             req.logIn(user, (err) => {
-                if (err) errorHandler(500,err.message,res);
+                if (err) return errorHandler(500,err.message,res);
                 else {
                     res.status(200).send({data:user});
                 }
@@ -64,7 +67,7 @@ let errorHandler = (status, err,res) => {
 router.post('/register', (req,res) => {
     let {query} = req;
     createObj('users',query)((err,user) => {
-        if (err) errorHandler(500,err.message,res);
+        if (err) return errorHandler(500,err.message,res);
 
         res.status(200).send({data:user});
     })
@@ -82,7 +85,7 @@ router.get('/search', (req, res) => {
     let {query} = req;
 
     readObjs('users',{username:query['term']})((err,users) => {
-        if (err) errorHandler(500,err.message,res);
+        if (err) return errorHandler(500,err.message,res);
 
         if(users.length === 0) {
             res.status(200).send({data:'empty'});
@@ -99,7 +102,7 @@ router.get('/search', (req, res) => {
                     projs[0].map((proj,index)=> {
                         isAllowed(req.user._id, proj.id, 'read','projects')((err,result)=> {
 
-                            if (err) errorHandler(500,err.message,res);
+                            if (err) return errorHandler(500,err.message,res);
 
                             projs[0][index].permission = result;
                             if(cnt === projs[0].length-1) {
@@ -120,7 +123,7 @@ router.get('/search', (req, res) => {
 
 router.get('/join',(req,res)=> {
     addUserRole(req.user._id, req.query._id, 'member','projects')((err) => {
-        if (err) errorHandler(500,err.message,res);
+        if (err) return errorHandler(500,err.message,res);
 
         res.status(200).send();
     })
@@ -130,11 +133,11 @@ router.get('/join',(req,res)=> {
 router.get('/users',(req,res) => {
     let {query} = req;
     readObjs('users',{_id:query._id})((err,users) => {
-        if (err) errorHandler(500,err.message,res);
+        if (err) return errorHandler(500,err.message,res);
 
         let new_user=users.map((obj)=>{return {"name":obj.name,"username":obj.username,"email" : obj.email}})[0];
         getUserProjects(query._id, (err,projs) => {
-            if (err) errorHandler(500,err.message,res);
+            if (err) return errorHandler(500,err.message,res);
 
             new_user['projects']=projs;
             res.status(200).send({perm:'allowed',data:new_user});
@@ -145,7 +148,7 @@ router.get('/users',(req,res) => {
 router.post('/projects', (req,res) => {
     let {query} = req; //MUST BE CHANGED remember project members etc
     createObj('projects',query)((err,proj) => {
-        if (err) errorHandler(500,err.message,res);
+        if (err) return errorHandler(500,err.message,res);
 
         addUserRole(req.user._id, proj._id, 'owner', 'projects')((err)=> {
 
@@ -159,10 +162,10 @@ router.post('/posts',(req,res) => {
     let {query} = req;
 
     createObj('posts',query)((err,post) => {
-        if (err) errorHandler(500,err.message,res);
+        if (err) return errorHandler(500,err.message,res);
 
         addUserRole(req.user._id, post._id, 'owner', 'posts')((err)=> {
-            if (err) errorHandler(500,err.message,res);
+            if (err) return errorHandler(500,err.message,res);
             res.status(200).send({perm:'allowed',data:post});
         });
     })
@@ -171,9 +174,10 @@ router.post('/posts',(req,res) => {
 router.post('/datasets', (req,res) => {
     let {query} = req;
     save_data(req,(err,data_path) => {
+        if (err) return errorHandler(500,err.message,res);
         query['path_saved']=data_path;
         createObj('datasets',query)((err,dset) => {
-            if (err) errorHandler(500,err.message,res);
+            if (err) return errorHandler(500,err.message,res);
             return res.status(200).send({data:dset});
         })
     });
@@ -194,7 +198,7 @@ router.post('/plots' ,(req,res) => {
         plot_metadata
     };
     createObj('plots',new_obj)((err,plot) => {
-        if (err) errorHandler(500,err.message,res);
+        if (err) return errorHandler(500,err.message,res);
         res.status(200).send({perm:'allowed',data:plot});
     })
 });
@@ -202,7 +206,7 @@ router.post('/plots' ,(req,res) => {
 router.get('/datasetlist', (req,res) => {
     let {query} = req;
     confDsets({inproject:query._id},(err,dsets) => {
-        if (err) errorHandler(500,err.message,res);
+        if (err) return errorHandler(500,err.message,res);
         res.status(200).send({perm:'allowed',data:dsets});
     });
 });
@@ -211,7 +215,7 @@ router.get('/datasetlist', (req,res) => {
 router.get('/datasets',(req,res) => {
     let {query} = req;
     readObjs('datasets',query)((err,dset) => {
-        if (err) errorHandler(500,err.message,res);
+        if (err) return errorHandler(500,err.message,res);
         console.log(dset[0].path_saved);
         getHDFContentsForView(dset[0].path_saved,(err,contents) => {
             // let con =  JSON.parse(JSON.stringify(contents));
@@ -224,7 +228,7 @@ router.get('/datasets',(req,res) => {
 router.get('/datasetgrid',(req,res) => {
     let {query} = req;
     readObjs('datasets',{_id:query._id})((err,dset) => {
-        if (err) errorHandler(500,err.message,res);
+        if (err) return errorHandler(500,err.message,res);
         getHDFArray(dset[0].path_saved,query,(err,contents) => {
             res.status(200).send({perm:'allowed',data:contents});
         });
@@ -233,7 +237,7 @@ router.get('/datasetgrid',(req,res) => {
 
 router.get('/plots',(req,res) => {
     getDataFromPlotID(req,(err,data) => {
-        if (err) errorHandler(500,err.message,res);
+        if (err)  return errorHandler(500,err.message,res);
 
         res.status(200).send({perm:'allowed',data:data});
     })
@@ -241,7 +245,7 @@ router.get('/plots',(req,res) => {
 
 router.get('/posts',(req,res) => {
     searchRelatedPosts(req.query,(err,posts) => {
-        if (err) errorHandler(500,err.message,res);
+        if (err) return errorHandler(500,err.message,res);
 
         return res.status(200).send({perm:'allowed',data:posts});
     });
@@ -251,7 +255,7 @@ router.get('/posts',(req,res) => {
 //get contents of ONE project
 router.get('/projects' ,(req,res) => {
     readObjs('projects',req.query)((err,proj) => {
-        if (err) errorHandler(500,err.message,res);
+        if (err) return errorHandler(500,err.message,res);
         confProject(proj[0],(err,proj) => {
             if (err) errorHandler(500,err.message,res);
             res.status(200).send({perm:'allowed',data:proj});
