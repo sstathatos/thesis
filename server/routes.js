@@ -14,17 +14,16 @@ router.get('/', (req, res) => {
     let code = "/bundle.js";
     let c3css = "/c3.css";
     let tachyons =  "/tachyons.min.css";
-
     let home = `
         <!doctype html>
-        <html lang=en>
+        <html lang=en class='h-100'>
         <head>
             <meta charset=utf-8>
             <title>PlotNet</title>
             <link rel="stylesheet" type="text/css" href="${c3css}">
             <link rel="stylesheet" type="text/css" href="${tachyons}">
         </head>
-        <body>
+        <body class='h-100'>
             <div id="top"></div>
             <div id="app"></div>
             

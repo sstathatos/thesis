@@ -11,6 +11,13 @@ const dependencies = Object.freeze({
     html: require('./components/html'),
     validator : require('validator'),
 
+    css : {
+
+        button: 'dark-green b--solid dim b--green bg-white ph3 mb2 pa2 mh2 bw2 br3',
+        input: 'ph3 pv2 mh2 b--green b--solid'
+
+    },
+
     init : require('./components/init/init'),
 
     postStructurer: require('./components/structure_helpers/post_structure/postStructurer'),

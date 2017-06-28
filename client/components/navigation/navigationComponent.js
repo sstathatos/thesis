@@ -1,21 +1,21 @@
 let navigationComponentConstructor = (obj) => {
 
     let {top,html,homeHandlerConstructor,searchHandlerConstructor,
-        logoutHandlerConstructor,backProjectHandlerConstructor} =obj;
+        logoutHandlerConstructor,backProjectHandlerConstructor,css} =obj;
 
     let init = () => {
 
-        let navigation_div = html.create('div');
+        let navigation_div = html.create('div',{className:'pt2'});
 
-        let home_button = html.create('button',{textContent:'Home'});
+        let home_button = html.create('button',{textContent:'Home',className:css.button});
 
-        let logout_button =  html.create('button',{textContent:'Logout'});
+        let logout_button =  html.create('button',{textContent:'Logout',className:css.button});
 
-        let backproject_button = html.create('button',{textContent:'Back to Project',id:'BackToProjectButton'});
+        let backproject_button = html.create('button',{textContent:'Back to Project',id:'BackToProjectButton',className:css.button});
         backproject_button.style.display = 'none';
 
-        let search_input =  html.create('input');
-        let search_button = html.create('button',{textContent:'Search User!'});
+        let search_input =  html.create('input',{className:css.input});
+        let search_button = html.create('button',{textContent:'Search User!',className:css.button});
 
         let addListenerToSearch =  html.addListenerTo(search_button);
         let searchHandler =  searchHandlerConstructor({

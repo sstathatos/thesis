@@ -26,7 +26,7 @@ let registerHandlerConstructor = (obj) => {
                 return;
             }
 
-            document.getElementById('top').innerHTML = "";
+            document.getElementById('app').innerHTML = "";
             let loginComponent = loginComponentConstructor(dependencies);
             loginComponent.init();
 

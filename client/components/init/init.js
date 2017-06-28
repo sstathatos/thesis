@@ -2,7 +2,9 @@
 let init = (dependencies) => {
 
     let {get,navigationComponentConstructor,errorHandler,
-        usersComponentConstructor,loginComponentConstructor} = dependencies;
+        usersComponentConstructor,loginComponentConstructor,app} = dependencies;
+
+    document.getElementById('app').className = 'pa2 h-100 light-gray bg-dark-green shadow-4';
 
     get({uri: '/isauthenticated'}, (err, response, body) => {
 

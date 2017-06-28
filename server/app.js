@@ -19,6 +19,7 @@ app.use(express.static(join(__dirname, '../client')));
 app.use(express.static(join(__dirname, '../client/node_modules/c3')));
 app.use(express.static(join(__dirname, '../client/node_modules/tachyons/css')));
 
+
 //Express session/mongostore
 app.use(session({
     secret: 'big Secret',

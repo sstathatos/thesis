@@ -2,7 +2,7 @@ let isLoggedInConstructor = (obj) => {
     let {usersComponentConstructor,navigationComponentConstructor} =obj;
     let isLoggedIn = () => {
 
-        document.getElementById('top').innerHTML = "";
+        document.getElementById('app').innerHTML = "";
 
         let navigationComponent = navigationComponentConstructor(obj);
         navigationComponent.init();
