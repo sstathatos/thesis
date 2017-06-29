@@ -1,7 +1,6 @@
 let searchComponent = (obj) => {
     let {dependencies,search} = obj;
-    let {app,searchGetDataConstructor,
-        usersComponentConstructor,searchResultsComponentConstructor} = dependencies;
+    let {searchGetDataConstructor,searchResultsComponentConstructor} = dependencies;
 
     document.getElementById('BackToProjectButton').style.display='none';
 
@@ -22,23 +21,18 @@ let searchComponent = (obj) => {
 
             if (data === 'empty') {
                 console.log('EMPTY');
-                document.getElementById('app').innerHTML = "";
-
-                let usersComponent = usersComponentConstructor(dependencies);
-                usersComponent.update(usersComponent.init());
+                return;
             }
 
             else if (data === 'too many results') {
                 console.log('too many results');
-                document.getElementById('app').innerHTML = "";
-
-                let usersComponent = usersComponentConstructor(dependencies);
-                usersComponent.update(usersComponent.init());
+                return;
             }
 
             else {
                 let searchEl = searchResultsEl.dynamic;
-                searchResultsComponent.update({searchEl,data});
+                let whole_div = searchResultsEl.static[0];
+                searchResultsComponent.update({searchEl,data,whole_div});
             }
 
         });

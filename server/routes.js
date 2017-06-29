@@ -16,14 +16,14 @@ router.get('/', (req, res) => {
     let tachyons =  "/tachyons.min.css";
     let home = `
         <!doctype html>
-        <html lang=en class='h-100'>
+        <html lang=en class='h-auto light-gray bg-dark-green'>
         <head>
             <meta charset=utf-8>
             <title>PlotNet</title>
             <link rel="stylesheet" type="text/css" href="${c3css}">
             <link rel="stylesheet" type="text/css" href="${tachyons}">
         </head>
-        <body class='h-100'>
+        <body class='h-auto' >
             <div id="top"></div>
             <div id="app"></div>
             
@@ -66,7 +66,8 @@ let errorHandler = (status, err,res) => {
 router.post('/register', (req,res) => {
     let {query} = req;
     createObj('users',query)((err,user) => {
-        if (err) return errorHandler(500,err.message,res);
+        if (err) return res.status(422).send(err.message);
+
 
         res.status(200).send({data:user});
     })

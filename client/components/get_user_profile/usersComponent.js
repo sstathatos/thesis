@@ -1,7 +1,6 @@
 
 let usersConstructor = (obj) => {
-    let {errorHandler,
-        usersInfoComponentConstructor,
+    let {usersInfoComponentConstructor,
         usersMatrixComponentConstructor,
         usersBttnCreateComponentConstructor,usersGetDataComponentConstructor} = obj;
 
@@ -30,8 +29,8 @@ let usersConstructor = (obj) => {
             let infoEl = usersInfoEl.dynamic;
             usersInfoComponent.update({username,email,name,infoEl});
 
-            let {dynamic} =usersMatrixEl;
-            usersMatrixComponent.update({projects,dynamic});
+            let {dynamic,static} =usersMatrixEl;
+            usersMatrixComponent.update({projects,dynamic,static});
         })
 
     };

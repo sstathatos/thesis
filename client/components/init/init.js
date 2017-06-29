@@ -4,7 +4,9 @@ let init = (dependencies) => {
     let {get,navigationComponentConstructor,errorHandler,
         usersComponentConstructor,loginComponentConstructor,app} = dependencies;
 
-    document.getElementById('app').className = 'pa2 h-100 light-gray bg-dark-green shadow-4';
+    document.getElementById('app').className = 'pa2 h-auto light-gray bg-dark-green';
+    document.body.style.cursor = 'default';
+
 
     get({uri: '/isauthenticated'}, (err, response, body) => {
 

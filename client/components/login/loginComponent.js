@@ -8,7 +8,7 @@ let loginComponentConstructor = (obj) => {
     let init = () => {
         store.setItem('current','login');
 
-        let login = html.create('div',{className:'db hw-100 '});
+        let login = html.create('div',{className:'db h-auto pt3 pl4'});
 
         let usernameInput = html.create('input',{placeholder : 'Username',className: css.input});
         let passwordInput = html.create('input',{placeholder : 'Password',type : 'password',className: `${css.input} green`});
@@ -21,10 +21,12 @@ let loginComponentConstructor = (obj) => {
         });
 
         let loginButton = html.create('button',{'textContent' : 'Login',className:css.button});
-        // loginButton.style.padding = 0;
-        // loginButton.style.border = 0;
         let addListenerToLoginButton = html.addListenerTo(loginButton);
         addListenerToLoginButton('click',loginHandler);
+        let addListenerToPasswordInput = html.addListenerTo(passwordInput);
+        addListenerToPasswordInput('keypress',(e) => {if (e.keyCode === 13)  loginHandler() });
+        let addListenerToUsernameInput = html.addListenerTo(usernameInput);
+        addListenerToUsernameInput('keypress',(e) => {if (e.keyCode === 13)  loginHandler() });
 
         let mountToLogin = html.mountTo(login);
 

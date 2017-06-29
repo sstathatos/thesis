@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha --no-timeouts",
     "dev:client": "watchify --debug -o ./client/bundle.js ./client/main.js",
-    "dev:server": "nodemon ./new_server/myapp.js",
+    "dev:server": "nodemon ./server/app.js",
     "dev": "npm run dev:client & npm run dev:server"
   },
   "author": "Stefanos Stathatos",
