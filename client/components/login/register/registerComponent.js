@@ -32,9 +32,6 @@ let registerComponentConstructor  = (obj) => {
         addListenerToPasswordInput('keypress',(e) => {if (e.keyCode === 13)  registerHandler() });
 
 
-
-
-
         let mountToSubRegister = html.mountTo(subregister_div);
         [register_title,usernameInput,nameInput,emailInput,passwordInput,registerButton].map((el) => {
             mountToSubRegister(el);

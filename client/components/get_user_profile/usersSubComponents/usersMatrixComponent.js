@@ -7,7 +7,7 @@ let usersMatrixConstructor = (obj) => {
         let projectInfo = html.create('h4',{textContent:"Projects",className:'f3 light-yellow'});
         let matrixEl = html.create('table',{className:"f6 w-80 mw8 left pt2 pl3"});
         matrixEl.cellSpacing = 0;
-//pt2 dt
+
         let mountToDiv = html.mountTo(matrixDiv);
         [projectInfo,matrixEl].map((el) => {
             mountToDiv(el);
@@ -66,7 +66,8 @@ let usersMatrixConstructor = (obj) => {
         }
 
         else {
-            let projectInfo = html.create('h3',{textContent:"You don\'t participate in a project right now.",className:'f4 bl pv2 bw2 pl2 light-yellow'});
+            let projectInfo = html.create('h3',{textContent:"You don\'t participate in a project right now.",
+                className:'f4 bl pv2 bw2 pl2 light-yellow'});
 
             let mountToDiv =html.mountTo(static[0]);
             mountToDiv(projectInfo);

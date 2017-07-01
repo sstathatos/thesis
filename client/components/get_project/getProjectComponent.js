@@ -3,7 +3,7 @@ let getProjectComponentConstructor = (obj) => {
     store.setItem('project_id',id);
     document.getElementById('BackToProjectButton').style.display='none';
 
-    let {get,getProjectInfoComponentConstructor,
+    let {getProjectInfoComponentConstructor,
         getProjectDataComponentConstructor,
         getProjectDatasetComponentConstructor,
         getProjectPostComponentConstructor} = dependencies;
@@ -32,7 +32,7 @@ let getProjectComponentConstructor = (obj) => {
             getProjectInfoComponent.update({name,description,date,infoEls});
             getProjectDatasetComponent.update({dsets,datasetEls});
 
-            getProjectPostComponent.update({post_parents,postEls,dsets});
+            getProjectPostComponent.update({post_parents,postEls,dsets,datasetEls});
 
         });
     };
