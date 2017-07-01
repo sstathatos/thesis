@@ -3,7 +3,7 @@ let postStructurer = (obj) => {
     let {post_data,post_div_el,dependencies} =  obj;
     let {getPlotButtonHandlerConstructor,getDatasetButtonHandlerConstructor,html} = dependencies;
     let {title,description,date,dset,plots_ids} = post_data;
-    let {creator_username,name,_id} =dset;
+    let {name,_id} =dset;
 
     let plots_struct = (plots,post_plots_ul_el) => {
         let post_plots_li_els = [];
@@ -43,8 +43,8 @@ let postStructurer = (obj) => {
         mountToDateDiv(el);
     });
 
-    let post_descr_name_el =html.create('p',{textContent:'Description:',className:'di f4 pl3'});
-    let post_descr_el =html.create('h4',{textContent:description,className:'di  pl2 f4'});
+    let post_descr_name_el =html.create('p',{textContent:'Description:',className:'di pl3 f4 pr2 v-top'});
+    let post_descr_el =html.create('span',{textContent:description,className:'dib w-70 f4'});
 
     let description_div = html.create('div',{className:' pv2'});
     let mountToDescriptionDiv = html.mountTo(description_div);
@@ -53,8 +53,9 @@ let postStructurer = (obj) => {
     });
 
     let post_dataset_linked_name_el =html.create('p',{textContent:'Dataset used:',className:'di f4 pl3'});
-    let post_dataset_linked_el =html.create('h4',{textContent:`${name}`,className:'di  pl2 f4    '});
-    //Creator: ${creator_username} Date created:${dset.date}
+    let post_dataset_linked_el =html.create('h4',{textContent:`${name}`,className:'di  pl2 f4'});
+    post_dataset_linked_el.style.cursor = 'pointer';
+
 
     let dataset_div = html.create('div',{className:'w-100 pv2'});
     let mountToDatasetDiv = html.mountTo(dataset_div);
@@ -63,6 +64,8 @@ let postStructurer = (obj) => {
     });
 
     let post_table_div =  html.create('div');
+    html.mountTo(dataset_div)(post_table_div);
+
 
     let addListenerToDataset = html.addListenerTo(post_dataset_linked_el);
 

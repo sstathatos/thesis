@@ -5,7 +5,7 @@ let navigationComponentConstructor = (obj) => {
 
     let init = () => {
 
-        let navigation_div = html.create('div',{className:'pt2 pl4 pr4 bg-white'});
+        let navigation_div = html.create('div',{className:'pt2 pl4 pr4 bg-white fixed w-100'});
 
         let home_button = html.create('button',{textContent:'Home',className:css.button});
 

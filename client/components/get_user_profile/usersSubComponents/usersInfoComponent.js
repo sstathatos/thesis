@@ -8,7 +8,7 @@ let userInfoConstructor = (obj) => {
         let p2 = html.create('h4',{textContent:``,className:'di pl2 f4'});
         let p3 = html.create('h4',{textContent:``,className:'di pl2 f4 '});
 
-        let profile_title = html.create('h4',{textContent:`User Profile`,className:'f3 light-yellow'});
+        let profile_title = html.create('h4',{textContent:`User Profile`,className:'f3 light-yellow mt3 mb3'});
 
         let p1name = html.create('p',{textContent:`Username: `,className:'f4 pl3 di '});
         let p2name = html.create('p',{textContent:`Email: `,className:'f4 pl3 di'});

@@ -5,17 +5,17 @@ let getProjectDatasetComponentConstructor = (obj) => {
     let gotContents = gotContentsConstructor(obj);
 
     let init = () => {
-        let getproject_dataset_div_el = html.create('div',{className:'fl w-50'});
+        let getproject_dataset_div_el = html.create('div',{className:'fl w-60 '});
         let getproject_dataset_title_name_el = html.create('h4',{textContent:'Datasets',className:'f3 light-yellow mt2 mb2'});
         let getproject_dataset_table_el = html.create('table',{className:"f6 w-90 mw8 left pt2 pl3"});
         getproject_dataset_table_el.cellSpacing = 0;
 
-        let getproject_dataset_contents_div_el = html.create('div',{className:'w-50'});
+        let getproject_dataset_contents_div_el = html.create('div',{className:'w-100'});
 
         let getproject_empty_message_el = html.create('h3');
 
         let mountToDiv =html.mountTo(getproject_dataset_div_el);
-        [getproject_dataset_title_name_el,getproject_dataset_table_el,getproject_dataset_contents_div_el,
+        [getproject_dataset_title_name_el,getproject_dataset_table_el,
             getproject_empty_message_el].map((el) => {
             mountToDiv(el);
         });
@@ -36,15 +36,16 @@ let getProjectDatasetComponentConstructor = (obj) => {
         let getProjectCreatePostHandler = getProjectCreatePostHandlerConstructor(obj);
         addListenerToCreatePost('click',getProjectCreatePostHandler);
 
-        let getproject_create_dataset_div = html.create('div',{className:'fl w-50'});
+        let getproject_create_dataset_div = html.create('div',{className:'fl w-40 dtc v-mid db'});
         let mountToCreateDatasetDiv = html.mountTo(getproject_create_dataset_div);
-        [getproject_dataset_create_name_el,getproject_dataset_create_button_el,getproject_post_createpost_name_el,getproject_post_createpost_button_el].map((el) => {
+        [getproject_dataset_create_name_el,getproject_dataset_create_button_el,
+            getproject_post_createpost_name_el,getproject_post_createpost_button_el].map((el) => {
             mountToCreateDatasetDiv(el);
         });
 
-        let getproject_info_whole_el = html.create('div',{className:'pt2 pl4'});
+        let getproject_info_whole_el = html.create('div',{className:'pt2 pl4 dt w-100'});
         let mountToWholeDiv = html.mountTo(getproject_info_whole_el);
-        [getproject_dataset_div_el,getproject_create_dataset_div].map((el) => {
+        [getproject_dataset_div_el,getproject_create_dataset_div,getproject_dataset_contents_div_el].map((el) => {
             mountToWholeDiv(el);
         });
 

@@ -7,14 +7,18 @@
   <component name="ChangeListManager">
     <list default="true" id="116c7290-88d7-4e01-a603-fa157eff4828" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_create_project/createProjectComponent.js" afterPath="$PROJECT_DIR$/client/components/get_create_project/createProjectComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_project/getProjectComponent.js" afterPath="$PROJECT_DIR$/client/components/get_project/getProjectComponent.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/API/constructors/DBOpsConstructor.js" afterPath="$PROJECT_DIR$/API/constructors/DBOpsConstructor.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_post/getPostComponent.js" afterPath="$PROJECT_DIR$/client/components/get_post/getPostComponent.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_project/subComponents/datasetComponents/getProjectDatasetComponent.js" afterPath="$PROJECT_DIR$/client/components/get_project/subComponents/datasetComponents/getProjectDatasetComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_project/subComponents/getProjectInfoComponent.js" afterPath="$PROJECT_DIR$/client/components/get_project/subComponents/getProjectInfoComponent.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_project/subComponents/postComponents/getProjectPostComponent.js" afterPath="$PROJECT_DIR$/client/components/get_project/subComponents/postComponents/getProjectPostComponent.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_search_profile/searchResultsComponent.js" afterPath="$PROJECT_DIR$/client/components/get_search_profile/searchResultsComponent.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersInfoComponent.js" afterPath="$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersInfoComponent.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersMatrixComponent.js" afterPath="$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersMatrixComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/login/register/registerComponent.js" afterPath="$PROJECT_DIR$/client/components/login/register/registerComponent.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/init/init.js" afterPath="$PROJECT_DIR$/client/components/init/init.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/navigation/navigationComponent.js" afterPath="$PROJECT_DIR$/client/components/navigation/navigationComponent.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/structure_helpers/post_structure/gotContents.js" afterPath="$PROJECT_DIR$/client/components/structure_helpers/post_structure/gotContents.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/structure_helpers/post_structure/postStructurer.js" afterPath="$PROJECT_DIR$/client/components/structure_helpers/post_structure/postStructurer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/helpers.js" afterPath="$PROJECT_DIR$/server/helpers.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,38 +42,38 @@
       <file leaf-file-name="postStructurer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/components/structure_helpers/post_structure/postStructurer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="920">
-              <caret line="46" column="41" lean-forward="false" selection-start-line="46" selection-start-column="41" selection-end-line="46" selection-end-column="41" />
+            <state relative-caret-position="-280">
+              <caret line="46" column="89" lean-forward="false" selection-start-line="46" selection-start-column="89" selection-end-line="46" selection-end-column="89" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getProjectDatasetComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/components/get_project/subComponents/datasetComponents/getProjectDatasetComponent.js">
+      <file leaf-file-name="getPostComponent.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/components/get_post/getPostComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="12" column="80" lean-forward="true" selection-start-line="12" selection-start-column="80" selection-end-line="12" selection-end-column="80" />
+            <state relative-caret-position="320">
+              <caret line="19" column="40" lean-forward="false" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getProjectPostComponent.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/components/get_project/subComponents/postComponents/getProjectPostComponent.js">
+      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="34" column="78" lean-forward="false" selection-start-line="34" selection-start-column="78" selection-end-line="34" selection-end-column="78" />
+            <state relative-caret-position="271">
+              <caret line="258" column="13" lean-forward="false" selection-start-line="258" selection-start-column="13" selection-end-line="258" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getProjectComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/components/get_project/getProjectComponent.js">
+      <file leaf-file-name="helpers.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/helpers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+            <state relative-caret-position="546">
+              <caret line="139" column="47" lean-forward="false" selection-start-line="139" selection-start-column="47" selection-end-line="139" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -86,7 +90,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>transf</find>
       <find>shor</find>
       <find>usersButton</find>
       <find>userData</find>
@@ -116,6 +119,7 @@
       <find>save</find>
       <find>dib</find>
       <find>h5</find>
+      <find>confPost</find>
     </findStrings>
     <replaceStrings>
       <replace>Entity</replace>
@@ -144,7 +148,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/components/get_create_dataset/submitDatasetButtonHandler.js" />
         <option value="$PROJECT_DIR$/new_server/routes.js" />
         <option value="$PROJECT_DIR$/client/components/get_create_plot/getDatasetContentsComponent.js" />
         <option value="$PROJECT_DIR$/client/components/get_create_plot/createPlotComponent.js" />
@@ -160,41 +163,42 @@
         <option value="$PROJECT_DIR$/client/components/get_plot/getPlotComponent.js" />
         <option value="$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotDiagramComponent.js" />
         <option value="$PROJECT_DIR$/client/components/get_post/getPostDataComponent.js" />
-        <option value="$PROJECT_DIR$/client/components/get_post/getPostComponent.js" />
         <option value="$PROJECT_DIR$/client/components/get_project/getProjectDataComponent.js" />
         <option value="$PROJECT_DIR$/client/components/get_search_profile/addHandler.js" />
         <option value="$PROJECT_DIR$/client/components/get_search_profile/searchGetData.js" />
         <option value="$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersGetDataComponent.js" />
         <option value="$PROJECT_DIR$/client/components/navigation/logoutHandler.js" />
-        <option value="$PROJECT_DIR$/client/components/structure_helpers/post_structure/gotContents.js" />
-        <option value="$PROJECT_DIR$/client/components/structure_helpers/post_structure/getDatasetButtonHandler.js" />
         <option value="$PROJECT_DIR$/client/components/get_dataset/subComponents/getDatasetGridComponent.js" />
         <option value="$PROJECT_DIR$/server/defender.js" />
         <option value="$PROJECT_DIR$/client/package.json" />
-        <option value="$PROJECT_DIR$/server/helpers.js" />
         <option value="$PROJECT_DIR$/client/errorHandler.js" />
         <option value="$PROJECT_DIR$/client/components/login/isLoggedIn.js" />
         <option value="$PROJECT_DIR$/client/components/login/register/registerHandler.js" />
         <option value="$PROJECT_DIR$/server/app.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/client/components/get_user_profile/usersComponent.js" />
-        <option value="$PROJECT_DIR$/client/components/init/init.js" />
         <option value="$PROJECT_DIR$/client/dependencies.js" />
         <option value="$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersBttnCreateComponent.js" />
-        <option value="$PROJECT_DIR$/server/routes.js" />
         <option value="$PROJECT_DIR$/client/components/login/loginComponent.js" />
         <option value="$PROJECT_DIR$/client/components/get_search_profile/searchComponent.js" />
-        <option value="$PROJECT_DIR$/client/components/get_search_profile/searchResultsComponent.js" />
-        <option value="$PROJECT_DIR$/client/components/navigation/navigationComponent.js" />
-        <option value="$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersInfoComponent.js" />
         <option value="$PROJECT_DIR$/client/components/get_create_project/createProjectComponent.js" />
         <option value="$PROJECT_DIR$/client/components/login/register/registerComponent.js" />
-        <option value="$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersMatrixComponent.js" />
         <option value="$PROJECT_DIR$/client/components/get_project/getProjectComponent.js" />
         <option value="$PROJECT_DIR$/client/components/get_project/subComponents/getProjectInfoComponent.js" />
-        <option value="$PROJECT_DIR$/client/components/structure_helpers/post_structure/postStructurer.js" />
         <option value="$PROJECT_DIR$/client/components/get_project/subComponents/datasetComponents/getProjectDatasetComponent.js" />
+        <option value="$PROJECT_DIR$/client/components/structure_helpers/post_structure/getDatasetButtonHandler.js" />
+        <option value="$PROJECT_DIR$/client/components/structure_helpers/post_structure/gotContents.js" />
+        <option value="$PROJECT_DIR$/client/components/navigation/navigationComponent.js" />
+        <option value="$PROJECT_DIR$/client/components/init/init.js" />
+        <option value="$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersInfoComponent.js" />
+        <option value="$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersMatrixComponent.js" />
+        <option value="$PROJECT_DIR$/client/components/get_search_profile/searchResultsComponent.js" />
         <option value="$PROJECT_DIR$/client/components/get_project/subComponents/postComponents/getProjectPostComponent.js" />
+        <option value="$PROJECT_DIR$/server/routes.js" />
+        <option value="$PROJECT_DIR$/API/constructors/DBOpsConstructor.js" />
+        <option value="$PROJECT_DIR$/server/helpers.js" />
+        <option value="$PROJECT_DIR$/client/components/structure_helpers/post_structure/postStructurer.js" />
+        <option value="$PROJECT_DIR$/client/components/get_post/getPostComponent.js" />
       </list>
     </option>
   </component>
@@ -256,7 +260,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -359,160 +362,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="get_user_profile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="get_user_profile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="usersSubComponents" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="get_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="get_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="subComponents" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="get_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="subComponents" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="postComponents" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="get_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="subComponents" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="datasetComponents" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thesis-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="API" />
+              <option name="myItemId" value="get_post" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -965,14 +821,8 @@
       <workItem from="1498683546298" duration="100000" />
       <workItem from="1498731255164" duration="24553000" />
       <workItem from="1498817652820" duration="17764000" />
-      <workItem from="1498900662799" duration="11692000" />
-    </task>
-    <task id="LOCAL-00006" summary="Added upload and save hdf changes">
-      <created>1490775463409</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1490775463409</updated>
+      <workItem from="1498900662799" duration="11787000" />
+      <workItem from="1498916120838" duration="27170000" />
     </task>
     <task id="LOCAL-00007" summary="Test acl changes">
       <created>1491055747317</created>
@@ -1310,7 +1160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1498766040994</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Added front end css tachyons for create project, get project - not ready yet.">
+      <created>1498913105485</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1498913105486</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1346,7 +1203,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2518964000" />
+    <option name="totallyTimeSpent" value="2546229000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1361,16 +1218,16 @@
     <frame x="64" y="-11" width="1537" height="912" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2989418" sideWeight="0.49485862" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2744709" sideWeight="0.49485862" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7847896" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7930591" sideWeight="0.5132275" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7917738" sideWeight="0.48677248" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52570695" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7917738" sideWeight="0.48677248" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.90231365" sideWeight="0.4973545" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39974293" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14153439" sideWeight="0.5051414" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39974293" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1418,7 +1275,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added directory and routes changes" />
     <MESSAGE value="Added front end changes, buttons etc" />
     <MESSAGE value="Added front end structure" />
     <MESSAGE value="Added front end /users" />
@@ -1443,7 +1299,8 @@
     <MESSAGE value="Added backend errorHandler bug fixes" />
     <MESSAGE value="Added front end css tachyons for login screen" />
     <MESSAGE value="Added front end css tachyons for get user, search user, create project -not ready yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added front end css tachyons for get user, search user, create project -not ready yet" />
+    <MESSAGE value="Added front end css tachyons for create project, get project - not ready yet." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added front end css tachyons for create project, get project - not ready yet." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1453,35 +1310,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/components/get_dataset/subComponents/getDataConstructor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="43" lean-forward="false" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/get_dataset/getDatasetComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="22" lean-forward="true" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/get_plot/getPlotComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="21" column="62" lean-forward="false" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/get_plot/subComponents/getPlotDataComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/components/get_plot/subComponents/PlotConstructor.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1160">
@@ -1493,20 +1321,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="104" column="48" lean-forward="false" selection-start-line="104" selection-start-column="48" selection-end-line="104" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/get_post/getPostDataComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/get_post/getPostComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="50" column="53" lean-forward="false" selection-start-line="50" selection-start-column="53" selection-end-line="50" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -1580,20 +1394,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/structure_helpers/post_structure/gotContents.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-249">
-          <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/structure_helpers/post_structure/getDatasetButtonHandler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="88" lean-forward="false" selection-start-line="12" selection-start-column="88" selection-end-line="12" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/components/navigation/searchHandler.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1626,13 +1426,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/helpers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1640">
-          <caret line="82" column="57" lean-forward="false" selection-start-line="82" selection-start-column="57" selection-end-line="82" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -1685,13 +1478,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/init/init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="83" lean-forward="false" selection-start-line="6" selection-start-column="83" selection-end-line="6" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/components/get_search_profile/searchComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
@@ -1699,38 +1485,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/get_search_profile/searchResultsComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="97" column="41" lean-forward="false" selection-start-line="97" selection-start-column="41" selection-end-line="97" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/components/login/loginComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="27" column="8" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="28" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1460">
-          <caret line="73" column="3" lean-forward="true" selection-start-line="73" selection-start-column="3" selection-end-line="73" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/get_user_profile/usersComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="9" lean-forward="false" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/navigation/navigationComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="30" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1748,13 +1506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersInfoComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="20" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersBttnCreateComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -1769,50 +1520,170 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/get_project/subComponents/datasetComponents/getProjectCreateDatasetHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/components/get_project/getProjectComponent.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/get_project/subComponents/datasetComponents/getDatasetContentsHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="79" lean-forward="true" selection-start-line="7" selection-start-column="79" selection-end-line="7" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/structure_helpers/post_structure/gotContents.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="49" lean-forward="true" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/structure_helpers/post_structure/getDatasetButtonHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="44" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/navigation/navigationComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="91" lean-forward="false" selection-start-line="7" selection-start-column="91" selection-end-line="7" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersInfoComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/get_project/subComponents/getProjectInfoComponent.js">
+    <entry file="file://$PROJECT_DIR$/client/components/get_search_profile/searchResultsComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersMatrixComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="29" column="66" lean-forward="true" selection-start-line="29" selection-start-column="66" selection-end-line="29" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/structure_helpers/post_structure/postStructurer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="920">
-          <caret line="46" column="41" lean-forward="false" selection-start-line="46" selection-start-column="41" selection-end-line="46" selection-end-column="41" />
+        <state relative-caret-position="700">
+          <caret line="35" column="101" lean-forward="false" selection-start-line="35" selection-start-column="101" selection-end-line="35" selection-end-column="101" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/components/get_project/subComponents/datasetComponents/getProjectDatasetComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="80" lean-forward="true" selection-start-line="12" selection-start-column="80" selection-end-line="12" selection-end-column="80" />
+        <state relative-caret-position="840">
+          <caret line="45" column="71" lean-forward="false" selection-start-line="45" selection-start-column="71" selection-end-line="45" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/get_project/subComponents/getProjectInfoComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="104" lean-forward="false" selection-start-line="6" selection-start-column="67" selection-end-line="6" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/get_user_profile/usersComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="9" lean-forward="false" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/get_user_profile/usersSubComponents/usersMatrixComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="72" column="36" lean-forward="true" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/components/get_project/subComponents/postComponents/getProjectPostComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="34" column="78" lean-forward="false" selection-start-line="34" selection-start-column="78" selection-end-line="34" selection-end-column="78" />
+        <state relative-caret-position="517">
+          <caret line="36" column="34" lean-forward="false" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/get_post/getPostDataComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/init/init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="51" lean-forward="false" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/get_post/createResponseButtonHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/constructors/DBOpsConstructor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="77" column="51" lean-forward="false" selection-start-line="77" selection-start-column="51" selection-end-line="77" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="258" column="13" lean-forward="false" selection-start-line="258" selection-start-column="13" selection-end-line="258" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/helpers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="139" column="47" lean-forward="false" selection-start-line="139" selection-start-column="47" selection-end-line="139" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/structure_helpers/post_structure/postStructurer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-280">
+          <caret line="46" column="89" lean-forward="false" selection-start-line="46" selection-start-column="89" selection-end-line="46" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/get_post/getPostComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="19" column="40" lean-forward="false" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
           <folding />
         </state>
       </provider>

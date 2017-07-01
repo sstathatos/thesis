@@ -4,7 +4,7 @@ let usersMatrixConstructor = (obj) => {
     let init = () => {
         let matrixDiv = html.create('div',{className:'pt2 pl4'});
 
-        let projectInfo = html.create('h4',{textContent:"Projects",className:'f3 light-yellow'});
+        let projectInfo = html.create('h4',{textContent:"Projects",className:'f3 light-yellow mt3 mb3'});
         let matrixEl = html.create('table',{className:"f6 w-80 mw8 left pt2 pl3"});
         matrixEl.cellSpacing = 0;
 

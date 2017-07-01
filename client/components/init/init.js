@@ -4,7 +4,7 @@ let init = (dependencies) => {
     let {get,navigationComponentConstructor,errorHandler,
         usersComponentConstructor,loginComponentConstructor,app} = dependencies;
 
-    document.getElementById('app').className = 'pa2 h-auto light-gray bg-dark-green';
+    document.getElementById('app').className = 'pa5 h-auto light-gray bg-dark-green';
     document.body.style.cursor = 'default';
 
 

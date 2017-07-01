@@ -5,7 +5,7 @@ let searchResultsComponent = (obj) => {
     let init = () => {
         let search_result_div=html.create('div',{className:'pt2 pl4'});
 
-        let title =  html.create('h4',{textContent:`Search result`,className:'f3  light-yellow'});
+        let title =  html.create('h4',{textContent:`Search result`,className:'f3  light-yellow mt3 mb3'});
 
         let p1name = html.create('p',{textContent:`Username:`,className:'f4 pl3 di '});
         let p2name = html.create('p',{textContent:`Email:`,className:'f4 pl3 di '});
@@ -33,7 +33,7 @@ let searchResultsComponent = (obj) => {
             mountToNameDiv(el);
         });
 
-        let projectInfo = html.create('h4',{textContent:"Projects",className:'f3 light-yellow'});
+        let projectInfo = html.create('h4',{textContent:"Projects",className:'f3 light-yellow mt3 mb3'});
 
 
         let search_projects_arr_table =  html.create('table',{className:"f6 w-80 mw8 left pt2 pl3"});

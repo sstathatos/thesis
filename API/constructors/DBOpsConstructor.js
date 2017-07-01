@@ -74,7 +74,10 @@ let DBOpsConstructor = (obj) => {
     let readObjs = (model_name, query) => {
         return (cb) => {
             let model = entities[model_name];
-            model.dao.readItems(query, cb);
+            model.dao.readItems(query,(err,data) =>{
+                if (err) return cb(new Error(err));
+                else return cb(null,data);
+            });
         }
     };
 

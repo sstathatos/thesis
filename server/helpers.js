@@ -126,8 +126,13 @@ let helperConstructor = () => {
                         if (JSON.stringify(posts[i]._id)===JSON.stringify(query._id)) { //parent
                             confPost(posts[i],(err,post) => {
                                 if (err) return cb(new Error(err));
+                                post.date = post.date.toISOString().slice(0, 10);
+
                                 whole_post['parent']=post;
-                                if(cnt ===posts.length -1) return cb(null,whole_post);
+                                if(cnt ===posts.length -1) {
+                                    whole_post.kids =sortByDate(whole_post.kids);
+                                    return cb(null,whole_post);
+                                }
                                 cnt++;
                             })
                         }
@@ -135,7 +140,10 @@ let helperConstructor = () => {
                             confPost(posts[i],(err,post) => {
                                 if (err) return cb(new Error(err));
                                 whole_post.kids.push(post);
-                                if(cnt ===posts.length -1) return cb(null,whole_post);
+                                if(cnt === posts.length -1) {
+                                    whole_post.kids =sortByDate(whole_post.kids);
+                                    return cb(null,whole_post);
+                                }
                                 cnt++;
                             })
                         }
@@ -144,6 +152,35 @@ let helperConstructor = () => {
             }
         });
     };
+
+    let confDate = (data) => {
+        data.map((obj) => {
+            if (obj.date) {
+                obj.date = obj.date.toISOString().slice(0, 10);
+            }
+        });
+        return data;
+    };
+
+    let sortByDate = (data) => {
+        if (data.length >0) {
+            data.sort((a, b)=> {
+                let key1 = a.date;
+                let key2 = b.date;
+
+                if (key1 < key2) {
+                    return -1;
+                } else if (key1 === key2) {
+                    return 0;
+                } else {
+                    return 1;
+                }
+            });
+            return confDate(data);
+        }
+        return [];
+    };
+
 
     let confProject = (proj,cb) =>{
         let obj ={};
@@ -163,6 +200,8 @@ let helperConstructor = () => {
                         confPost(posts[j],(err,post) => {
                             obj['post_parents'].push(post);
                             if(cnt === posts.length-1) {
+                                obj['post_parents'] =sortByDate(obj['post_parents']);
+
                                 return cb(null,obj);
                             }
                             cnt++;
@@ -178,7 +217,7 @@ let helperConstructor = () => {
         obj['title']=post.title;
         obj['_id']=post._id;
         obj['description']=post.description;
-        obj['date'] = post.date.toISOString().slice(0, 10);
+        obj['date'] = post.date;
         if(post.inpost) obj['inpost']=post.inpost;
         confDsets({_id:post.dset_link},(err,dset) => { //only one
             if (err) return cb (new Error(err));
