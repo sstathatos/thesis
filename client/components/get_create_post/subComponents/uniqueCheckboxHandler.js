@@ -1,5 +1,5 @@
 let uniqueCheckboxHandlerConstructor = (obj,createPostAddPlotComponent,add_plot_div,
-                                        createPostSaveButtonComponent,savepost_div) => {
+                                        createPostSaveButtonComponent,savepost_div,plot_list_div) => {
 
     let {html} = obj;
     let uniqueCheckboxHandler = (spec) => {
@@ -8,7 +8,8 @@ let uniqueCheckboxHandlerConstructor = (obj,createPostAddPlotComponent,add_plot_
         let enable_extra = (el,row_array) => {
             add_plot_div.innerHTML = "";
             savepost_div.innerHTML = '';
-            createPostAddPlotComponent.init(add_plot_div,post_div);
+            plot_list_div.innerHTML = '';
+            createPostAddPlotComponent.init(add_plot_div,post_div,plot_list_div);
             createPostSaveButtonComponent.init(savepost_div,formEls,row_array,createPostAddPlotComponent);
         };
 

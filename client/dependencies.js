@@ -14,7 +14,7 @@ const dependencies = Object.freeze({
     css : {
 
         button: 'dark-green b--solid dim b--green bg-white ph2 mb2 pa2 mh2 bw2 br3',
-        input: 'ph3 pv2 mh2 b--green b--solid'
+        input: 'ph3 pv2 mh2 b--green b--solid green'
 
     },
 

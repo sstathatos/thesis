@@ -1,21 +1,23 @@
 let getPlotDatasetComponentConstructor = (obj) => {
     let {dependencies,plot_cb} = obj;
-    let {html,errorHandler,validator} = dependencies;
+    let {html,errorHandler,validator,css} = dependencies;
     let init = (plot_div) => {
-        let plot_dataset_div_el = html.create('div');
+        let plot_dataset_div_el = html.create('div',{className:'pt2 pl4 w-40 dtc'});
 
-        let plot_dataset_select_name_el = html.create('p',{textContent:`Select Array:`});
+        let plot_dataset_select_name_el = html.create('p',
+            {textContent:`Select Array:`,className:'f4 pl3 pr5'});
 
-        let plot_dataset_table_el = html.create('table');
+        let plot_dataset_table_el = html.create('table',{className:"f6 w-60 mw8 left pt2 pl3"});
+        plot_dataset_table_el.cellSpacing = 0;
 
-        let plot_dataset_tr_el = html.create('tr');
+        let plot_dataset_tr_el = html.create('tr',{className:'stripe-dark'});
 
-        let plot_dataset_th_path_el = html.create('th',{textContent:'path'});
-        let plot_dataset_th_shape_el = html.create('th',{textContent:'shape'});
-        let plot_dataset_th_dims_el = html.create('th',{textContent:'# of dims'});
-        let plot_dataset_th_check_el = html.create('th',{textContent:'check'});
+        let plot_dataset_th_path_el = html.create('th',{textContent:'path',className:'pa1 f4'});
+        let plot_dataset_th_shape_el = html.create('th',{textContent:'shape',className:'pa1 f4'});
+        let plot_dataset_th_dims_el = html.create('th',{textContent:'# of dims',className:'pa1 f4'});
+        let plot_dataset_th_check_el = html.create('th',{textContent:'check',className:'pa1 f4'});
 
-        let plot_dataset_options_el = html.create('div');
+        let plot_dataset_options_el = html.create('div',{className:'w-90'});
 
         let mountToTr =  html.mountTo(plot_dataset_tr_el);
         [plot_dataset_th_path_el,plot_dataset_th_shape_el,
@@ -45,11 +47,19 @@ let getPlotDatasetComponentConstructor = (obj) => {
         let checkboxes = [];
 
         for (let row in data) {
-            let new_row_el = html.create('tr');
-            let new_path_el = html.create('td',{textContent:data[row].path});
-            let new_shape_el = html.create('td',{textContent:data[row].shape});
-            let new_dimnumber_el = html.create('td',{textContent:data[row]['dimnumber']});
+            let new_row_el = html.create('tr',{className:'stripe-dark'});
+            let new_path_el = html.create('td',{textContent:data[row].path,className:'f4 w3 pa2'});
+            new_path_el.style.textAlign = "center";
+
+            let new_shape_el = html.create('td',{textContent:data[row].shape,className:'f4 w3 pa2'});
+            new_shape_el.style.textAlign = "center";
+
+            let new_dimnumber_el = html.create('td',{textContent:data[row]['dimnumber'],className:'f4 w3 pa2'});
+            new_dimnumber_el.style.textAlign = "center";
+
             let new_check_el = html.create('td');
+            new_check_el.style.textAlign = "center";
+
 
             let new_checkbox_el = html.create('input',{type:'checkbox'});
             checkboxes.push(new_checkbox_el);
@@ -73,8 +83,15 @@ let getPlotDatasetComponentConstructor = (obj) => {
 
             //FIRST INPUT
             let dims = Number(el.parentElement.parentElement.children[2].textContent);
-            let first_dim_name_el = html.create('p',{textContent:'Horizontal dimention:'});
-            let dim1_select_el =  html.create('select');
+            let first_dim_name_el = html.create('p',{textContent:'Horizontal dimention:',className:'f4 pt3 pl3 w-40 dtc'});
+            let dim1_select_el =  html.create('select',{className:'f4 dtc'});
+
+            let horizontal_div_el =  html.create('div',{className:'dt pv3 w-60'});
+            let mountToHorizontal =html.mountTo(horizontal_div_el);
+            [first_dim_name_el,dim1_select_el].map((el) => {
+                mountToHorizontal(el);
+            });
+
             let dim1_option1_el = html.create('option',{value:1,textContent:1});
             let dim1_option2_el = html.create('option',{value:2,textContent:2});
 
@@ -87,8 +104,14 @@ let getPlotDatasetComponentConstructor = (obj) => {
             }
 
             //SECOND INPUT
-            let second_dim_name_el = html.create('p',{textContent:'Vertical dimention:'});
-            let dim2_select_el =  html.create('select');
+            let second_dim_name_el = html.create('p',{textContent:'Vertical dimention:',className:'f4 pl3 w-40 dtc'});
+            let dim2_select_el =  html.create('select',{className:'f4 dtc'});
+            let vertical_div_el =  html.create('div',{className:'dt  pv3 w-60'});
+            let mountToVertical =html.mountTo(vertical_div_el);
+            [second_dim_name_el,dim2_select_el].map((el) => {
+                mountToVertical(el);
+            });
+
             let dim2_option1_el = html.create('option',{value:1,textContent:1});
             let dim2_option2_el = html.create('option',{value:2,textContent:2});
 
@@ -114,8 +137,13 @@ let getPlotDatasetComponentConstructor = (obj) => {
             changeOptions(parameters_obj);
 
 
-            let dropdown_name_el = html.create('p',{textContent:'Select plot type:'});
-            let dropdown_el = html.create('select');
+            let dropdown_name_el = html.create('p',{textContent:'Select plot type:',className:'f4 w-40 pl3 dtc'});
+            let dropdown_el = html.create('select',{className:'f4 dtc'});
+            let dropdown_div_el =  html.create('div',{className:'dt  pv3 w-60'});
+            let mountToDropdownDiv =html.mountTo(dropdown_div_el);
+            [dropdown_name_el,dropdown_el].map((el) => {
+                mountToDropdownDiv(el);
+            });
 
             let option_line_el = html.create('option',{textContent:'line'});
             let option_step_el = html.create('option',{textContent:'step'});
@@ -126,15 +154,21 @@ let getPlotDatasetComponentConstructor = (obj) => {
                 mountToDropdown(el);
             });
 
-            let second_dim_value_name_el = html.create('p',{textContent:'Vertical dimention value (represents X axis):'});
+            let second_dim_value_name_el = html.create('p',{
+                textContent:'Vertical dimention value (represents X axis):',className:'f4 pl3 w-60 pr5 dtc'});
 
-            let dim2value_input_el = html.create('input',{type:'range'});
-            let dim2value_show_el = html.create('input',{readOnly:'true'});
+            let dim2value_input_el = html.create('input',{type:'range',className:'dtc'});
+            let dim2value_show_el = html.create('input',{readOnly:'true',className:`dtc w-10  v-mid mh2 b--green b--solid green bg-light-yellow bw2 br3`});
+
+            let second_div_el =  html.create('div',{className:'dt  pv3 w-70 dt'});
+            let mountToSecondDiv =html.mountTo(second_div_el);
+            [second_dim_value_name_el,dim2value_input_el,dim2value_show_el].map((el) => {
+                mountToSecondDiv(el);
+            });
 
             let mountToDiv = html.mountTo(options_div);
-            [first_dim_name_el,dim1_select_el,
-                second_dim_name_el,dim2_select_el,dropdown_name_el,dropdown_el,
-                second_dim_value_name_el,second_dim_value_name_el,dim2value_input_el,dim2value_show_el].map((el) => {
+            [horizontal_div_el,vertical_div_el,dropdown_div_el,
+                second_div_el].map((el) => {
                 mountToDiv(el);
             });
 
@@ -163,23 +197,23 @@ let getPlotDatasetComponentConstructor = (obj) => {
                 description:()=> descr_el.value
             };
 
-
-
-
             let third_dim_value_name_el;
             let dim3value_input_el;
             let dim3value_show_el;
 
             if (dims === 3) {
-                third_dim_value_name_el = html.create('p',{textContent:'Third dimention value:'});
+                third_dim_value_name_el = html.create('p',{textContent:'Third dimention value:',className:'f4 w-60 pl3 pr5 dtc'});
 
-                dim3value_input_el = html.create('input',{type:'range'});
-                dim3value_show_el = html.create('input',{readOnly:'true'});
+                dim3value_input_el = html.create('input',{type:'range',className:'dtc'});
+                dim3value_show_el = html.create('input',{readOnly:'true',className:' dtc w-10 v-mid mh2 b--green b--solid green bg-light-yellow bw2 br3'});
 
-                [ third_dim_value_name_el,dim3value_input_el,dim3value_show_el].map((el)=> {
-                    mountToDiv(el);
+                let third_div_el =  html.create('div',{className:'dt  pv3 w-70 dt'});
+                let mountToThirdDiv =html.mountTo(third_div_el);
+                [third_dim_value_name_el,dim3value_input_el,dim3value_show_el].map((el) => {
+                    mountToThirdDiv(el);
                 });
 
+                mountToDiv(third_div_el);
 
                 let addListenerToRange = html.addListenerTo(dim3value_input_el);
                 addListenerToRange('change',() => showValue(dim3value_show_el,dim3value_input_el));
@@ -196,7 +230,7 @@ let getPlotDatasetComponentConstructor = (obj) => {
                 handler_object['dim3Value'] =()=>dim3value_input_el.value;
             }
 
-            let plot_save_button_el = html.create('button',{textContent:'Save Plot'});
+            let plot_save_button_el = html.create('button',{textContent:'Save Plot',className:css.button});
             let addListenerToSaveButton = html.addListenerTo(plot_save_button_el);
             html.mountTo(options_div)(plot_save_button_el);
             addListenerToSaveButton('click',()=>{

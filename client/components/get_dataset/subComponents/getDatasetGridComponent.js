@@ -1,16 +1,18 @@
 let getDatasetGridComponentConstructor = (obj) => {
 
-    let {html} =  obj;
+    let {html,css} =  obj;
 
     let init = (grid_div_el,button_obj,getData) => {
-        let grid_table_el = html.create('table');
+        let grid_table_el = html.create('table',{className:"f6 w-60 mw8 left pt2 pl3"});
+        grid_table_el.cellSpacing = 0;
+
 
         html.mountTo(grid_div_el)(grid_table_el);
 
         let button_names = ['up','down','left','right'];
 
         let  buttons =button_names.map((but) =>{
-            let button = html.create('button',{textContent:but,disabled:'true'});
+            let button = html.create('button',{textContent:but,disabled:'true',className:css.button});
             html.mountTo(grid_div_el)(button);
             let listenerToButton = html.addListenerTo(button);
 
@@ -55,11 +57,11 @@ let getDatasetGridComponentConstructor = (obj) => {
         for (let i in array) {
 
             let row =array[i];
-            let datasetgrid_tr_el = html.create('tr');
+            let datasetgrid_tr_el = html.create('tr',{className:'stripe-dark'});
             let mountToGrid = html.mountTo(datasetgrid_tr_el);
 
             for(let j in row) {
-                let datasetgrid_td_el = html.create('td',{textContent:row[j]});
+                let datasetgrid_td_el = html.create('td',{textContent:row[j],className:'pa1 f4'});
                 mountToGrid(datasetgrid_td_el);
             }
 

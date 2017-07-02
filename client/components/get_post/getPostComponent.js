@@ -14,7 +14,7 @@ let getPostComponentConstructor = (obj) => {
 
         let wholepost_name_el = html.create('h4',{textContent:'Whole Post',className:'f3 light-yellow mb2 mt2'});
 
-        let wholepost_parent_div = html.create('div',{className:'w-60 debug'});
+        let wholepost_parent_div = html.create('div',{className:'w-40 dtc'});
 
         let wholepost_createresponse_name_el = html.create('h4',{textContent:'Create Response',className:'f3 light-yellow mb1 mt2'});
         let wholepost_createresponse_button_el = html.create('button',{textContent:'Create',className:`${css.button}`});
@@ -26,7 +26,7 @@ let getPostComponentConstructor = (obj) => {
         });
         addListenerToCreateButton('click',createResponseButtonHandler);
 
-        let button_div = html.create('div',{className:'w-40 dt v-mid'});
+        let button_div = html.create('div',{className:'w-40 dtc v-mid'});
         let mountToButtonDiv = html.mountTo(button_div);
 
         [wholepost_createresponse_name_el,wholepost_createresponse_button_el].map((el) => {

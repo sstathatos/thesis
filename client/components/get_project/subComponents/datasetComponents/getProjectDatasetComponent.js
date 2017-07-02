@@ -6,7 +6,7 @@ let getProjectDatasetComponentConstructor = (obj) => {
 
     let init = () => {
         let getproject_dataset_div_el = html.create('div',{className:'fl w-60 '});
-        let getproject_dataset_title_name_el = html.create('h4',{textContent:'Datasets',className:'f3 light-yellow mt2 mb2'});
+        let getproject_dataset_title_name_el = html.create('h4',{textContent:'Datasets',className:'f3 light-yellow mt2 mb1'});
         let getproject_dataset_table_el = html.create('table',{className:"f6 w-90 mw8 left pt2 pl3"});
         getproject_dataset_table_el.cellSpacing = 0;
 
@@ -53,7 +53,8 @@ let getProjectDatasetComponentConstructor = (obj) => {
         html.mountTo(app)(getproject_info_whole_el);
 
         return {dynamic:[getproject_dataset_table_el],static:[getproject_dataset_div_el,
-            getproject_dataset_contents_div_el,getproject_empty_message_el,getproject_post_createpost_button_el]};
+            getproject_dataset_contents_div_el,getproject_empty_message_el,
+            getproject_post_createpost_button_el]};
     };
 
     let update = (obj) => {
@@ -114,8 +115,8 @@ let getProjectDatasetComponentConstructor = (obj) => {
         }
 
         else {
-            datasetEls['static'][1].textContent = "This project doesn\'t contain a dataset right now.";
-            datasetEls['static'][1].className ='f4 bl pv2 bw2 pl2 light-yellow';
+            datasetEls['static'][2].textContent = "This project doesn\'t contain a dataset yet.";
+            datasetEls['static'][2].className ='f4 bl pv2 bw2 pl2 light-yellow';
         }
 
 

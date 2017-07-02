@@ -1,18 +1,27 @@
 let getDatasetOptionsComponentConstructor = (obj) => {
 
     let {dependencies,data} = obj;
-    let {html,app,getDatasetGridComponentConstructor,getDataConstructor} = dependencies;
+    let {html,app,getDatasetGridComponentConstructor,css,getDataConstructor} = dependencies;
     let getData = getDataConstructor(obj);
     let getDataGridComponent = getDatasetGridComponentConstructor(dependencies);
 
     let init = (data) => {
 
-        let options_div_el = html.create('div');
-        let dim1_name_el = html.create('p',{textContent:'Horizontal Dimention:'});
+        let options_div_el = html.create('div',{className:'pt2 pl4'});
 
-        let dim1_select_el =  html.create('select');
+        let title_el = html.create('h4',{textContent:'Show Dataset',className:'f3 light-yellow mt2 mb1'});
+
+        let dim1_name_el = html.create('p',{textContent:'Horizontal Dimention:',className:' w-20 f4 pl3 pr5 di dtc'});
+        let dim1_select_el =  html.create('select',{className:'dtc'});
         let dim1_option1_el = html.create('option',{value:1,textContent:1});
         let dim1_option2_el = html.create('option',{value:2,textContent:2});
+
+        let horizontal_div = html.create('div',{className:'w-100 pv2 dt'});
+        let mountToHorizontalDiv = html.mountTo(horizontal_div);
+        [dim1_name_el,dim1_select_el].map((el) => {
+            mountToHorizontalDiv(el);
+        });
+
 
         let mountToSel1 = html.mountTo(dim1_select_el);
         mountToSel1(dim1_option1_el);
@@ -22,10 +31,16 @@ let getDatasetOptionsComponentConstructor = (obj) => {
             mountToSel1(dim1_option3_el);
         }
 
-        let dim2_name_el = html.create('p',{textContent:'Vertical Dimention:'});
-        let dim2_select_el =  html.create('select');
+        let dim2_name_el = html.create('p',{textContent:'Vertical Dimention:',className:' w-20 f4 pl3 pr5 di dtc'});
+        let dim2_select_el =  html.create('select',{className:'dtc'});
         let dim2_option1_el = html.create('option',{value:1,textContent:1});
         let dim2_option2_el = html.create('option',{value:2,textContent:2});
+
+        let vertical_div = html.create('div',{className:'w-100 pv2 dt'});
+        let mountToVerticalDiv = html.mountTo(vertical_div);
+        [dim2_name_el,dim2_select_el].map((el) => {
+            mountToVerticalDiv(el);
+        });
 
         let mountToSel2 = html.mountTo(dim2_select_el);
         mountToSel2(dim2_option1_el);
@@ -83,7 +98,7 @@ let getDatasetOptionsComponentConstructor = (obj) => {
 
 
         let mountToDiv = html.mountTo(options_div_el);
-        [dim1_name_el,dim1_select_el,dim2_name_el,dim2_select_el].map((el) => {
+        [title_el,horizontal_div,vertical_div].map((el) => {
             mountToDiv(el);
         });
 
@@ -92,13 +107,16 @@ let getDatasetOptionsComponentConstructor = (obj) => {
         let dim3value_show_el;
 
         if(data['dimnumber'] === 3) {
-            dim3value_name_el = html.create('p',{textContent:'Dimension 3 Value:'});
-            dim3value_input_el = html.create('input',{type:'range'});
-            dim3value_show_el = html.create('input',{readOnly:'true'});
+            dim3value_name_el = html.create('p',{textContent:'Dimension 3 Value:',className:' w-20 f4 pl3 pr5 di dtc'});
+            dim3value_input_el = html.create('input',{type:'range'},{className:'dtc'});
+            dim3value_show_el = html.create('input',{readOnly:'true',className:`dtc w2 v-mid b--green b--solid green bg-light-yellow bw2 br3`});
 
-            [ dim3value_name_el,dim3value_input_el,dim3value_show_el].map((el)=> {
-                mountToDiv(el);
+            let third_div = html.create('div',{className:'w-100 pv2 dt'});
+            let mountToThirdDiv = html.mountTo(third_div);
+            [dim3value_name_el,dim3value_input_el,dim3value_show_el].map((el) => {
+                mountToThirdDiv(el);
             });
+            mountToDiv(third_div);
 
             let showValue = () => {
                 dim3value_show_el.value = dim3value_input_el.value;
@@ -134,7 +152,7 @@ let getDatasetOptionsComponentConstructor = (obj) => {
 
 
 
-        let button = html.create('button',{textContent:'Show Data'});
+        let button = html.create('button',{textContent:'Show Data',className:css.button});
         mountToDiv(button);
         let grid_div_el =  html.create('div');
         mountToDiv(grid_div_el);

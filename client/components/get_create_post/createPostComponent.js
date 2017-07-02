@@ -14,10 +14,10 @@ let createPostComponentConstructor = (dependencies,parent_post_id) => {
         let post_div = html.create('div');
         let formEls=createPostFormComponent.init(post_div);
         let listEls=createPostListComponent.init(post_div);
-        let mountToDiv =  html.mountTo(post_div);
-        [formEls['static'][0],listEls['static'][0]].map((el)=> {
-            mountToDiv(el);
-        });
+        // let mountToDiv =  html.mountTo(post_div);
+        // [formEls['static'][0],listEls['static'][0]].map((el)=> {
+        //     mountToDiv(el);
+        // });
         html.mountTo(app)(post_div);
 
         return {formEls,listEls,post_div};

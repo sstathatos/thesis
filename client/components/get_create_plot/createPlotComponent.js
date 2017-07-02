@@ -1,7 +1,7 @@
 let createPlotComponentConstructor = (obj) => {
     let {dependencies,dataset_id,plot_cb,post_div} =obj;
-    let {app,get,html,post,createPlotInfoComponentConstructor,
-        createPlotDatasetComponentConstructor,errorHandler,getDatasetContentsComponentConstructor} = dependencies;
+    let {app,html,createPlotInfoComponentConstructor,
+        createPlotDatasetComponentConstructor,getDatasetContentsComponentConstructor} = dependencies;
 
     let createPlotInfoComponent = createPlotInfoComponentConstructor(dependencies);
     let createPlotDatasetComponent = createPlotDatasetComponentConstructor({dependencies,plot_cb});
