@@ -34,7 +34,7 @@ describe('test my DB CRUD OPERATIONS', function () {
                 });
             }
         });
-        it('should create get_create_project', function (done) {
+        it('should create create_project', function (done) {
             for (let i = 0; i < 5; i++) {
                 if (i === 0) console.log('2');
                 createObj('projects', {name: `project stefanos${i}`, description: `project stefanos${i}`})((err, data) => {

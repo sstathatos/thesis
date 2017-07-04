@@ -11,6 +11,12 @@ let shortid = require('shortid');
 
 let helperConstructor = () => {
 
+
+    let errorHandler = (status, err,res) => {
+        console.log(err);
+        return res.status(status).send('Internal Server Error.');
+    };
+
     let getUserProjects =(id,cb)=>{
         let projects=[];
         let qpath="acl.read.allow";
@@ -286,7 +292,7 @@ let helperConstructor = () => {
 
     return {
         getUserProjects,getHDFPlot,getHDFArray,getHDFContentsForView,confPost,
-        confProject,confDsets,searchRelatedPosts,save_data,getDataFromPlotID,confDsets
+        confProject,confDsets,searchRelatedPosts,save_data,getDataFromPlotID,errorHandler
     }
 };
 

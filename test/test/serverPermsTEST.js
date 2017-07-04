@@ -523,7 +523,7 @@ describe('test my simple server', function () {
                 .expect(200,done)
         });
 
-        it('should get /get_create_project',function (done) {
+        it('should get /create_project',function (done) {
             agent
                 .get(`/projects/?_id=${projectsArr[0]._id}`)
                 .expect(function (res) {

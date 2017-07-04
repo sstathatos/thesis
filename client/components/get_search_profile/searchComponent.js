@@ -1,6 +1,6 @@
 let searchComponent = (obj) => {
     let {dependencies,search} = obj;
-    let {searchGetDataConstructor,searchResultsComponentConstructor} = dependencies;
+    let {searchGetDataConstructor,errorHandler,searchResultsComponentConstructor,usersComponentConstructor} = dependencies;
 
     document.getElementById('BackToProjectButton').style.display='none';
 
@@ -19,14 +19,17 @@ let searchComponent = (obj) => {
 
         searchGetData.getData((err, data) => {
 
-            if (data === 'empty') {
-                console.log('EMPTY');
-                return;
-            }
+            if (data === 'empty' || data === 'too many results') {
+                let response = {
+                    statusCode:422,
+                    body: 'No result'
+                };
 
-            else if (data === 'too many results') {
-                console.log('too many results');
-                return;
+                if(errorHandler({response,err:null})) {
+                    document.getElementById('app').innerHTML = "";
+                    let usersComponent = usersComponentConstructor(dependencies);
+                    usersComponent.update(usersComponent.init());
+                }
             }
 
             else {
