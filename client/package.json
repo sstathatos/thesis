@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "c3": "github:c3js/c3",
-    "incremental-dom": "^0.5.1",
     "tachyons": "^4.7.4",
     "validator": "^7.1.0",
     "xhr": "^2.4.0"

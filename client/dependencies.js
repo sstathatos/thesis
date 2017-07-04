@@ -20,6 +20,8 @@ const dependencies = Object.freeze({
 
     init : require('./components/init/init'),
 
+    errorComponentConstructor : require('./components/error/errorComponent'),
+
     postStructurer: require('./components/structure_helpers/post_structure/postStructurer'),
     uniqueCheckboxHandlerConstructor: require('./components/get_create_post/subComponents/uniqueCheckboxHandler'),
     getPlotButtonHandlerConstructor : require('./components/structure_helpers/post_structure/getPlotButtonHandler'),
@@ -100,7 +102,7 @@ const dependencies = Object.freeze({
     getDatasetOptionsComponentConstructor : require('./components/get_dataset/subComponents/getDatasetOptionsComponent'),
     retrieveDataConstructor : require('./components/get_dataset/subComponents/retrieveDataConstructor'),
 
-    errorHandler :require('./errorHandler'),
+    errorHandler :require('./components/error/errorHandler'),
     store : localStorage
 });
 

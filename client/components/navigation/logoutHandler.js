@@ -1,6 +1,6 @@
 let logoutHandlerConstructor = (obj) => {
 
-    let {get,errorHandler,loginComponentConstructor} =  obj;
+    let {get,errorHandler,init} =  obj;
     let logoutHandler = () => {
         document.getElementById('BackToProjectButton').style.display='none';
 
@@ -13,8 +13,7 @@ let logoutHandlerConstructor = (obj) => {
             document.getElementById('app').innerHTML = "";
 
 
-            let loginComponent = loginComponentConstructor(obj);
-            loginComponent.init();
+            init(obj);
 
         })
 

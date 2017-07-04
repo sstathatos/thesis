@@ -15,7 +15,7 @@ let createProjectComponentConstructor = (obj) => {
         });
 
         let description_input_el =html.create('textarea',{value:'new project description'
-            ,maxLength:"100",className:'border-box hover-black w-70 measure dtc bw1 ba b--green pa2 br2 mb2'});
+            ,maxLength:"100",className:'border-box green w-70 measure dtc bw1 ba b--green pa2 br2 mb2'});
         let description_text_el = html.create('p',{textContent:`Description:`,className:'f4 pl3 di dtc v-mid pr2'});
 
         let description_div = html.create('div',{className:'w-100 pv2 dt'});

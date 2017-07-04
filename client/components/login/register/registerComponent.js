@@ -39,7 +39,7 @@ let registerComponentConstructor  = (obj) => {
 
 
         let subregister_div2 = html.create('div',{className:' fl w-two-thirds vh-80 mw6'});
-        let h1_text = html.create('h1',{textContent:'Welcome to PlotNet.',className:'f1'});
+        let h1_text = html.create('h1',{textContent:'Welcome to PlotNet.',className:'f1 light-yellow'});
         let h3_text = html.create('h3',{textContent:'An efficient user friendly interface for plotting multidimentional datasets.',className:'f3 narrow'});
 
         let mountToSubregister2 = html.mountTo(subregister_div2);

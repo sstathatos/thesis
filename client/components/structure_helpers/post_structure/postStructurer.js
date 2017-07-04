@@ -10,6 +10,8 @@ let postStructurer = (obj) => {
         let mountToUl =html.mountTo(post_plots_ul_el);
         for (let row=0;row<plots.length;row++) {
             let li_el =html.create('li',{textContent:plots[row].title,className:'pl2 f4 w-80'});
+            li_el.style.cursor = 'pointer';
+
             mountToUl(li_el);
 
             let addListenerToLi = html.addListenerTo(li_el);
@@ -80,16 +82,11 @@ let postStructurer = (obj) => {
     let post_plots_ul_el =html.create('ul');
     let post_plots_li_els= plots_struct(plots_ids,post_plots_ul_el);
 
-
-    // let post_whole_div =  html.create('div',{className:'pt2 pl2'});
-
     let mountToDiv = html.mountTo(post_div_el);
     [title_div,date_div,description_div,dataset_div,post_table_div,post_plots_name_el,
         post_plots_ul_el].map((el) => {
         mountToDiv(el);
     });
-
-    // html.mountTo(post_div_el)(post_whole_div);
 
     return { static:[post_div_el],dynamic:[post_title_el,post_date_el,
         post_descr_el,post_dataset_linked_el,post_plots_ul_el,post_plots_li_els]}

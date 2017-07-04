@@ -8,7 +8,7 @@ let loginComponentConstructor = (obj) => {
     let init = () => {
         store.setItem('current','login');
 
-        let login = html.create('div',{className:'db h-auto pt3 pl4'});
+        let login = html.create('div',{className:'db h-auto pl4'});
 
         let usernameInput = html.create('input',{placeholder : 'Username',className: css.input});
         let passwordInput = html.create('input',{placeholder : 'Password',type : 'password',className: `${css.input} green`});

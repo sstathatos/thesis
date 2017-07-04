@@ -22,11 +22,16 @@ router.get('/', (req, res) => {
             <title>PlotNet</title>
             <link rel="stylesheet" type="text/css" href="${c3css}">
             <link rel="stylesheet" type="text/css" href="${tachyons}">
+            <style> 
+                button:disabled {
+                    display:none;
+                }
+  
+            </style>
         </head>
         <body class='h-auto' >
             <div id="top"></div>
             <div id="app"></div>
-            
             <script src="${code}"></script>
         </body>
         </html>
@@ -218,7 +223,7 @@ router.get('/datasets',(req,res) => {
         if (err) return errorHandler(500,err.message,res);
         console.log(dset[0].path_saved);
         getHDFContentsForView(dset[0].path_saved,(err,contents) => {
-            // let con =  JSON.parse(JSON.stringify(contents));
+            if (err) return errorHandler(500,err.message,res);
             res.status(200).send({perm:'allowed',data:contents});
         });
     })

@@ -1,7 +1,8 @@
 let getProjectDatasetComponentConstructor = (obj) => {
-    let {app,get,getDatasetContentsHandlerConstructor,
+    let {app,getDatasetContentsHandlerConstructor,
         gotContentsConstructor,html,css,getProjectCreateDatasetHandlerConstructor,getProjectCreatePostHandlerConstructor} = obj;
 
+    let dependencies = obj;
     let gotContents = gotContentsConstructor(obj);
 
     let init = () => {
@@ -99,7 +100,7 @@ let getProjectDatasetComponentConstructor = (obj) => {
 
                 let getDatasetContentsHandler = getDatasetContentsHandlerConstructor({
                     id: () => dsets[row]._id,
-                    get,
+                    dependencies,
                     gotContents,
                     contents_div:datasetEls['static'][1]
                 });

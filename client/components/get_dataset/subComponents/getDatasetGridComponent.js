@@ -3,7 +3,7 @@ let getDatasetGridComponentConstructor = (obj) => {
     let {html,css} =  obj;
 
     let init = (grid_div_el,button_obj,getData) => {
-        let grid_table_el = html.create('table',{className:"f6 w-60 mw8 left pt2 pl3"});
+        let grid_table_el = html.create('table',{className:"f6 w-60 mw8 left"});
         grid_table_el.cellSpacing = 0;
 
 
@@ -11,9 +11,12 @@ let getDatasetGridComponentConstructor = (obj) => {
 
         let button_names = ['up','down','left','right'];
 
+        let button_div = html.create('div',{className:'pt3'});
+
+
         let  buttons =button_names.map((but) =>{
-            let button = html.create('button',{textContent:but,disabled:'true',className:css.button});
-            html.mountTo(grid_div_el)(button);
+            let button = html.create('button',{textContent:but,disabled:'true',className:`${css.button}`});
+            html.mountTo(button_div)(button);
             let listenerToButton = html.addListenerTo(button);
 
             button_obj['direction'] = but;
@@ -24,8 +27,11 @@ let getDatasetGridComponentConstructor = (obj) => {
                 getData(button_obj,{static:[grid_div_el],dynamic:[grid_table_el,buttons]});
 
             });
+
             return button;
         }) ;
+
+        html.mountTo(grid_div_el)(button_div);
 
         return {static:[grid_div_el],dynamic:[grid_table_el,buttons]};
     };
@@ -34,6 +40,8 @@ let getDatasetGridComponentConstructor = (obj) => {
         let {datasetGridEls,data} = obj;
         let array = data['current_array'];
         datasetGridEls['dynamic'][0].innerHTML = "";
+
+        datasetGridEls['dynamic'][0].className ="f6 w-60 mw8 ba b--solid bw2 b--green left ";
 
         console.log(data);
         let mountToTable = html.mountTo(datasetGridEls['dynamic'][0]);

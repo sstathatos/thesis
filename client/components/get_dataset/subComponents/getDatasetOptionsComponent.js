@@ -12,7 +12,7 @@ let getDatasetOptionsComponentConstructor = (obj) => {
         let title_el = html.create('h4',{textContent:'Show Dataset',className:'f3 light-yellow mt2 mb1'});
 
         let dim1_name_el = html.create('p',{textContent:'Horizontal Dimention:',className:' w-20 f4 pl3 pr5 di dtc'});
-        let dim1_select_el =  html.create('select',{className:'dtc'});
+        let dim1_select_el =  html.create('select',{className:'dtc v-mid'});
         let dim1_option1_el = html.create('option',{value:1,textContent:1});
         let dim1_option2_el = html.create('option',{value:2,textContent:2});
 
@@ -32,7 +32,7 @@ let getDatasetOptionsComponentConstructor = (obj) => {
         }
 
         let dim2_name_el = html.create('p',{textContent:'Vertical Dimention:',className:' w-20 f4 pl3 pr5 di dtc'});
-        let dim2_select_el =  html.create('select',{className:'dtc'});
+        let dim2_select_el =  html.create('select',{className:'dtc v-mid'});
         let dim2_option1_el = html.create('option',{value:1,textContent:1});
         let dim2_option2_el = html.create('option',{value:2,textContent:2});
 
@@ -108,8 +108,8 @@ let getDatasetOptionsComponentConstructor = (obj) => {
 
         if(data['dimnumber'] === 3) {
             dim3value_name_el = html.create('p',{textContent:'Dimension 3 Value:',className:' w-20 f4 pl3 pr5 di dtc'});
-            dim3value_input_el = html.create('input',{type:'range'},{className:'dtc'});
-            dim3value_show_el = html.create('input',{readOnly:'true',className:`dtc w2 v-mid b--green b--solid green bg-light-yellow bw2 br3`});
+            dim3value_input_el = html.create('input',{type:'range',className:'dtc v-mid '});
+            dim3value_show_el = html.create('input',{readOnly:'true',className:`dtc w3 tc v-mid mh2 b--green b--solid green bg-light-yellow bw2 br3`});
 
             let third_div = html.create('div',{className:'w-100 pv2 dt'});
             let mountToThirdDiv = html.mountTo(third_div);

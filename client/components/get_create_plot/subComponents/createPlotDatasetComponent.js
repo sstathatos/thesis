@@ -84,7 +84,7 @@ let getPlotDatasetComponentConstructor = (obj) => {
             //FIRST INPUT
             let dims = Number(el.parentElement.parentElement.children[2].textContent);
             let first_dim_name_el = html.create('p',{textContent:'Horizontal dimention:',className:'f4 pt3 pl3 w-40 dtc'});
-            let dim1_select_el =  html.create('select',{className:'f4 dtc'});
+            let dim1_select_el =  html.create('select',{className:'f4 v-mid dtc'});
 
             let horizontal_div_el =  html.create('div',{className:'dt pv3 w-60'});
             let mountToHorizontal =html.mountTo(horizontal_div_el);
@@ -105,7 +105,7 @@ let getPlotDatasetComponentConstructor = (obj) => {
 
             //SECOND INPUT
             let second_dim_name_el = html.create('p',{textContent:'Vertical dimention:',className:'f4 pl3 w-40 dtc'});
-            let dim2_select_el =  html.create('select',{className:'f4 dtc'});
+            let dim2_select_el =  html.create('select',{className:'f4 v-mid dtc'});
             let vertical_div_el =  html.create('div',{className:'dt  pv3 w-60'});
             let mountToVertical =html.mountTo(vertical_div_el);
             [second_dim_name_el,dim2_select_el].map((el) => {
@@ -138,7 +138,7 @@ let getPlotDatasetComponentConstructor = (obj) => {
 
 
             let dropdown_name_el = html.create('p',{textContent:'Select plot type:',className:'f4 w-40 pl3 dtc'});
-            let dropdown_el = html.create('select',{className:'f4 dtc'});
+            let dropdown_el = html.create('select',{className:'f4 dtc v-mid'});
             let dropdown_div_el =  html.create('div',{className:'dt  pv3 w-60'});
             let mountToDropdownDiv =html.mountTo(dropdown_div_el);
             [dropdown_name_el,dropdown_el].map((el) => {
@@ -157,8 +157,8 @@ let getPlotDatasetComponentConstructor = (obj) => {
             let second_dim_value_name_el = html.create('p',{
                 textContent:'Vertical dimention value (represents X axis):',className:'f4 pl3 w-60 pr5 dtc'});
 
-            let dim2value_input_el = html.create('input',{type:'range',className:'dtc'});
-            let dim2value_show_el = html.create('input',{readOnly:'true',className:`dtc w-10  v-mid mh2 b--green b--solid green bg-light-yellow bw2 br3`});
+            let dim2value_input_el = html.create('input',{type:'range',className:'dtc v-mid'});
+            let dim2value_show_el = html.create('input',{readOnly:'true',className:`dtc w-20 tc v-mid mh2 b--green b--solid green bg-light-yellow bw2 br3`});
 
             let second_div_el =  html.create('div',{className:'dt  pv3 w-70 dt'});
             let mountToSecondDiv =html.mountTo(second_div_el);
@@ -204,8 +204,8 @@ let getPlotDatasetComponentConstructor = (obj) => {
             if (dims === 3) {
                 third_dim_value_name_el = html.create('p',{textContent:'Third dimention value:',className:'f4 w-60 pl3 pr5 dtc'});
 
-                dim3value_input_el = html.create('input',{type:'range',className:'dtc'});
-                dim3value_show_el = html.create('input',{readOnly:'true',className:' dtc w-10 v-mid mh2 b--green b--solid green bg-light-yellow bw2 br3'});
+                dim3value_input_el = html.create('input',{type:'range',className:'dtc  v-mid'});
+                dim3value_show_el = html.create('input',{readOnly:'true',className:' dtc tc w-20 v-mid mh2 b--green b--solid green bg-light-yellow bw2 br3'});
 
                 let third_div_el =  html.create('div',{className:'dt  pv3 w-70 dt'});
                 let mountToThirdDiv =html.mountTo(third_div_el);

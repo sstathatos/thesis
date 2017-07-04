@@ -1,6 +1,6 @@
 let getPlotDiagramComponentConstructor = (obj) => {
     let {dependencies,id} = obj;
-    let {app,html,getPlotDataComponentConstructor,errorHandler,
+    let {app,html,css,getPlotDataComponentConstructor,
         DataTransformConstructor,PlotConstructor} = dependencies;
     let getPlotDataComponent = getPlotDataComponentConstructor({id,dependencies});
 
@@ -10,13 +10,24 @@ let getPlotDiagramComponentConstructor = (obj) => {
     let state =[0,0,0,0];
 
     let init = () => {
-        let getplot_diagram_div_el = html.create('div');
+        let getplot_diagram_div_el = html.create('div',{className:''});
         html.mountTo(app)(getplot_diagram_div_el);
 
-        let getplot_diagram_el = generateChart(getplot_diagram_div_el);
+        let plot_div = html.create('div',{className:''});
 
-        let reset_button = html.create('button',{textContent:'Reset'});
-        let mountToDiv = html.mountTo(getplot_diagram_div_el);
+        html.mountTo(getplot_diagram_div_el)(plot_div);
+
+        let getplot_diagram_el = generateChart(plot_div);
+
+        // console.log(getplot_diagram_el);
+        // getplot_diagram_el.className += 'bg-white';
+        document.getElementsByClassName('c3')[0].className += ' bg-white black';
+
+        let option_buttons_div = html.create('div',{className:'pt3'});
+
+
+        let reset_button = html.create('button',{textContent:'Reset',className:css.button});
+        let mountToDiv = html.mountTo(option_buttons_div);
 
         let listenerFunc = ()=> {
             let init_obj = {direction:'init',currystart:0,curryend:0,zoomstart:0,zoomend:0};
@@ -32,8 +43,8 @@ let getPlotDiagramComponentConstructor = (obj) => {
         let addListenerToReset = html.addListenerTo(reset_button);
         addListenerToReset('click',listenerFunc);
 
-        let up_button = html.create('button',{textContent:'Up'});
-        let down_button = html.create('button',{textContent:'Down'});
+        let up_button = html.create('button',{textContent:'Up',className:css.button});
+        let down_button = html.create('button',{textContent:'Down',className:css.button});
 
 
         let upListener = () => {
@@ -72,7 +83,7 @@ let getPlotDiagramComponentConstructor = (obj) => {
         [reset_button,up_button,down_button].map((el) => {
             mountToDiv(el);
         });
-
+        html.mountTo(getplot_diagram_div_el)(option_buttons_div);
 
         return {static:[],dynamic:[getplot_diagram_div_el,getplot_diagram_el,up_button,down_button]};
     };
