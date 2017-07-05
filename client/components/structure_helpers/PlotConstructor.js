@@ -6,6 +6,10 @@ let PlotConstructor = () => {
     let generateChart = (mount_point) => {
         return c3.generate({
             bindto: mount_point,
+            padding: {
+                right: 30,
+                left: 40,
+            },
             data: {
                 x: "x",
                 columns: [],
@@ -14,6 +18,9 @@ let PlotConstructor = () => {
                         text: "No Data"
                     }
                 }
+            },
+            legend: {
+                padding:10
             },
             axis: {
                 x: {

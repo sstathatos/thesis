@@ -95,6 +95,7 @@ const dependencies = Object.freeze({
     createPlotInfoComponentConstructor :require('./components/create_plot/subComponents/createPlotInfoComponent'),
     createPlotDatasetComponentConstructor : require('./components/create_plot/subComponents/createPlotDatasetComponent'),
     getDatasetContentsComponentConstructor : require('./components/create_plot/getDatasetContentsComponent'),
+    createPlotPreviewComponentConstructor: require('./components/create_plot/subComponents/createPlotPreviewComponent'),
 
     getDatasetComponentConstructor : require('./components/get_dataset/getDatasetComponent'),
     getDatasetGridComponentConstructor : require('./components/get_dataset/subComponents/getDatasetGridComponent'),

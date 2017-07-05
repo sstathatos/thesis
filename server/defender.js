@@ -10,7 +10,8 @@ let rules = [
 
 let map_to_model = {
     'datasetlist' : 'projects',
-    'datasetgrid' : 'datasets'
+    'datasetgrid' : 'datasets',
+    'preview' : 'datasets'
 };
 
 let entities=['users','projects','posts','datasets','plots'];

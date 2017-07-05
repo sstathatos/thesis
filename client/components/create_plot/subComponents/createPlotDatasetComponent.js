@@ -1,6 +1,6 @@
 let getPlotDatasetComponentConstructor = (obj) => {
-    let {dependencies,plot_cb} = obj;
-    let {html,errorHandler,validator,css} = dependencies;
+    let {dependencies,plot_cb,dataset_id} = obj;
+    let {html,errorHandler,validator,createPlotPreviewComponentConstructor,PlotConstructor,css} = dependencies;
     let init = (plot_div) => {
         let plot_dataset_div_el = html.create('div',{className:'pt2 pl4 w-40 dtc'});
 
@@ -57,7 +57,7 @@ let getPlotDatasetComponentConstructor = (obj) => {
             let new_dimnumber_el = html.create('td',{textContent:data[row]['dimnumber'],className:'f4 w3 pa2'});
             new_dimnumber_el.style.textAlign = "center";
 
-            let new_check_el = html.create('td');
+            let new_check_el = html.create('td',{className:'w3 pa2'});
             new_check_el.style.textAlign = "center";
 
 
@@ -146,11 +146,13 @@ let getPlotDatasetComponentConstructor = (obj) => {
             });
 
             let option_line_el = html.create('option',{textContent:'line'});
-            let option_step_el = html.create('option',{textContent:'step'});
-            let option_scatter_el = html.create('option',{textContent:'area'});
+            let option_bar_el = html.create('option',{textContent:'bar'});
+            let option_area_el = html.create('option',{textContent:'area'});
+            let option_spline_el = html.create('option',{textContent:'spline'});
+
 
             let mountToDropdown = html.mountTo(dropdown_el);
-            [option_line_el,option_step_el,option_scatter_el].map((el) =>{
+            [option_line_el,option_bar_el,option_area_el,option_spline_el].map((el) =>{
                 mountToDropdown(el);
             });
 
@@ -230,6 +232,9 @@ let getPlotDatasetComponentConstructor = (obj) => {
                 handler_object['dim3Value'] =()=>dim3value_input_el.value;
             }
 
+            let preview_div = html.create('div',{className:'pb3'});
+            html.mountTo(options_div)(preview_div);
+
             let plot_save_button_el = html.create('button',{textContent:'Save Plot',className:css.button});
             let addListenerToSaveButton = html.addListenerTo(plot_save_button_el);
             html.mountTo(options_div)(plot_save_button_el);
@@ -256,6 +261,46 @@ let getPlotDatasetComponentConstructor = (obj) => {
                 plot_div.innerHTML = '';
                 plot_cb(null,new_obj);
             });
+
+            let plot_div_el = html.create('div',{className:''});
+            let {generateChart} = PlotConstructor();
+            html.mountTo(preview_div)(plot_div_el);
+
+            let getplot_diagram_el = generateChart(plot_div_el);
+
+            let obj = {
+                dim1:()=>dim1_select_el.value,
+                dim2:()=>dim2_select_el.value,
+                plot_type:()=>dropdown_el.value,
+                dim2Value:()=>dim2value_input_el.value,
+                dependencies,
+                getplot_diagram_el,
+                dataset_id,
+                path:row_array['path']
+            };
+
+            if(dim3value_input_el) obj['dim3Value'] = ()=>dim3value_input_el.value;
+
+            [dim1_select_el,dim2_select_el,dropdown_el,dim2value_input_el].map((el) => {
+                let addListenerToEl = html.addListenerTo(el);
+                addListenerToEl('change',()=> {
+                   let createPlotPreviewComponent = createPlotPreviewComponentConstructor(obj);
+                   createPlotPreviewComponent.init();
+                })
+
+            });
+
+            if(dim3value_input_el) {
+                let addListenerToDim3 = html.addListenerTo(dim3value_input_el);
+                addListenerToDim3('change',()=> {
+                    let createPlotPreviewComponent = createPlotPreviewComponentConstructor(obj);
+                    createPlotPreviewComponent.init();
+                })
+            }
+
+            let createPlotPreviewComponent = createPlotPreviewComponentConstructor(obj);
+            createPlotPreviewComponent.init();
+
         };
 
         let unique_handler = (enable_extra,row_array) => {
@@ -271,7 +316,8 @@ let getPlotDatasetComponentConstructor = (obj) => {
             html.addListenerTo(checkboxes[cnt])('click',unique_handler(enable_extra,data[row]));
             cnt++;
         }
-     };
+
+    };
 
 
 

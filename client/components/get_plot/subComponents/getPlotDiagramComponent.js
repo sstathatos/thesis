@@ -21,7 +21,8 @@ let getPlotDiagramComponentConstructor = (obj) => {
 
         // console.log(getplot_diagram_el);
         // getplot_diagram_el.className += 'bg-white';
-        document.getElementsByClassName('c3')[0].className += ' bg-white black';
+        document.getElementsByClassName('c3')[0].className += ' bg-white black  ba b-solid bw2 b--green br2';
+
 
         let option_buttons_div = html.create('div',{className:'pt3'});
 
@@ -101,8 +102,6 @@ let getPlotDiagramComponentConstructor = (obj) => {
         else diagramEls['dynamic'][2].disabled =  false;
 
         let arr=transformData(data);
-        // let arr = data['arr'];
-        // let xaxis =  data['xaxis'];
         updateChart(diagramEls['dynamic'][1],arr,plot_metadata,()=>{
 
             zoomListener(document,(err,point,pivot) => {

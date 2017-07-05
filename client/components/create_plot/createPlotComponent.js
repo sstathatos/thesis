@@ -4,7 +4,7 @@ let createPlotComponentConstructor = (obj) => {
         createPlotDatasetComponentConstructor,getDatasetContentsComponentConstructor} = dependencies;
 
     let createPlotInfoComponent = createPlotInfoComponentConstructor(dependencies);
-    let createPlotDatasetComponent = createPlotDatasetComponentConstructor({dependencies,plot_cb});
+    let createPlotDatasetComponent = createPlotDatasetComponentConstructor({dependencies,plot_cb,dataset_id});
     let getDatasetContentsComponent = getDatasetContentsComponentConstructor({dataset_id,dependencies});
 
     let init = () => {

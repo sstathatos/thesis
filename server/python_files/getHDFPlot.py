@@ -62,7 +62,11 @@ def format_3Ddset(dset,dim1,dim2,dim3Value):
     if dim1 == 3 and dim2 ==1:
         return np.transpose(dset[:,dim3Value,:])
 
-
+def format_2Ddset(dset,dim1,dim2):
+    if dim1 ==1 and dim2 ==2:
+        return dset[:,:]
+    else:
+        return np.transpose(dset[:,:])
 
 def remove_duplicates(sampled_sor,dim2Value):
     my_x = sampled_sor[:,dim2Value]
@@ -103,7 +107,7 @@ if len(dset.shape) == 3:
     final_arr['2d_arr_dims'] = list(arr.shape)
 elif len(dset.shape) ==2:
     final_arr['dim_names']=[dset.dims[dim1-1].label,dset.dims[dim2-1].label]
-    arr=dset[:,:]
+    arr= format_2Ddset(dset,dim1,dim2)
     final_arr['2d_arr_dims'] = list(arr.shape)
 
 # print('2D slice of dataset: ')

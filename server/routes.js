@@ -8,7 +8,7 @@ let client = require('./client');
 let {readObjs,createObj,addUserRole,isAllowed}=APIConstructor;
 let {getUserProjects,getHDFArray,getHDFContentsForView,
     confProject,searchRelatedPosts,
-    save_data,getDataFromPlotID,confDsets,errorHandler}= helperConstructor;
+    save_data,getDataFromPlotID,getHDFPlot,confDsets,errorHandler}= helperConstructor;
 
 
 router.get('/', (req, res) => {
@@ -234,6 +234,22 @@ router.get('/plots',(req,res) => {
 
         res.status(200).send({perm:'allowed',data:data});
     })
+});
+
+router.get('/preview',(req,res) => {
+    let {query} = req;
+    console.log(query);
+    let {_id,path,direction,currystart,curryend,zoomstart,zoomend,dim1,dim2,dim3Value,dim2Value} =query;
+    readObjs('datasets',{_id:_id})((err,dset) => {
+        if (err) return errorHandler(500,err.message,res);
+        let obj={direction,currystart,curryend,zoomstart,
+            zoomend,dim1,dim2,dim2Value,path};
+        if(dim3Value) obj['dim3Value']= dim3Value;
+        getHDFPlot(dset[0].path_saved,obj,(err,data) => {
+            if (err) return errorHandler(500,err.message,res);
+            res.status(200).send({perm:'allowed',data:data});
+        });
+    });
 });
 
 
