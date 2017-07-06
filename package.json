@@ -7,7 +7,8 @@
     "test": "mocha --no-timeouts",
     "dev:client": "watchify --debug -o ./client/bundle.js ./client/main.js",
     "dev:server": "nodemon ./server/app.js",
-    "dev": "npm run dev:client & npm run dev:server"
+    "dev": "npm run dev:client & npm run dev:server",
+    "start": "NODE_ENV=production node ./server/app.js"
   },
   "author": "Stefanos Stathatos",
   "license": "ISC",
@@ -20,7 +21,6 @@
     "express-session": "^1.15.0",
     "express-validator": "^3.1.2",
     "method-override": "^2.3.7",
-    "mocha": "*",
     "mongodb": "^2.2.24",
     "mongoose": "*",
     "passport": "^0.3.2",
@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "nodemon": "^1.11.0",
+    "mocha": "*",
     "watchify": "*"
   }
 }

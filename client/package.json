@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "browserify --debug -o ./bundle.js ./main.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +14,7 @@
     "prettier": "^1.4.4"
   },
   "dependencies": {
+    "browserify": "^14.4.0",
     "c3": "github:c3js/c3",
     "tachyons": "^4.7.4",
     "validator": "^7.1.0",
