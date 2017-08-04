@@ -1,0 +1,239 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 2.6 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{crockford2008javascript}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Crockford}{C.}%
+     {Douglas}{D.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {" O'Reilly Media, Inc."}%
+  }
+  \strng{namehash}{CD1}
+  \strng{fullhash}{CD1}
+  \field{sortinit}{C}
+  \field{title}{JavaScript: The Good Parts: The Good Parts}
+  \field{year}{2008}
+\endentry
+
+\entry{fielding2006hypertext}{article}{}
+  \name{author}{7}{}{%
+    {{}%
+     {Fielding}{F.}%
+     {Roy}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gettys}{G.}%
+     {Jim}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mogul}{M.}%
+     {Jeffrey}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Frystyk}{F.}%
+     {Henrik}{H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Masinter}{M.}%
+     {Larry}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Leach}{L.}%
+     {Paul}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Berners-Lee}{B.-L.}%
+     {Tim}{T.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{FR+1}
+  \strng{fullhash}{FRGJMJFHMLLPBLT1}
+  \field{sortinit}{F}
+  \field{title}{Hypertext transfer protocol--HTTP/1.1, 1999}
+  \field{journaltitle}{RFC2616}
+  \field{year}{2006}
+\endentry
+
+\entry{hdf2014hierarchical}{article}{}
+  \true{moreauthor}
+  \name{author}{1}{}{%
+    {{}%
+     {Group}{G.}%
+     {HDF}{H.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{GH+1}
+  \strng{fullhash}{GH+1}
+  \field{sortinit}{G}
+  \field{title}{Hierarchical data format, version 5}
+  \field{year}{2014}
+\endentry
+
+\entry{w3c2004web}{misc}{}
+  \true{moreauthor}
+  \name{author}{2}{}{%
+    {{}%
+     {Group}{G.}%
+     {W3C~Working}{W.~W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Group}{G.}%
+     {W3C~Working}{W.~W.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{GWWGWW+1}
+  \strng{fullhash}{GWWGWW+1}
+  \field{sortinit}{G}
+  \field{title}{Web services architecture}
+  \field{year}{2004}
+\endentry
+
+\entry{mikowski2013single}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Mikowski}{M.}%
+     {Michael~S}{M.~S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Powell}{P.}%
+     {Josh~C}{J.~C.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{MMSPJC1}
+  \strng{fullhash}{MMSPJC1}
+  \field{sortinit}{M}
+  \field{title}{Single page web applications}
+  \field{journaltitle}{B and W}
+  \field{year}{2013}
+\endentry
+
+\entry{ramirez2000three}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Ramirez}{R.}%
+     {Ariel~Ortiz}{A.~O.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Belltown Media}%
+  }
+  \strng{namehash}{RAO1}
+  \strng{fullhash}{RAO1}
+  \field{sortinit}{R}
+  \field{number}{75es}
+  \field{pages}{7}
+  \field{title}{Three-tier architecture}
+  \field{volume}{2000}
+  \field{journaltitle}{Linux Journal}
+  \field{year}{2000}
+\endentry
+
+\entry{schlueternode}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Schlueter}{S.}%
+     {IZ}{I.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SI1}
+  \strng{fullhash}{SI1}
+  \field{sortinit}{S}
+  \field{title}{The node package manager and registry}
+  \field{journaltitle}{URL: https://www. npmjs. org}
+\endentry
+
+\entry{shirey2007internet}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Shirey}{S.}%
+     {Robert~W}{R.~W.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SRW1}
+  \strng{fullhash}{SRW1}
+  \field{sortinit}{S}
+  \field{title}{Internet security glossary, version 2}
+  \field{year}{2007}
+\endentry
+
+\entry{DAO}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Sun~Microsystems}{S.~M.}%
+     {Inc}{I.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SMI1}
+  \strng{fullhash}{SMI1}
+  \field{sortinit}{S}
+  \field{title}{Core J2EE Patterns - Data Access Object}
+  \field{year}{2001-2002}
+\endentry
+
+\entry{tilkov2010node}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Tilkov}{T.}%
+     {Stefan}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Vinoski}{V.}%
+     {Steve}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {IEEE}%
+  }
+  \strng{namehash}{TSVS1}
+  \strng{fullhash}{TSVS1}
+  \field{sortinit}{T}
+  \field{number}{6}
+  \field{pages}{80\bibrangedash 83}
+  \field{title}{Node. js: Using JavaScript to build high-performance network
+  programs}
+  \field{volume}{14}
+  \field{journaltitle}{IEEE Internet Computing}
+  \field{year}{2010}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput

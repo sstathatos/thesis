@@ -35,26 +35,8 @@ let defender = (req,res,next) => {
         return res.status(401).send('You are not authenticated.');
     }
 
-    else return checkExceptions(req,res,next);
+    else return checkPermission(req,res,next);
 
-};
-
-let checkExceptions = (req,res,next) => {
-    let {url} = req;
-    // let regExp1 =/(\?_id=)(\/)/;
-
-    // let regExp= /[-!$^*()+|~`{}\[\]:";'<>,.]/;
-    //
-    // if(regExp.test(url)) {
-    //     console.log('weird symbols');
-    //     return res.status(418).send({perm:"denied"});
-    // }
-    // else if (url.split("/").length -1 >2) {
-    //     console.log('too many slashes');
-    //     return res.status(418).send({perm:"denied"});
-    // }
-
-    checkPermission(req,res,next);
 };
 
 let checkPermission = (req,res,next) => {

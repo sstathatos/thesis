@@ -1,0 +1,54 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {english}
+\contentsline {chapter}{Abstract}{1}{section*.1}
+\contentsline {chapter}{Acknowledgements}{2}{section*.2}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.5}
+\contentsline {chapter}{\numberline {2}Background}{2}{chapter.6}
+\contentsline {section}{\numberline {2.1}Models and Model Driven Software Development}{2}{section.7}
+\contentsline {section}{\numberline {2.2}Data Access Object}{2}{section.8}
+\contentsline {section}{\numberline {2.3}Access Control List}{2}{section.9}
+\contentsline {section}{\numberline {2.4}HTTP}{2}{section.10}
+\contentsline {subsection}{\numberline {2.4.1}HTTP session}{3}{subsection.11}
+\contentsline {subsection}{\numberline {2.4.2}Request methods}{3}{subsection.12}
+\contentsline {subsubsection}{GET}{3}{section*.13}
+\contentsline {subsubsection}{POST}{3}{section*.14}
+\contentsline {subsubsection}{PUT}{3}{section*.15}
+\contentsline {subsubsection}{DELETE}{3}{section*.16}
+\contentsline {subsection}{\numberline {2.4.3}Status Codes}{4}{subsection.17}
+\contentsline {subsubsection}{1xx Informational responses}{4}{section*.18}
+\contentsline {subsubsection}{2xx Success}{4}{section*.19}
+\contentsline {subsubsection}{3xx Redirection}{4}{section*.20}
+\contentsline {subsubsection}{4xx Client errors}{4}{section*.21}
+\contentsline {subsubsection}{5xx Server errors}{4}{section*.22}
+\contentsline {section}{\numberline {2.5}REST}{5}{section.23}
+\contentsline {subsection}{\numberline {2.5.1}Client-server architecture}{5}{subsection.24}
+\contentsline {subsection}{\numberline {2.5.2}Statelessness}{5}{subsection.25}
+\contentsline {subsection}{\numberline {2.5.3}Cacheability}{5}{subsection.26}
+\contentsline {subsection}{\numberline {2.5.4}Layered system}{6}{subsection.27}
+\contentsline {subsection}{\numberline {2.5.5}Uniform interface}{6}{subsection.28}
+\contentsline {section}{\numberline {2.6}Application Programming Interface}{6}{section.29}
+\contentsline {subsection}{\numberline {2.6.1}Libraries and Frameworks}{6}{subsection.30}
+\contentsline {subsection}{\numberline {2.6.2}Operating systems}{6}{subsection.31}
+\contentsline {subsection}{\numberline {2.6.3}Remote APIs}{6}{subsection.32}
+\contentsline {subsection}{\numberline {2.6.4}WEB APIs}{6}{subsection.33}
+\contentsline {section}{\numberline {2.7}Three-tier Architecture}{7}{section.34}
+\contentsline {subsection}{\numberline {2.7.1}Presentation tier}{7}{subsection.36}
+\contentsline {subsection}{\numberline {2.7.2}Logic tier}{8}{subsection.37}
+\contentsline {subsection}{\numberline {2.7.3}Data tier}{8}{subsection.38}
+\contentsline {section}{\numberline {2.8}Single Page Application}{8}{section.39}
+\contentsline {section}{\numberline {2.9}Hierarchical Data Format}{8}{section.40}
+\contentsline {subsection}{\numberline {2.9.1}Data Model}{10}{subsection.43}
+\contentsline {subsubsection}{Groups}{10}{section*.44}
+\contentsline {subsubsection}{Datasets}{10}{section*.45}
+\contentsline {chapter}{\numberline {3}Related Work and Used Technologies}{11}{chapter.46}
+\contentsline {section}{\numberline {3.1}Related Work}{11}{section.47}
+\contentsline {subsection}{\numberline {3.1.1}Plotly}{11}{subsection.48}
+\contentsline {subsection}{\numberline {3.1.2}Loopback}{11}{subsection.49}
+\contentsline {section}{\numberline {3.2}Used Technologies}{11}{section.50}
+\contentsline {subsection}{\numberline {3.2.1}Javascript}{11}{subsection.51}
+\contentsline {subsubsection}{Node.js}{12}{section*.52}
+\contentsline {subsubsection}{Node Package Manager}{12}{section*.54}
+\contentsline {subsection}{\numberline {3.2.2}NoSQL Database}{13}{subsection.55}
+\contentsline {subsubsection}{MongoDB}{13}{section*.56}
+\contentsline {chapter}{Bibliography}{14}{chapter*.57}

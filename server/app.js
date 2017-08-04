@@ -2,17 +2,14 @@ const express = require('express');
 let {join} = require('path');
 let passport = require('passport');
 const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
 let app= express();
 const dbHost = 'mongodb://localhost/daotest';
 let mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.createConnection(dbHost, {}); // TO BE CHANGED
+mongoose.createConnection(dbHost, {});
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
 app.use(cookieParser());
 
 app.use(express.static(join(__dirname, '../client')));
@@ -33,7 +30,10 @@ app.use(session({
 //Passport init
 app.use(passport.initialize());
 app.use(passport.session());
-app.use('/', require('./routes'));
+
+
+let Routes = require('./routes');
+app.use('/', Routes());
 
 app.set('port',(process.env.PORT || 3000));
 

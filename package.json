@@ -13,23 +13,19 @@
   "author": "Stefanos Stathatos",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "*",
     "busboy": "^0.2.14",
     "connect-mongo": "^1.3.2",
     "cookie-parser": "^1.4.3",
     "express": "*",
     "express-session": "^1.15.0",
-    "express-validator": "^3.1.2",
-    "method-override": "^2.3.7",
     "mongodb": "^2.2.24",
     "mongoose": "*",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "request": "^2.79.0",
-    "shortid": "^2.2.8",
-    "supertest": "*"
+    "shortid": "^2.2.8"
   },
   "devDependencies": {
+    "supertest": "*",
     "nodemon": "^1.11.0",
     "mocha": "*",
     "watchify": "*"
