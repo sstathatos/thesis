@@ -117,6 +117,26 @@
   \field{year}{2004}
 \endentry
 
+\entry{liddle2011model}{incollection}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Liddle}{L.}%
+     {Stephen~W}{S.~W.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer}%
+  }
+  \strng{namehash}{LSW1}
+  \strng{fullhash}{LSW1}
+  \field{sortinit}{L}
+  \field{booktitle}{Handbook of Conceptual Modeling}
+  \field{pages}{17\bibrangedash 54}
+  \field{title}{Model-driven software development}
+  \field{year}{2011}
+\endentry
+
 \entry{mikowski2013single}{article}{}
   \name{author}{2}{}{%
     {{}%
