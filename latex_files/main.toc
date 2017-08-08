@@ -55,16 +55,22 @@
 \contentsline {section}{\numberline {4.1}General Framework Design}{19}{section.58}
 \contentsline {section}{\numberline {4.2}Generic Framework Modules}{19}{section.60}
 \contentsline {subsection}{\numberline {4.2.1}Nosql access}{20}{subsection.61}
-\contentsline {subsubsection}{Entities}{20}{section*.62}
-\contentsline {subsubsection}{Users}{21}{section*.63}
-\contentsline {subsubsection}{Projects}{21}{section*.64}
-\contentsline {subsubsection}{Datasets}{21}{section*.65}
-\contentsline {subsubsection}{Posts}{21}{section*.66}
-\contentsline {subsubsection}{Plots}{22}{section*.67}
-\contentsline {subsubsection}{Data Access Object/ CRUD}{22}{section*.68}
-\contentsline {subsubsection}{createItem}{22}{section*.69}
-\contentsline {subsubsection}{readItems}{22}{section*.70}
-\contentsline {subsubsection}{updateItem}{22}{section*.71}
-\contentsline {subsubsection}{deleteItem}{23}{section*.72}
-\contentsline {subsubsection}{DbOperations}{23}{section*.73}
-\contentsline {chapter}{Bibliography}{24}{chapter*.74}
+\contentsline {subsubsection}{Entities}{20}{section*.63}
+\contentsline {subsubsection}{Users}{21}{section*.64}
+\contentsline {subsubsection}{Projects}{22}{section*.65}
+\contentsline {subsubsection}{Datasets}{22}{section*.66}
+\contentsline {subsubsection}{Posts}{22}{section*.67}
+\contentsline {subsubsection}{Plots}{22}{section*.68}
+\contentsline {subsubsection}{Data Access Object/ CRUD}{23}{section*.69}
+\contentsline {subsubsection}{createItem}{23}{section*.70}
+\contentsline {subsubsection}{readItems}{23}{section*.71}
+\contentsline {subsubsection}{updateItem}{23}{section*.72}
+\contentsline {subsubsection}{deleteItem}{23}{section*.73}
+\contentsline {subsubsection}{DbOperations}{24}{section*.74}
+\contentsline {subsubsection}{Permissions}{24}{section*.75}
+\contentsline {subsubsection}{addUserRole}{24}{section*.76}
+\contentsline {subsubsection}{removeUserRole}{25}{section*.77}
+\contentsline {subsubsection}{isAllowed}{25}{section*.78}
+\contentsline {subsubsection}{isAllowedCreate}{25}{section*.79}
+\contentsline {subsection}{\numberline {4.2.2}User management}{25}{subsection.80}
+\contentsline {chapter}{Bibliography}{26}{chapter*.81}
