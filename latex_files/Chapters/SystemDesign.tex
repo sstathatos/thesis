@@ -19,6 +19,7 @@ In this section the framework modules used in this thesis are presented in detai
 
 
 \subsection{Nosql access}
+\label{nosql}
 \begin{figure}
 	\includegraphics[scale=0.5]{nosqlaccess.png}
 	\caption{Nosql access module structure}
@@ -78,8 +79,18 @@ This method is the core of the acl logic. Its purpose is to check if  a user has
 \subsubsection{isAllowedCreate}
 isAllowedCreate had the same functionality as isAllowed method, but it focuses exclusively on create operation, which has slightly different functionality than the rest of them.
 
-\subsection{User management}
-The user management module is also a very useful component of the framework.
+\subsection{Main server}
+In this section we describe the core framework's component. To achieve that, we present all the submodules that are used in this model, and combined together are creating its complete functionality. Thus, apart from routes module which is responsible for receiving requests and sending responds to the client, it is also described the helpers module, which is containing a list of functions necessary for this model. Also, in this chapter we present a python bridge model, which is used for the utilization of the hierarchical data format, as well as our error handling model, our session setup module and the defenders module. Next we describe each of these modules.
 
+\subsubsection{helpers}
+In chapter~\ref{nosql} we defined a list of methods which are responsible for the communication with the database. In order to implement the framework's functionality though, it is necessary to combine these methods into a higher level module. The helpers model is developed for this reason and receives as an argument the nosql access module. Also, this module has a dependency on a list of python files, which are vital for the retrieval of saved hdf files (hdf explained in chapter~\ref{hdf}). The returned result of this module's methods is the one that is sent to the client. \par
+	Next we are going to present some of these functions. We will skip the functions which are related to the python files. When the python module's purpose is explained, we will come back to present the corresponding functions.
 
-\subsection{Main Server/ REST API}
+\subsubsection{saveData}
+
+\subsubsection{searchRelatedPosts}
+
+\subsubsection{confFunctions}
+
+\subsubsection{errorHandler}
+

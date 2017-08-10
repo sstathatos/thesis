@@ -72,5 +72,10 @@
 \contentsline {subsubsection}{removeUserRole}{25}{section*.77}
 \contentsline {subsubsection}{isAllowed}{25}{section*.78}
 \contentsline {subsubsection}{isAllowedCreate}{25}{section*.79}
-\contentsline {subsection}{\numberline {4.2.2}User management}{25}{subsection.80}
-\contentsline {chapter}{Bibliography}{26}{chapter*.81}
+\contentsline {subsection}{\numberline {4.2.2}Main server}{26}{subsection.80}
+\contentsline {subsubsection}{helpers}{26}{section*.81}
+\contentsline {subsubsection}{saveData}{26}{section*.82}
+\contentsline {subsubsection}{searchRelatedPosts}{26}{section*.83}
+\contentsline {subsubsection}{confFunctions}{26}{section*.84}
+\contentsline {subsubsection}{errorHandler}{26}{section*.85}
+\contentsline {chapter}{Bibliography}{27}{chapter*.86}
