@@ -16,6 +16,41 @@
   {}
 \endgroup
 
+\entry{carlson2000method}{misc}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Carlson}{C.}%
+     {Brent}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dahl}{D.}%
+     {Tore}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fawcett}{F.}%
+     {Bradley}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Graser}{G.}%
+     {Timothy}{T.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Google Patents}%
+  }
+  \strng{namehash}{CB+1}
+  \strng{fullhash}{CBDTFBGT1}
+  \field{sortinit}{C}
+  \field{note}{US Patent 6,052,525}
+  \field{title}{Method of error handling in a framework}
+  \field{year}{2000}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
 \entry{crockford2008javascript}{book}{}
   \name{author}{1}{}{%
     {{}%

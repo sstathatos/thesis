@@ -11,16 +11,16 @@
 \contentsline {section}{\numberline {2.4}HTTP}{4}{section.10}
 \contentsline {subsection}{\numberline {2.4.1}HTTP session}{4}{subsection.11}
 \contentsline {subsection}{\numberline {2.4.2}Request methods}{5}{subsection.12}
-\contentsline {subsubsection}{GET}{5}{section*.13}
-\contentsline {subsubsection}{POST}{5}{section*.14}
-\contentsline {subsubsection}{PUT}{5}{section*.15}
-\contentsline {subsubsection}{DELETE}{5}{section*.16}
+\contentsline {subsubsection}{\numberline {2.4.2.1}GET}{5}{subsubsection.13}
+\contentsline {subsubsection}{\numberline {2.4.2.2}POST}{5}{subsubsection.14}
+\contentsline {subsubsection}{\numberline {2.4.2.3}PUT}{5}{subsubsection.15}
+\contentsline {subsubsection}{\numberline {2.4.2.4}DELETE}{5}{subsubsection.16}
 \contentsline {subsection}{\numberline {2.4.3}Status Codes}{6}{subsection.17}
-\contentsline {subsubsection}{1xx Informational responses}{6}{section*.18}
-\contentsline {subsubsection}{2xx Success}{6}{section*.19}
-\contentsline {subsubsection}{3xx Redirection}{6}{section*.20}
-\contentsline {subsubsection}{4xx Client errors}{6}{section*.21}
-\contentsline {subsubsection}{5xx Server errors}{7}{section*.22}
+\contentsline {subsubsection}{\numberline {2.4.3.1}1xx Informational responses}{6}{subsubsection.18}
+\contentsline {subsubsection}{\numberline {2.4.3.2}2xx Success}{6}{subsubsection.19}
+\contentsline {subsubsection}{\numberline {2.4.3.3}3xx Redirection}{6}{subsubsection.20}
+\contentsline {subsubsection}{\numberline {2.4.3.4}4xx Client errors}{6}{subsubsection.21}
+\contentsline {subsubsection}{\numberline {2.4.3.5}5xx Server errors}{7}{subsubsection.22}
 \contentsline {section}{\numberline {2.5}REST}{7}{section.23}
 \contentsline {subsection}{\numberline {2.5.1}Client-server architecture}{8}{subsection.24}
 \contentsline {subsection}{\numberline {2.5.2}Statelessness}{8}{subsection.25}
@@ -39,43 +39,49 @@
 \contentsline {section}{\numberline {2.8}Single Page Application}{12}{section.39}
 \contentsline {section}{\numberline {2.9}Hierarchical Data Format}{12}{section.40}
 \contentsline {subsection}{\numberline {2.9.1}Data Model}{14}{subsection.43}
-\contentsline {subsubsection}{Groups}{14}{section*.44}
-\contentsline {subsubsection}{Datasets}{14}{section*.45}
+\contentsline {subsubsection}{\numberline {2.9.1.1}Groups}{14}{subsubsection.44}
+\contentsline {subsubsection}{\numberline {2.9.1.2}Datasets}{14}{subsubsection.45}
 \contentsline {chapter}{\numberline {3}Related Work and Used Technologies}{15}{chapter.46}
 \contentsline {section}{\numberline {3.1}Related Work}{15}{section.47}
 \contentsline {subsection}{\numberline {3.1.1}Plotly}{15}{subsection.48}
 \contentsline {subsection}{\numberline {3.1.2}Loopback}{15}{subsection.49}
 \contentsline {section}{\numberline {3.2}Used Technologies}{16}{section.50}
 \contentsline {subsection}{\numberline {3.2.1}Javascript}{16}{subsection.51}
-\contentsline {subsubsection}{Node.js}{16}{section*.52}
-\contentsline {subsubsection}{Node Package Manager}{16}{section*.54}
+\contentsline {subsubsection}{\numberline {3.2.1.1}Node.js}{16}{subsubsection.52}
+\contentsline {subsubsection}{\numberline {3.2.1.2}Node Package Manager}{16}{subsubsection.54}
 \contentsline {subsection}{\numberline {3.2.2}NoSQL Database}{17}{subsection.55}
-\contentsline {subsubsection}{MongoDB}{18}{section*.56}
+\contentsline {subsubsection}{\numberline {3.2.2.1}MongoDB}{18}{subsubsection.56}
 \contentsline {chapter}{\numberline {4}Design}{19}{chapter.57}
 \contentsline {section}{\numberline {4.1}General Framework Design}{19}{section.58}
 \contentsline {section}{\numberline {4.2}Generic Framework Modules}{19}{section.60}
 \contentsline {subsection}{\numberline {4.2.1}Nosql access}{20}{subsection.61}
-\contentsline {subsubsection}{Entities}{20}{section*.63}
-\contentsline {subsubsection}{Users}{21}{section*.64}
-\contentsline {subsubsection}{Projects}{22}{section*.65}
-\contentsline {subsubsection}{Datasets}{22}{section*.66}
-\contentsline {subsubsection}{Posts}{22}{section*.67}
-\contentsline {subsubsection}{Plots}{22}{section*.68}
-\contentsline {subsubsection}{Data Access Object/ CRUD}{23}{section*.69}
-\contentsline {subsubsection}{createItem}{23}{section*.70}
-\contentsline {subsubsection}{readItems}{23}{section*.71}
-\contentsline {subsubsection}{updateItem}{23}{section*.72}
-\contentsline {subsubsection}{deleteItem}{23}{section*.73}
-\contentsline {subsubsection}{DbOperations}{24}{section*.74}
-\contentsline {subsubsection}{Permissions}{24}{section*.75}
-\contentsline {subsubsection}{addUserRole}{24}{section*.76}
-\contentsline {subsubsection}{removeUserRole}{25}{section*.77}
-\contentsline {subsubsection}{isAllowed}{25}{section*.78}
-\contentsline {subsubsection}{isAllowedCreate}{25}{section*.79}
-\contentsline {subsection}{\numberline {4.2.2}Main server}{26}{subsection.80}
-\contentsline {subsubsection}{helpers}{26}{section*.81}
-\contentsline {subsubsection}{saveData}{26}{section*.82}
-\contentsline {subsubsection}{searchRelatedPosts}{26}{section*.83}
-\contentsline {subsubsection}{confFunctions}{26}{section*.84}
-\contentsline {subsubsection}{errorHandler}{26}{section*.85}
-\contentsline {chapter}{Bibliography}{27}{chapter*.86}
+\contentsline {subsubsection}{\numberline {4.2.1.1}Entities}{20}{subsubsection.63}
+\contentsline {paragraph}{Users}{21}{section*.64}
+\contentsline {paragraph}{Projects}{21}{section*.65}
+\contentsline {paragraph}{Datasets}{22}{section*.66}
+\contentsline {paragraph}{Posts}{22}{section*.67}
+\contentsline {paragraph}{Plots}{22}{section*.68}
+\contentsline {subsubsection}{\numberline {4.2.1.2}Data Access Object/ CRUD}{22}{subsubsection.69}
+\contentsline {paragraph}{createItem}{23}{section*.70}
+\contentsline {paragraph}{readItems}{23}{section*.71}
+\contentsline {paragraph}{updateItem}{23}{section*.72}
+\contentsline {paragraph}{deleteItem}{23}{section*.73}
+\contentsline {subsubsection}{\numberline {4.2.1.3}DbOperations}{23}{subsubsection.74}
+\contentsline {subsubsection}{\numberline {4.2.1.4}Permissions}{24}{subsubsection.75}
+\contentsline {paragraph}{addUserRole}{24}{section*.76}
+\contentsline {paragraph}{removeUserRole}{24}{section*.77}
+\contentsline {paragraph}{isAllowed}{24}{section*.78}
+\contentsline {paragraph}{isAllowedCreate}{25}{section*.79}
+\contentsline {subsection}{\numberline {4.2.2}Main server}{25}{subsection.80}
+\contentsline {subsubsection}{\numberline {4.2.2.1}helpers}{25}{subsubsection.81}
+\contentsline {paragraph}{saveData}{26}{section*.82}
+\contentsline {paragraph}{searchRelatedPosts}{26}{section*.83}
+\contentsline {paragraph}{confFunctions}{26}{section*.84}
+\contentsline {paragraph}{errorHandler}{26}{section*.85}
+\contentsline {subsubsection}{\numberline {4.2.2.2}python files}{27}{subsubsection.86}
+\contentsline {paragraph}{getHDFContent}{27}{section*.87}
+\contentsline {paragraph}{getHDFArray}{27}{section*.88}
+\contentsline {paragraph}{getHDFPlot}{27}{section*.89}
+\contentsline {paragraph}{}{28}{section*.90}
+\contentsline {subsubsection}{\numberline {4.2.2.3}Routes}{28}{subsubsection.91}
+\contentsline {chapter}{Bibliography}{29}{chapter*.92}
