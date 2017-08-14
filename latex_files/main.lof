@@ -3,16 +3,16 @@
 \select@language {english}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Three-tier Architecture\relax }}{10}{figure.caption.35}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces The contents of an HDF file\relax }}{12}{figure.caption.41}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces The general structure of a dataset\relax }}{12}{figure.caption.42}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Three-tier Architecture\relax }}{10}{figure.caption.36}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces The contents of an HDF file\relax }}{12}{figure.caption.42}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces The general structure of a dataset\relax }}{12}{figure.caption.43}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Developers survey for Stack Overflow website in 2017.\relax }}{16}{figure.caption.53}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Developers survey for Stack Overflow website in 2017.\relax }}{16}{figure.caption.54}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces General Framework Design\relax }}{19}{figure.caption.59}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces NoSQL access module structure\relax }}{20}{figure.caption.63}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Main server module structure\relax }}{25}{figure.caption.82}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces General Framework Design\relax }}{19}{figure.caption.60}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces NoSQL access module structure\relax }}{20}{figure.caption.64}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Main server module structure\relax }}{25}{figure.caption.83}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of a callback function\relax }}{31}{figure.caption.98}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Example of a closure function\relax }}{32}{figure.caption.100}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Example of a thunk function\relax }}{32}{figure.caption.102}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of a callback function\relax }}{31}{figure.caption.99}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Example of a closure function\relax }}{32}{figure.caption.101}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Example of a thunk function\relax }}{32}{figure.caption.103}

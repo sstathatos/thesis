@@ -3,92 +3,97 @@
 \select@language {english}
 \contentsline {chapter}{Abstract}{1}{section*.1}
 \contentsline {chapter}{Acknowledgements}{2}{section*.2}
-\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.5}
-\contentsline {chapter}{\numberline {2}Background}{2}{chapter.6}
-\contentsline {section}{\numberline {2.1}Models and Model Driven Software Development}{2}{section.7}
-\contentsline {section}{\numberline {2.2}Data Access Object}{3}{section.8}
-\contentsline {section}{\numberline {2.3}Access Control List}{4}{section.9}
-\contentsline {section}{\numberline {2.4}HTTP}{4}{section.10}
-\contentsline {subsection}{\numberline {2.4.1}HTTP session}{4}{subsection.11}
-\contentsline {subsection}{\numberline {2.4.2}Request methods}{5}{subsection.12}
-\contentsline {paragraph}{GET}{5}{section*.13}
-\contentsline {paragraph}{POST}{5}{section*.14}
-\contentsline {paragraph}{PUT}{5}{section*.15}
-\contentsline {paragraph}{DELETE}{5}{section*.16}
-\contentsline {subsection}{\numberline {2.4.3}Status Codes}{5}{subsection.17}
-\contentsline {paragraph}{1xx Informational responses}{6}{section*.18}
-\contentsline {paragraph}{2xx Success}{6}{section*.19}
-\contentsline {paragraph}{3xx Redirection}{6}{section*.20}
-\contentsline {paragraph}{4xx Client errors}{6}{section*.21}
-\contentsline {paragraph}{5xx Server errors}{6}{section*.22}
-\contentsline {section}{\numberline {2.5}REST}{7}{section.23}
-\contentsline {subsection}{\numberline {2.5.1}Client-server architecture}{7}{subsection.24}
-\contentsline {paragraph}{Statelessness}{7}{section*.25}
-\contentsline {paragraph}{Cacheability}{8}{section*.26}
-\contentsline {paragraph}{Layered system}{8}{section*.27}
-\contentsline {paragraph}{Uniform interface}{8}{section*.28}
-\contentsline {section}{\numberline {2.6}Application Programming Interface}{8}{section.29}
-\contentsline {paragraph}{Libraries and Frameworks}{8}{section*.30}
-\contentsline {paragraph}{Operating systems}{9}{section*.31}
-\contentsline {paragraph}{Remote APIs}{9}{section*.32}
-\contentsline {paragraph}{WEB APIs}{9}{section*.33}
-\contentsline {section}{\numberline {2.7}Three-tier Architecture}{9}{section.34}
-\contentsline {paragraph}{Presentation tier}{10}{section*.36}
-\contentsline {paragraph}{Logic tier}{10}{section*.37}
-\contentsline {paragraph}{Data tier}{10}{section*.38}
-\contentsline {section}{\numberline {2.8}Single Page Application}{11}{section.39}
-\contentsline {section}{\numberline {2.9}Hierarchical Data Format}{11}{section.40}
-\contentsline {subsection}{\numberline {2.9.1}Data Model}{13}{subsection.43}
-\contentsline {paragraph}{Groups}{13}{section*.44}
-\contentsline {paragraph}{Datasets}{13}{section*.45}
-\contentsline {chapter}{\numberline {3}Related Work and Used Technologies}{14}{chapter.46}
-\contentsline {section}{\numberline {3.1}Related Work}{14}{section.47}
-\contentsline {subsection}{\numberline {3.1.1}Plotly}{14}{subsection.48}
-\contentsline {subsection}{\numberline {3.1.2}Loopback}{14}{subsection.49}
-\contentsline {section}{\numberline {3.2}Used Technologies}{15}{section.50}
-\contentsline {subsection}{\numberline {3.2.1}Javascript}{15}{subsection.51}
-\contentsline {subsubsection}{\numberline {3.2.1.1}Node.js}{15}{subsubsection.52}
-\contentsline {subsubsection}{\numberline {3.2.1.2}Node Package Manager}{15}{subsubsection.54}
-\contentsline {subsection}{\numberline {3.2.2}NoSQL Database}{16}{subsection.55}
-\contentsline {subsubsection}{\numberline {3.2.2.1}MongoDB}{17}{subsubsection.56}
-\contentsline {chapter}{\numberline {4}Design}{18}{chapter.57}
-\contentsline {section}{\numberline {4.1}Framework Design}{18}{section.58}
-\contentsline {section}{\numberline {4.2}Application description}{18}{section.60}
-\contentsline {section}{\numberline {4.3}Generic Framework Modules}{19}{section.61}
-\contentsline {subsection}{\numberline {4.3.1}Nosql access}{19}{subsection.62}
-\contentsline {subsubsection}{\numberline {4.3.1.1}Entities}{20}{subsubsection.64}
-\contentsline {paragraph}{Users}{21}{section*.65}
-\contentsline {paragraph}{Projects}{21}{section*.66}
-\contentsline {paragraph}{Datasets}{21}{section*.67}
-\contentsline {paragraph}{Posts}{21}{section*.68}
-\contentsline {paragraph}{Plots}{21}{section*.69}
-\contentsline {subsubsection}{\numberline {4.3.1.2}Data Access Object/ CRUD}{22}{subsubsection.70}
-\contentsline {paragraph}{createItem}{22}{section*.71}
-\contentsline {paragraph}{readItems}{22}{section*.72}
-\contentsline {paragraph}{updateItem}{22}{section*.73}
-\contentsline {paragraph}{deleteItem}{22}{section*.74}
-\contentsline {subsubsection}{\numberline {4.3.1.3}DbOperations}{23}{subsubsection.75}
-\contentsline {subsubsection}{\numberline {4.3.1.4}Permissions}{23}{subsubsection.76}
-\contentsline {paragraph}{addUserRole}{23}{section*.77}
-\contentsline {paragraph}{removeUserRole}{24}{section*.78}
-\contentsline {paragraph}{isAllowed}{24}{section*.79}
-\contentsline {paragraph}{isAllowedCreate}{24}{section*.80}
-\contentsline {subsection}{\numberline {4.3.2}Main server}{24}{subsection.81}
-\contentsline {subsubsection}{\numberline {4.3.2.1}Helpers}{25}{subsubsection.83}
-\contentsline {paragraph}{saveData}{26}{section*.84}
-\contentsline {paragraph}{searchRelatedPosts}{26}{section*.85}
-\contentsline {paragraph}{confFunctions}{26}{section*.86}
-\contentsline {paragraph}{errorHandler}{26}{section*.87}
-\contentsline {subsubsection}{\numberline {4.3.2.2}Python files}{27}{subsubsection.88}
-\contentsline {paragraph}{getHDFContent}{27}{section*.89}
-\contentsline {paragraph}{getHDFArray}{27}{section*.90}
-\contentsline {paragraph}{getHDFPlot}{27}{section*.91}
-\contentsline {paragraph}{}{28}{section*.92}
-\contentsline {subsubsection}{\numberline {4.3.2.3}Routes}{28}{subsubsection.93}
-\contentsline {subsubsection}{\numberline {4.3.2.4}Defender}{28}{subsubsection.94}
-\contentsline {subsection}{\numberline {4.3.3}User interface}{29}{subsection.95}
-\contentsline {chapter}{\numberline {5}Impementation}{30}{chapter.96}
-\contentsline {section}{\numberline {5.1}General JavaScript practices and patterns}{30}{section.97}
-\contentsline {subsection}{\numberline {5.1.1}Closures}{31}{subsection.99}
-\contentsline {subsection}{\numberline {5.1.2}Thunks}{31}{subsection.101}
-\contentsline {chapter}{Bibliography}{34}{chapter*.103}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.6}
+\contentsline {chapter}{\numberline {2}Background}{2}{chapter.7}
+\contentsline {section}{\numberline {2.1}Models and Model Driven Software Development}{2}{section.8}
+\contentsline {section}{\numberline {2.2}Data Access Object}{3}{section.9}
+\contentsline {section}{\numberline {2.3}Access Control List}{4}{section.10}
+\contentsline {section}{\numberline {2.4}HTTP}{4}{section.11}
+\contentsline {subsection}{\numberline {2.4.1}HTTP session}{4}{subsection.12}
+\contentsline {subsection}{\numberline {2.4.2}Request methods}{5}{subsection.13}
+\contentsline {paragraph}{GET}{5}{section*.14}
+\contentsline {paragraph}{POST}{5}{section*.15}
+\contentsline {paragraph}{PUT}{5}{section*.16}
+\contentsline {paragraph}{DELETE}{5}{section*.17}
+\contentsline {subsection}{\numberline {2.4.3}Status Codes}{5}{subsection.18}
+\contentsline {paragraph}{1xx Informational responses}{6}{section*.19}
+\contentsline {paragraph}{2xx Success}{6}{section*.20}
+\contentsline {paragraph}{3xx Redirection}{6}{section*.21}
+\contentsline {paragraph}{4xx Client errors}{6}{section*.22}
+\contentsline {paragraph}{5xx Server errors}{6}{section*.23}
+\contentsline {section}{\numberline {2.5}REST}{7}{section.24}
+\contentsline {subsection}{\numberline {2.5.1}Client-server architecture}{7}{subsection.25}
+\contentsline {paragraph}{Statelessness}{7}{section*.26}
+\contentsline {paragraph}{Cacheability}{8}{section*.27}
+\contentsline {paragraph}{Layered system}{8}{section*.28}
+\contentsline {paragraph}{Uniform interface}{8}{section*.29}
+\contentsline {section}{\numberline {2.6}Application Programming Interface}{8}{section.30}
+\contentsline {paragraph}{Libraries and Frameworks}{8}{section*.31}
+\contentsline {paragraph}{Operating systems}{9}{section*.32}
+\contentsline {paragraph}{Remote APIs}{9}{section*.33}
+\contentsline {paragraph}{WEB APIs}{9}{section*.34}
+\contentsline {section}{\numberline {2.7}Three-tier Architecture}{9}{section.35}
+\contentsline {paragraph}{Presentation tier}{10}{section*.37}
+\contentsline {paragraph}{Logic tier}{10}{section*.38}
+\contentsline {paragraph}{Data tier}{10}{section*.39}
+\contentsline {section}{\numberline {2.8}Single Page Application}{11}{section.40}
+\contentsline {section}{\numberline {2.9}Hierarchical Data Format}{11}{section.41}
+\contentsline {subsection}{\numberline {2.9.1}Data Model}{13}{subsection.44}
+\contentsline {paragraph}{Groups}{13}{section*.45}
+\contentsline {paragraph}{Datasets}{13}{section*.46}
+\contentsline {chapter}{\numberline {3}Related Work and Used Technologies}{14}{chapter.47}
+\contentsline {section}{\numberline {3.1}Related Work}{14}{section.48}
+\contentsline {subsection}{\numberline {3.1.1}Plotly}{14}{subsection.49}
+\contentsline {subsection}{\numberline {3.1.2}Loopback}{14}{subsection.50}
+\contentsline {section}{\numberline {3.2}Used Technologies}{15}{section.51}
+\contentsline {subsection}{\numberline {3.2.1}Javascript}{15}{subsection.52}
+\contentsline {subsubsection}{\numberline {3.2.1.1}Node.js}{15}{subsubsection.53}
+\contentsline {subsubsection}{\numberline {3.2.1.2}Node Package Manager}{15}{subsubsection.55}
+\contentsline {subsection}{\numberline {3.2.2}NoSQL Database}{16}{subsection.56}
+\contentsline {subsubsection}{\numberline {3.2.2.1}MongoDB}{17}{subsubsection.57}
+\contentsline {chapter}{\numberline {4}Design}{18}{chapter.58}
+\contentsline {section}{\numberline {4.1}Framework Design}{18}{section.59}
+\contentsline {section}{\numberline {4.2}Application description}{18}{section.61}
+\contentsline {section}{\numberline {4.3}Generic Framework Modules}{19}{section.62}
+\contentsline {subsection}{\numberline {4.3.1}Nosql access}{19}{subsection.63}
+\contentsline {subsubsection}{\numberline {4.3.1.1}Entities}{20}{subsubsection.65}
+\contentsline {paragraph}{Users}{21}{section*.66}
+\contentsline {paragraph}{Projects}{21}{section*.67}
+\contentsline {paragraph}{Datasets}{21}{section*.68}
+\contentsline {paragraph}{Posts}{21}{section*.69}
+\contentsline {paragraph}{Plots}{21}{section*.70}
+\contentsline {subsubsection}{\numberline {4.3.1.2}Data Access Object/ CRUD}{22}{subsubsection.71}
+\contentsline {paragraph}{createItem}{22}{section*.72}
+\contentsline {paragraph}{readItems}{22}{section*.73}
+\contentsline {paragraph}{updateItem}{22}{section*.74}
+\contentsline {paragraph}{deleteItem}{22}{section*.75}
+\contentsline {subsubsection}{\numberline {4.3.1.3}DbOperations}{23}{subsubsection.76}
+\contentsline {subsubsection}{\numberline {4.3.1.4}Permissions}{23}{subsubsection.77}
+\contentsline {paragraph}{addUserRole}{23}{section*.78}
+\contentsline {paragraph}{removeUserRole}{24}{section*.79}
+\contentsline {paragraph}{isAllowed}{24}{section*.80}
+\contentsline {paragraph}{isAllowedCreate}{24}{section*.81}
+\contentsline {subsection}{\numberline {4.3.2}Main server}{24}{subsection.82}
+\contentsline {subsubsection}{\numberline {4.3.2.1}Helpers}{25}{subsubsection.84}
+\contentsline {paragraph}{saveData}{26}{section*.85}
+\contentsline {paragraph}{searchRelatedPosts}{26}{section*.86}
+\contentsline {paragraph}{confFunctions}{26}{section*.87}
+\contentsline {paragraph}{errorHandler}{26}{section*.88}
+\contentsline {subsubsection}{\numberline {4.3.2.2}Python files}{27}{subsubsection.89}
+\contentsline {paragraph}{getHDFContent}{27}{section*.90}
+\contentsline {paragraph}{getHDFArray}{27}{section*.91}
+\contentsline {paragraph}{getHDFPlot}{27}{section*.92}
+\contentsline {paragraph}{}{28}{section*.93}
+\contentsline {subsubsection}{\numberline {4.3.2.3}Routes}{28}{subsubsection.94}
+\contentsline {subsubsection}{\numberline {4.3.2.4}Defender}{28}{subsubsection.95}
+\contentsline {subsection}{\numberline {4.3.3}User interface}{29}{subsection.96}
+\contentsline {chapter}{\numberline {5}Impementation}{30}{chapter.97}
+\contentsline {section}{\numberline {5.1}General JavaScript practices and patterns}{30}{section.98}
+\contentsline {subsection}{\numberline {5.1.1}Closures}{31}{subsection.100}
+\contentsline {subsection}{\numberline {5.1.2}Thunks}{31}{subsection.102}
+\contentsline {section}{\numberline {5.2}Back-End implementation}{33}{section.104}
+\contentsline {subsection}{\numberline {5.2.1}REST API}{33}{subsection.105}
+\contentsline {paragraph}{}{33}{section*.106}
+\contentsline {paragraph}{Users}{34}{section*.107}
+\contentsline {paragraph}{Projects}{34}{table.caption.114}
+\contentsline {chapter}{Bibliography}{36}{chapter*.115}

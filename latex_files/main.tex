@@ -2,7 +2,7 @@
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
-
+\PassOptionsToPackage{table}{xcolor}
 \documentclass[
 12pt, % The default document font size, options: 10pt, 11pt, 12pt
 english, % ngerman for German
@@ -10,6 +10,7 @@ onehalfspacing, % Single line spacing, alternatives:
 headsepline, % Uncomment to get a line under the header
 oneside,
 ]{MastersDoctoralThesis} % The class file specifying the document structure
+%\usepackage[table,xcdraw]{xcolor}
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 \usepackage{palatino} % Use the Palatino font by default
@@ -22,6 +23,7 @@ oneside,
 \usepackage{algorithm}% http://ctan.org/pkg/algorithms
 \usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
 \usepackage{amsmath}
+
 
 %----------------------------------------------------------------------------------------
 %	MARGIN SETTINGS
@@ -133,7 +135,7 @@ The acknowledgments and the people to thank go here, don't forget to include you
 
 \listoffigures % Prints the list of figures
 
-
+\listoftables
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - CHAPTERS
 %----------------------------------------------------------------------------------------
