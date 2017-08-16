@@ -1,6 +1,6 @@
 %System Design
 
-\chapter{Impementation}
+\chapter{Implementation}
 In this chapter we describe the framework and application implementation. We refer to the technologies we used and their interaction. In some cases we cite some crucial code chunks and explain them. Initially we describe the REST API and we analyze its contents. After an extensive illustration of the back end tier of the framework, we emphasize in the front end. There we mention the technologies that are used and their implementation. Alongside the front end description, we present some fragments of front end use cases.
 
 \section{General JavaScript practices and patterns}
@@ -41,13 +41,56 @@ An important part of the back end framework implementation is the development of
 The routes of the table ~\ref{authURI} are used from the framework for the authentication of the users. The login route checks whether the client's credential exist in the users model of the database. If the client is identified, a positive confirmation is sent to the user, while at the same time a session cookie is saved (session management is described in chapter FDHJSAFAS). In opposite case, the server's response is negative. The logout route disconnects the user from the framework and its corresponding session cookie is deleted from the database. The last route is used from the framework to check if the user is already authenticated. If this event occures, the authentication operation is skipped.
 
 \paragraph{Users}
-
-In table ~\ref{usersURI} are presented the routes which concern the users model. The POST method is responsible for the creation of new user instances. It checks whether all fields have a value and the username and email properties are unique. The figure TADE presents the structure of a User instance. The GET method returns the user instance information and the project, in which he participates. The PUT and DELETE methods are used for their corresponding functionalities.
-
+\begin{figure}
+	\includegraphics[scale=0.7]{userObject.png}
+	\caption{Example of a User instance}
+	\label{userObject}
+\end{figure}
+In table ~\ref{usersURI} are presented the routes which concern the users model. The POST method is responsible for the creation of new user instances. It checks whether all fields have a value and the username and email properties are unique. The figure ~\ref{userObject} presents the structure of a User instance. The GET method returns the user instance information and the projects, in which he participates. The PUT and DELETE methods are used for their corresponding functionalities.
 
 \paragraph{Projects}
+\begin{figure}
+	\includegraphics[scale=0.7]{projectObject.png}
+	\caption{Example of a Project instance with three users}
+	\label{projectObject}
+\end{figure}
+The Project model rest api is presented in table ~\ref{projectsURI}. The POST method is used for the creation of project model instances. The  figure ~\ref{projectObject} presents the structure of a Project instance. The GET method searches out for a specific project and its elements. Then the datasets and posts which are related to the projects, are returned along with the project information. The join route is responsible for the addition of project members. In order to implement it, an update of the acl property of the project istance takes place.
+
+\paragraph{Datasets}
+The routes of the table ~\ref{datasetsURI} are developed for the Dataset model. A general analysis of the dataset save and retrieval management is described in chapter TADEDE. The GET method returns the contents of an hdf file. The POST and DELETE methods are responsible for the creation and deletion of a dataset, respectively. The list route returns a list of datasets, which are contained in a project. Also, the grid route returns a chunk of an array, which is located inside a dataset, in order to present it to the client.
+
+\paragraph{Posts}
+\begin{figure}
+	\includegraphics[scale=0.7]{postObject.png}
+	\caption{Example of a Post instance}
+	\label{postObject}
+\end{figure}
+In table ~\ref{postsURI} are presented the routes which are related to the posts model. All the methods are used for the corresponding functionalities. The figure ~\ref{postObject} presents the structure of a Post instance. 
+
+\paragraph{Plots}
+\begin{figure}
+	\includegraphics[scale=0.7]{plotObject.png}
+	\caption{Example of a Plot instance}
+	\label{plotObject}
+\end{figure}
+The Plot model rest api is presented in table ~\ref{plotsURI}. All the methods are used for the corresponding functionalities. The figure ~\ref{plotObject} presents the structure of a Plot instance. 
 
 
+\subsection{NoSQL Access Management}
+In chapter ~\ref{nosql} a thorough description of the design of the NoSQL access module was presented. In this chapter we mention the technologies we used and the implementation of the module. \par
+	A standard library we use in this module is Mongoose.js. This library offers  a schema based solution in the modeling of the database, for node.js. It grants complete CRUD operations which we use in data access object module. These operations are developed as callback functions, so the execution of the function does not stop the code flow. When the execution of a CRUD operatin is completed, callback function is called. Also, the data communication between the internal modules and the mongoose library is implemented through javascript objects.
+
+\subsection{Security Management}
+In chapter ~\ref{def} we presented the general idea of the security design. Here we describe how these modules are combined to implement the security objective. Also, the technologies we used are presented. Initially, we introduce the passport javascript module, which is the key role in session management. \par
+	Passport is a node.js library which is used for the user authentication. When a user logs in the framework, the library creates a cookie object, which is saved in a database collection. Also, it includes this cookie to the respond object, which is sent to the client. This operation is called serialization. The client saves the cookie object and sends it back in the future requests. When the user logs out or a specific amount of time has passed without connecting to the system, the passport library deletes the user cookie from the database. This operation is called deserialization. The framework ensures the correct communication between the login, logout routes and their corresponding handlers, the passport library and the database collection. \par 
+	The defender middleware module combines the authentication/session management functionality we described above, with the authorization functions that are introduced in the NoSQL access module. Initially, the system investigates if the request object includes the required cookie, so the authentication can be completed. If the operation succeeds, then the request object URI is examined. With some exceptions, the URI's first part ought to be part of one of the models, that the database provides. Also, the request method must be one of GET, POST, UPDATE or DELETE. \par 
+	The last part of the security module is the authorization investigation of the framework. As mentioned in chapter \ref{nosql}, the functionality of the permissions model, includes functions which investigate over permissions of a model instance. At this point we use isAllowed and isAllowedCreate functions to check if the request is allowed to proceed. If the examination is successful, the middleware operation is completed, and the routes module is called. In all situations that the check is failed, the access is denied for the user and a corresponding status code is returned (401 if not authenticated and 403 if not authorized).
+
+\subsection{Python - Node.js Interoperability}
+As aforementioned in chapter ~\ref{hdf}, HDF is an essential ingridient of the framework for storing multidimentional datasets. The HDF library is developed in C/C++, which constitutes it as foreign code to our framework. Firstly we studied ways of embedding foreign code in node.js. An option for establishing inter-processing communication (IPC) is over Standard Input/Output (STDIO), available in all major operating systems.\par 
+	Although an opensource project which exposes the HDF functionality directly to node exists, we observed prohibitive inefficiencies in its implementation. Thus, we set upon a more mature python implementation, the h5py. A module responsible for sending messages from our framework to h5py, and inversly, was developed. The rest of this section is dedicated to the way this module operates. For visual reference, see figure AJSDFKAJFKDASK.\par 
+Node includes a spawn functionality of the child process module, which allows invocation of external processes, parameterized by arguments. The results of the python execution, are manipulated by the event listener, returned by the child process. The controller listens for the data and error events. In case of and error, a new error object is propagated, while in the opposite case the result is parsed. \par 
+We used the included python's json library, which enables easy  information parsing to a javascript object. Via the STDOUT buffer, all the results are serialized and accessed from javascript. We designed a communication protocol between python and node.js, for the customization of the script functions. Python executes the corresponding commands, returning successful results or potential errors. 
 
 
 \begin{table}[]
