@@ -69,6 +69,22 @@
   \field{year}{2008}
 \endentry
 
+\entry{crockford2006application}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Crockford}{C.}%
+     {Douglas}{D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CD1}
+  \strng{fullhash}{CD1}
+  \field{sortinit}{C}
+  \field{title}{The application/json media type for javascript object notation
+  (json)}
+  \field{year}{2006}
+\endentry
+
 \entry{fielding2006hypertext}{article}{}
   \name{author}{7}{}{%
     {{}%
@@ -113,6 +129,22 @@
   \field{title}{Hypertext transfer protocol--HTTP/1.1, 1999}
   \field{journaltitle}{RFC2616}
   \field{year}{2006}
+\endentry
+
+\entry{garrett2005ajax}{article}{}
+  \true{moreauthor}
+  \name{author}{1}{}{%
+    {{}%
+     {Garrett}{G.}%
+     {Jesse~James}{J.~J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{GJJ+1}
+  \strng{fullhash}{GJJ+1}
+  \field{sortinit}{G}
+  \field{title}{Ajax: A new approach to web applications}
+  \field{year}{2005}
 \endentry
 
 \entry{hdf2014hierarchical}{article}{}

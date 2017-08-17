@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.7.13)  16 AUG 2017 21:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.7.13)  17 AUG 2017 22:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1922,25 +1922,20 @@ Overfull \hbox (7.05006pt too wide) in paragraph at lines 113--114
 ML) or JavaScript
  []
 
-<Figures/3tier.png, id=411, 602.25pt x 538.01pt>
+<Figures/3tier.png, id=434, 602.25pt x 538.01pt>
 File: Figures/3tier.png Graphic file (type png)
  <use Figures/3tier.png>
 Package pdftex.def Info: Figures/3tier.png used on input line 118.
 (pdftex.def)             Requested size: 301.12425pt x 269.00433pt.
 
-Overfull \hbox (1.65073pt too wide) in paragraph at lines 123--124
-\T1/ppl/m/n/12 usual ad-van-tages of mod-u-lar soft-ware with well-defined in-t
-er-faces, the three-
- []
-
 [9] [10 <./Figures/3tier.png>]
-<Figures/hdf.png, id=432, 839.135pt x 522.95375pt>
+<Figures/hdf.png, id=455, 839.135pt x 522.95375pt>
 File: Figures/hdf.png Graphic file (type png)
  <use Figures/hdf.png>
 Package pdftex.def Info: Figures/hdf.png used on input line 147.
 (pdftex.def)             Requested size: 335.64804pt x 209.1778pt.
 
-<Figures/dset.png, id=433, 716.6775pt x 430.60875pt>
+<Figures/dset.png, id=456, 716.6775pt x 430.60875pt>
 File: Figures/dset.png Graphic file (type png)
  <use Figures/dset.png>
 Package pdftex.def Info: Figures/dset.png used on input line 152.
@@ -1969,7 +1964,7 @@ Overfull \hbox (0.66599pt too wide) in paragraph at lines 20--21
 e-mented client-
  []
 
-<Figures/survey17.png, id=460, 969.6225pt x 502.87875pt>
+<Figures/survey17.png, id=483, 969.6225pt x 502.87875pt>
 File: Figures/survey17.png Graphic file (type png)
 
 <use Figures/survey17.png>
@@ -1981,23 +1976,45 @@ Overfull \hbox (80.78098pt too wide) in paragraph at lines 24--25
  []
 
 [15]
-Overfull \hbox (49.33815pt too wide) in paragraph at lines 34--35
+Overfull \hbox (9.99002pt too wide) in paragraph at lines 34--35
+\T1/ppl/m/n/12 The for-mat makes no dis-tinc-tion be-tween in-te-ger and floati
+ng-point. JavaScript
+ []
+
+[16 <./Figures/survey17.png>]
+Overfull \hbox (0.45116pt too wide) in paragraph at lines 38--39
+ []\T1/ppl/b/n/12 Object[] \T1/ppl/m/n/12 An un-ordered col-lec-tion of name/va
+lue pairs where the names (also
+ []
+
+<Figures/ajax.png, id=501, 593.21625pt x 568.1225pt>
+File: Figures/ajax.png Graphic file (type png)
+ <use Figures/ajax.png>
+Package pdftex.def Info: Figures/ajax.png used on input line 44.
+(pdftex.def)             Requested size: 415.24854pt x 397.68303pt.
+
+Overfull \hbox (11.21945pt too wide) in paragraph at lines 44--45
+[][] 
+ []
+
+[17] [18 <./Figures/ajax.png>]
+Overfull \hbox (49.33815pt too wide) in paragraph at lines 56--57
 \T1/ppl/m/n/12 databases are in-creas-ingly used in big data and real-time web 
 ap-pli-ca-tions.Motivations
  []
 
 
-Overfull \hbox (14.80237pt too wide) in paragraph at lines 37--38
+Overfull \hbox (14.80237pt too wide) in paragraph at lines 59--60
 \T1/ppl/m/n/12 MongoDB is a free and open-source cross-platform document-orient
 ed database
  []
 
-) [16 <./Figures/survey17.png>] [17]
+) [19]
 \openout2 = `Chapters/SystemDesign.aux'.
 
  (./Chapters/SystemDesign.tex
 Chapter 4.
-<Figures/framework.png, id=480, 763.85374pt x 448.67625pt>
+<Figures/framework.png, id=524, 763.85374pt x 448.67625pt>
 File: Figures/framework.png Graphic file (type png)
 
 <use Figures/framework.png>
@@ -2005,24 +2022,24 @@ Package pdftex.def Info: Figures/framework.png used on input line 11.
 (pdftex.def)             Requested size: 381.92593pt x 224.33757pt.
 
 1: section
-[18
+[20
 
 
 
-] <Figures/nosqlaccess.png, id=489, 713.66624pt x 482.80376pt>
+] <Figures/nosqlaccess.png, id=532, 713.66624pt x 482.80376pt>
 File: Figures/nosqlaccess.png Graphic file (type png)
 
 <use Figures/nosqlaccess.png>
 Package pdftex.def Info: Figures/nosqlaccess.png used on input line 27.
 (pdftex.def)             Requested size: 356.83224pt x 241.40129pt.
- [19 <./Figures/framework.png>] [20 <./Figures/nosqlaccess.png>] [21] [22] [23]
+ [21 <./Figures/framework.png>] [22 <./Figures/nosqlaccess.png>] [23] [24] [25]
 
 Overfull \hbox (0.67894pt too wide) in paragraph at lines 83--84
  []\T1/ppl/b/n/12 isAllowedCreate[] \T1/ppl/m/n/12 isAl-lowed-Cre-ate had the s
 ame func-tion-al-ity as isAl-lowed
  []
 
-<Figures/mainserver.png, id=527, 814.04124pt x 583.17876pt>
+<Figures/mainserver.png, id=572, 814.04124pt x 583.17876pt>
 File: Figures/mainserver.png Graphic file (type png)
 
 <use Figures/mainserver.png>
@@ -2033,24 +2050,24 @@ Overfull \hbox (2.99054pt too wide) in paragraph at lines 87--88
 [][] 
  []
 
-[24] [25 <./Figures/mainserver.png>] [26] [27] [28]
+[26] [27 <./Figures/mainserver.png>] [28] [29] [30]
 Overfull \hbox (2.0108pt too wide) in paragraph at lines 141--142
 \T1/ppl/m/n/12 clude all the web com-plaint re-sources, in-clud-ing HTML5,CSS3 
 and javascript.
  []
 
-) [29]
+) [31]
 \openout2 = `Chapters/SystemImplementation.aux'.
 
  (./Chapters/SystemImplementation.tex
 Chapter 5.
-<Figures/cb.png, id=576, 399.4925pt x 378.41376pt>
+<Figures/cb.png, id=620, 399.4925pt x 378.41376pt>
 File: Figures/cb.png Graphic file (type png)
  <use Figures/cb.png>
 Package pdftex.def Info: Figures/cb.png used on input line 8.
 (pdftex.def)             Requested size: 279.64284pt x 264.88782pt.
 
-<Figures/closure.png, id=578, 430.60875pt x 414.54875pt>
+<Figures/closure.png, id=622, 430.60875pt x 414.54875pt>
 File: Figures/closure.png Graphic file (type png)
 
 <use Figures/closure.png>
@@ -2058,26 +2075,26 @@ Package pdftex.def Info: Figures/closure.png used on input line 17.
 (pdftex.def)             Requested size: 301.42406pt x 290.18214pt.
 
 1: section
-[30
+[32
 
 
 
-] <Figures/thunk.png, id=585, 336.25626pt x 300.12125pt>
+] <Figures/thunk.png, id=628, 336.25626pt x 300.12125pt>
 File: Figures/thunk.png Graphic file (type png)
 
 <use Figures/thunk.png>
 Package pdftex.def Info: Figures/thunk.png used on input line 26.
 (pdftex.def)             Requested size: 235.37776pt x 210.08344pt.
- [31 <./Figures/cb.png>] [32 <./Figures/closure.png> <./Figures/thunk.png>] [33
+ [33 <./Figures/cb.png>] [34 <./Figures/closure.png> <./Figures/thunk.png>] [35
 ]
-<Figures/userObject.png, id=601, 508.90125pt x 162.6075pt>
+<Figures/userObject.png, id=644, 508.90125pt x 162.6075pt>
 File: Figures/userObject.png Graphic file (type png)
 
 <use Figures/userObject.png>
 Package pdftex.def Info: Figures/userObject.png used on input line 45.
 (pdftex.def)             Requested size: 356.22844pt x 113.82446pt.
 
-<Figures/projectObject.png, id=604, 659.46375pt x 756.8275pt>
+<Figures/projectObject.png, id=647, 659.46375pt x 756.8275pt>
 File: Figures/projectObject.png Graphic file (type png)
 
 <use Figures/projectObject.png>
@@ -2088,7 +2105,7 @@ Overfull \hbox (57.59239pt too wide) in paragraph at lines 53--54
 [][] 
  []
 
-<Figures/postObject.png, id=608, 659.46375pt x 615.29875pt>
+<Figures/postObject.png, id=651, 659.46375pt x 615.29875pt>
 File: Figures/postObject.png Graphic file (type png)
 
 <use Figures/postObject.png>
@@ -2099,39 +2116,45 @@ Overfull \hbox (57.59239pt too wide) in paragraph at lines 64--65
 [][] 
  []
 
-[34 <./Figures/userObject.png>] [35 <./Figures/projectObject.png>]
-<Figures/plotObject.png, id=622, 530.98375pt x 259.97125pt>
+[36 <./Figures/userObject.png>] [37 <./Figures/projectObject.png>]
+<Figures/plotObject.png, id=666, 530.98375pt x 259.97125pt>
 File: Figures/plotObject.png Graphic file (type png)
 
 <use Figures/plotObject.png>
 Package pdftex.def Info: Figures/plotObject.png used on input line 72.
 (pdftex.def)             Requested size: 371.68608pt x 181.97862pt.
- [36 <./Figures/postObject.png>] [37 <./Figures/plotObject.png>] [38]
+ [38 <./Figures/postObject.png>] [39 <./Figures/plotObject.png>]
+Overfull \hbox (0.9182pt too wide) in paragraph at lines 90--90
+\T1/ppl/m/n/12 As afore-men-tioned in chap-ter  [][]2.2[][], HDF is an es-sen-t
+ial in-gri-di-ent of the frame-
+ []
+
+[40]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 97.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 115.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 136.
+               Default added (so using `tbp') on input line 106.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 154.
+               Default added (so using `tbp') on input line 124.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 177.
+               Default added (so using `tbp') on input line 145.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 198.
+               Default added (so using `tbp') on input line 163.
 
-) [39] [40]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 186.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 207.
+
+) [41] [42]
 Overfull \hbox (6.92102pt too wide) in paragraph at lines 158--158
 []\T1/ppl/m/n/12 Ariel Or-tiz Ramirez. ^^P  Three-tier ar-chi-tec-ture^^Q. In: 
 \T1/ppl/m/it/12 Linux Jour-nal \T1/ppl/m/n/12 2000.75es
@@ -2151,7 +2174,7 @@ Overfull \hbox (0.14928pt too wide) in paragraph at lines 158--158
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 162.
 1: section
-[41
+[43
 
 
 ]
@@ -2162,7 +2185,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 162.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 162.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 162.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9BDF43E686CDC9720CC40E9C612745EA;7288.
+(rerunfilecheck)             Checksum: 3F5A6CA5F45FC72536808184A8D4B9A9;7793.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -2173,22 +2196,22 @@ Package logreq Info: Writing requests to 'main.run.xml'.
  )
 (\end occurred when \iftrue on line 64 was incomplete) 
 Here is how much of TeX's memory you used:
- 32057 strings out of 493029
- 636058 string characters out of 6136234
- 749977 words of memory out of 5000000
- 35054 multiletter control sequences out of 15000+600000
+ 32086 strings out of 493029
+ 636517 string characters out of 6136234
+ 752977 words of memory out of 5000000
+ 35067 multiletter control sequences out of 15000+600000
  40093 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,20n,82p,10454b,2247s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,20n,82p,10454b,2244s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf
 -dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/ur
 w/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/u
 plr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (48 pages, 630843 bytes).
+Output written on main.pdf (50 pages, 750316 bytes).
 PDF statistics:
- 715 PDF objects out of 1000 (max. 8388607)
- 636 compressed objects within 7 object streams
- 186 named destinations out of 1000 (max. 500000)
- 495 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 765 PDF objects out of 1000 (max. 8388607)
+ 683 compressed objects within 7 object streams
+ 201 named destinations out of 1000 (max. 500000)
+ 532 words of extra memory for PDF output out of 10000 (max. 10000000)
 
