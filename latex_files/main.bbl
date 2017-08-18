@@ -204,6 +204,24 @@
   \field{year}{2011}
 \endentry
 
+\entry{mcfarland2012css3}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {McFarland}{M.}%
+     {David~Sawyer}{D.~S.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {" O'Reilly Media, Inc."}%
+  }
+  \strng{namehash}{MDS1}
+  \strng{fullhash}{MDS1}
+  \field{sortinit}{M}
+  \field{title}{CSS3: the missing manual}
+  \field{year}{2012}
+\endentry
+
 \entry{mikowski2013single}{article}{}
   \name{author}{2}{}{%
     {{}%
@@ -223,6 +241,24 @@
   \field{title}{Single page web applications}
   \field{journaltitle}{B and W}
   \field{year}{2013}
+\endentry
+
+\entry{pilgrim2010html5}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Pilgrim}{P.}%
+     {Mark}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {" O'Reilly Media, Inc."}%
+  }
+  \strng{namehash}{PM1}
+  \strng{fullhash}{PM1}
+  \field{sortinit}{P}
+  \field{title}{HTML5: Up and Running: Dive into the Future of Web Development}
+  \field{year}{2010}
 \endentry
 
 \entry{ramirez2000three}{article}{}
