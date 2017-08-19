@@ -89,14 +89,14 @@
 \contentsline {paragraph}{searchRelatedPosts}{29}{section*.97}
 \contentsline {paragraph}{confFunctions}{29}{section*.98}
 \contentsline {paragraph}{errorHandler}{29}{section*.99}
-\contentsline {subsubsection}{\numberline {4.3.2.2}Python files}{30}{subsubsection.100}
+\contentsline {subsubsection}{\numberline {4.3.2.2}Python files}{29}{subsubsection.100}
 \contentsline {paragraph}{getHDFContent}{30}{section*.101}
 \contentsline {paragraph}{getHDFArray}{30}{section*.102}
 \contentsline {paragraph}{getHDFPlot}{30}{section*.103}
-\contentsline {paragraph}{}{31}{section*.104}
-\contentsline {subsubsection}{\numberline {4.3.2.3}Routes}{31}{subsubsection.105}
+\contentsline {paragraph}{}{30}{section*.104}
+\contentsline {subsubsection}{\numberline {4.3.2.3}Routes}{30}{subsubsection.105}
 \contentsline {subsubsection}{\numberline {4.3.2.4}Defender}{31}{subsubsection.106}
-\contentsline {subsection}{\numberline {4.3.3}User interface}{32}{subsection.107}
+\contentsline {subsection}{\numberline {4.3.3}User interface}{31}{subsection.107}
 \contentsline {chapter}{\numberline {5}Implementation}{33}{chapter.108}
 \contentsline {section}{\numberline {5.1}General JavaScript practices and patterns}{33}{section.109}
 \contentsline {subsection}{\numberline {5.1.1}Closures}{34}{subsection.111}
@@ -114,4 +114,10 @@
 \contentsline {subsection}{\numberline {5.2.4}Python - Node.js Interoperability}{41}{subsection.129}
 \contentsline {section}{\numberline {5.3}Front-End Implementation}{42}{section.130}
 \contentsline {subsection}{\numberline {5.3.1}Code organization and content}{42}{subsection.131}
-\contentsline {chapter}{Bibliography}{46}{chapter*.140}
+\contentsline {paragraph}{html.js}{44}{section*.134}
+\contentsline {subsection}{\numberline {5.3.2}Plot generation with c3.js}{44}{subsection.135}
+\contentsline {section}{\numberline {5.4}Specific framework operations}{45}{section.136}
+\contentsline {subsection}{\numberline {5.4.1}Plot presentation - Zoom functionality}{45}{subsection.137}
+\contentsline {subsection}{\numberline {5.4.2}Upload functionality}{46}{subsection.139}
+\contentsline {subsection}{\numberline {5.4.3}Error Handling}{46}{subsection.141}
+\contentsline {chapter}{Bibliography}{49}{chapter*.148}
