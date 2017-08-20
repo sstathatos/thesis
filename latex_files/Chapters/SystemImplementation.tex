@@ -5,7 +5,7 @@ In this chapter we describe the framework and application implementation. We ref
 
 \section{General JavaScript practices and patterns}
 \begin{figure}
-	\includegraphics[scale=0.7]{cb.png}
+	\centerline{\includegraphics[scale=0.7]{cb.png}}
 	\caption{Example of a callback function}
 	\label{cb}
 \end{figure} 
@@ -14,7 +14,7 @@ In the framework we developed, we make use of javascript in both front and back 
 
 \subsection{Closures}
 \begin{figure}
-	\includegraphics[scale=0.7]{closure.png}
+	\centerline{\includegraphics[scale=0.7]{closure.png}}
 	\caption{Example of a closure function}
 	\label{closure}
 \end{figure} 
@@ -23,7 +23,7 @@ Javascript is an object oriented language and is created to perform well in any 
 
 \subsection{Thunks}
 \begin{figure}
-	\includegraphics[scale=0.7]{thunk.png}
+	\centerline{\includegraphics[scale=0.7]{thunk.png}}
 	\caption{Example of a thunk function}
 	\label{thunk}
 \end{figure} 
@@ -38,38 +38,142 @@ An important part of the back end framework implementation is the development of
 	 	Next we present all the routes for each model entity seperately. For some of them we describe their corresponding handlers.
 	 	
 \paragraph{}
+\begin{table}[]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\rowcolor[HTML]{32CB00} 
+\textbf{URI}     & \textbf{method} \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+/login           & GET             \\ \hline
+\rowcolor[HTML]{67FD9A} 
+/logout          & GET             \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+/isauthenticated & GET             \\ \hline
+\end{tabular}
+\caption{Authentication URI's}
+\label{authURI}
+\end{table}
 The routes of the table ~\ref{authURI} are used from the framework for the authentication of the users. The login route checks whether the client's credential exist in the users model of the database. If the client is identified, a positive confirmation is sent to the user, while at the same time a session cookie is saved (session management is described in chapter FDHJSAFAS). In opposite case, the server's response is negative. The logout route disconnects the user from the framework and its corresponding session cookie is deleted from the database. The last route is used from the framework to check if the user is already authenticated. If this event occures, the authentication operation is skipped.
 
 \paragraph{Users}
 \begin{figure}
-	\includegraphics[scale=0.7]{userObject.png}
+	\centerline{\includegraphics[scale=0.7]{userObject.png}}
 	\caption{Example of a User instance}
 	\label{userObject}
 \end{figure}
+\begin{table}[]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[HTML]{32CB00} 
+\textbf{Model} & \textbf{URI}                                                     & \textbf{method}                                     \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+Users          & /users/?id=\{user\_id\}                                              & GET                                                 \\ \hline
+\rowcolor[HTML]{67FD9A} 
+Users          & /register                                                        & POST                                                \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+Users          & /users/?id=\{user\_id\}                                              & PUT                                                 \\ \hline
+\rowcolor[HTML]{67FD9A} 
+Users          & \multicolumn{1}{l|}{\cellcolor[HTML]{67FD9A}/users/?id=\{user\_id\}} & \multicolumn{1}{l|}{\cellcolor[HTML]{67FD9A}DELETE} \\ \hline
+\end{tabular}
+\caption{Users URI's}
+\label{usersURI}
+\end{table}
 In table ~\ref{usersURI} are presented the routes which concern the users model. The POST method is responsible for the creation of new user instances. It checks whether all fields have a value and the username and email properties are unique. The figure ~\ref{userObject} presents the structure of a User instance. The GET method returns the user instance information and the projects, in which he participates. The PUT and DELETE methods are used for their corresponding functionalities.
 
 \paragraph{Projects}
 \begin{figure}
-	\includegraphics[scale=0.7]{projectObject.png}
+	\centerline{\includegraphics[scale=0.7]{projectObject.png}}
 	\caption{Example of a Project instance with three users}
 	\label{projectObject}
 \end{figure}
+\begin{table}[]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[HTML]{32CB00} 
+\textbf{Model} & \textbf{URI}                   & \textbf{method} \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+Projects       & /projects/?id=\{project\_id\}      & GET             \\ \hline
+\rowcolor[HTML]{67FD9A} 
+Projects       & /projects                      & POST            \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+Projects       & /projects/join/?id=\{project\_id\} & GET             \\ \hline
+\end{tabular}
+\caption{Projects URI's}
+\label{projectsURI}
+\end{table}
 The Project model rest api is presented in table ~\ref{projectsURI}. The POST method is used for the creation of project model instances. The  figure ~\ref{projectObject} presents the structure of a Project instance. The GET method searches out for a specific project and its elements. Then the datasets and posts which are related to the projects, are returned along with the project information. The join route is responsible for the addition of project members. In order to implement it, an update of the acl property of the project istance takes place.
 
 \paragraph{Datasets}
+\begin{table}[]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[HTML]{32CB00} 
+\textbf{Model}                                         & \textbf{URI}                                                               & \textbf{method}                                     \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+Datasets                                               & /datasets/?id=\{dataset\_id\}                                              & GET                                                 \\ \hline
+\rowcolor[HTML]{67FD9A} 
+Datasets                                               & /datasets                                                                  & POST                                                \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+Datasets                                               & /datasets/list/?id=\{dataset\_id\}                                         & GET                                                 \\ \hline
+\rowcolor[HTML]{67FD9A} 
+Datasets                                               & /datasets/grid/?id=\{dataset\_id\}                                         & GET                                                 \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}Datasets} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}/datasets/?id=\{dataset\_id\}} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}DELETE} \\ \hline
+\end{tabular}
+\caption{Datasets URI's}
+\label{datasetsURI}
+\end{table}
 The routes of the table ~\ref{datasetsURI} are developed for the Dataset model. A general analysis of the dataset save and retrieval management is described in chapter TADEDE. The GET method returns the contents of an hdf file. The POST and DELETE methods are responsible for the creation and deletion of a dataset, respectively. The list route returns a list of datasets, which are contained in a project. Also, the grid route returns a chunk of an array, which is located inside a dataset, in order to present it to the client.
 
 \paragraph{Posts}
+\begin{table}[]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[HTML]{32CB00} 
+\textbf{Model} & \textbf{URI}            & \textbf{method} \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+Posts          & /posts/?id=\{post\_id\} & GET             \\ \hline
+\rowcolor[HTML]{67FD9A} 
+Posts          & /posts                  & POST            \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+Posts          & /posts/?id=\{post\_id\} & UPDATE          \\ \hline
+\rowcolor[HTML]{67FD9A} 
+Posts          & /posts/?id=\{post\_id\} & DELETE          \\ \hline
+\end{tabular}
+\caption{Posts URI's}
+\label{postsURI}
+\end{table}
 \begin{figure}
-	\includegraphics[scale=0.7]{postObject.png}
+	\centerline{\includegraphics[scale=0.7]{postObject.png}}
 	\caption{Example of a Post instance}
 	\label{postObject}
 \end{figure}
 In table ~\ref{postsURI} are presented the routes which are related to the posts model. All the methods are used for the corresponding functionalities. The figure ~\ref{postObject} presents the structure of a Post instance. 
 
 \paragraph{Plots}
+\begin{table}[]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[HTML]{32CB00} 
+\textbf{Model} & \textbf{URI}            & \textbf{method} \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+Plots          & /plots/?id=\{plot\_id\} & GET             \\ \hline
+\rowcolor[HTML]{67FD9A} 
+Plots          & /plots                  & POST            \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+Plots          & /plots/?id=\{plot\_id\} & DELETE          \\ \hline
+\end{tabular}
+\caption{Plots URI's}
+\label{plotsURI}
+\end{table}
 \begin{figure}
-	\includegraphics[scale=0.7]{plotObject.png}
+	\centerline{\includegraphics[scale=0.7]{plotObject.png}}
 	\caption{Example of a Plot instance}
 	\label{plotObject}
 \end{figure}
@@ -100,13 +204,13 @@ In this section we continue with the description of the front end part of the im
 
 \subsection{Code organization and content}
 \begin{figure}
-	\includegraphics[scale=0.7]{clienttree.png}
+	\centerline{\includegraphics[scale=0.7]{clienttree.png}}
 	\caption{Client structure tree}
 	\label{clienttree}
 \end{figure}
 Figure ~\ref{clienttree} represents the general internal structure of the client files. The front-end makes use of a logic corresponding to the server and the node.js implementation, through the utilization of the node package manager. The package.json file contains vital information for the client network, such as library dependencies, different environment execution scripts etc. The main.js file is the first file to execute, starting the client's initialization. \par 
 \begin{figure}
-	\includegraphics[scale=0.7]{poststructuretree.png}
+	\centerline{\includegraphics[scale=0.7]{poststructuretree.png}}
 	\caption{Post component structure tree example}
 	\label{poststructuretree}
 \end{figure}
@@ -126,17 +230,36 @@ In this section we present some parts of the framework which combine the usage o
 
 \subsection{Plot presentation - Zoom functionality}
 \begin{figure}
-	\includegraphics[scale=0.7]{zoom.png}
+	\centerline{\includegraphics[scale=0.7]{zoom.png}}
 	\caption{Plot presentation mechanism}
 	\label{zoom}
 \end{figure}
 In chapter ~\ref{pyfiles} we presented the python scripts, which are responsible for the hdf dataset retrieval in json format. But how does the plot presentation and zoom functionality operate?\par 
-	Figure ~\ref{zoom} presents the actions tha must be done inside the framework in order to show a plot to the user. Initially, the user requests the plot display. The front-end sends a request which contains the GET method and the /plot uri, to the corresponding route, along with the specific plot id. After it is received, the server searches the database for the plot instance and retrieves the related metadata. Next, node.js spawns a new process which executes the getHDFPlot script. This script fetches the hdf file, which contains the plot data and returns them in json format. Finally, the server is ready to send the result to the client. \par 
-	To activate the zoom functionality, the user may drag and drop with the mouse, the first and last point in which he focuses. The corresponding values are sent along the next request as parameters to the server. The procedure is repeated with the difference that the sampling frequency is calculated based in the parameters distance. The plot which is presented to the user is focused in the specific points.	
+	Figure ~\ref{zoom} presents the actions that must be done inside the framework in order to show a plot to the user. Initially, the user requests the plot display. The front-end sends a request which contains the GET method and the /plot uri, to the corresponding route, along with the specific plot id. After it is received, the server searches the database for the plot instance and retrieves the related metadata. Next, node.js spawns a new process which executes the getHDFPlot script. This script fetches the hdf file, which contains the plot data and returns them in json format. Finally, the server is ready to send the result to the client. \par 
+	
+\begin{figure}
+\centering
+\begin{subfigure}{1\textwidth}
+  \centering
+  \centerline{\includegraphics[width=1.2\linewidth]{plotcontentsNOzoom.png}}
+  \caption{A plot without zoom}
+  \label{fig:sub1}
+\end{subfigure}
+\begin{subfigure}{1\textwidth}
+  \centering
+  \centerline{\includegraphics[width=1.2\linewidth]{plotcontentsWITHzoom.png}}
+  \caption{A plot with zoom}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{A plot before and after the zoom}
+\label{fig:test}
+\end{figure}
+
+	To activate the zoom functionality, the user may use the drag and drop mouse technique, to select the first and last point in which he focuses. The corresponding values are sent along the next request as parameters to the server. The procedure is repeated with the difference that the sampling frequency is calculated based in the parameters distance. The plot which is presented to the user is focused in the specific points.	Figure ~\ref{fig:test} presents the user interface result before and after the zoom.
 	
 \subsection{Upload functionality}
 \begin{figure}
-	\includegraphics[scale=0.7]{upload.png}
+	\centerline{\includegraphics[scale=0.7]{upload.png}}
 	\caption{Upload mechanism}
 	\label{upload}
 \end{figure}
@@ -148,122 +271,90 @@ A very important aspect of a framework, is the way in which the system handles i
 	In the client side, each time a request to the server is sent, an error check is executed in the response object, in order to handle possible errors. During this check, a potential error is categorized based in the status code, and handled accordingly. In most cases a flash message shows up, but in case of a server error, the error page is presented. \par 
 	We pursued the minimization of the number of possible exceptions, which occure from the client's wrong behaviour. In order to do that, we added in the front-end specific conditions, validation restrictions etc, so it is difficult to occure. Also, we implemented a similar logic in the back-end.
 
-\begin{table}[]
-\centering
-\begin{tabular}{|c|c|}
-\hline
-\rowcolor[HTML]{32CB00} 
-\textbf{URI}     & \textbf{method} \\ \hline
-\rowcolor[HTML]{FFFFFF} 
-/login           & GET             \\ \hline
-\rowcolor[HTML]{67FD9A} 
-/logout          & GET             \\ \hline
-\rowcolor[HTML]{FFFFFF} 
-/isauthenticated & GET             \\ \hline
-\end{tabular}
-\caption{Authentication URI's}
-\label{authURI}
-\end{table}
 
+\section{Application Presentation}
+In this section we briefly present the demo application we created via our framework. Below we show some aspects of the application.
 
-\begin{table}[]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-\rowcolor[HTML]{32CB00} 
-\textbf{Model} & \textbf{URI}                                                     & \textbf{method}                                     \\ \hline
-\rowcolor[HTML]{FFFFFF} 
-Users          & /users/?id=\{user\_id\}                                              & GET                                                 \\ \hline
-\rowcolor[HTML]{67FD9A} 
-Users          & /register                                                        & POST                                                \\ \hline
-\rowcolor[HTML]{FFFFFF} 
-Users          & /users/?id=\{user\_id\}                                              & PUT                                                 \\ \hline
-\rowcolor[HTML]{67FD9A} 
-Users          & \multicolumn{1}{l|}{\cellcolor[HTML]{67FD9A}/users/?id=\{user\_id\}} & \multicolumn{1}{l|}{\cellcolor[HTML]{67FD9A}DELETE} \\ \hline
-\end{tabular}
-\caption{Users URI's}
-\label{usersURI}
-\end{table}
+\begin{figure}
+\centerline
+{
+\begin{subfigure}{0.7\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{login.png}
+  \caption{Login page}
+\end{subfigure}%
+\begin{subfigure}{0.7\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{home.png}
+  \caption{User home page}
+\end{subfigure}}
+\centerline
+{
+\begin{subfigure}{0.7\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{newproject.png}
+  \caption{Create new project page}
+\end{subfigure}%
+\begin{subfigure}{0.7\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{projectcontents.png}
+  \caption{Project contents page}
+\end{subfigure}
+}
+\caption{First pages of the application example}
+\label{firstfour}
+\end{figure}
 
 
 
-\begin{table}[]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-\rowcolor[HTML]{32CB00} 
-\textbf{Model} & \textbf{URI}                   & \textbf{method} \\ \hline
-\rowcolor[HTML]{FFFFFF} 
-Projects       & /projects/?id=\{project\_id\}      & GET             \\ \hline
-\rowcolor[HTML]{67FD9A} 
-Projects       & /projects                      & POST            \\ \hline
-\rowcolor[HTML]{FFFFFF} 
-Projects       & /projects/join/?id=\{project\_id\} & GET             \\ \hline
-\end{tabular}
-\caption{Projects URI's}
-\label{projectsURI}
-\end{table}
 
 
-\begin{table}[]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-\rowcolor[HTML]{32CB00} 
-\textbf{Model}                                         & \textbf{URI}                                                               & \textbf{method}                                     \\ \hline
-\rowcolor[HTML]{FFFFFF} 
-Datasets                                               & /datasets/?id=\{dataset\_id\}                                              & GET                                                 \\ \hline
-\rowcolor[HTML]{67FD9A} 
-Datasets                                               & /datasets                                                                  & POST                                                \\ \hline
-\rowcolor[HTML]{FFFFFF} 
-Datasets                                               & /datasets/list/?id=\{dataset\_id\}                                         & GET                                                 \\ \hline
-\rowcolor[HTML]{67FD9A} 
-Datasets                                               & /datasets/grid/?id=\{dataset\_id\}                                         & GET                                                 \\ \hline
-\rowcolor[HTML]{FFFFFF} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}Datasets} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}/datasets/?id=\{dataset\_id\}} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}DELETE} \\ \hline
-\end{tabular}
-\caption{Datasets URI's}
-\label{datasetsURI}
-\end{table}
+\begin{figure}
+\centerline
+{
+\begin{subfigure}{0.7\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{wholepost.png}
+  \caption{Show whole post page}
+\end{subfigure}%
+\begin{subfigure}{0.7\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{newdataset.png}
+  \caption{Create new dataset page}
+\end{subfigure}
+}
+\centerline
+{
+\begin{subfigure}{0.7\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{newpost.png}
+  \caption{Create new post page}
+\end{subfigure}%
+\begin{subfigure}{0.7\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{newplot.png}
+  \caption{Create new plot page}
+\end{subfigure}
+}
+\caption{Some more pages of the application example}
+\end{figure}
 
 
-
-\begin{table}[]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-\rowcolor[HTML]{32CB00} 
-\textbf{Model} & \textbf{URI}            & \textbf{method} \\ \hline
-\rowcolor[HTML]{FFFFFF} 
-Posts          & /posts/?id=\{post\_id\} & GET             \\ \hline
-\rowcolor[HTML]{67FD9A} 
-Posts          & /posts                  & POST            \\ \hline
-\rowcolor[HTML]{FFFFFF} 
-Posts          & /posts/?id=\{post\_id\} & UPDATE          \\ \hline
-\rowcolor[HTML]{67FD9A} 
-Posts          & /posts/?id=\{post\_id\} & DELETE          \\ \hline
-\end{tabular}
-\caption{Posts URI's}
-\label{postsURI}
-\end{table}
-
-
-
-\begin{table}[]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-\rowcolor[HTML]{32CB00} 
-\textbf{Model} & \textbf{URI}            & \textbf{method} \\ \hline
-\rowcolor[HTML]{FFFFFF} 
-Plots          & /plots/?id=\{plot\_id\} & GET             \\ \hline
-\rowcolor[HTML]{67FD9A} 
-Plots          & /plots                  & POST            \\ \hline
-\rowcolor[HTML]{FFFFFF} 
-Plots          & /plots/?id=\{plot\_id\} & DELETE          \\ \hline
-\end{tabular}
-\caption{Plots URI's}
-\label{plotsURI}
-\end{table}
+\begin{figure}
+\centerline
+{
+\begin{subfigure}{0.7\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{datasetcontents.png}
+  \caption{Dataset contents page}
+\end{subfigure}%
+\begin{subfigure}{0.7\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{plotcontents.png}
+  \caption{Plot contents page}
+\end{subfigure}
+}
+\caption{Last pages presenting dataset and plot contents respectively}
+\end{figure}
 
 

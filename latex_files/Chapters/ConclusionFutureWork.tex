@@ -1,0 +1,26 @@
+\chapter{Conclusions and Future Work}
+
+\section{Conclusions}
+In the scope of this diploma thesis we designed and implemented a back and front end framework globally developed in javascript, using the model driven software development approach. The framework provides entity to model mapping feautures, RESTful web service, data access object and CRUD operations for each model. The system utilizes a custom access control list module for user authorization. Also, the framework implements a method, which represents multidimentional hdf files in plots, in an efficient integrated way. The front-end tier of the framework utilizes the single page application design approach. \par 
+	In order to present the framework not only as an idea, but also as an implemented concept, we designed and developed a demo application. The application's objective is the creation of user networks, in order to manipulate and visualize multidimentional datasets. Next we present the main advantages of our framework.
+
+\paragraph{Extensibility} The framework follows the principles of model driven software development architecture, thus any extra operation can be added, either within the context of an already developed service, or as a new functionality with few lines of code. For example, an extra entity model or a route method may be easily added in the system.
+	
+
+\paragraph{No context switching} The framework is developed mainly in javascript. Therefore, the developer's productivity is increased, because only one programming language must be learned in order to evolve the current framework. Especially the front-end tier, was developed exclusively in pure javascript from scratch, without the usage of a large framework.
+
+
+\section{Future Work}
+The way in which the framework is designed and iplemented, offers us the potentiality of functionality extention in the future. Below we mention some possible extentions.
+
+\paragraph{Server clustering}  A single instance of Node.js runs in a single thread. To take advantage of multi-core systems the user will sometimes want to launch a cluster of Node.js processes to handle the load. The node.js cluster module can be used to utilize this functionality, so the system scales on full load.
+
+\paragraph{Mongodb replication and sharding} Sharding complications and replication fault tolerance will be studied in the future to optimize scalability.
+
+\paragraph{Alternative methods in existing functionalities}
+The framework functionality can be expanded in current operations. Upload file formats may be added (i.e csv files), in order to be converted and saved in the framework filesystem. Also, we can use different methods in plot sampling, such as mean values.
+ 
+\paragraph{Image extraction for usage outside the system}
+Right now is not possible the interaction between system users and none users. In the future extra features may be added to solve this problem, such as exporting plots in jpg format to share with users outside the application.
+
+	
