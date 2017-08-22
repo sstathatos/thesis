@@ -1,6 +1,6 @@
 let Routes = () => {
     const router = require('express').Router();
-    let defender = require('./defender')(router);
+    //let defender = require('./defender')(router);
     let session_setup = require('./session_setup');
     let APIConstructor=require('../API/index');
     let helperConstructor=require('./helpers');
@@ -229,6 +229,23 @@ let Routes = () => {
     });
 
     router.get('/plots',(req,res) => {
+        getDataFromPlotID(req,(err,data) => {
+            if (err)  return errorHandler(500,err.message,res);
+
+            res.status(200).send({perm:'allowed',data:data});
+        })
+    });
+
+    router.get('/plottest',(req,res) => {
+
+        req['query'] = {
+        _id:"59590b507156f50deb28441a",
+        direction:"init",
+        currystart:0,
+        curryend:0,
+        zoomstart:0,
+        zoomend:0
+        };
         getDataFromPlotID(req,(err,data) => {
             if (err)  return errorHandler(500,err.message,res);
 

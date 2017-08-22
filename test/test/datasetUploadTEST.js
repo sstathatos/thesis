@@ -1,4 +1,4 @@
-let initDB= require('./initDBTEST');
+// let initDB= require('./initDBTEST');
 const request = require('supertest');
 const agent = request.agent('http://localhost:3000');
 let assert= require('assert');
@@ -49,15 +49,15 @@ describe('read all objs and save them', function () {
         // });
         //
         it('should check upload', function (done) {
-            for (let i = 0; i < 2; i++) {
+            for (let i = 0; i < 10; i++) {
                 agent
-                    .post(`/upload/?_id=${datasetsArr[i]._id}`)
+                    .post(`/datasets/?inproject=59612188457c490ea2a203e6&creator=5954d5f385a2891176beb9d8&name=mplampla`)
                     .attach('hdf', './server/python_files/h5examples/asdf.h5')
                     .expect(function (res) {
                         console.log(res.text);
                     })
                     .end(function (err, result) {
-                        if (i === 1) done();
+                        if (i === 9) done();
                     })
             }
         });
@@ -148,17 +148,17 @@ describe('read all objs and save them', function () {
         //         })
         // });
         //
-        console.log(plotsArr[0]);
-        it('should get data of ONE plot', function (done) {
-            agent
-                .get(`/plots/?_id=${plotsArr[0]._id}&direction=init&currystart=0&curryend=0&zoomstart=0&zoomend=0`)
-                .expect(function (res) {
-                    console.log(res.text);
-                })
-                .expect(200)
-                .end(function (err, result) {
-                    done();
-                })
-        });
+        // console.log(plotsArr[0]);
+        // it('should get data of ONE plot', function (done) {
+        //     agent
+        //         .get(`/plots/?_id=${plotsArr[0]._id}&direction=init&currystart=0&curryend=0&zoomstart=0&zoomend=0`)
+        //         .expect(function (res) {
+        //             console.log(res.text);
+        //         })
+        //         .expect(200)
+        //         .end(function (err, result) {
+        //             done();
+        //         })
+        // });
     });
 });
