@@ -2,7 +2,7 @@
 
 \chapter{Implementation}
 \label{chapter5_i}
-In this chapter we describe the framework and application implementation. We refer to the technologies we used and their interaction. In some cases we cite some crucial code chunks and explain them. Initially we describe the REST API and we analyze its contents. After an extensive illustration of the back end tier of the framework, we emphasize in the front end. There we mention the technologies that are used and their implementation. Alongside the front end description, we present some fragments of front end use cases.
+In this chapter we describe the framework and application implementation. We refer to the technologies we used and their interaction. In some cases we cite some crucial code chunks and explain them. Initially we describe the REST API and we analyze its contents. After an extensive illustration of the back end tier of the framework, we emphasize in the front end, where we mention the used technologies and their implementation. Alongside the front end description, we present some fragments of front end use cases.
 
 \section{General JavaScript practices and patterns}
 \begin{figure}
@@ -10,7 +10,7 @@ In this chapter we describe the framework and application implementation. We ref
 	\caption{Example of a callback function}
 	\label{cb}
 \end{figure} 
-In the framework we developed, we make use of javascript in both front and back end. This programming language uses asynchronous logic, which takes place through the usage of asynchronous callback functions. A callback function is a method which receives as an argument another method, in order to call it later. The execution of the first function does not block the execution of the rest of the program commands. When the execution of the first function ends, the execution of the callback function begins. An example of a callback function can be seen in figure ~\ref{cb}. \par
+In the framework we developed, we make use of javascript in both front and back end. This programming language uses asynchronous logic, which takes place through the usage of asynchronous callback functions. A callback function is a method which receives as an argument another method, in order to call it later. The execution of the first function does not block the execution of the rest of the program commands. When the execution of the first function is completed, the execution of the callback function begins. An example of a callback function can be seen in figure ~\ref{cb}. \par
 	In our framework, the callback functions are used constantly, thus the design and implementation are transformed accordingly. As a convention, all the callback functions receive as arguments two objects, the error and the result. Before the execution of the callback function, in case an error occures, the execution stops and the error object is passed to the callback. The result object is obviously null. If no errors occure, the error object is null and the result object contains the function outcome. Next we describe two design patterns, which are based in callback functions and are heavily used in the framework implementation.
 
 \subsection{Closures}
