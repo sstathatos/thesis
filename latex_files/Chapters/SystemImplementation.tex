@@ -2,7 +2,7 @@
 
 \chapter{Implementation}
 \label{chapter5_i}
-In this chapter we describe the framework and application implementation. We refer to the technologies we used and their interaction. In some cases we cite some crucial code chunks and explain them. Initially we describe the REST API and we analyze its contents. After an extensive illustration of the back end tier of the framework, we emphasize in the front end, where we mention the used technologies and their implementation. Alongside the front end description, we present some fragments of front end use cases.
+In this chapter we describe the framework and application implementation. We refer to the technologies we used and their interaction. In some cases we cite some crucial code chunks and explain them. Initially, we describe the REST API and we analyze its contents. After an extensive illustration of the back end tier of the framework, we emphasize in the front end, where we mention the used technologies and their implementation. Alongside the front end description, we present some fragments of front end use cases.
 
 \section{General JavaScript practices and patterns}
 \begin{figure}
@@ -10,8 +10,8 @@ In this chapter we describe the framework and application implementation. We ref
 	\caption{Example of a callback function}
 	\label{cb}
 \end{figure} 
-In the framework we developed, we make use of javascript in both front and back end. This programming language uses asynchronous logic, which takes place through the usage of asynchronous callback functions. A callback function is a method which receives as an argument another method, in order to call it later. The execution of the first function does not block the execution of the rest of the program commands. When the execution of the first function is completed, the execution of the callback function begins. An example of a callback function can be seen in figure ~\ref{cb}. \par
-	In our framework, the callback functions are used constantly, thus the design and implementation are transformed accordingly. As a convention, all the callback functions receive as arguments two objects, the error and the result. Before the execution of the callback function, in case an error occures, the execution stops and the error object is passed to the callback. The result object is obviously null. If no errors occure, the error object is null and the result object contains the function outcome. Next we describe two design patterns, which are based in callback functions and are heavily used in the framework implementation.
+In the framework we developed, we make use of javascript in both front and back end. This programming language uses asynchronous logic, which takes place through the usage of asynchronous callback functions. A callback function is a method which receives as an argument another method, in order to call it later. The execution of the first function does not block the execution of the rest of the program commands. The execution of the callback function begins, when the execution of the first function is completed. An example of a callback function can be seen in figure ~\ref{cb}. \par
+	In our framework, the callback functions are used constantly, so that the design and implementation are transformed accordingly. As a convention, all the callback functions receive as arguments two objects, the error and the result object. Before the execution of the callback function, in case an error occurs, the execution stops and the error object is passed to the callback. The result object is obviously null. If no errors occur, the error object is null and the result object contains the function outcome. Following we describe two design patterns, which are based in callback functions and are heavily used in the framework implementation.
 
 \subsection{Closures}
 \begin{figure}
@@ -19,8 +19,8 @@ In the framework we developed, we make use of javascript in both front and back 
 	\caption{Example of a closure function}
 	\label{closure}
 \end{figure} 
-Javascript is an object oriented language and is created to perform well in any platform. Thus, it has many ways of defining certain structures, such as classes. In our framework, we define our classes through the closure design pattern. Closures fully implement a class functionality.\par
-	Genarally, a closure in javascript is a function. This function receives arguments that initialize its state. The function body defines its contents, such as variables, objects and other functions. In the end the function returns, or exposes in the rest of the framework, only what is necessary. This may include also variables, objects and functions. Everything that is not returned, equals to what classes define as private. An example of this pattern is shown in figure ~\ref{closure}.
+Javascript is an object oriented language and was created to perform well in any platform. Thus, it has many ways of defining certain structures, such as classes. In our framework, we define our classes through the closure design pattern. Closures fully implement a class functionality.\par
+	Generally, a closure in javascript is a function. This function receives arguments that initialize its state. The function body defines contents, such as variables, objects and other functions. Finally, the function returns, or exposes in the rest of the framework, only what is necessary. This may include also variables, objects and functions. Anything that is not returned, equals to what classes define as private. An example of this pattern is shown in figure ~\ref{closure}.
 
 \subsection{Thunks}
 \begin{figure}
@@ -28,15 +28,15 @@ Javascript is an object oriented language and is created to perform well in any 
 	\caption{Example of a thunk function}
 	\label{thunk}
 \end{figure} 
-The thunk pattern has a similar structure with closure, but its used in a different way. Basically, its a function which returns another function. The intersting part is that the execution of the first function does not imply the execution of the second. This way we define lazy functions, meaning methods which are scheduled to execute, but they are not until they have to. This pattern is important for solving a problem that occures in javascript, known as callback hell. This problem takes place due to the generation of large sequence of nested callback functions, which is considered a bad design practice and creates debug problems. An example of the thunk pattern is shown in figure ~\ref{thunk}.
+The thunk pattern has a similar structure with closure, but it's used in a different way. Basically, it's a function which returns another function. The interesting part is that the execution of the first function does not imply the execution of the second. In this way we define "lazy" functions, that is methods which are scheduled to execute but don't until they have to. This pattern is important for solving a problem that occurs in javascript, known as callback hell. This problem is caused by the generation of large sequences of nested callback functions, which is considered a bad design practice and creates debug problems. An example of the thunk pattern is shown in figure ~\ref{thunk}.
 
-\section{Back-End implementation}
-In this section we focus in the back end implementation of the framework. Initially we present the REST API and then we describe the development stages of the framework modules. We emphasize in the technologies used and their in between communication.
+\section{Back End implementation}
+In this section we focus in the back end implementation of the framework. Initially we present the REST API and then we describe the development stages of the framework modules. We emphasize in the technologies used and their in between communication (interoperability).
 
 \subsection{REST API}
-An important part of the back end framework implementation is the development of the rest api, which is achieved through routing.Routing refers to determining how an application responds to a client request for a specific endpoint, which is a URI (or path) and a specific HTTP request method (GET, POST, PUT or DELETE). Each of our routes has different route handler functions, which are executed when the route is matched. The route handler functions use the information, which is given to them through the request, and after the execution of internal operations, return a response object to the client.\par
-	 The response object has a concrete structure and includes all the required information. Among other things, it contains the status code and the result data. Generally the content of the response object is determined from the request method and the success of the operation (errorHandling is described thoroughly in chapter FDHJKSAJFJKASDJKJFAS). The structure of the response object is in JSON format. \par 
-	 	Next we present all the routes for each model entity seperately. For some of them we describe their corresponding handlers.
+An important part of the back end framework implementation is the development of the REST API, which is achieved through routing. Routing refers to determining how an application responds to a client request for a specific endpoint, which is a URI (or path) and a specific HTTP request method (GET, POST, PUT or DELETE). Each of our routes has different handler functions which are executed when the route is matched. The route handler functions use the information which is given to them through the request, and after the execution of internal operations, return a response object to the client.\par
+	 The response object has a concrete structure and includes all the required information. Among other things, it contains the status code and the result data. Generally the content of the response object is determined by the request method and the success of the operation (error handling is described thoroughly in chapter ~\ref{errorHandling}). The structure of the response object implements the JSON format. \par 
+	 	Following we present all the routes for each model entity seperately. For some of them we describe their corresponding handlers.
 	 	
 \paragraph{}
 \begin{table}[]
@@ -55,7 +55,7 @@ An important part of the back end framework implementation is the development of
 \caption{Authentication URI's}
 \label{authURI}
 \end{table}
-The routes of the table ~\ref{authURI} are used from the framework for the authentication of the users. The login route checks whether the client's credential exist in the users model of the database. If the client is identified, a positive confirmation is sent to the user, while at the same time a session cookie is saved (session management is described in chapter FDHJSAFAS). In opposite case, the server's response is negative. The logout route disconnects the user from the framework and its corresponding session cookie is deleted from the database. The last route is used from the framework to check if the user is already authenticated. If this event occures, the authentication operation is skipped.
+The routes of the table ~\ref{authURI} are used by the framework for the authentication of the users. The login route checks whether the client's credentials exist in an instance of the users model of the database. If the client is identified, a positive confirmation is sent to the user, while at the same time a session cookie is saved (session management is described in chapter ~\ref{security}). Otherwise, the server's response is negative. The logout route disconnects the user from the framework and its corresponding session cookie is deleted from the database. The last route is used from the framework to check if the user is already authenticated. If this event occurs, the authentication step is skipped.
 
 \paragraph{Users}
 \begin{figure}
@@ -81,7 +81,7 @@ Users          & \multicolumn{1}{l|}{\cellcolor[HTML]{67FD9A}/users/?id=\{user\_
 \caption{Users URI's}
 \label{usersURI}
 \end{table}
-In table ~\ref{usersURI} are presented the routes which concern the users model. The POST method is responsible for the creation of new user instances. It checks whether all fields have a value and the username and email properties are unique. The figure ~\ref{userObject} presents the structure of a User instance. The GET method returns the user instance information and the projects, in which he participates. The PUT and DELETE methods are used for their corresponding functionalities.
+Table ~\ref{usersURI} presents the routes which concern the users model. The POST method is responsible for the creation of new user instances. It checks whether all fields have a value and, the username and email properties are unique. The figure ~\ref{userObject} presents the structure of a User instance. The GET method returns the user instance information and the projects in which he participates. The PUT and DELETE methods are used for their corresponding functionalities.
 
 \paragraph{Projects}
 \begin{figure}
@@ -105,7 +105,7 @@ Projects       & /projects/join/?id=\{project\_id\} & GET             \\ \hline
 \caption{Projects URI's}
 \label{projectsURI}
 \end{table}
-The Project model rest api is presented in table ~\ref{projectsURI}. The POST method is used for the creation of project model instances. The  figure ~\ref{projectObject} presents the structure of a Project instance. The GET method searches out for a specific project and its elements. Then the datasets and posts which are related to the projects, are returned along with the project information. The join route is responsible for the addition of project members. In order to implement it, an update of the acl property of the project istance takes place.
+The Project model REST API is presented in table ~\ref{projectsURI}. The POST method is used for the creation of project model instances. The  figure ~\ref{projectObject} presents the structure of a Project instance. The GET method searches out for a specific project and its elements. Then the datasets and posts which are related to the projects, are returned along with the project information. The join route is responsible for the addition of project members. In order to implement it, an update of the ACL property of the project instance takes place.
 
 \paragraph{Datasets}
 \begin{table}[]
@@ -128,7 +128,7 @@ Datasets                                               & /datasets/grid/?id=\{da
 \caption{Datasets URI's}
 \label{datasetsURI}
 \end{table}
-The routes of the table ~\ref{datasetsURI} are developed for the Dataset model. A general analysis of the dataset save and retrieval management is described in chapter TADEDE. The GET method returns the contents of an hdf file. The POST and DELETE methods are responsible for the creation and deletion of a dataset, respectively. The list route returns a list of datasets, which are contained in a project. Also, the grid route returns a chunk of an array, which is located inside a dataset, in order to present it to the client.
+The routes of the table ~\ref{datasetsURI} are developed for the Datasets model. A general analysis of the dataset save and retrieval management is described in chapter ~\ref{pyfiles}. The GET method returns the contents of an HDF file. The POST and DELETE methods are responsible for the creation and deletion of a dataset, respectively. The list route returns a list of datasets, which are contained in a project. Also, the grid route returns a chunk of an array, which is located inside a dataset, in order to present it to the client.
 
 \paragraph{Posts}
 \begin{table}[]
@@ -154,7 +154,7 @@ Posts          & /posts/?id=\{post\_id\} & DELETE          \\ \hline
 	\caption{Example of a Post instance}
 	\label{postObject}
 \end{figure}
-In table ~\ref{postsURI} are presented the routes which are related to the posts model. All the methods are used for the corresponding functionalities. The figure ~\ref{postObject} presents the structure of a Post instance. 
+Table ~\ref{postsURI} presents the routes which are related to the posts model. All the methods are used for the corresponding functionalities. The figure ~\ref{postObject} presents the structure of a Post instance. 
 
 \paragraph{Plots}
 \begin{table}[]
@@ -178,24 +178,25 @@ Plots          & /plots/?id=\{plot\_id\} & DELETE          \\ \hline
 	\caption{Example of a Plot instance}
 	\label{plotObject}
 \end{figure}
-The Plot model rest api is presented in table ~\ref{plotsURI}. All the methods are used for the corresponding functionalities. The figure ~\ref{plotObject} presents the structure of a Plot instance. 
+The Plot model REST API is presented in table ~\ref{plotsURI}. All the methods are used for the corresponding functionalities. The figure ~\ref{plotObject} presents the structure of a Plot instance. 
 
 
 \subsection{NoSQL Access Management}
-In chapter ~\ref{nosql} a thorough description of the design of the NoSQL access module was presented. In this chapter we mention the technologies we used and the implementation of the module. \par
-	A standard library we use in this module is Mongoose.js. This library offers  a schema based solution in the modeling of the database, for node.js. It grants complete CRUD operations which we use in data access object module. These operations are developed as callback functions, so the execution of the function does not stop the code flow. When the execution of a CRUD operatin is completed, callback function is called. Also, the data communication between the internal modules and the mongoose library is implemented through javascript objects.
+In chapter ~\ref{nosql} a thorough description of the design of the noSQL access module is presented. In this chapter we mention the technologies we used and the implementation of this module. \par
+	A standard library we use in this module is Mongoose.js. This library offers  a schema based solution in the modelling of the database for node.js. It grants complete CRUD operations which we use in data access object module. These operations are developed as callback functions, so the execution of the function does not stop the code flow. When the execution of a CRUD operation is completed, a callback function is called. Also, the data communication between the internal modules and the mongoose library is implemented through javascript objects.
 
 \subsection{Security Management}
-In chapter ~\ref{def} we presented the general idea of the security design. Here we describe how these modules are combined to implement the security objective. Also, the technologies we used are presented. Initially, we introduce the passport javascript module, which is the key role in session management. \par
-	Passport is a node.js library which is used for the user authentication. When a user logs in the framework, the library creates a cookie object, which is saved in a database collection. Also, it includes this cookie to the respond object, which is sent to the client. This operation is called serialization. The client saves the cookie object and sends it back in the future requests. When the user logs out or a specific amount of time has passed without connecting to the system, the passport library deletes the user cookie from the database. This operation is called deserialization. The framework ensures the correct communication between the login, logout routes and their corresponding handlers, the passport library and the database collection. \par 
-	The defender middleware module combines the authentication/session management functionality we described above, with the authorization functions that are introduced in the NoSQL access module. Initially, the system investigates if the request object includes the required cookie, so the authentication can be completed. If the operation succeeds, then the request object URI is examined. With some exceptions, the URI's first part ought to be part of one of the models, that the database provides. Also, the request method must be one of GET, POST, UPDATE or DELETE. \par 
-	The last part of the security module is the authorization investigation of the framework. As mentioned in chapter \ref{nosql}, the functionality of the permissions model, includes functions which investigate over permissions of a model instance. At this point we use isAllowed and isAllowedCreate functions to check if the request is allowed to proceed. If the examination is successful, the middleware operation is completed, and the routes module is called. In all situations that the check is failed, the access is denied for the user and a corresponding status code is returned (401 if not authenticated and 403 if not authorized).
+\label{security}
+In chapter ~\ref{def} we present the general idea of the security design. Here we describe how these modules are combined to implement the security objective. The technologies we use are presented too. Initially, we introduce the passport javascript module, which has the key role in session management. \par
+	Passport is a node.js library which is used for the user authentication. When a user logs in the framework, the library creates a cookie object which is saved in a database collection. Furthermore, it embodies this cookie in the respond object, which is sent to the client. This operation is called serialization. The client saves the cookie object and sends it back to the future requests. When the user logs out or a certain amount of time has passed without connecting to the system, the passport library deletes the user cookie from the database. This operation is called deserialization. The framework ensures the correct communication between the login- logout routes and their corresponding handlers, the passport library and the database collection. \par 
+	The defender middleware module combines the authentication/session management functionality we described above, with the authorization functions that are introduced in the noSQL access module. Initially, the system investigates if the request object includes the required cookie, so that the authentication can be completed. If the operation succeeds, the request object URI is examined. With some exceptions, the URI's first part corresponds to one of the models  the database provides. Also, the request method must be one of GET, POST, UPDATE or DELETE. \par 
+	The last part of the security module is the authorization investigation of the framework. As mentioned in chapter \ref{nosql}, the functionality of the permissions model includes functions which investigate permissions of a model instance. At this point we use isAllowed and isAllowedCreate functions to check if the request is allowed to proceed. If the examination is successful, the middleware operation is completed and the routes module is called. In all situations that the check fails, the access is denied for the user and a corresponding status code is returned (401 if not authenticated and 403 if not authorized).
 
 \subsection{Python - Node.js Interoperability}
-As aforementioned in chapter ~\ref{hdf}, HDF is an essential ingridient of the framework for storing multidimentional datasets. The HDF library is developed in C/C++, which constitutes it as foreign code to our framework. Firstly we studied ways of embedding foreign code in node.js. An option for establishing inter-processing communication (IPC) is over Standard Input/Output (STDIO), available in all major operating systems.\par 
-	Although an opensource project which exposes the HDF functionality directly to node exists, we observed prohibitive inefficiencies in its implementation. Thus, we set upon a more mature python implementation, the h5py. A module responsible for sending messages from our framework to h5py, and inversly, was developed. The rest of this section is dedicated to the way this module operates. For visual reference, see figure AJSDFKAJFKDASK.\par 
-Node includes a spawn functionality of the child process module, which allows invocation of external processes, parameterized by arguments. The results of the python execution, are manipulated by the event listener, returned by the child process. The controller listens for the data and error events. In case of and error, a new error object is propagated, while in the opposite case the result is parsed. \par 
-We used the included python's json library, which enables easy  information parsing to a javascript object. Via the STDOUT buffer, all the results are serialized and accessed from javascript. We designed a communication protocol between python and node.js, for the customization of the script functions. Python executes the corresponding commands, returning successful results or potential errors.
+As aforementioned in chapter ~\ref{hdf}, HDF is an essential ingredient of the framework for storing multidimensional datasets. The HDF library is developed in C/C++, which constitutes it as foreign code to our framework. Firstly we studied ways of embedding foreign code in node.js. An option for establishing inter-processing communication (IPC) is over Standard Input/Output (STDIO), available in all major operating systems.\par 
+	Although an opensource project which exposes the HDF functionality directly to node.js exists, we observed prohibitive inefficiencies in its implementation. Thus, we set upon a more mature python implementation, the h5py. A module responsible for sending messages from our framework to h5py, and inversely, was developed. The rest of this section is dedicated to the way this module operates.\par 
+	Node.js includes a spawn functionality of the child process module, which allows invocation of external processes, parameterized by arguments. The results of the python execution are manipulated by the event listener, returned by the child process. The controller listens for the data and error events. In case of an error, a new error object is propagated, while in the opposite case the result is parsed. \par 
+	We use the included python's JSON library, which enables easy information parsing to a javascript object. Via the STDOUT buffer, all the results are serialized and accessed from javascript. We design a communication protocol between python and node.js, for the customization of the script functions. Python executes the corresponding commands, returning successful results or potential errors.
 
 
 \section{Front-End Implementation}
@@ -267,6 +268,7 @@ In chapter ~\ref{pyfiles} we presented the python scripts, which are responsible
 Figure ~\ref{upload} shows the procedure of uploading and hdf file to the framework. Firstly, the file uploads in the browser. Then, the file along with its metadata is sent to the server with a POST method, possibly in chunks of data.  Next, the server checks for the file content, and then saves the hdf file in the filesystem, as explained in chapter~\ref{helpers}. Lastly, the file metadata with the unique new filename are saved as a Dataset instance inside the database.
 
 \subsection{Error Handling}
+\label{errorHandling}
 A very important aspect of a framework, is the way in which the system handles its errors. In general, exceptions ~\cite{carlson2000method} are divided in two major categories, those that are created from the client's wrong behaviour, and those that occure from poor software design, also known as bugs. The process with which the framework is managing its errors or exceptions of the system, is called error or exception handling. In a framework environment, a developer must foresee all the possible exceptions that may occure and provide a handling solution for all of them. The framework must be designed accordingly, by creating a general way of exception handling. \par
 	We designed the framework in a way so the handling of the exception to happen in the regular flow of the code execution, and not inside a cllaback function. It is a bad practice to handle the error there because the stack trace is lost. We handle the exceptions that occure in the routes and defender modules. All errors are sent with the corresponding status code to the front-end. \par 
 	In the client side, each time a request to the server is sent, an error check is executed in the response object, in order to handle possible errors. During this check, a potential error is categorized based in the status code, and handled accordingly. In most cases a flash message shows up, but in case of a server error, the error page is presented. \par 
