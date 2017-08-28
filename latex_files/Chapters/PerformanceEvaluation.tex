@@ -1,6 +1,6 @@
 \chapter{Performance Evaluation} % Main chapter title
 \label{chapter6_pe}
-In this chapter we describe the environment and the test scenarios we implemented in order to record the performance of our system. In table ~\ref{server_ch} we present the characteristics of our framework witch we use in our tests. \par 
+In this chapter we describe the environment and the test scenarios we implemented in order to record the performance of our system. In table ~\ref{server_ch} we present the characteristics of the server which we use in our tests. \par 
 	The capacity of the server's RAM is 8 GB. The operating system we selected for our tests is Debian 8 (Jessie) release. We used two different tools for the benchmarking of our system's performance. The first tool is the ab Apachee HTTP server benchmarking tool, that enables us to send multiple requests  per second with fixed number of total requests. The second tool we used is the wrk, which allows us to send concurrent requests for a specific amount of time with timeout adjustment. With the aid of these tools we implemented two test scenarios, the results of which are presented below. \par 
 
 
@@ -32,7 +32,7 @@ In this chapter we describe the environment and the test scenarios we implemente
 \end{table}
 
 
-\section{First Test}
+\section{Testing Efficiency in Concurrent Requests}
 In the first test we selected some indicative server routes for measurement. In order to measure their performance, we select a predefined number of requests to be sent to the server, changing the number of concurrent requests in each iteration. The criterion of the server's performance is the total time for the response of all the requests. The smaller the time, the better. The results are presented in figure~\ref{experiment_fig}. \par 
  
 \begin{figure}
@@ -62,13 +62,13 @@ In the first test we selected some indicative server routes for measurement. In 
 \end{figure}
 
 
-As we notice all the subfigures follow a specific pattern. Initially in all the subfigures the total time for the response of all the requests is considerably higher, compared to the following values of the diagrams. This is due to the low initial concurrency, which causes a delay until the requests are sent. That is, the client cannot send a big concurrent load. In the case that "c=1", each request is sent after the completion of the previous sending, which explains the relatively high initial values. \par 
-	Following, we observe in all the diagrams a stabilization of the total time of serving the requests, as the "c" increases. This is partially due to the adequate load the client provides, so that there is no delay of the sending of the requests, but also because the server has enough time to respond without any delay. \par 
-	At the end of the subfigures we notice that the total time for serving the requests starts to increase gradually. The reason is that the number of concurrent requests sent by the client is now too high to be served by the server, and this is the cause of the delay. \par 
-	We observe significant differences between the values of the diagrams, the most important being in the routes where python is used. To execute these routes, new child processes must be spawned. As the number of the concurrent requests increases, the spawned child processes block the function of the server. This is how the higher time values in serving the requests are explained.  
+As we notice all the subfigures follow a specific pattern. Initially in all the subfigures the total time for the response of all the requests is considerably higher, compared to the following values of the diagrams. This is due to the low initial concurrency, which causes a delay until the requests are sent. That is, there is a lot of unused server-side processing power. In the case that "c=1", each request is sent after the completion of the previous sending, which explains the relatively high initial values. \par 
+	Following, we observe in all the diagrams a stabilization of the total time of serving the requests, as the "c" increases. This is partially due to the adequate load the stress tool provides, so that there is no delay of the sending of the requests, but also because the server has enough time to respond without any delay. \par 
+	At the end of the subfigures we notice that the total time for serving the requests starts to increase gradually. The reason is that the number of concurrent requests sent by the ab tool is now too high to be served by the server, and this is the cause of the delay. \par 
+	We observe significant differences between the values of the diagrams, the most important being in the routes where python is used. To execute these routes, new child processes must be spawned. As the number of the concurrent requests increases, the spawned child processes oversaturate the function of the server. This is how the higher time values in serving the requests are explained.  
 
 	
-\section{Second Test}
+\section{Testing Timeout Errors in Concurrent Requests}
 The basic characteristic of the second test scenario is the timeout value. A timeout occurs when the server fails to serve a request in a specific time period from the moment it was sent. In this test we set a relatively small timeout limit of two seconds and define each iteration in ten seconds per concurrency value. Gradually we raise the concurrency value and we calculate the number of served requests per second. The test scenario is finished when the first timeout error occurs. The results are presented in figure ~\ref{experiment_fig2}. \par 
 
 

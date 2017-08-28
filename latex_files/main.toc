@@ -11,128 +11,128 @@
 \contentsline {section}{\numberline {2.2}Data Access Object}{4}{section.11}
 \contentsline {section}{\numberline {2.3}Access Control List}{5}{section.12}
 \contentsline {section}{\numberline {2.4}HTTP}{5}{section.13}
-\contentsline {subsection}{\numberline {2.4.1}HTTP session}{5}{subsection.14}
+\contentsline {subsection}{\numberline {2.4.1}HTTP session}{6}{subsection.14}
 \contentsline {subsection}{\numberline {2.4.2}Request methods}{6}{subsection.15}
 \contentsline {paragraph}{GET}{6}{section*.16}
 \contentsline {paragraph}{POST}{6}{section*.17}
-\contentsline {paragraph}{PUT}{6}{section*.18}
-\contentsline {paragraph}{DELETE}{6}{section*.19}
-\contentsline {subsection}{\numberline {2.4.3}Status Codes}{6}{subsection.20}
+\contentsline {paragraph}{PUT}{7}{section*.18}
+\contentsline {paragraph}{DELETE}{7}{section*.19}
+\contentsline {subsection}{\numberline {2.4.3}Status Codes}{7}{subsection.20}
 \contentsline {paragraph}{1xx Informational responses}{7}{section*.21}
 \contentsline {paragraph}{2xx Success}{7}{section*.22}
 \contentsline {paragraph}{3xx Redirection}{7}{section*.23}
-\contentsline {paragraph}{4xx Client errors}{7}{section*.24}
-\contentsline {paragraph}{5xx Server errors}{7}{section*.25}
-\contentsline {section}{\numberline {2.5}Representational State Transfer}{7}{section.26}
-\contentsline {subsection}{\numberline {2.5.1}Client-server architecture}{8}{subsection.27}
-\contentsline {paragraph}{Statelessness}{8}{section*.28}
+\contentsline {paragraph}{4xx Client errors}{8}{section*.24}
+\contentsline {paragraph}{5xx Server errors}{8}{section*.25}
+\contentsline {section}{\numberline {2.5}Representational State Transfer}{8}{section.26}
+\contentsline {subsection}{\numberline {2.5.1}Client-server architecture}{9}{subsection.27}
+\contentsline {paragraph}{Statelessness}{9}{section*.28}
 \contentsline {paragraph}{Cacheability}{9}{section*.29}
 \contentsline {paragraph}{Layered system}{9}{section*.30}
-\contentsline {paragraph}{Uniform interface}{9}{section*.31}
-\contentsline {section}{\numberline {2.6}Application Programming Interface}{9}{section.32}
-\contentsline {paragraph}{Libraries and Frameworks}{9}{section*.33}
+\contentsline {paragraph}{Uniform interface}{10}{section*.31}
+\contentsline {section}{\numberline {2.6}Application Programming Interface}{10}{section.32}
+\contentsline {paragraph}{Libraries and Frameworks}{10}{section*.33}
 \contentsline {paragraph}{Operating systems}{10}{section*.34}
 \contentsline {paragraph}{Remote APIs}{10}{section*.35}
 \contentsline {paragraph}{WEB APIs}{10}{section*.36}
-\contentsline {section}{\numberline {2.7}Three-tier Architecture}{10}{section.37}
-\contentsline {paragraph}{Presentation tier}{10}{section*.39}
-\contentsline {paragraph}{Logic tier}{11}{section*.40}
-\contentsline {paragraph}{Data tier}{11}{section*.41}
-\contentsline {section}{\numberline {2.8}Single Page Application}{11}{section.42}
-\contentsline {section}{\numberline {2.9}Hierarchical Data Format}{12}{section.43}
-\contentsline {subsection}{\numberline {2.9.1}Data Model}{13}{subsection.46}
-\contentsline {paragraph}{Groups}{14}{section*.47}
-\contentsline {paragraph}{Datasets}{14}{section*.48}
-\contentsline {chapter}{\numberline {3}Related Work and Technologies Used}{15}{chapter.49}
-\contentsline {section}{\numberline {3.1}Related Work}{15}{section.50}
-\contentsline {subsection}{\numberline {3.1.1}Plotly}{15}{subsection.51}
-\contentsline {subsection}{\numberline {3.1.2}Loopback}{15}{subsection.52}
-\contentsline {section}{\numberline {3.2}Technologies Used}{16}{section.53}
-\contentsline {subsection}{\numberline {3.2.1}HTML5}{16}{subsection.54}
-\contentsline {subsection}{\numberline {3.2.2}CSS3}{16}{subsection.55}
-\contentsline {subsection}{\numberline {3.2.3}Javascript}{17}{subsection.56}
-\contentsline {subsubsection}{\numberline {3.2.3.1}Node.js}{17}{subsubsection.57}
-\contentsline {subsubsection}{\numberline {3.2.3.2}JSON}{17}{subsubsection.59}
-\contentsline {paragraph}{Number}{18}{section*.60}
-\contentsline {paragraph}{String}{18}{section*.61}
-\contentsline {paragraph}{Boolean}{18}{section*.62}
-\contentsline {paragraph}{Array}{18}{section*.63}
-\contentsline {paragraph}{Object}{19}{section*.64}
-\contentsline {paragraph}{null}{19}{section*.65}
-\contentsline {subsubsection}{\numberline {3.2.3.3}Ajax}{19}{subsubsection.66}
-\contentsline {subsubsection}{\numberline {3.2.3.4}Node Package Manager}{20}{subsubsection.68}
-\contentsline {subsection}{\numberline {3.2.4}NoSQL Database}{20}{subsection.69}
-\contentsline {subsubsection}{\numberline {3.2.4.1}MongoDB}{21}{subsubsection.70}
-\contentsline {chapter}{\numberline {4}Design}{22}{chapter.71}
-\contentsline {section}{\numberline {4.1}Framework Design}{22}{section.72}
-\contentsline {section}{\numberline {4.2}Application description}{22}{section.74}
-\contentsline {section}{\numberline {4.3}Framework Modules}{23}{section.75}
-\contentsline {subsection}{\numberline {4.3.1}NoSQL access}{24}{subsection.76}
-\contentsline {subsubsection}{\numberline {4.3.1.1}Entities}{24}{subsubsection.78}
-\contentsline {paragraph}{Users}{25}{section*.79}
-\contentsline {paragraph}{Projects}{25}{section*.80}
-\contentsline {paragraph}{Datasets}{25}{section*.81}
-\contentsline {paragraph}{Posts}{25}{section*.82}
-\contentsline {paragraph}{Plots}{26}{section*.83}
-\contentsline {subsubsection}{\numberline {4.3.1.2}Data Access Object/ CRUD}{26}{subsubsection.84}
-\contentsline {paragraph}{createItem}{26}{section*.85}
-\contentsline {paragraph}{readItems}{26}{section*.86}
-\contentsline {paragraph}{updateItem}{26}{section*.87}
-\contentsline {paragraph}{deleteItem}{26}{section*.88}
-\contentsline {subsubsection}{\numberline {4.3.1.3}DbOperations}{27}{subsubsection.89}
-\contentsline {subsubsection}{\numberline {4.3.1.4}Permissions}{27}{subsubsection.90}
-\contentsline {paragraph}{addUserRole}{28}{section*.91}
-\contentsline {paragraph}{removeUserRole}{28}{section*.92}
-\contentsline {paragraph}{isAllowed}{28}{section*.93}
-\contentsline {paragraph}{isAllowedCreate}{28}{section*.94}
-\contentsline {subsection}{\numberline {4.3.2}Main server}{28}{subsection.95}
-\contentsline {subsubsection}{\numberline {4.3.2.1}Route Handlers}{29}{subsubsection.97}
-\contentsline {paragraph}{saveData}{30}{section*.98}
-\contentsline {paragraph}{searchRelatedPosts}{30}{section*.99}
-\contentsline {paragraph}{confFunctions}{30}{section*.100}
-\contentsline {paragraph}{errorHandler}{30}{section*.101}
-\contentsline {subsubsection}{\numberline {4.3.2.2}Python files}{30}{subsubsection.102}
-\contentsline {paragraph}{getHDFContent}{31}{section*.103}
-\contentsline {paragraph}{getHDFArray}{31}{section*.104}
-\contentsline {paragraph}{getHDFPlot}{31}{section*.105}
-\contentsline {paragraph}{}{31}{section*.106}
-\contentsline {subsubsection}{\numberline {4.3.2.3}Routes}{32}{subsubsection.107}
-\contentsline {subsubsection}{\numberline {4.3.2.4}Defender}{32}{subsubsection.108}
-\contentsline {subsection}{\numberline {4.3.3}User interface}{33}{subsection.109}
-\contentsline {chapter}{\numberline {5}Implementation}{34}{chapter.110}
-\contentsline {section}{\numberline {5.1}General JavaScript practices and patterns}{34}{section.111}
-\contentsline {subsection}{\numberline {5.1.1}Closures}{35}{subsection.113}
-\contentsline {subsection}{\numberline {5.1.2}Thunks}{35}{subsection.115}
-\contentsline {section}{\numberline {5.2}Back End implementation}{37}{section.117}
-\contentsline {subsection}{\numberline {5.2.1}REST API}{37}{subsection.118}
-\contentsline {paragraph}{}{38}{table.caption.120}
-\contentsline {paragraph}{Users}{38}{table.caption.123}
-\contentsline {paragraph}{Projects}{38}{table.caption.126}
-\contentsline {paragraph}{Datasets}{40}{table.caption.128}
-\contentsline {paragraph}{Posts}{40}{figure.caption.131}
-\contentsline {paragraph}{Plots}{40}{figure.caption.134}
-\contentsline {subsection}{\numberline {5.2.2}NoSQL Access Management}{42}{subsection.135}
-\contentsline {subsection}{\numberline {5.2.3}Security Management}{42}{subsection.136}
-\contentsline {subsection}{\numberline {5.2.4}Python - Node.js Interoperability}{43}{subsection.137}
-\contentsline {section}{\numberline {5.3}Front-End Implementation}{44}{section.138}
-\contentsline {subsection}{\numberline {5.3.1}Code organization and content}{44}{subsection.139}
-\contentsline {paragraph}{html.js}{46}{section*.142}
-\contentsline {subsection}{\numberline {5.3.2}Plot generation with c3.js}{46}{subsection.143}
-\contentsline {section}{\numberline {5.4}Specific framework operations}{47}{section.144}
-\contentsline {subsection}{\numberline {5.4.1}Plot presentation - Zoom functionality}{47}{subsection.145}
-\contentsline {subsection}{\numberline {5.4.2}Upload functionality}{48}{subsection.148}
-\contentsline {subsection}{\numberline {5.4.3}Error Handling}{48}{subsection.150}
-\contentsline {section}{\numberline {5.5}Application Presentation}{49}{section.151}
-\contentsline {chapter}{\numberline {6}Performance Evaluation}{52}{chapter.155}
-\contentsline {section}{\numberline {6.1}First Test}{52}{section.157}
-\contentsline {section}{\numberline {6.2}Second Test}{53}{section.159}
-\contentsline {chapter}{\numberline {7}Conclusions and Future Work}{56}{chapter.161}
-\contentsline {section}{\numberline {7.1}Conclusions}{56}{section.162}
-\contentsline {paragraph}{Extensibility}{56}{section*.163}
-\contentsline {paragraph}{No context switching}{56}{section*.164}
-\contentsline {section}{\numberline {7.2}Future Work}{57}{section.165}
-\contentsline {paragraph}{Server clustering}{57}{section*.166}
-\contentsline {paragraph}{Mongodb replication and sharding}{57}{section*.167}
-\contentsline {paragraph}{Alternative methods in existing functionalities}{57}{section*.168}
-\contentsline {paragraph}{Image extraction for usage outside the system}{57}{section*.169}
-\contentsline {chapter}{Bibliography}{58}{chapter*.170}
+\contentsline {section}{\numberline {2.7}Three-tier Architecture}{11}{section.37}
+\contentsline {paragraph}{Presentation tier}{12}{section*.39}
+\contentsline {paragraph}{Logic tier}{12}{section*.40}
+\contentsline {paragraph}{Data tier}{12}{section*.41}
+\contentsline {section}{\numberline {2.8}Single Page Application}{12}{section.42}
+\contentsline {section}{\numberline {2.9}Hierarchical Data Format}{13}{section.44}
+\contentsline {subsection}{\numberline {2.9.1}Data Model}{15}{subsection.47}
+\contentsline {paragraph}{Groups}{15}{section*.48}
+\contentsline {paragraph}{Datasets}{15}{section*.49}
+\contentsline {chapter}{\numberline {3}Related Work and Technologies Used}{16}{chapter.50}
+\contentsline {section}{\numberline {3.1}Related Work}{16}{section.51}
+\contentsline {subsection}{\numberline {3.1.1}Plotly}{16}{subsection.52}
+\contentsline {subsection}{\numberline {3.1.2}Loopback}{16}{subsection.53}
+\contentsline {section}{\numberline {3.2}Technologies Used}{17}{section.54}
+\contentsline {subsection}{\numberline {3.2.1}HTML5}{17}{subsection.55}
+\contentsline {subsection}{\numberline {3.2.2}CSS3}{17}{subsection.56}
+\contentsline {subsection}{\numberline {3.2.3}Javascript}{18}{subsection.57}
+\contentsline {subsubsection}{\numberline {3.2.3.1}Node.js}{18}{subsubsection.58}
+\contentsline {subsubsection}{\numberline {3.2.3.2}JSON}{18}{subsubsection.60}
+\contentsline {paragraph}{Number}{19}{section*.61}
+\contentsline {paragraph}{String}{19}{section*.62}
+\contentsline {paragraph}{Boolean}{19}{section*.63}
+\contentsline {paragraph}{Array}{20}{section*.64}
+\contentsline {paragraph}{Object}{20}{section*.65}
+\contentsline {paragraph}{null}{20}{section*.66}
+\contentsline {subsubsection}{\numberline {3.2.3.3}Ajax}{20}{subsubsection.67}
+\contentsline {subsubsection}{\numberline {3.2.3.4}Node Package Manager}{22}{subsubsection.69}
+\contentsline {subsection}{\numberline {3.2.4}NoSQL Database}{22}{subsection.70}
+\contentsline {subsubsection}{\numberline {3.2.4.1}MongoDB}{22}{subsubsection.71}
+\contentsline {chapter}{\numberline {4}Design}{24}{chapter.72}
+\contentsline {section}{\numberline {4.1}Framework Design}{24}{section.73}
+\contentsline {section}{\numberline {4.2}Application description}{24}{section.75}
+\contentsline {section}{\numberline {4.3}Framework Modules}{25}{section.76}
+\contentsline {subsection}{\numberline {4.3.1}NoSQL access}{26}{subsection.77}
+\contentsline {subsubsection}{\numberline {4.3.1.1}Entities}{26}{subsubsection.79}
+\contentsline {paragraph}{Users}{27}{section*.81}
+\contentsline {paragraph}{Projects}{27}{section*.82}
+\contentsline {paragraph}{Datasets}{27}{section*.83}
+\contentsline {paragraph}{Posts}{28}{section*.84}
+\contentsline {paragraph}{Plots}{28}{section*.85}
+\contentsline {subsubsection}{\numberline {4.3.1.2}Data Access Object/ CRUD}{28}{subsubsection.86}
+\contentsline {paragraph}{createItem}{28}{section*.87}
+\contentsline {paragraph}{readItems}{29}{section*.88}
+\contentsline {paragraph}{updateItem}{29}{section*.89}
+\contentsline {paragraph}{deleteItem}{29}{section*.90}
+\contentsline {subsubsection}{\numberline {4.3.1.3}DbOperations}{29}{subsubsection.91}
+\contentsline {subsubsection}{\numberline {4.3.1.4}Permissions}{29}{subsubsection.92}
+\contentsline {paragraph}{addUserRole}{30}{section*.93}
+\contentsline {paragraph}{removeUserRole}{30}{section*.94}
+\contentsline {paragraph}{isAllowed}{30}{section*.95}
+\contentsline {paragraph}{isAllowedCreate}{31}{section*.96}
+\contentsline {subsection}{\numberline {4.3.2}Main server}{31}{subsection.97}
+\contentsline {subsubsection}{\numberline {4.3.2.1}Route Handlers}{32}{subsubsection.99}
+\contentsline {paragraph}{saveData}{32}{section*.100}
+\contentsline {paragraph}{searchRelatedPosts}{32}{section*.101}
+\contentsline {paragraph}{confFunctions}{32}{section*.102}
+\contentsline {paragraph}{errorHandler}{33}{section*.103}
+\contentsline {subsubsection}{\numberline {4.3.2.2}Python files}{33}{subsubsection.104}
+\contentsline {paragraph}{getHDFContent}{33}{section*.105}
+\contentsline {paragraph}{getHDFArray}{33}{section*.106}
+\contentsline {paragraph}{getHDFPlot}{33}{section*.107}
+\contentsline {paragraph}{}{34}{section*.108}
+\contentsline {subsubsection}{\numberline {4.3.2.3}Routes}{34}{subsubsection.109}
+\contentsline {subsubsection}{\numberline {4.3.2.4}Defender}{34}{subsubsection.110}
+\contentsline {subsection}{\numberline {4.3.3}User interface}{35}{subsection.111}
+\contentsline {chapter}{\numberline {5}Implementation}{36}{chapter.112}
+\contentsline {section}{\numberline {5.1}General JavaScript practices and patterns}{36}{section.113}
+\contentsline {subsection}{\numberline {5.1.1}Closures}{37}{subsection.115}
+\contentsline {subsection}{\numberline {5.1.2}Thunks}{37}{subsection.117}
+\contentsline {section}{\numberline {5.2}Back End implementation}{39}{section.119}
+\contentsline {subsection}{\numberline {5.2.1}REST API}{39}{subsection.120}
+\contentsline {paragraph}{}{39}{table.caption.122}
+\contentsline {paragraph}{Users}{40}{table.caption.125}
+\contentsline {paragraph}{Projects}{40}{table.caption.128}
+\contentsline {paragraph}{Datasets}{42}{table.caption.130}
+\contentsline {paragraph}{Posts}{42}{figure.caption.133}
+\contentsline {paragraph}{Plots}{44}{figure.caption.136}
+\contentsline {subsection}{\numberline {5.2.2}NoSQL Access Management}{44}{subsection.137}
+\contentsline {subsection}{\numberline {5.2.3}Security Management}{44}{subsection.138}
+\contentsline {subsection}{\numberline {5.2.4}Python - Node.js Interoperability}{45}{subsection.139}
+\contentsline {section}{\numberline {5.3}Front End Implementation}{46}{section.140}
+\contentsline {subsection}{\numberline {5.3.1}Code organization and content}{46}{subsection.141}
+\contentsline {paragraph}{html.js}{48}{section*.144}
+\contentsline {subsection}{\numberline {5.3.2}Plot generation with c3.js}{48}{subsection.145}
+\contentsline {section}{\numberline {5.4}Specific framework operations}{49}{section.146}
+\contentsline {subsection}{\numberline {5.4.1}Plot presentation - Zoom functionality}{49}{subsection.147}
+\contentsline {subsection}{\numberline {5.4.2}Upload functionality}{50}{subsection.150}
+\contentsline {subsection}{\numberline {5.4.3}Error Handling}{50}{subsection.152}
+\contentsline {section}{\numberline {5.5}Application Presentation}{51}{section.153}
+\contentsline {chapter}{\numberline {6}Performance Evaluation}{54}{chapter.157}
+\contentsline {section}{\numberline {6.1}Testing Efficiency in Concurrent Requests}{54}{section.159}
+\contentsline {section}{\numberline {6.2}Testing Timeout Errors in Concurrent Requests}{55}{section.161}
+\contentsline {chapter}{\numberline {7}Conclusions and Future Work}{58}{chapter.163}
+\contentsline {section}{\numberline {7.1}Conclusions}{58}{section.164}
+\contentsline {paragraph}{Extensibility}{58}{section*.165}
+\contentsline {paragraph}{No context switching}{58}{section*.166}
+\contentsline {section}{\numberline {7.2}Future Work}{59}{section.167}
+\contentsline {paragraph}{Server clustering}{59}{section*.168}
+\contentsline {paragraph}{Mongodb replication and sharding}{59}{section*.169}
+\contentsline {paragraph}{Alternative methods in existing functionalities}{59}{section*.170}
+\contentsline {paragraph}{Image extraction for usage outside the system}{59}{section*.171}
+\contentsline {chapter}{Bibliography}{60}{chapter*.172}
