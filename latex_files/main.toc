@@ -101,8 +101,8 @@
 \contentsline {subsection}{\numberline {4.3.3}User interface}{35}{subsection.111}
 \contentsline {chapter}{\numberline {5}Implementation}{36}{chapter.112}
 \contentsline {section}{\numberline {5.1}General JavaScript practices and patterns}{36}{section.113}
-\contentsline {subsection}{\numberline {5.1.1}Closures}{37}{subsection.115}
-\contentsline {subsection}{\numberline {5.1.2}Thunks}{37}{subsection.117}
+\contentsline {subsection}{\numberline {5.1.1}Closures}{38}{subsection.115}
+\contentsline {subsection}{\numberline {5.1.2}Thunks}{38}{subsection.117}
 \contentsline {section}{\numberline {5.2}Back End implementation}{39}{section.119}
 \contentsline {subsection}{\numberline {5.2.1}REST API}{39}{subsection.120}
 \contentsline {paragraph}{}{39}{table.caption.122}

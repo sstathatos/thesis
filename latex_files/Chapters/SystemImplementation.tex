@@ -5,12 +5,26 @@
 In this chapter we describe the framework and application implementation. We refer to the technologies we used and their interaction. In some cases we cite some crucial code chunks and explain them. Initially, we describe the REST API and we analyze its contents. After an extensive illustration of the back end tier of the framework, we emphasize in the front end, where we mention the used technologies and their implementation. Alongside the front end description, we present some fragments of front end use cases.
 
 \section{General JavaScript practices and patterns}
+
 \begin{figure}
-	\centerline{\includegraphics[scale=0.7]{cb.png}}
-	\caption{Example of a callback function}
-	\label{cb}
+\centering
+\centerline{
+\begin{subfigure}[t]{.7\textwidth}
+  \centering
+  \includegraphics[width=0.6\linewidth]{cb1.png}
+  \caption{Example of a callback function}
+\end{subfigure}%
+\begin{subfigure}[t]{.7\textwidth}
+  \centering
+  \includegraphics[width=0.6\linewidth]{cb2.png}
+  \caption{Example of the callback pattern}
+\end{subfigure}
+}
+\caption{Callback examples}
+\label{cbFig}
 \end{figure} 
-In the framework we developed, we make use of javascript in both front and back end. This programming language uses asynchronous logic, which takes place through the usage of asynchronous callback functions. A callback function, also known as a higher-order function, is a function that is passed to another function (e.g "first") as a parameter, and the callback function is called (or executed) inside the first function. A callback function is essentially a pattern (an established solution to a common problem), and therefore, the use of a callback function is also known as a callback pattern. The execution of the first function does not block the execution of the rest of the program commands. The execution of the callback function begins, when the execution of the first function is completed. An example of node.js callback function pattern can be seen in figure ~\ref{cb}. \par
+
+In the framework we developed, we make use of javascript in both front and back end. This programming language uses asynchronous logic, which takes place through the usage of asynchronous callback functions. A callback function, also known as a higher-order function, is a function that is passed to another function (e.g "first") as a parameter, and the callback function is called (or executed) inside the first function. A callback function is essentially a pattern (an established solution to a common problem), and therefore, the use of a callback function is also known as a callback pattern. The execution of the first function does not block the execution of the rest of the program commands. The execution of the callback function begins, when the execution of the first function is completed. An example of node.js callback function pattern can be seen in figure ~\ref{cbFig}. \par
 	In our framework, the callback functions are used constantly, so that the design and implementation are transformed accordingly. As a convention, all the callback functions receive as arguments two objects, the error and the result object. Before the execution of the callback function, in case an error occurs, the execution stops and the error object is passed to the callback. The result object is undefined. If no errors occur, the error object is undefined and the result object contains the function outcome. Following we describe two design patterns, which are based in callback functions and are heavily used in the framework implementation.
 
 \subsection{Closures}

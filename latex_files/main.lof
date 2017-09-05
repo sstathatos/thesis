@@ -16,8 +16,8 @@
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Back end class diagram\relax }}{27}{figure.caption.80}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Main server module structure\relax }}{31}{figure.caption.98}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of a callback function\relax }}{37}{figure.caption.114}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Example of a closure function\relax }}{38}{figure.caption.116}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Callback examples\relax }}{36}{figure.caption.114}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Example of a closure function\relax }}{37}{figure.caption.116}
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Example of a thunk function\relax }}{38}{figure.caption.118}
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Example of a User instance\relax }}{40}{figure.caption.124}
 \contentsline {figure}{\numberline {5.5}{\ignorespaces Example of a Project instance with three users\relax }}{41}{figure.caption.127}
