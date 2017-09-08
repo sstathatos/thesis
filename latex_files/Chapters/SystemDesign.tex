@@ -20,8 +20,16 @@ The application makes use of the framework's infrastructure, aiming to present a
 
 \section{Framework Modules}
 \label{modules}
-In this section, the framework modules used in this thesis are presented in detail. Diagrams are shown in some of these subsections for a better understanding of the framework design. The modules are divided into three big categories: NoSQL access, main server and user interface. All modules and submodules are developed in a generic way, are highly customizable, extensible and reusable. This gives us the opportunity to often refer to these modules as models, as described in chapter~\ref{mdsd}. The level of abstraction may change, but the main characteristics of model driven software development are constantly used in the framework implementation. Also, all modules are isolated and expose only the methods that must be used in the rest of the framework.
-
+In this section, the framework modules used in this thesis are presented in detail. Diagrams are shown in some of these subsections for a better understanding of the framework design. The modules are divided into three big categories: NoSQL access, main server and user interface. Each of these modules are a big part of the system's functionality and contain smaller submodules.
+	
+\section{Model Driven Approach and Module Extensibility}
+\begin{figure}
+	\centerline{\includegraphics[scale=0.5]{extensible.png}}
+	\caption{A group of entities and the generated CRUD operations}
+	\label{extensible}
+\end{figure}
+All modules and submodules are developed in a generic way, are highly customizable, extensible and reusable. This gives us the opportunity to often refer to these modules as models, as described in chapter~\ref{mdsd}. The level of abstraction may change, but the main characteristics of model driven software development are constantly used in the framework implementation. Also, all modules are isolated and expose only the methods that must be used in the rest of the framework. In this way, we ensure that the system modules follow the principles of model driven architecture approach. \par
+	The module extensibility is a key feature of the model driven approach. Any extra operation can be added, either within the context of an already developed model or as a new, independent one. Figure ~\ref{extensible} shows an example of a possible module extension while ensuring the development independence from other models. In this example we present a group of entities and the generated CRUD operations. At any moment we may add new entities to the existing group, without breaking the cohesion of the framework. More information about entities can be seen in chapter ~\ref{entities}.
 
 \subsection{NoSQL access}
 \label{nosql}

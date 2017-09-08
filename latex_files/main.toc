@@ -67,72 +67,73 @@
 \contentsline {section}{\numberline {4.1}Framework Design}{24}{section.73}
 \contentsline {section}{\numberline {4.2}Application description}{24}{section.75}
 \contentsline {section}{\numberline {4.3}Framework Modules}{25}{section.76}
-\contentsline {subsection}{\numberline {4.3.1}NoSQL access}{26}{subsection.77}
-\contentsline {subsubsection}{\numberline {4.3.1.1}Entities}{26}{subsubsection.79}
-\contentsline {paragraph}{Users}{27}{section*.81}
-\contentsline {paragraph}{Projects}{27}{section*.82}
-\contentsline {paragraph}{Datasets}{27}{section*.83}
-\contentsline {paragraph}{Posts}{28}{section*.84}
-\contentsline {paragraph}{Plots}{28}{section*.85}
-\contentsline {subsubsection}{\numberline {4.3.1.2}Data Access Object/ CRUD}{28}{subsubsection.86}
-\contentsline {paragraph}{createItem}{28}{section*.87}
-\contentsline {paragraph}{readItems}{29}{section*.88}
-\contentsline {paragraph}{updateItem}{29}{section*.89}
-\contentsline {paragraph}{deleteItem}{29}{section*.90}
-\contentsline {subsubsection}{\numberline {4.3.1.3}DbOperations}{29}{subsubsection.91}
-\contentsline {subsubsection}{\numberline {4.3.1.4}Permissions}{29}{subsubsection.92}
-\contentsline {paragraph}{addUserRole}{30}{section*.93}
-\contentsline {paragraph}{removeUserRole}{30}{section*.94}
-\contentsline {paragraph}{isAllowed}{30}{section*.95}
-\contentsline {paragraph}{isAllowedCreate}{31}{section*.96}
-\contentsline {subsection}{\numberline {4.3.2}Main server}{31}{subsection.97}
-\contentsline {subsubsection}{\numberline {4.3.2.1}Route Handlers}{32}{subsubsection.99}
-\contentsline {paragraph}{saveData}{32}{section*.100}
-\contentsline {paragraph}{searchRelatedPosts}{32}{section*.101}
-\contentsline {paragraph}{confFunctions}{32}{section*.102}
-\contentsline {paragraph}{errorHandler}{33}{section*.103}
-\contentsline {subsubsection}{\numberline {4.3.2.2}Python files}{33}{subsubsection.104}
-\contentsline {paragraph}{getHDFContent}{33}{section*.105}
-\contentsline {paragraph}{getHDFArray}{33}{section*.106}
-\contentsline {paragraph}{getHDFPlot}{33}{section*.107}
-\contentsline {paragraph}{}{34}{section*.108}
-\contentsline {subsubsection}{\numberline {4.3.2.3}Routes}{34}{subsubsection.109}
-\contentsline {subsubsection}{\numberline {4.3.2.4}Defender}{34}{subsubsection.110}
-\contentsline {subsection}{\numberline {4.3.3}User interface}{35}{subsection.111}
-\contentsline {chapter}{\numberline {5}Implementation}{36}{chapter.112}
-\contentsline {section}{\numberline {5.1}General JavaScript practices and patterns}{36}{section.113}
-\contentsline {subsection}{\numberline {5.1.1}Closures}{38}{subsection.115}
-\contentsline {subsection}{\numberline {5.1.2}Thunks}{38}{subsection.117}
-\contentsline {section}{\numberline {5.2}Back End implementation}{39}{section.119}
-\contentsline {subsection}{\numberline {5.2.1}REST API}{39}{subsection.120}
-\contentsline {paragraph}{}{39}{table.caption.122}
-\contentsline {paragraph}{Users}{40}{table.caption.125}
-\contentsline {paragraph}{Projects}{40}{table.caption.128}
-\contentsline {paragraph}{Datasets}{42}{table.caption.130}
-\contentsline {paragraph}{Posts}{42}{figure.caption.133}
-\contentsline {paragraph}{Plots}{44}{figure.caption.136}
-\contentsline {subsection}{\numberline {5.2.2}NoSQL Access Management}{44}{subsection.137}
-\contentsline {subsection}{\numberline {5.2.3}Security Management}{44}{subsection.138}
-\contentsline {subsection}{\numberline {5.2.4}Python - Node.js Interoperability}{45}{subsection.139}
-\contentsline {section}{\numberline {5.3}Front End Implementation}{46}{section.140}
-\contentsline {subsection}{\numberline {5.3.1}Code organization and content}{46}{subsection.141}
-\contentsline {paragraph}{html.js}{48}{section*.144}
-\contentsline {subsection}{\numberline {5.3.2}Plot generation with c3.js}{48}{subsection.145}
-\contentsline {section}{\numberline {5.4}Specific framework operations}{49}{section.146}
-\contentsline {subsection}{\numberline {5.4.1}Plot presentation - Zoom functionality}{49}{subsection.147}
-\contentsline {subsection}{\numberline {5.4.2}Upload functionality}{50}{subsection.150}
-\contentsline {subsection}{\numberline {5.4.3}Error Handling}{50}{subsection.152}
-\contentsline {section}{\numberline {5.5}Application Presentation}{51}{section.153}
-\contentsline {chapter}{\numberline {6}Performance Evaluation}{54}{chapter.157}
-\contentsline {section}{\numberline {6.1}Testing Efficiency in Concurrent Requests}{54}{section.159}
-\contentsline {section}{\numberline {6.2}Testing Timeout Errors in Concurrent Requests}{55}{section.161}
-\contentsline {chapter}{\numberline {7}Conclusions and Future Work}{58}{chapter.163}
-\contentsline {section}{\numberline {7.1}Conclusions}{58}{section.164}
-\contentsline {paragraph}{Extensibility}{58}{section*.165}
-\contentsline {paragraph}{No context switching}{58}{section*.166}
-\contentsline {section}{\numberline {7.2}Future Work}{59}{section.167}
-\contentsline {paragraph}{Server clustering}{59}{section*.168}
-\contentsline {paragraph}{Mongodb replication and sharding}{59}{section*.169}
-\contentsline {paragraph}{Alternative methods in existing functionalities}{59}{section*.170}
-\contentsline {paragraph}{Image extraction for usage outside the system}{59}{section*.171}
-\contentsline {chapter}{Bibliography}{60}{chapter*.172}
+\contentsline {section}{\numberline {4.4}Model Driven Approach and Module Extensibility}{26}{section.77}
+\contentsline {subsection}{\numberline {4.4.1}NoSQL access}{26}{subsection.79}
+\contentsline {subsubsection}{\numberline {4.4.1.1}Entities}{27}{subsubsection.81}
+\contentsline {paragraph}{Users}{28}{section*.83}
+\contentsline {paragraph}{Projects}{28}{section*.84}
+\contentsline {paragraph}{Datasets}{28}{section*.85}
+\contentsline {paragraph}{Posts}{29}{section*.86}
+\contentsline {paragraph}{Plots}{29}{section*.87}
+\contentsline {subsubsection}{\numberline {4.4.1.2}Data Access Object/ CRUD}{29}{subsubsection.88}
+\contentsline {paragraph}{createItem}{29}{section*.89}
+\contentsline {paragraph}{readItems}{29}{section*.90}
+\contentsline {paragraph}{updateItem}{30}{section*.91}
+\contentsline {paragraph}{deleteItem}{30}{section*.92}
+\contentsline {subsubsection}{\numberline {4.4.1.3}DbOperations}{30}{subsubsection.93}
+\contentsline {subsubsection}{\numberline {4.4.1.4}Permissions}{30}{subsubsection.94}
+\contentsline {paragraph}{addUserRole}{31}{section*.95}
+\contentsline {paragraph}{removeUserRole}{31}{section*.96}
+\contentsline {paragraph}{isAllowed}{31}{section*.97}
+\contentsline {paragraph}{isAllowedCreate}{31}{section*.98}
+\contentsline {subsection}{\numberline {4.4.2}Main server}{32}{subsection.99}
+\contentsline {subsubsection}{\numberline {4.4.2.1}Route Handlers}{32}{subsubsection.101}
+\contentsline {paragraph}{saveData}{33}{section*.102}
+\contentsline {paragraph}{searchRelatedPosts}{33}{section*.103}
+\contentsline {paragraph}{confFunctions}{33}{section*.104}
+\contentsline {paragraph}{errorHandler}{33}{section*.105}
+\contentsline {subsubsection}{\numberline {4.4.2.2}Python files}{34}{subsubsection.106}
+\contentsline {paragraph}{getHDFContent}{34}{section*.107}
+\contentsline {paragraph}{getHDFArray}{34}{section*.108}
+\contentsline {paragraph}{getHDFPlot}{34}{section*.109}
+\contentsline {paragraph}{}{35}{section*.110}
+\contentsline {subsubsection}{\numberline {4.4.2.3}Routes}{35}{subsubsection.111}
+\contentsline {subsubsection}{\numberline {4.4.2.4}Defender}{35}{subsubsection.112}
+\contentsline {subsection}{\numberline {4.4.3}User interface}{36}{subsection.113}
+\contentsline {chapter}{\numberline {5}Implementation}{37}{chapter.114}
+\contentsline {section}{\numberline {5.1}General JavaScript practices and patterns}{37}{section.115}
+\contentsline {subsection}{\numberline {5.1.1}Closures}{39}{subsection.117}
+\contentsline {subsection}{\numberline {5.1.2}Thunks}{39}{subsection.119}
+\contentsline {section}{\numberline {5.2}Back End implementation}{40}{section.121}
+\contentsline {subsection}{\numberline {5.2.1}REST API}{40}{subsection.122}
+\contentsline {paragraph}{}{40}{table.caption.124}
+\contentsline {paragraph}{Users}{41}{table.caption.127}
+\contentsline {paragraph}{Projects}{41}{table.caption.130}
+\contentsline {paragraph}{Datasets}{43}{table.caption.132}
+\contentsline {paragraph}{Posts}{43}{figure.caption.135}
+\contentsline {paragraph}{Plots}{45}{figure.caption.138}
+\contentsline {subsection}{\numberline {5.2.2}NoSQL Access Management}{45}{subsection.139}
+\contentsline {subsection}{\numberline {5.2.3}Security Management}{45}{subsection.140}
+\contentsline {subsection}{\numberline {5.2.4}Python - Node.js Interoperability}{46}{subsection.141}
+\contentsline {section}{\numberline {5.3}Front End Implementation}{47}{section.142}
+\contentsline {subsection}{\numberline {5.3.1}Code organization and content}{47}{subsection.143}
+\contentsline {paragraph}{html.js}{49}{section*.146}
+\contentsline {subsection}{\numberline {5.3.2}Plot generation with c3.js}{49}{subsection.147}
+\contentsline {section}{\numberline {5.4}Specific framework operations}{50}{section.148}
+\contentsline {subsection}{\numberline {5.4.1}Plot presentation - Zoom functionality}{50}{subsection.149}
+\contentsline {subsection}{\numberline {5.4.2}Upload functionality}{51}{subsection.152}
+\contentsline {subsection}{\numberline {5.4.3}Error Handling}{51}{subsection.154}
+\contentsline {section}{\numberline {5.5}Application Presentation}{52}{section.155}
+\contentsline {chapter}{\numberline {6}Performance Evaluation}{55}{chapter.159}
+\contentsline {section}{\numberline {6.1}Testing Efficiency in Concurrent Requests}{55}{section.161}
+\contentsline {section}{\numberline {6.2}Testing Timeout Errors in Concurrent Requests}{56}{section.163}
+\contentsline {chapter}{\numberline {7}Conclusions and Future Work}{59}{chapter.165}
+\contentsline {section}{\numberline {7.1}Conclusions}{59}{section.166}
+\contentsline {paragraph}{Extensibility}{59}{section*.167}
+\contentsline {paragraph}{No context switching}{59}{section*.168}
+\contentsline {section}{\numberline {7.2}Future Work}{60}{section.169}
+\contentsline {paragraph}{Server clustering}{60}{section*.170}
+\contentsline {paragraph}{Mongodb replication and sharding}{60}{section*.171}
+\contentsline {paragraph}{Alternative methods in existing functionalities}{60}{section*.172}
+\contentsline {paragraph}{Image extraction for usage outside the system}{60}{section*.173}
+\contentsline {chapter}{Bibliography}{61}{chapter*.174}

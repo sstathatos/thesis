@@ -12,26 +12,27 @@
 \contentsline {figure}{\numberline {3.2}{\ignorespaces The traditional model for web applications (left) compared to the Ajax model (right)\relax }}{21}{figure.caption.68}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces General Framework Design\relax }}{25}{figure.caption.74}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces NoSQL access module structure\relax }}{26}{figure.caption.78}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Back end class diagram\relax }}{27}{figure.caption.80}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Main server module structure\relax }}{31}{figure.caption.98}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces A group of entities and the generated CRUD operations\relax }}{26}{figure.caption.78}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces NoSQL access module structure\relax }}{27}{figure.caption.80}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Back end class diagram\relax }}{28}{figure.caption.82}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Main server module structure\relax }}{32}{figure.caption.100}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Callback examples\relax }}{36}{figure.caption.114}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Example of a closure function\relax }}{37}{figure.caption.116}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Example of a thunk function\relax }}{38}{figure.caption.118}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Example of a User instance\relax }}{40}{figure.caption.124}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Example of a Project instance with three users\relax }}{41}{figure.caption.127}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Example of a Post instance\relax }}{43}{figure.caption.133}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Example of a Plot instance\relax }}{43}{figure.caption.136}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Client structure tree\relax }}{47}{figure.caption.142}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Post component structure tree example\relax }}{47}{figure.caption.143}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Plot presentation mechanism\relax }}{49}{figure.caption.148}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces A plot before and after the zoom\relax }}{50}{figure.caption.149}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Upload mechanism\relax }}{51}{figure.caption.151}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces First pages of the application example\relax }}{52}{figure.caption.154}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Some more pages of the application example\relax }}{53}{figure.caption.155}
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Last pages presenting dataset and plot contents respectively\relax }}{53}{figure.caption.156}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Callback examples\relax }}{37}{figure.caption.116}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Example of a closure function\relax }}{38}{figure.caption.118}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Example of a thunk function\relax }}{39}{figure.caption.120}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Example of a User instance\relax }}{41}{figure.caption.126}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Example of a Project instance with three users\relax }}{42}{figure.caption.129}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Example of a Post instance\relax }}{44}{figure.caption.135}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Example of a Plot instance\relax }}{44}{figure.caption.138}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Client structure tree\relax }}{48}{figure.caption.144}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Post component structure tree example\relax }}{48}{figure.caption.145}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Plot presentation mechanism\relax }}{50}{figure.caption.150}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces A plot before and after the zoom\relax }}{51}{figure.caption.151}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Upload mechanism\relax }}{52}{figure.caption.153}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces First pages of the application example\relax }}{53}{figure.caption.156}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Some more pages of the application example\relax }}{54}{figure.caption.157}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Last pages presenting dataset and plot contents respectively\relax }}{54}{figure.caption.158}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Total time for all requests / number of concurrent requests figure\relax }}{56}{figure.caption.160}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Requests per second / number of concurrent requests\relax }}{57}{figure.caption.162}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Total time for all requests / number of concurrent requests figure\relax }}{57}{figure.caption.162}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Requests per second / number of concurrent requests\relax }}{58}{figure.caption.164}
 \addvspace {10\p@ }
